@@ -1,3 +1,19 @@
+<?php
+session_start();
+
+if (isset($_SESSION['login']['success']) && $_SESSION['login']['success']) {
+    require_once __DIR__ . "/../class/admin.php";
+    $id = $_SESSION['login']['id'];
+
+    $admin = new admin($id);
+
+
+} else {
+    unset($_SESSION['login']);
+    header("location:/admin/login.php");
+}
+?>
+
 <?php include('config/config.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +70,7 @@
                 
                 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Xin chào:&nbsp;admin <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Xin chào:&nbsp;<?=$admin->name?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
