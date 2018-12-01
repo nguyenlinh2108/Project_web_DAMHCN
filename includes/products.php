@@ -12,7 +12,7 @@
 			<section class="center1 slider hidden-sm-down">
 				<div class="item">
 					<div class="bd-item">
-						<img src="images/product-1.png">
+						<img src="public/images/product-1.png">
 						<p>Artisan chocolate box</p>
 						<span class="price-product">made to order</span>
 						<a href="add-to-cart.html" class="btn btn-chocolate no-bg">see product <span class="fa fa-chevron-circle-right"></span></a>
@@ -20,7 +20,7 @@
 				</div>
 				<div class="item">
 					<div class="bd-item">
-						<img src="images/product-2.png">
+						<img src="public/images/product-2.png">
 						<p>Chocolate truffle box</p>
 						<span class="price-product">$30.00</span>
 						<a href="add-to-cart.html" class="btn btn-chocolate no-bg">see product <span class="fa fa-chevron-circle-right"></span></a>
@@ -28,7 +28,7 @@
 				</div>
 				<div class="item">
 					<div class="bd-item">
-						<img src="images/product-3.png">
+						<img src="public/images/product-3.png">
 						<p>Chocolate bar</p>
 						<span class="price-product">$7.50</span>
 						<a href="add-to-cart.html" class="btn btn-chocolate no-bg">see product <span class="fa fa-chevron-circle-right"></span></a>
@@ -36,7 +36,7 @@
 				</div>
 				<div class="item">
 					<div class="bd-item">
-						<img src="images/product-4.png">
+						<img src="public/images/product-4.png">
 						<p>Baking chocolate 4 packs</p>
 						<span class="price-product">$33.00</span>
 						<a href="add-to-cart.html" class="btn btn-chocolate no-bg">see product <span class="fa fa-chevron-circle-right"></span></a>
@@ -44,7 +44,7 @@
 				</div>
 				<div class="item">
 					<div class="bd-item">
-						<img src="images/product-5.png">
+						<img src="public/images/product-5.png">
 						<p>Chef collection</p>
 						<span class="price-product">$9.00</span>
 						<a href="add-to-cart.html" class="btn btn-chocolate no-bg">see product <span class="fa fa-chevron-circle-right"></span></a>
@@ -56,7 +56,7 @@
 			<section class="center2 slider hidden-sm-up">
 				<div class="item">
 					<div class="bd-item">
-						<img src="images/product-1.png">
+						<img src="public/images/product-1.png">
 						<p>Artisan chocolate box</p>
 						<span class="price-product">made to order</span>
 						<a href="add-to-cart.html" class="btn btn-chocolate no-bg">see product <span class="fa fa-chevron-circle-right"></span></a>
@@ -64,7 +64,7 @@
 				</div>
 				<div class="item">
 					<div class="bd-item">
-						<img src="images/product-2.png">
+						<img src="public/images/product-2.png">
 						<p>Chocolate truffle box</p>
 						<span class="price-product">$30.00</span>
 						<a href="add-to-cart.html" class="btn btn-chocolate no-bg">see product <span class="fa fa-chevron-circle-right"></span></a>
@@ -72,7 +72,7 @@
 				</div>
 				<div class="item">
 					<div class="bd-item">
-						<img src="images/product-3.png">
+						<img src="public/images/product-3.png">
 						<p>Chocolate bar</p>
 						<span class="price-product">$7.50</span>
 						<a href="add-to-cart.html" class="btn btn-chocolate no-bg">see product <span class="fa fa-chevron-circle-right"></span></a>
@@ -80,7 +80,7 @@
 				</div>
 				<div class="item">
 					<div class="bd-item">
-						<img src="images/product-4.png">
+						<img src="public/images/product-4.png">
 						<p>Baking chocolate 4 packs</p>
 						<span class="price-product">$33.00</span>
 						<a href="add-to-cart.html" class="btn btn-chocolate no-bg">see product <span class="fa fa-chevron-circle-right"></span></a>
@@ -88,7 +88,7 @@
 				</div>
 				<div class="item">
 					<div class="bd-item">
-						<img src="images/product-5.png">
+						<img src="public/images/product-5.png">
 						<p>Chef collection</p>
 						<span class="price-product">$9.00</span>
 						<a href="add-to-cart.html" class="btn btn-chocolate no-bg">see product <span class="fa fa-chevron-circle-right"></span></a>

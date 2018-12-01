@@ -34,7 +34,7 @@
 							<figure class="product-box text-xs-center">
 								<div class="quick-view">
 									<a href="recipes-detail.html">
-										<img class="img-fluid" src="images/press-1.png" alt="">
+										<img class="img-fluid" src="public/images/press-1.png" alt="">
 										<div class="bg-favorite"><span class="fa fa-heart" id="heart-1"></span></div>
 									</a>
 								</div>
@@ -45,7 +45,7 @@
 							<figure class="product-box text-xs-center">
 								<div class="quick-view">
 									<a href="recipes-detail.html">
-										<img class="img-fluid" src="images/press-2.png" alt="">
+										<img class="img-fluid" src="public/images/press-2.png" alt="">
 										<div class="bg-favorite"><span class="fa fa-heart" id="heart-2"></span></div>
 									</a>
 								</div>
@@ -56,7 +56,7 @@
 							<figure class="product-box text-xs-center">
 								<div class="quick-view">
 									<a href="recipes-detail.html">
-										<img class="img-fluid" src="images/press-3.png" alt="">
+										<img class="img-fluid" src="public/images/press-3.png" alt="">
 										<div class="bg-favorite"><span class="fa fa-heart" id="heart-3"></span></div>
 									</a>
 								</div>
@@ -67,7 +67,7 @@
 							<figure class="product-box text-xs-center">
 								<div class="quick-view">
 									<a href="recipes-detail.html">
-										<img class="img-fluid" src="images/press-4.png" alt="">
+										<img class="img-fluid" src="public/images/press-4.png" alt="">
 										<div class="bg-favorite"><span class="fa fa-heart" id="heart-4"></span></div>
 									</a>
 								</div>
@@ -78,7 +78,7 @@
 							<figure class="product-box text-xs-center">
 								<div class="quick-view">
 									<a href="recipes-detail.html">
-										<img class="img-fluid" src="images/press-5.png" alt="">
+										<img class="img-fluid" src="public/images/press-5.png" alt="">
 										<div class="bg-favorite"><span class="fa fa-heart" id="heart-5"></span></div>
 									</a>
 								</div>
@@ -89,7 +89,7 @@
 							<figure class="product-box text-xs-center">
 								<div class="quick-view">
 									<a href="recipes-detail.html">
-										<img class="img-fluid" src="images/press-6.png" alt="">
+										<img class="img-fluid" src="public/images/press-6.png" alt="">
 										<div class="bg-favorite"><span class="fa fa-heart" id="heart-6"></span></div>
 									</a>
 								</div>
@@ -100,7 +100,7 @@
 							<figure class="product-box text-xs-center">
 								<div class="quick-view">
 									<a href="recipes-detail.html">
-										<img class="img-fluid" src="images/press-7.png" alt="">
+										<img class="img-fluid" src="public/images/press-7.png" alt="">
 										<div class="bg-favorite"><span class="fa fa-heart" id="heart-7"></span></div>
 									</a>
 								</div>
@@ -111,7 +111,7 @@
 							<figure class="product-box text-xs-center">
 								<div class="quick-view">
 									<a href="recipes-detail.html">
-										<img class="img-fluid" src="images/press-8.png" alt="">
+										<img class="img-fluid" src="public/images/press-8.png" alt="">
 										<div class="bg-favorite"><span class="fa fa-heart" id="heart-8"></span></div>
 									</a>
 								</div>
@@ -122,7 +122,7 @@
 							<figure class="product-box text-xs-center">
 								<div class="quick-view">
 									<a href="recipes-detail.html">
-										<img class="img-fluid" src="images/press-9.png" alt="">
+										<img class="img-fluid" src="public/images/press-9.png" alt="">
 										<div class="bg-favorite"><span class="fa fa-heart" id="heart-9"></span></div>
 									</a>
 								</div>
@@ -133,7 +133,7 @@
 							<figure class="product-box text-xs-center">
 								<div class="quick-view">
 									<a href="recipes-detail.html">
-										<img class="img-fluid" src="images/press-10.png" alt="">
+										<img class="img-fluid" src="public/images/press-10.png" alt="">
 										<div class="bg-favorite"><span class="fa fa-heart" id="heart-10"></span></div>
 									</a>
 								</div>
@@ -144,7 +144,7 @@
 							<figure class="product-box text-xs-center">
 								<div class="quick-view">
 									<a href="recipes-detail.html">
-										<img class="img-fluid" src="images/press-11.png" alt="">
+										<img class="img-fluid" src="public/images/press-11.png" alt="">
 										<div class="bg-favorite"><span class="fa fa-heart" id="heart-11"></span></div>
 									</a>
 								</div>
@@ -155,7 +155,7 @@
 							<figure class="product-box text-xs-center">
 								<div class="quick-view">
 									<a href="recipes-detail.html">
-										<img class="img-fluid" src="images/press-12.png" alt="">
+										<img class="img-fluid" src="public/images/press-12.png" alt="">
 										<div class="bg-favorite"><span class="fa fa-heart" id="heart-6
 										12"></span></div>
 									</a>
@@ -173,7 +173,7 @@
 			<div class="row">
 				<div class="col-md-3 col-sm-12 col-xs-12 up-one text-xs-center">
 					<a class="the-pods-footer" href="index.html">
-						<img src="images/three-pods-logo.png" alt="">
+						<img src="public/images/three-pods-logo.png" alt="">
 						<p>THE PODS</p>
 					</a>
 				</div>

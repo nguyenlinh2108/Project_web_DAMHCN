@@ -43,7 +43,7 @@
 						<div class="container">
 							<div class="row product-cart">
 								<div class="col-sm-12 col-md-4 push-md-1">
-									<img src="images/product-2.png" alt="" class="img-fluid">
+									<img src="public/images/product-2.png" alt="" class="img-fluid">
 								</div>
 								<div class="col-sm-12 col-md-6 push-md-1">
 									<p class="name-product">Chocolate truffle box</p>
@@ -64,7 +64,7 @@
 						<div class="container">
 							<div class="row product-cart">
 								<div class="col-sm-12 col-md-4 push-md-1">
-									<img src="images/product-11.png" alt="" class="img-fluid">
+									<img src="public/images/product-11.png" alt="" class="img-fluid">
 								</div>
 								<div class="col-sm-12 col-md-6 push-md-1">
 									<p class="name-product">Pin tree & gifts chocolate</p>
@@ -168,7 +168,7 @@
 								<div class="col-sm-12">
 									<div class="row">
 										<div class="col-sm-12">
-											<button class="btn btn-block btn-chocolate btn-checkout paypal">Check out with <img src="images/paypal.png" alt=""></button>
+											<button class="btn btn-block btn-chocolate btn-checkout paypal">Check out with <img src="public/images/paypal.png" alt=""></button>
 										</div>
 									</div>
 								</div>
@@ -203,7 +203,7 @@
 				<section class="regular slider">
 					<figure class="product-box text-xs-center">
 						<div class="quick-view">
-							<img class="img-fluid" src="images/product-1.png" alt="">
+							<img class="img-fluid" src="public/images/product-1.png" alt="">
 							<div class="bg-gray"></div>
 							<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
 						</div>
@@ -211,7 +211,7 @@
 					</figure>
 					<figure class="product-box text-xs-center">
 						<div class="quick-view">
-							<img class="img-fluid" src="images/product-6.png" alt="">
+							<img class="img-fluid" src="public/images/product-6.png" alt="">
 							<div class="bg-gray"></div>
 							<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
 						</div>
@@ -219,7 +219,7 @@
 					</figure>
 					<figure class="product-box text-xs-center">
 						<div class="quick-view">
-							<img class="img-fluid" src="images/product-12.png" alt="">
+							<img class="img-fluid" src="public/images/product-12.png" alt="">
 							<div class="bg-gray"></div>
 							<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
 						</div>
@@ -227,7 +227,7 @@
 					</figure>
 					<figure class="product-box text-xs-center">
 						<div class="quick-view">
-							<img class="img-fluid" src="images/product-5.png" alt="">
+							<img class="img-fluid" src="public/images/product-5.png" alt="">
 							<div class="bg-gray"></div>
 							<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
 						</div>
@@ -235,7 +235,7 @@
 					</figure>
 					<figure class="product-box text-xs-center">
 						<div class="quick-view">
-							<img class="img-fluid" src="images/product-2.png" alt="">
+							<img class="img-fluid" src="public/images/product-2.png" alt="">
 							<div class="bg-gray"></div>
 							<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
 						</div>

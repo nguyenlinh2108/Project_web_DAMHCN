@@ -23,112 +23,112 @@
 			<div class="photos">
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/product-1.png" alt="" class="">
+						<img src="public/images/product-1.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo">
 					<figure>
-						<img src="images/product-2.png" alt="" class="">
+						<img src="public/images/product-2.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/product-3.png" alt="" class="">
+						<img src="public/images/product-3.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/product-4.png" alt="" class="">
+						<img src="public/images/product-4.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo">
 					<figure>
-						<img src="images/product-5.png" alt="" class="">
+						<img src="public/images/product-5.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/product-5.png" alt="" class="">
+						<img src="public/images/product-5.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/product-7.png" alt="" class="">
+						<img src="public/images/product-7.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/product-8.png" alt="" class="">
+						<img src="public/images/product-8.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/product-9.png" alt="" class="">
+						<img src="public/images/product-9.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/product-10.png" alt="" class="">
+						<img src="public/images/product-10.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/product-11.png" alt="" class="">
+						<img src="public/images/product-11.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/product-12.png" alt="" class="">
+						<img src="public/images/product-12.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/product-13.png" alt="" class="">
+						<img src="public/images/product-13.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/product-14.png" alt="" class="">
+						<img src="public/images/product-14.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/product-15.png" alt="" class="">
+						<img src="public/images/product-15.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/product-16.png" alt="" class="">
+						<img src="public/images/product-16.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo">
 					<figure>
-						<img src="images/photo-1.png" alt="" class="">
+						<img src="public/images/photo-1.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w2">
 					<figure>
-						<img src="images/photo-2.png" alt="" class="">
+						<img src="public/images/photo-2.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo">
 					<figure>
-						<img src="images/photo-3.png" alt="" class="">
+						<img src="public/images/photo-3.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/photo-4.png" alt="" class="">
+						<img src="public/images/photo-4.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/photo-5.png" alt="" class="">
+						<img src="public/images/photo-5.png" alt="" class="">
 					</figure>
 				</div>
 				<div class="photo photo-w3">
 					<figure>
-						<img src="images/photo-6.png" alt="" class="">
+						<img src="public/images/photo-6.png" alt="" class="">
 					</figure>
 				</div>
 			</div>
@@ -142,7 +142,7 @@
 		<div class="row">
 			<div class="col-md-3 col-sm-12 col-xs-12 up-one text-xs-center">
 				<a class="the-pods-footer" href="index.html">
-					<img src="images/three-pods-logo.png" alt="">
+					<img src="public/images/three-pods-logo.png" alt="">
 					<p>THE PODS</p>
 				</a>
 			</div>

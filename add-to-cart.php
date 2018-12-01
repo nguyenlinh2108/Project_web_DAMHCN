@@ -14,14 +14,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 detail-product-img">
-					<div class="sp-loading"><img src="images/sp-loading.gif" alt=""><br>LOADING IMAGES</div>
+					<div class="sp-loading"><img src="public/images/sp-loading.gif" alt=""><br>LOADING IMAGES</div>
 					<div class="sp-wrap">
-						<a href="images/product-7.png"><img src="images/product-7.png" alt=""></a>
-						<a href="images/product-8.png"><img src="images/product-8.png" alt=""></a>
-						<a href="images/product-13.png"><img src="images/product-13.png" alt=""></a>
-						<a href="images/product-14.png"><img src="images/product-14.png" alt=""></a>
-						<a href="images/product-15.png"><img src="images/product-15.png" alt=""></a>
-						<a href="images/product-16.png"><img src="images/product-16.png" alt=""></a>
+						<a href="images/product-7.png"><img src="public/images/product-7.png" alt=""></a>
+						<a href="images/product-8.png"><img src="public/images/product-8.png" alt=""></a>
+						<a href="images/product-13.png"><img src="public/images/product-13.png" alt=""></a>
+						<a href="images/product-14.png"><img src="public/images/product-14.png" alt=""></a>
+						<a href="images/product-15.png"><img src="public/images/product-15.png" alt=""></a>
+						<a href="images/product-16.png"><img src="public/images/product-16.png" alt=""></a>
 					</div>
 				</div>
 				<div class="col-md-5 push-md-1">
@@ -83,7 +83,7 @@
 				<section class="regular slider">
 					<figure class="product-box text-xs-center">
 						<div class="quick-view">
-							<img class="img-fluid" src="images/product-1.png" alt="">
+							<img class="img-fluid" src="public/images/product-1.png" alt="">
 							<div class="bg-gray"></div>
 							<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
 						</div>
@@ -91,7 +91,7 @@
 					</figure>
 					<figure class="product-box text-xs-center">
 						<div class="quick-view">
-							<img class="img-fluid" src="images/product-6.png" alt="">
+							<img class="img-fluid" src="public/images/product-6.png" alt="">
 							<div class="bg-gray"></div>
 							<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
 						</div>
@@ -99,7 +99,7 @@
 					</figure>
 					<figure class="product-box text-xs-center">
 						<div class="quick-view">
-							<img class="img-fluid" src="images/product-12.png" alt="">
+							<img class="img-fluid" src="public/images/product-12.png" alt="">
 							<div class="bg-gray"></div>
 							<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
 						</div>
@@ -107,7 +107,7 @@
 					</figure>
 					<figure class="product-box text-xs-center">
 						<div class="quick-view">
-							<img class="img-fluid" src="images/product-5.png" alt="">
+							<img class="img-fluid" src="public/images/product-5.png" alt="">
 							<div class="bg-gray"></div>
 							<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
 						</div>
@@ -115,7 +115,7 @@
 					</figure>
 					<figure class="product-box text-xs-center">
 						<div class="quick-view">
-							<img class="img-fluid" src="images/product-2.png" alt="">
+							<img class="img-fluid" src="public/images/product-2.png" alt="">
 							<div class="bg-gray"></div>
 							<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
 						</div>
@@ -137,7 +137,7 @@
 	<div id="toDown">
 		<span class="fa fa-chevron-down"></span>
 	</div>
-	<script src="js/smoothproducts.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="public/js/smoothproducts.js" type="text/javascript" charset="utf-8" async defer></script>
 	<script type="text/javascript">
 		$(".regular").slick({
 	        dots: true,

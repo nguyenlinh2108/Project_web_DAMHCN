@@ -4,18 +4,22 @@
 	<title>The Pods - World's best handcrafted chocolate</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="images/three-pods-shortcut-logo.png" rel="shortcut icon">
+
+    <link href="./public/images/three-pods-shortcut-logo.png" rel="shortcut icon">
 	<link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
-	<link rel="stylesheet" href="bootstrap/vendor/bootstrap.css">
-	<link rel="stylesheet" href="bootstrap/vendor/font-awesome.css">
+	<link rel="stylesheet" href="./public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./public/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="./slick/slick.css">
 	<link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
-	<link rel="stylesheet" href="fonts/styles.css">
-	<link rel="stylesheet" href="css/style.css">
-	<script type="text/javascript" src="bootstrap/vendor/bootstrap.js"></script>
-	<script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+	<link rel="stylesheet" href="./public/font/styles.css">
+	<link rel="stylesheet" href="./public/css/style.css">
+
+
+	<script type="text/javascript" src="./public/js/jquery.min.js"></script>
+	<script type="text/javascript" src="./public/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./public/js/isotope.pkgd.min.js"></script>
 	<script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript" src="js/js.js"></script>
+	<script type="text/javascript" src="./public/js/js.js"></script>
 </head>
 <body>
 <header class="navbar-top">
@@ -23,7 +27,7 @@
 			<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar1">
 			</button>
 			<div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar1">
-				<a class="navbar-brand hidden-md-up text-xs-center" href="#"><img src="images/logo.png" alt=""></a>
+				<a class="navbar-brand hidden-md-up text-xs-center" href="#"><img src="public/images/logo.png" alt=""></a>
 				<ul class="nav navbar-nav text-xs-center">
 					<li class="nav-item active">
 						<a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
@@ -42,7 +46,7 @@
 					</li>
 					<li class="nav-item hidden-sm-down">
 						<a class="navbar-brand text-sm-center" href="index.php">
-							<img class="img-size" src="images/logo.png" alt="">
+							<img class="img-size" src="public/images/logo.png" alt="">
 							<p class="text-sm-center">World's best<br>handcrafed chocolate</p>
 						</a>
 						
@@ -73,7 +77,7 @@
 			<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
 			</button>
 			<div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-				<a class="navbar-brand hidden-sm-up text-xs-center" href="#"><img src="images/logo.png" alt=""></a>
+				<a class="navbar-brand hidden-sm-up text-xs-center" href="#"><img src="public/images/logo.png" alt=""></a>
 				<ul class="nav navbar-nav text-xs-center">
 					<li class="nav-item hidden-sm-down">
 						<a class="navbar-brand" href="index.php">

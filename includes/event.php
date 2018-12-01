@@ -10,7 +10,7 @@
 		</div>
 	</div>
 	<div class="event-left">
-		<img src="images/season-festive.png" alt="">
+		<img src="public/images/season-festive.png" alt="">
 		<div class="bg-event">
 			<h2>Season Festive</h2>
 			<p>Christmas is all the way to every corner. Let’s join the most favorite season of the year with our delicacies!</p>
@@ -19,7 +19,7 @@
 	</div>
 	<div class="event-right">
 		<div class="event-right-up">
-			<img src="images/cooking-class.png" alt="">
+			<img src="public/images/cooking-class.png" alt="">
 			<div class="bg-event">
 				<h2>cooking <br class="hidden-sm-down"> class</h2>
 				<p>We have hundred of recipes for you to try out with our finest cocoa powder & chocolate.</p>
@@ -27,7 +27,7 @@
 			</div>
 		</div>
 		<div class="event-right-down">
-			<img src="images/free-delivery.png" alt="">
+			<img src="public/images/free-delivery.png" alt="">
 			<div class="bg-event">
 				<h2>Free delivery within 5km</h2>
 				<a href="#" class="btn btn-chocolate">check out location <span class="fa fa-chevron-circle-right"></span></a>

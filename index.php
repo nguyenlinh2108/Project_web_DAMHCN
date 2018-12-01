@@ -1,10 +1,10 @@
 	<?php
-		include('includes/header.php');
-		include('includes/slide.php');
-		include('includes/products.php');
-		include('includes/best-seller.php');
-		include('includes/event.php');
-		include('includes/news.php');
+		include(__DIR__ . "/includes/header.php");
+		include(__DIR__ . "/includes/slide.php");
+		include(__DIR__ . "/includes/products.php");
+		include(__DIR__ . "/includes/best-seller.php");
+		include(__DIR__ . "/includes/event.php");
+		include(__DIR__ . "/includes/news.php");
 	?>
 
 	<div class="pho-gal">
@@ -30,47 +30,47 @@
 				<div class="photos">
 					<div class="photo">
 						<figure>
-							<img src="images/photo-1.png" alt="" class="">
+							<img src="public/images/photo-1.png" alt="" class="">
 						</figure>
 					</div>
 					<div class="photo photo-w2">
 						<figure>
-							<img src="images/photo-2.png" alt="" class="">
+							<img src="public/images/photo-2.png" alt="" class="">
 						</figure>
 					</div>
 					<div class="photo">
 						<figure>
-							<img src="images/photo-3.png" alt="" class="">
+							<img src="public/images/photo-3.png" alt="" class="">
 						</figure>
 					</div>
 					<div class="photo photo-w3">
 						<figure>
-							<img src="images/photo-4.png" alt="" class="">
+							<img src="public/images/photo-4.png" alt="" class="">
 						</figure>
 					</div>
 					<div class="photo photo-w3">
 						<figure>
-							<img src="images/photo-5.png" alt="" class="">
+							<img src="public/images/photo-5.png" alt="" class="">
 						</figure>
 					</div>
 					<div class="photo photo-w3">
 						<figure>
-							<img src="images/photo-6.png" alt="" class="">
+							<img src="public/images/photo-6.png" alt="" class="">
 						</figure>
 					</div>
 					<div class="photo photo-w3">
 						<figure>
-							<img src="images/product-2.png" alt="" class="">
+							<img src="public/images/product-2.png" alt="" class="">
 						</figure>
 					</div>
 					<div class="photo photo-w3">
 						<figure>
-							<img src="images/product-3.png" alt="" class="">
+							<img src="public/images/product-3.png" alt="" class="">
 						</figure>
 					</div>
 					<div class="photo photo-w3">
 						<figure>
-							<img src="images/product-4.png" alt="" class="">
+							<img src="public/images/product-4.png" alt="" class="">
 						</figure>
 					</div>
 				</div>

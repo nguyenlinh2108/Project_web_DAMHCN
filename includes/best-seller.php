@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-7 col-sm-7">
-				<img src="images/best-seller.png" alt="" class="img-fluid">
+				<img src="public/images/best-seller.png" alt="" class="img-fluid">
 			</div>
 			<div class="col-md-5 col-sm-5 text-xs-center">
 				<span class="ribbon float-xs-right hidden-sm-down"></span>

@@ -2,7 +2,7 @@
 
 	<div class="banner-recipes-detial">
 		<div class="recipes-img">
-			<img src="images/recipes-img-6.png" alt="">
+			<img src="public/images/recipes-img-6.png" alt="">
 		</div>
 		<div class="recipes-name text-xs-center">
 			<p>MINT CHOCOLATE STUFFED<br>CHOCOLATE COOKIES</p>
@@ -61,7 +61,7 @@
 					<figure class="product-box text-xs-center">
 						<div class="quick-view">
 							<a href="recipes-detail.html">
-								<img class="img-fluid" src="images/press-1.png" alt="">
+								<img class="img-fluid" src="public/images/press-1.png" alt="">
 							</a>
 						</div>
 						<figcaption><p>Fudge</p></figcaption>
@@ -69,7 +69,7 @@
 					<figure class="product-box text-xs-center">
 						<div class="quick-view">
 							<a href="recipes-detail.html">
-								<img class="img-fluid" src="images/press-2.png" alt="">
+								<img class="img-fluid" src="public/images/press-2.png" alt="">
 							</a>
 						</div>
 						<figcaption><p>Mint Chocolate Stuffed<br>Chocolate Cookies</p></figcaption>
@@ -77,7 +77,7 @@
 					<figure class="product-box text-xs-center">
 						<div class="quick-view">
 							<a href="recipes-detail.html">
-								<img class="img-fluid" src="images/press-3.png" alt="">
+								<img class="img-fluid" src="public/images/press-3.png" alt="">
 							</a>
 						</div>
 						<figcaption><p>Homemade<br>Chocolate Bar</p></figcaption>
@@ -85,7 +85,7 @@
 					<figure class="product-box text-xs-center">
 						<div class="quick-view">
 							<a href="recipes-detail.html">
-								<img class="img-fluid" src="images/press-4.png" alt="">
+								<img class="img-fluid" src="public/images/press-4.png" alt="">
 							</a>
 						</div>
 						<figcaption><p>Caramel Chocolate<br>Oatmeal Bars</p></figcaption>
@@ -93,7 +93,7 @@
 					<figure class="product-box text-xs-center">
 						<div class="quick-view">
 							<a href="recipes-detail.html">
-								<img class="img-fluid" src="images/press-5.png" alt="">
+								<img class="img-fluid" src="public/images/press-5.png" alt="">
 							</a>
 						</div>
 						<figcaption><p>Quick Chocolate<br>Pudding</p></figcaption>
@@ -101,7 +101,7 @@
 					<figure class="product-box text-xs-center">
 						<div class="quick-view">
 							<a href="recipes-detail.html">
-								<img class="img-fluid" src="images/press-6.png" alt="">
+								<img class="img-fluid" src="public/images/press-6.png" alt="">
 							</a>
 						</div>
 						<figcaption><p>Holiday Bark</p></figcaption>
@@ -116,7 +116,7 @@
 		<div class="row">
 			<div class="col-md-3 col-sm-12 col-xs-12 up-one text-xs-center">
 				<a class="the-pods-footer" href="index.html">
-					<img src="images/three-pods-logo.png" alt="">
+					<img src="public/images/three-pods-logo.png" alt="">
 					<p>THE PODS</p>
 				</a>
 			</div>

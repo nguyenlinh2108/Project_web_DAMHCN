@@ -310,7 +310,7 @@
 						<div class="detail-content">
 							<div class="row added-product mt-0">
 								<div class="col-xs-5 push-xs-1 col-sm-10 col-lg-5">
-									<img src="images/product-2.png" alt="" class="img-fluid">
+									<img src="public/images/product-2.png" alt="" class="img-fluid">
 								</div>
 								<div class="col-xs-5 push-xs-1 col-sm-10 col-lg-5">
 									<p class="name-product">Chocolate truffle box</p>
@@ -321,7 +321,7 @@
 							</div>
 							<div class="row added-product">
 								<div class="col-xs-5 col-sm-10 col-lg-5 push-xs-1">
-									<img src="images/product-11.png" alt="" class="img-fluid">
+									<img src="public/images/product-11.png" alt="" class="img-fluid">
 								</div>
 								<div class="col-xs-5 push-xs-1 col-md-10 col-lg-5">
 									<p class="name-product">Pin tree & gifts chocolate</p>

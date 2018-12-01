@@ -1,7 +1,7 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 	<div class="carousel-inner" role="listbox">
 		<div class="carousel-item active">
-			<img class="d-block img-fluid" src="images/big-banner.png" alt="First slide">
+			<img class="d-block img-fluid" src="public/images/big-banner.png" alt="First slide">
 			<div class="layer">
 				<h2>welcome to the pods</h2>
 				<p>We're passionate chocolate. And making the world a better place.</p>
@@ -9,7 +9,7 @@
 			</div>
 		</div>
 		<div class="carousel-item">
-			<img class="d-block img-fluid" src="images/big-banner.png" alt="Second slide">
+			<img class="d-block img-fluid" src="public/images/big-banner.png" alt="Second slide">
 			<div class="layer">
 				<h2>welcome to the pods</h2>
 				<p>We're passionate chocolate. And making the world a better place.</p>
@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<div class="carousel-item">
-			<img class="d-block img-fluid" src="images/big-banner.png" alt="Third slide">
+			<img class="d-block img-fluid" src="public/images/big-banner.png" alt="Third slide">
 			<div class="layer">
 				<h2>welcome to the pods</h2>
 				<p>We're passionate chocolate. And making the world a better place.</p>

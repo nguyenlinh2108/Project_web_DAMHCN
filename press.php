@@ -15,37 +15,37 @@
 			<div class="row">
 				<div class="col-xs-6 col-sm-6 col-md-4">
 					<a href="" class="link-press">
-						<img class="img-fluid" src="images/press-1.png" alt="">
+						<img class="img-fluid" src="public/images/press-1.png" alt="">
 						<p>OPENINGS Restaurant Preview:<br>What’s Coming to NYX This Fall<br>via Epoch Taste</p>
 					</a>
 				</div>
 				<div class="col-xs-6 col-sm-6 col-md-4">
 					<a href="" class="link-press">
-						<img class="img-fluid" src="images/press-2.png" alt="">
+						<img class="img-fluid" src="public/images/press-2.png" alt="">
 						<p>The 10 new NYC restaurants that<br>we’re most excited about for fall<br>via Time Out New York</p>
 					</a>
 				</div>
 				<div class="col-xs-6 col-sm-6 col-md-4">
 					<a href="" class="link-press">
-						<img class="img-fluid" src="images/press-3.png" alt="">
+						<img class="img-fluid" src="public/images/press-3.png" alt="">
 						<p>The Pods’s<br>Chocolate Shop Opens<br>via The New York Times </p>
 					</a>
 				</div>
 				<div class="col-xs-6 col-sm-6 col-md-4">
 					<a href="" class="link-press">
-						<img class="img-fluid" src="images/press-4.png" alt="">
+						<img class="img-fluid" src="public/images/press-4.png" alt="">
 						<p>NYC restaurants opening this fall:<br>From sweet stuff to food halls<br>via AM New York  </p>
 					</a>
 				</div>
 				<div class="col-xs-6 col-sm-6 col-md-4">
 					<a href="" class="link-press">
-						<img class="img-fluid" src="images/press-5.png" alt="">
+						<img class="img-fluid" src="public/images/press-5.png" alt="">
 						<p>The Feed: Chocolatier<br>Opens in Midtown<br>via The Wall Street Journal</p>
 					</a>
 				</div>
 				<div class="col-xs-6 col-sm-6 col-md-4">
 					<a href="" class="link-press">
-						<img class="img-fluid" src="images/press-6.png" alt="">
+						<img class="img-fluid" src="public/images/press-6.png" alt="">
 						<p>Here Are All the Sweets You Can<br>Eat at an Acclaimed Chef’s New<br>Chocolate Shop via Grub Street</p>
 					</a>
 				</div>
@@ -57,7 +57,7 @@
 			<div class="row">
 				<div class="col-md-3 col-sm-12 col-xs-12 up-one text-xs-center">
 					<a class="the-pods-footer" href="index.html">
-						<img src="images/three-pods-logo.png" alt="">
+						<img src="public/images/three-pods-logo.png" alt="">
 						<p>THE PODS</p>
 					</a>
 				</div>

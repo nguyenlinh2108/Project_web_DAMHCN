@@ -142,7 +142,7 @@
 			<div class="row">
 				<div class="col-md-3 col-sm-12 col-xs-12 up-one text-xs-center">
 					<a class="the-pods-footer" href="index.html">
-						<img src="images/three-pods-logo.png" alt="">
+						<img src="public/images/three-pods-logo.png" alt="">
 						<p>THE PODS</p>
 					</a>
 				</div>

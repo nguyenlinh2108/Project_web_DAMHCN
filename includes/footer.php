@@ -15,7 +15,7 @@
 					</ul>
 				</div>
 				<div class="col-md-12 down text-xs-center">
-					<img src="images/three-pods-logo.png" alt="">
+					<img src="public/images/three-pods-logo.png" alt="">
 					<p>&copy; Copyright 2017 Lilystreat.  All rights reserved.</p>
 				</div>
 			</div><!-- end row -->
