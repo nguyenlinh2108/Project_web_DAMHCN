@@ -319,7 +319,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Le Ngoc Long','20142659@student.hust.edu.vn','Nam',NULL,'1234567','012465768983','Ha Noi, Viet Nam','Quản trị viên','2018-10-01 14:15:08','2018-10-01 07:15:15'),(2,'ALPhaHoai','alphahoai@gmail.com','Khác',NULL,'','0123456789','Cù Chính Lan, Thanh Xuân, Hà Nội','Quản trị viên','2018-12-01 21:26:22','2018-12-01 14:26:22');
+INSERT INTO `user` VALUES (1,'Le Ngoc Long','20142659@student.hust.edu.vn','Nam',NULL,'6220cd02f3d5cf34cb5a0848659b2003','012465768983','Ha Noi, Viet Nam','Quản trị viên','2018-10-01 14:15:08','2018-12-01 15:29:41'),(2,'ALPhaHoai','alphahoai@gmail.com','Khác',NULL,'6220cd02f3d5cf34cb5a0848659b2003','0123456789','Cù Chính Lan, Thanh Xuân, Hà Nội','Quản trị viên','2018-12-01 21:26:22','2018-12-01 15:29:43');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -340,4 +340,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-01 21:42:08
+-- Dump completed on 2018-12-01 22:31:00
