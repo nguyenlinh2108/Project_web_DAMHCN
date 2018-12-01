@@ -2,193 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="acdd3a3e-dee5-4fd9-b482-0901df592c3f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/add-to-cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/add-to-cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/vendor/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/vendor/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/vendor/font-awesome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/vendor/tether.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/checkout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/animate.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/animate.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/plugins/morris.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/plugins/morris.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/sb-admin-rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/sb-admin-rtl.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/sb-admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/sb-admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/american.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/american.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/american.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/american.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/banner-recipes.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/banner-recipes.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/best-seller.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/best-seller.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/bg-location.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/bg-location.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/bg-products.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/bg-products.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/bg-shop-menu.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/bg-shop-menu.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/big-banner-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/big-banner-2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/big-banner-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/big-banner-3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/big-banner.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/big-banner.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/chocolate-truffle.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/chocolate-truffle.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/chocolate-truffles.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/chocolate-truffles.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/cooking-class.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/cooking-class.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/discover.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/discover.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/free-delivery.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/free-delivery.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icon_delete.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/icon_delete.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icon_edit.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/icon_edit.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/latest-news-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/latest-news-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/latest-news-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/latest-news-2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/latest-news-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/latest-news-3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/latest-news.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/latest-news.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/left-pods.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/left-pods.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/master-card.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/master-card.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/menu-hover.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/menu-hover.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/our-story.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/our-story.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/paypal.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/paypal.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/photo-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/photo-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/photo-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/photo-2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/photo-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/photo-3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/photo-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/photo-4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/photo-5.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/photo-5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/photo-6.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/photo-6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/photo-big.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/photo-big.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/photo-small.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/photo-small.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/press-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/press-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/press-10.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/press-10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/press-11.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/press-11.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/press-12.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/press-12.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/press-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/press-2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/press-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/press-3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/press-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/press-4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/press-5.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/press-5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/press-6.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/press-6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/press-7.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/press-7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/press-8.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/press-8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/press-9.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/press-9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/product-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/product-10.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product-10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/product-11.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product-11.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/product-12.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product-12.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/product-13.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product-13.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/product-14.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product-14.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/product-15.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product-15.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/product-16.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product-16.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/product-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product-2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/product-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product-3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/product-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product-4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/product-5.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product-5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/product-6.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product-6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/product-7.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product-7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/product-8.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product-8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/product-9.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/product-9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/recipes-img-6.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/recipes-img-6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/reset_mk.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/reset_mk.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ribbon.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/ribbon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/right-pods.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/right-pods.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/season-festive.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/season-festive.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/the-pods.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/the-pods.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/three-pods-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/three-pods-logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/three-pods-shortcut-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/three-pods-shortcut-logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/tweet-blog.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/tweet-blog.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/visa.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/visa.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/function.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/myconnect.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/best-seller.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/best-seller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/event.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/link-menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/link-menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/news.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/news.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/slide.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/slide.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inf-acc.php" beforeDir="false" afterPath="$PROJECT_DIR$/inf-acc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/isotope.pkgd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/isotope.pkgd.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/plugins/flot/excanvas.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/flot/excanvas.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/plugins/flot/flot-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/flot/flot-data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/plugins/flot/jquery.flot.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/flot/jquery.flot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/plugins/flot/jquery.flot.pie.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/flot/jquery.flot.pie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/plugins/flot/jquery.flot.resize.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/flot/jquery.flot.resize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/plugins/flot/jquery.flot.tooltip.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/flot/jquery.flot.tooltip.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/plugins/morris/morris-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/morris/morris-data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/plugins/morris/morris.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/morris/morris.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/plugins/morris/morris.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/morris/morris.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/plugins/morris/raphael.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/morris/raphael.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/smoothproducts.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/smoothproducts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/wowslider.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/wowslider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-success.php" beforeDir="false" afterPath="$PROJECT_DIR$/order-success.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/our_story.php" beforeDir="false" afterPath="$PROJECT_DIR$/our_story.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phoga.php" beforeDir="false" afterPath="$PROJECT_DIR$/phoga.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/press.php" beforeDir="false" afterPath="$PROJECT_DIR$/press.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/css/font-awesome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/less/bordered-pulled.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/less/core.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/less/fixed-width.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/less/font-awesome.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/less/icons.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/less/larger.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/less/list.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/less/mixins.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/less/path.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/less/rotated-flipped.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/less/spinning.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/less/stacked.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/less/variables.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/scss/_bordered-pulled.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/scss/_core.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/scss/_fixed-width.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/scss/_icons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/scss/_larger.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/scss/_list.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/scss/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/scss/_path.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/scss/_rotated-flipped.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/scss/_spinning.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/scss/_stacked.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/scss/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font-awesome/scss/font-awesome.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/BradleyHandITCTTBold.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/BradleyHandITCTTBold.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/BradleyHandITCTTBold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/BradleyHandITCTTBold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/NeutraText-Book.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/NeutraText-Book.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/NeutraText-Book.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/NeutraText-Book.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/NeutraText-Book.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/fonts/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipes-detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/recipes-detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipes.php" beforeDir="false" afterPath="$PROJECT_DIR$/recipes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/upload/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/header.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -200,8 +16,9 @@
     <session id="-331982564">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.11" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -210,7 +27,7 @@
           <entry key="gitignore" value="1" />
           <entry key="js" value="7" />
           <entry key="md" value="2" />
-          <entry key="php" value="49" />
+          <entry key="php" value="52" />
           <entry key="sql" value="1" />
         </counts>
       </usages-collector>
@@ -218,7 +35,7 @@
         <counts>
           <entry key="CSS" value="13" />
           <entry key="JavaScript" value="7" />
-          <entry key="PHP" value="49" />
+          <entry key="PHP" value="52" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="SQL" value="1" />
         </counts>
@@ -227,14 +44,14 @@
         <counts>
           <entry key="css" value="28" />
           <entry key="md" value="510" />
-          <entry key="php" value="253" />
+          <entry key="php" value="276" />
           <entry key="txt" value="228" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="28" />
-          <entry key="PHP" value="253" />
+          <entry key="PHP" value="276" />
           <entry key="PLAIN_TEXT" value="738" />
         </counts>
       </usages-collector>
@@ -246,12 +63,24 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/add-to-cart.php">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="139" column="24" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
+            <state relative-caret-position="-255">
+              <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/includes/header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="337">
+              <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -268,7 +97,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>favicon.ico</find>
       <find>dashboard.php</find>
       <find>admin</find>
       <find>bg-location.png</find>
@@ -298,6 +126,7 @@
       <find>src=&quot;images</find>
       <find>src=&quot;images/</find>
       <find>smoothproducts.js</find>
+      <find>bootstrap.min.css</find>
     </findStrings>
     <replaceStrings>
       <replace>../public/images</replace>
@@ -307,8 +136,8 @@
     </replaceStrings>
     <dirStrings>
       <dir>D:\xampp\htdocs\Project_web_DAMHCN\admin\public</dir>
-      <dir>D:\xampp\htdocs\Project_web_DAMHCN\admin</dir>
       <dir>D:\xampp\htdocs\Project_web_DAMHCN</dir>
+      <dir>D:\xampp\htdocs\Project_web_DAMHCN\admin</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -323,10 +152,8 @@
         <option value="$PROJECT_DIR$/config.php" />
         <option value="$PROJECT_DIR$/admin/class/auth.php" />
         <option value="$PROJECT_DIR$/admin/glogin.php" />
-        <option value="$PROJECT_DIR$/admin/login.php" />
         <option value="$PROJECT_DIR$/admin/class/admin.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/admin/includes/header.php" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/includes/slide.php" />
         <option value="$PROJECT_DIR$/includes/products.php" />
@@ -355,6 +182,9 @@
         <option value="$PROJECT_DIR$/checkout.php" />
         <option value="$PROJECT_DIR$/cart.php" />
         <option value="$PROJECT_DIR$/add-to-cart.php" />
+        <option value="$PROJECT_DIR$/admin/includes/footer.php" />
+        <option value="$PROJECT_DIR$/admin/login.php" />
+        <option value="$PROJECT_DIR$/admin/includes/header.php" />
       </list>
     </option>
   </component>
@@ -383,7 +213,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -391,10 +220,35 @@
               <item name="Project_web_DAMHCN" type="b2602c69:ProjectViewProjectNode" />
               <item name="Project_web_DAMHCN" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Project_web_DAMHCN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_web_DAMHCN" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Project_web_DAMHCN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_web_DAMHCN" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Project_web_DAMHCN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_web_DAMHCN" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Project_web_DAMHCN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_web_DAMHCN" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -439,6 +293,7 @@
       <option name="presentableId" value="Default" />
       <updated>1543672513234</updated>
       <workItem from="1543672518868" duration="9706000" />
+      <workItem from="1543687323816" duration="369000" />
     </task>
     <task id="LOCAL-00001" summary="tạo chức năng đăng nhập với google cho admin">
       <created>1543675354026</created>
@@ -486,20 +341,15 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9706000" />
+    <option name="totallyTimeSpent" value="10075000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25340393" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" weight="0.32911393" />
-      <window_info anchor="bottom" id="Terminal" weight="0.32911393" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -507,10 +357,15 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32911393" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32911393" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -620,13 +475,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/includes/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-93">
-          <caret line="65" column="25" lean-forward="true" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -641,16 +489,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DumpBanHang20181201.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -661,16 +499,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/myconnect.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/function.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/myconnect.php" />
+    <entry file="file://$PROJECT_DIR$/inc/function.php" />
     <entry file="file://$PROJECT_DIR$/public/js/js.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -682,13 +512,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/jquery.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/slide.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -820,17 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="523">
           <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
-          <folding>
-            <element signature="e#32497#32742#2" expanded="true" />
-            <element signature="e#33268#33586#2" expanded="true" />
-            <element signature="e#34105#34392#2" expanded="true" />
-            <element signature="e#59824#60022#2" expanded="true" />
-            <element signature="e#60144#60291#2" expanded="true" />
-            <element signature="e#60437#60581#2" expanded="true" />
-            <element signature="e#60907#61068#1" expanded="true" />
-            <element signature="e#68956#69199#2" expanded="true" />
-            <element signature="e#70282#70531#2" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -894,6 +707,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
           <caret line="139" column="24" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/includes/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/includes/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
         </state>
       </provider>
     </entry>
