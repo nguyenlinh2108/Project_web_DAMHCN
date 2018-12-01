@@ -1,0 +1,22 @@
+
+@font-face {
+	font-family: 'NeutraText-Book';
+	src: url('../fonts/NeutraText-Book.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/NeutraText-Book.otf')  format('opentype'),
+	url('../fonts/NeutraText-Book.woff') format('woff'),
+	url('../fonts/NeutraText-Book.ttf')  format('truetype'),
+	url('../fonts/NeutraText-Book.svg#NeutraText-Book') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'BradleyHandITCTTBold';
+	src: url('../fonts/BradleyHandITCTTBold.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/BradleyHandITCTTBold.otf')  format('opentype'),
+	url('../fonts/BradleyHandITCTTBold.woff') format('woff'),
+	url('../fonts/BradleyHandITCTTBold.ttf')  format('truetype'),
+	url('../fonts/BradleyHandITCTTBold.svg#BradleyHandITCTTBold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
