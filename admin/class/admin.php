@@ -22,9 +22,9 @@ class admin
     public function __construct($id)
     {
         $this->id = $id;
-        $this->db = db::singleton();
+        $this->db = db::getInstance();
         if(is_numeric($this->id)){
-            if($this->db->select_sql_one_row("SELECT id,avatar, name, email, created_at FROM user WHERE id = $this->id")){
+            if($this->db->select_one("SELECT id,avatar, name, email, created_at FROM user WHERE id = $this->id")){
                 $result = $this->db->kq;
                 $this->email = $result->email;
                 $this->name = $result->name;

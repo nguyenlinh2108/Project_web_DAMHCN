@@ -38,7 +38,7 @@ class auth
         } else {
             $this->password = $password;
         }
-        $this->db = db::singleton();
+        $this->db = db::getInstance();
     }
 
     public function save()
@@ -62,7 +62,7 @@ class auth
         if ($this->email === null || strlen($this->email) < 4) return false;
 
         $sql = "SELECT * FROM user WHERE email like '" . db::validSql($this->email) . "'";
-        if (!$this->db->select_sql_one_row($sql)) return false;
+        if (!$this->db->select_one($sql)) return false;
         $result = $this->db->kq;
 
         if (!$this->isLoginWithGoogle) {//login with password
