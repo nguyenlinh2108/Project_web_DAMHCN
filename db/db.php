@@ -51,7 +51,7 @@ class db
      * @param $sql: câu truy vấn
      * @return bool|null|PDOStatement
      */
-    public function executeQuery($sql)
+    private function executeQuery($sql)
     {
         $this->_cursor = $this->_dbh->prepare($sql);
         $this->_cursor->execute();
