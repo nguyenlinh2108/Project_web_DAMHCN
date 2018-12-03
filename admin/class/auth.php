@@ -63,7 +63,7 @@ class auth
 
         $sql = "SELECT * FROM user WHERE email like '" . db::validSql($this->email) . "'";
         if (!$this->db->select_one($sql)) return false;
-        $result = $this->db->kq;
+        $result = $this->db->getResult();
 
         if (!$this->isLoginWithGoogle) {//login with password
             if ($this->password === null || strlen($this->password) < 4) return false;
