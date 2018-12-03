@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li style="background:#1b926c;color:#fff;">
-                        <a href="index.html" style="color:#fff;"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="index.php" style="color:#fff;"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>   
                     <?php 
                     $dem=1;

@@ -64,7 +64,7 @@ if (isset($_SESSION['login']['success']) && $_SESSION['login']['success']) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">QUẢN TRỊ HỆ THỐNG</a>
+                <a class="navbar-brand" href="index.php">QUẢN TRỊ HỆ THỐNG</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
