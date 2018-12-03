@@ -25,7 +25,7 @@ class admin
         $this->db = db::getInstance();
         if(is_numeric($this->id)){
             if($this->db->select_one("SELECT id,avatar, name, email, created_at FROM user WHERE id = $this->id")){
-                $result = $this->db->kq;
+                $result = $this->db->getResult();
                 $this->email = $result->email;
                 $this->name = $result->name;
                 $this->avatar = $result->avatar;
