@@ -334,6 +334,7 @@ class db
         $value = str_replace("\\", "\\\\", $value);
         $value = str_replace("\"", "\\\"", $value);
         $value = str_replace("\'", "\\\'", $value);
+        $value = str_replace("'", "\'", $value);
         return $value;
     }
 
