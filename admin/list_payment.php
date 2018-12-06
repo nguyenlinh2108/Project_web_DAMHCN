@@ -6,6 +6,8 @@
  * Time: 6:10 PM
  */
 ?>
+Dòng này ở local
+
 <?php include('includes/header.php'); ?>
 <?php
     require_once  __DIR__ . "/../db/db.php";
