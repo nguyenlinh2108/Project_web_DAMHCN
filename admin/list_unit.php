@@ -46,9 +46,9 @@ include "includes/header.php"
                 if($db->select_one("SELECT count(id) FROM unit"))
                 {
                     $total = $db->getResult()->{'count(id)'};
-                    echo $total."\n";
+//                    echo $total."\n";
                     $per_page = ceil (intval($total)/$limit);
-                    echo  $per_page."\n";
+//                    echo  $per_page."\n";
                 }
                 else
                 {
