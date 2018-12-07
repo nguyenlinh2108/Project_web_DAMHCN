@@ -1,3 +1,4 @@
+
 <?php
 /**
  * Created by PhpStorm.
@@ -5,10 +6,11 @@
  * Date: 12/6/2018
  * Time: 6:10 PM
  */
+    include "includes/header.php";
 ?>
 Dòng này ở local
 
-<?php include('includes/header.php'); ?>
+
 <?php
     require_once  __DIR__ . "/../db/db.php";
 ?>
@@ -66,8 +68,8 @@ Dòng này ở local
                     <tr>
                         <td><?php echo $payment->id; ?></td>
                         <td><?php echo $payment->name; ?></td>
-                        <td><a href="edit_user.php?id=<?php echo $payment->id; ?>"><img width="16" src="../public/images/icon_edit.png"></a></td>
-                        <td><a href="delete_user.php?id=<?php echo $payment->id;?>" onclick="return confirm('Bạn có thực sự muốn xóa không');"><img width="16" src="../public/images/icon_delete.png"></a></td>
+                        <td><a href="edit_payment.php?id=<?php echo $payment->id; ?>"><img width="16" src="../public/images/icon_edit.png"></a></td>
+                        <td><a href="delete_payment.php?id=<?php echo $payment->id;?>" onclick="return confirm('Bạn có thực sự muốn xóa không');"><img width="16" src="../public/images/icon_delete.png"></a></td>
                     </tr>
                     <?php
                 }
@@ -107,4 +109,7 @@ Dòng này ở local
         ?>
     </div>
 </div>
-<?php include('includes/footer.php'); ?>
+
+<?php
+    include "includes/footer.php";
+?>
