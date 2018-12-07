@@ -6,13 +6,11 @@
  * Date: 12/6/2018
  * Time: 6:10 PM
  */
-    include "includes/header.php";
+include "includes/header.php";
 ?>
-Dòng này ở local
-
 
 <?php
-    require_once  __DIR__ . "/../db/db.php";
+require_once  __DIR__ . "/../db/db.php";
 ?>
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -30,7 +28,7 @@ Dòng này ở local
             <?php
             $db = db::getInstance();
             //đặt số bản ghi cần hiện thị
-            $limit=4;
+            $limit=1;
             //Xác định vị trí bắt đầu
             if(isset($_GET['s']) && filter_var($_GET['s'],FILTER_VALIDATE_INT,array('min_range'=>1)))
             {
@@ -49,7 +47,6 @@ Dòng này ở local
                 if($db->select_one("SELECT count(id) FROM payment"))
                 {
                     $total = $db->getResult()->{'count(id)'};
-                    echo $total . "\n";
                     $per_page=ceil(intval($total)/$limit);
                 }
                 else
@@ -59,17 +56,17 @@ Dòng này ở local
             }
 
             $query="SELECT id,name 
-						FROM payment ORDER BY id ASC";
+						FROM payment ORDER BY id ASC LIMIT {$start},{$limit}";
             if($db->select($query))
             {
-                foreach($db->getResult() as $payment)
+                foreach($db->getResult() as $obj)
                 {
                     ?>
                     <tr>
-                        <td><?php echo $payment->id; ?></td>
-                        <td><?php echo $payment->name; ?></td>
-                        <td><a href="edit_payment.php?id=<?php echo $payment->id; ?>"><img width="16" src="../public/images/icon_edit.png"></a></td>
-                        <td><a href="delete_payment.php?id=<?php echo $payment->id;?>" onclick="return confirm('Bạn có thực sự muốn xóa không');"><img width="16" src="../public/images/icon_delete.png"></a></td>
+                        <td><?php echo $obj->id; ?></td>
+                        <td><?php echo $obj->name; ?></td>
+                        <td><a href="edit_payment.php?id=<?php echo $obj->id; ?>"><img width="16" src="../public/images/icon_edit.png"></a></td>
+                        <td><a href="delete_payment.php?id=<?php echo $obj->id;?>" onclick="return confirm('Bạn có thực sự muốn xóa không?');"><img width="16" src="../public/images/icon_delete.png"></a></td>
                     </tr>
                     <?php
                 }
@@ -92,7 +89,7 @@ Dòng này ở local
             {
                 if($i != $current_page)
                 {
-                    echo "<li><a href='list_user.php?s=".($limit *($i - 1))."&p={$per_page}'>{$i}</a></li>";
+                    echo "<li><a href='list_payment.php?s=".($limit *($i - 1))."&p={$per_page}'>{$i}</a></li>";
                 }
                 else
                 {
@@ -102,7 +99,7 @@ Dòng này ở local
             //Nếu không phải trang cuối thì hiện thị nút next
             if($current_page != $per_page)
             {
-                echo "<li><a href='list_user.php?s=".($start + $limit)."&p={$per_page}'>Next</a></li>";
+                echo "<li><a href='list_payment.php?s=".($start + $limit)."&p={$per_page}'>Next</a></li>";
             }
         }
         echo "</ul>";
@@ -111,5 +108,5 @@ Dòng này ở local
 </div>
 
 <?php
-    include "includes/footer.php";
+include "includes/footer.php";
 ?>
