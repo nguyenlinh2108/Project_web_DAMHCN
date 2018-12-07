@@ -38,6 +38,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="./public/css/login.css">
+    <link href="./../public/images/three-pods-shortcut-logo.png" rel="shortcut icon">
     <!--===============================================================================================-->
     <script src="./public/js/login.js"></script>
     <script src="./public/js/jquery.min.js"></script>
