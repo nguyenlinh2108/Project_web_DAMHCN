@@ -45,7 +45,7 @@ $db = db::getInstance();
             <h3>Thêm mới phương thức thanh toán</h3>
             <div class="form-group">
                 <label>Tên</label>
-                <input type="text" name="name" value="<?php if (isset($name)) echo $name; ?>" class="form-control"
+                <input id="name" type="text" name="name" value="<?php if (isset($name)) echo $name; ?>" class="form-control"
                        placeholder="Tên phương thức thanh toán">
                 <?php
                 if (isset($errors) && in_array('name',$errors)) {
@@ -53,8 +53,24 @@ $db = db::getInstance();
                 }
                 ?>
             </div>
-            <input type="submit" name="submit" class="btn btn-primary" value="Thêm">
+            <input id="submit" type="submit" name="submit" class="btn btn-primary" value="Thêm">
         </form>
+        <script>
+            $(document).ready(function () {
+                $("#submit").click(function (event) {
+                    event.preventDefault();
+
+                    var newName = $('#name').val().trim();
+
+                    if (newName === "") {
+                        alert("Không thể để trống");
+                        return;
+                    }
+                    $("#submit").submit();
+
+                });
+            });
+        </script>
     </div>
 </div>
 <?php require_once __DIR__ . "/includes/footer.php"; ?>
