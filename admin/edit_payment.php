@@ -46,16 +46,38 @@ $db = db::getInstance();
             <h3>Sửa phương thức thanh toán</h3>
             <div class="form-group">
                 <label>Tên</label>
-                <input type="text" name="ten" value="<?php if (isset($name)) echo $name; ?>" class="form-control"
-                       placeholder="Tên phương thức thanh toán">
+                <input id="name" type="text" name="ten" value="<?php if (isset($name)) echo $name; ?>"
+                       class="form-control" placeholder="Tên phương thức thanh toán">
                 <?php
                 if (isset($errors['name'])) {
                     echo "<p>Bạn chưa nhập tên!</p>";
                 }
                 ?>
             </div>
-            <input type="submit" name="submit" class="btn btn-primary" value="Sửa">
+            <input id="submit" type="submit" name="submit" class="btn btn-primary" value="Sửa">
         </form>
+        <script>
+            $(document).ready(function () {
+                var oldName = $('#name').val();//Giá trị payment trước khi sửa đỗi
+
+                $("#submit").click(function (event) {
+                    event.preventDefault();
+
+                    var newName = $('#name').val().trim();
+
+                    if (newName === "") {
+                        alert("Không thể để trống");
+                        return;
+                    }
+                    else if (newName === oldName) {
+                        alert("Bạn chưa sửa gì");
+                        return;
+                    }
+                    $("#submit").submit();
+
+                });
+            });
+        </script>
     </div>
 </div>
 <?php
