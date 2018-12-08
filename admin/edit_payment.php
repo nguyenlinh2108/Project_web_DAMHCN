@@ -36,7 +36,7 @@ $db = db::getInstance();
             } else {
                 if($_POST['name'] === $name){
                     echo "<p class='alert alert-danger'>Bạn chưa sửa gì.</p>";
-                } else if ($db->update("payment", ["name" => $name], "id = {$id}")) {
+                } else if ($db->update("payment", ["name" => $_POST['name']], "id = {$id}")) {
                     echo "<p class='alert alert-success' ;>Sửa thành công.</p>";
                 } else {
                     echo "<p class='alert alert-danger'>Sửa thất bại.</p>";
