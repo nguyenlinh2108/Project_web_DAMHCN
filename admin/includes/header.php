@@ -87,7 +87,7 @@ require_once __DIR__ . "/../config/config.php";
             </li>
         </ul>
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-        <?php include 'includes/slidebar.php'; ?>
+        <?php require_once __DIR__ . "/../includes/slidebar.php"; ?>
         <!-- /.navbar-collapse -->
     </nav>
 
