@@ -28,7 +28,7 @@ $db = db::getInstance();
             header('Location: list_payment.php');
             exit();
         }
-        if ($_SERVER['REQUEST_METHOD']=='POST') {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors = array();
             if (empty($_POST['name'])) {
                 $errors[] = 'name';
@@ -49,7 +49,7 @@ $db = db::getInstance();
             <h3>Sửa phương thức thanh toán</h3>
             <div class="form-group">
                 <label>Tên</label>
-                <input id="name" type="text" name="ten" value="<?php if (isset($name)) echo $name; ?>"
+                <input id="name" type="text" name="name" value="<?php if (isset($name)) echo $name; ?>"
                        class="form-control" placeholder="Tên phương thức thanh toán">
                 <?php
                 if (isset($errors['name'])) {
@@ -57,13 +57,13 @@ $db = db::getInstance();
                 }
                 ?>
             </div>
-            <input id="submit" type="submit" name="btnSubmit" class="btn btn-primary" value="Sửa">
+            <input type="submit" name="btnSubmit" class="btn btn-primary" value="Sửa">
         </form>
         <script>
             $(document).ready(function () {
                 var oldName = $('#name').val();//Giá trị payment trước khi sửa đỗi
 
-                $("#submit").click(function (event) {
+                $("#frmedit_payment input[name='btnSubmit']").click(function (event) {
                     event.preventDefault();
 
                     var newName = $('#name').val().trim();
@@ -76,6 +76,7 @@ $db = db::getInstance();
                         alert("Bạn chưa sửa gì");
                         return;
                     }
+
                     $("#frmedit_payment").submit();
 
                 });
