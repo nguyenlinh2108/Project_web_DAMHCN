@@ -9,7 +9,7 @@ if ($db->select("SELECT * FROM type_product")) {
 }
 
 if ($db->select("SELECT * FROM unit")) {
-    $units = $db->getResult();//Danh sách các loại sản phẩm
+    $units = $db->getResult();//Danh sách các đơn vị sản phẩm
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
