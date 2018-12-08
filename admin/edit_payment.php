@@ -21,12 +21,14 @@ $db = db::getInstance();
                 $name = $db->getResult()->name;
             } else {
                 //Không có bản ghi nào có id như vậy
+                header('Location: list_payment.php');
+                exit();
             }
         } else {
             header('Location: list_payment.php');
             exit();
         }
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($_SERVER['REQUEST_METHOD']=='POST') {
             $errors = array();
             if (empty($_POST['name'])) {
                 $errors[] = 'name';
@@ -35,6 +37,7 @@ $db = db::getInstance();
                 $name = $_POST['name'];
                 if ($db->update("payment", ["name" => $name], "id = {$id}")) {
                     echo "<p>Sửa thành công.</p>";
+
                 } else {
                     echo "<p>Bạn chưa sửa gì.</p>";
                 }
@@ -46,7 +49,7 @@ $db = db::getInstance();
             <h3>Sửa phương thức thanh toán</h3>
             <div class="form-group">
                 <label>Tên</label>
-                <input type="text" name="ten" value="<?php if (isset($name)) echo $name; ?>" class="form-control"
+                <input type="text" name="name" value="<?php if (isset($name)) echo $name; ?>" class="form-control"
                        placeholder="Tên phương thức thanh toán">
                 <?php
                 if (isset($errors['name'])) {
