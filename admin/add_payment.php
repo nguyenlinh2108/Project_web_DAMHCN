@@ -35,7 +35,7 @@ $db = db::getInstance();
             }
         }
         ?>
-        <form action="" method="POST" name="frmadd_payment" id="frmadd_payment">
+        <form method="POST" name="frmadd_payment" id="frmadd_payment">
             <?php
             if (isset($message)) {
                 echo $message;
@@ -56,7 +56,7 @@ $db = db::getInstance();
         </form>
         <script>
            $(document).ready(function () {
-                $("#frmadd_payment input[type='submit']").click(function (event) {
+                $("#frmadd_payment input[name='btnSubmit']").click(function (event) {
                     event.preventDefault();
 
                     var newName = $('#name').val().trim();
