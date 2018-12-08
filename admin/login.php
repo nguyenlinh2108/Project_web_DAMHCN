@@ -20,7 +20,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     if ($auth->login()) {
         $_SESSION['login']['success'] = true;
         $_SESSION['login']['id'] = $auth->id;
-        header("location:/admin/index.php");
+        header("location: " . (isset($_GET['continue']) ? $_GET['continue'] : "/admin/index.php"));
     } else {
         $_SESSION['login']['success'] = false;
         $_SESSION['login']['error_message'] = "Sai email hoặc mật khẩu";
@@ -54,7 +54,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                 if($_SESSION['login']['success'] === false){
                     echo "<div style='color: #a94442;background-color: #f2dede;border-color: #ebccd1;padding: 15px;margin-bottom: 20px;   border: 1px solid transparent;'>" . $_SESSION['login']['error_message'] . "</div>";
                 } else {
-                    header("location:/admin/index.php");
+                    header("location: " . (isset($_GET['continue']) ? $_GET['continue'] : "/admin/index.php"));
                 }
             }
             ?>
