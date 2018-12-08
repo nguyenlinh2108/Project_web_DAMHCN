@@ -16,24 +16,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $name = trim($_POST['name']);
         if($db->select_one("SELECT * FROM payment WHERE name = '" . db::validSql($name) . "'")){
-            $message = "<p class='alert alert-danger'>Thêm mới không thành công! Tên $name đã tồn tại!</p>";
+            $message = "<p class='alert alert-danger message'>Thêm mới không thành công! Tên $name đã tồn tại!</p>";
         }
         else if ($db->insert("payment", ['name' => $name])) {
-            $message = "<p class='alert alert-success'>Thêm mới thành công phương thức thanh toán $name</p>";
+            $message = "<p class='alert alert-success message'>Thêm mới thành công phương thức thanh toán $name</p>";
         } else {
-            $message = "<p class='alert alert-danger'>Thêm mới thất bại</p>";
+            $message = "<p class='alert alert-danger message'>Thêm mới thất bại</p>";
         }
     }
 }
 ?>
 <div class="row">
     <div class="col-lg-12 col-sm-12 col-xs-12 col-sm-12">
-        <?php if(isset($message)) echo $message ?>
+        <div id="message">
+            <?php if(isset($message)) echo $message ?>
+        </div>
         <form method="POST" name="frmadd_payment" id="frmadd_payment">
             <h3>Thêm mới phương thức thanh toán</h3>
             <div class="form-group">
                 <label>Tên</label>
                 <input id="name" type="text" name="name" class="form-control" placeholder="Tên phương thức thanh toán">
+                <div id="name-message"></div>
             </div>
             <input type="submit" name="btnSubmit" class="btn btn-primary" value="Thêm">
         </form>
@@ -42,12 +45,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $("#frmadd_payment input[name='btnSubmit']").click(function (event) {
                     event.preventDefault();
 
-                    var newName = $('#name').val().trim();
+                    var newName = $('#name').val().trim();//Lấy giá trị input name
 
                     if (newName === "") {
-                        alert("Không thể để trống");
+                        $('.message').remove();
+                        $('#name-message').append("<p class='alert alert-danger'>Không thể để trống</p>");
                         return;
                     }
+
 
                     $('#frmadd_payment').submit();
                 });
