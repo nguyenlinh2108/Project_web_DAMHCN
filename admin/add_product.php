@@ -158,22 +158,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <script>
                 $(document).ready(function () {
-                    $("#form_product input[name='btnSubmit']").click(function (event) {
+                    $("#form_product input[name='btnSubmit']").click(function (event) {//bắt sự kiện click vào nút thêm mới
 
-                        event.preventDefault();
+                        event.preventDefault();//ngăn tự động submit form
 
-                        var isValidInput = true;
+                        var isValidInput = true;//biến kiểm tra xem các input có hợp lệ không
+                        //Duyệt qua tất cả các input của form
                         $("#form_product .form-group:has(input[type='text'])").not( $(".form-group:has(.selectpicker)")).each(function () {
 
-                                let input = $(this).find("input[type='text']");
-                                let label = $(this).find("label").text();
+                                let input = $(this).find("input[type='text']");//Giá trị input
+                                let label = $(this).find("label").text();//Nhãn (nằm trong thẻ label)
 
-                                if (typeof input.val() === "string") {
-                                    $(this).find(".message").remove();
-                                    if (input.val() == null || input.val().trim() === "") {
+                                if (typeof input.val() === "string") {//Nếu trường input là string (text)
+                                    $(this).find(".message").remove();//Xóa hết tất cả các thông báo trước
+                                    if (input.val() == null || input.val().trim() === "") {//Nếu giá trị input rỗng
                                         isValidInput = false;
                                         $(this).append("<p class='alert alert-danger message'>Không thể để trống trường " + label + "</p>");
                                     } else if ((label === "Giá" || label === "Số lượng" || label === "Giá khuyến mãi") && !isUnsignedNumber(input.val())) {
+                                        //Kiểm tra xem giá trị input có là số không đối với các nhãn Giá, Số lượng và Giá khuyến mãi
                                         isValidInput = false;
                                         $(this).append("<p class='alert alert-danger message'>Bạn phải nhập " + label + " là số</p>");
                                     }
@@ -181,15 +183,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         });
 
+                        //Duyệt qua các trường select (có thể chọn giá trị option đó)
                         $("#form_product .form-group:has(.selectpicker)").each(function () {
-                            let selectpicker = $(this).find(".selectpicker").selectpicker('val');
-                            $(this).find("input").attr("value", selectpicker);
+                            let selectpicker = $(this).find(".selectpicker").selectpicker('val');//Lấy giá trị đang được chọn
+                            $(this).find("input").attr("value", selectpicker);//Truyền vào trường input
                         });
 
+                        //Nếu các trường input hợp lệ thì submit form
                         if (isValidInput) $('#form_product').submit();
                     });
                 });
 
+
+                //Hàm kiểm tra xem 1 chuỗi có phải là 1 số không âm không
                 function isUnsignedNumber(str) {
                     return /^\d+$/.test(str);
                 }
