@@ -12,9 +12,12 @@ if (isset($_SESSION['login']['success']) && $_SESSION['login']['success']) {
     unset($_SESSION['login']);
     header("location:/admin/login.php");
 }
+
+require_once __DIR__ . "/../config/config.php";
+
 ?>
 
-<?php include('config/config.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
