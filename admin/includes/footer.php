@@ -6,7 +6,7 @@
         <!-- /#page-wrapper -->
         
  <div id="footer">
-            <p>Bản quyền thuộc về tungvu90@gmail.com</p>
+            <p>Bản quyền thuộc về THE PODS</p>
         </div>
     </div>
     <!-- /#wrapper -->

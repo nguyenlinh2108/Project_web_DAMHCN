@@ -21,12 +21,14 @@ $db = db::getInstance();
                 $name = $db->getResult()->name;
             } else {
                 //Không có bản ghi nào có id như vậy
+                header('Location: list_payment.php');
+                exit();
             }
         } else {
             header('Location: list_payment.php');
             exit();
         }
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($_SERVER['REQUEST_METHOD']=='POST') {
             $errors = array();
             if (empty($_POST['name'])) {
                 $errors[] = 'name';
@@ -35,6 +37,7 @@ $db = db::getInstance();
                 $name = $_POST['name'];
                 if ($db->update("payment", ["name" => $name], "id = {$id}")) {
                     echo "<p>Sửa thành công.</p>";
+
                 } else {
                     echo "<p>Bạn chưa sửa gì.</p>";
                 }
