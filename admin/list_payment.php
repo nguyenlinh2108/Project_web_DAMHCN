@@ -28,7 +28,7 @@ require_once  __DIR__ . "/../db/db.php";
             <?php
             $db = db::getInstance();
             //đặt số bản ghi cần hiện thị
-            $limit=1;
+            $limit=10;
             //Xác định vị trí bắt đầu
             if(isset($_GET['s']) && filter_var($_GET['s'],FILTER_VALIDATE_INT,array('min_range'=>1)))
             {
