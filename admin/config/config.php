@@ -45,8 +45,8 @@
 		'Type_product'	=> array(
 		'title'	=>	'Quản lý loại sản phẩm',
 		'link_themmoi'	=>	'add_tyoe_product.php',
-		'link_list'	=>	'list_tyoe_product.php',
-		'link_edit'	=>	'edit_tyoe_product.php',
+		'link_list'	=>	'list_type_product.php',
+		'link_edit'	=>	'edit_type_product.php',
 		'link_delete'	=>	'delete_tyoe_product.php'
 		),
 		'Slide'	=> array(
