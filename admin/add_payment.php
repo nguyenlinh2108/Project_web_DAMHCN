@@ -23,20 +23,19 @@ $db = db::getInstance();
             $errors = array();
             if (empty($_POST['name'])) {
                 $errors[] = 'name';
-                $message = "<p class='required'>Bạn hãy nhập đầy đủ thông tin</p>";
+                $message = "<p class='alert alert-danger'>Bạn hãy nhập đầy đủ thông tin</p>";
             } else {
-
                 $name = $_POST['name'];
                 if ($db->insert("payment", ['name' => $name])) {
-                    echo "<p style='color:green';>Thêm mới thành công</p>";
+                    echo "<p class='alert alert-success'>Thêm mới thành công</p>";
                     $name = '';
                 } else {
-                    echo "<p class='required'>Thêm mới không thành công! Tên này đã tồn tại!</p>";
+                    echo "<p class='alert alert-danger'>Thêm mới không thành công! Tên này đã tồn tại!</p>";
                 }
             }
         }
         ?>
-        <form method="POST" name="frmadd_payment">
+        <form method="POST" name="frmadd_payment" id="frmadd_payment">
             <?php
             if (isset($message)) {
                 echo $message;
@@ -45,7 +44,7 @@ $db = db::getInstance();
             <h3>Thêm mới phương thức thanh toán</h3>
             <div class="form-group">
                 <label>Tên</label>
-                <input type="text" name="name" value="<?php if (isset($name)) echo $name; ?>" class="form-control"
+                <input id="name" type="text" name="name" value="<?php if (isset($name)) echo $name; ?>" class="form-control"
                        placeholder="Tên phương thức thanh toán">
                 <?php
                 if (isset($errors) && in_array('name',$errors)) {
@@ -53,8 +52,24 @@ $db = db::getInstance();
                 }
                 ?>
             </div>
-            <input type="submit" name="submit" class="btn btn-primary" value="Thêm">
+            <input type="submit" name="btnSubmit" class="btn btn-primary" value="Thêm">
         </form>
+        <script>
+           $(document).ready(function () {
+                $("#frmadd_payment input[name='btnSubmit']").click(function (event) {
+                    event.preventDefault();
+
+                    var newName = $('#name').val().trim();
+
+                    if (newName === "") {
+                        alert("Không thể để trống");
+                        return;
+                    }
+
+                    $('#frmadd_payment').submit();
+                });
+            });
+        </script>
     </div>
 </div>
 <?php require_once __DIR__ . "/includes/footer.php"; ?>
