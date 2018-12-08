@@ -23,20 +23,19 @@ $db = db::getInstance();
             $errors = array();
             if (empty($_POST['name'])) {
                 $errors[] = 'name';
-                $message = "<p class='required'>Bạn hãy nhập đầy đủ thông tin</p>";
+                $message = "<p class='alert alert-danger'>Bạn hãy nhập đầy đủ thông tin</p>";
             } else {
-
                 $name = $_POST['name'];
                 if ($db->insert("payment", ['name' => $name])) {
-                    echo "<p style='color:green';>Thêm mới thành công</p>";
+                    echo "<p class='alert alert-success'>Thêm mới thành công</p>";
                     $name = '';
                 } else {
-                    echo "<p class='required'>Thêm mới không thành công! Tên này đã tồn tại!</p>";
+                    echo "<p class='alert alert-danger'>Thêm mới không thành công! Tên này đã tồn tại!</p>";
                 }
             }
         }
         ?>
-        <form method="POST" name="frmadd_payment">
+        <form action="" method="POST" name="frmadd_payment" id="frmadd_payment">
             <?php
             if (isset($message)) {
                 echo $message;
@@ -53,11 +52,11 @@ $db = db::getInstance();
                 }
                 ?>
             </div>
-            <input id="submit" type="submit" name="submit" class="btn btn-primary" value="Thêm">
+            <input type="submit" name="btnSubmit" class="btn btn-primary" value="Thêm">
         </form>
         <script>
-            $(document).ready(function () {
-                $("#submit").click(function (event) {
+           $(document).ready(function () {
+                $("#frmadd_payment input[type='submit']").click(function (event) {
                     event.preventDefault();
 
                     var newName = $('#name').val().trim();
@@ -66,8 +65,8 @@ $db = db::getInstance();
                         alert("Không thể để trống");
                         return;
                     }
-                    $("#submit").submit();
 
+                    $('#frmadd_payment').submit();
                 });
             });
         </script>

@@ -44,7 +44,7 @@ $db = db::getInstance();
             }
         }
         ?>
-        <form method="POST" name="frmedit_payment">
+        <form method="POST" name="frmedit_payment" id="frmedit_payment">
 
             <h3>Sửa phương thức thanh toán</h3>
             <div class="form-group">
@@ -57,7 +57,7 @@ $db = db::getInstance();
                 }
                 ?>
             </div>
-            <input id="submit" type="submit" name="submit" class="btn btn-primary" value="Sửa">
+            <input id="submit" type="submit" name="btnSubmit" class="btn btn-primary" value="Sửa">
         </form>
         <script>
             $(document).ready(function () {
@@ -76,7 +76,7 @@ $db = db::getInstance();
                         alert("Bạn chưa sửa gì");
                         return;
                     }
-                    $("#submit").submit();
+                    $("#frmedit_payment").submit();
 
                 });
             });
