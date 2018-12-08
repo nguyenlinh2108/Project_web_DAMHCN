@@ -1,20 +1,23 @@
 <?php
 session_start();
+require_once __DIR__ . "/../config/config.php";
+require_once __DIR__ . "/../class/admin.php";
 
 if (isset($_SESSION['login']['success']) && $_SESSION['login']['success']) {
-    require_once __DIR__ . "/../class/admin.php";
     $id = $_SESSION['login']['id'];
-
     $admin = new admin($id);
-
-
 } else {
     unset($_SESSION['login']);
-    header("location:/admin/login.php");
+    header("location:/admin/login.php?continue=" . urlencode(curentUrl()));
 }
 
-require_once __DIR__ . "/../config/config.php";
-
+function curentUrl()
+{
+    $local_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    $local_url = preg_replace("/(\/*)$/", "", $local_url);
+    // $local_url = explode("?", $local_url)[0];
+    return $local_url;
+}
 ?>
 
 
@@ -71,7 +74,8 @@ require_once __DIR__ . "/../config/config.php";
 
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Xin chào:&nbsp;<?=$admin->name?> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Xin
+                    chào:&nbsp;<?= $admin->name ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>

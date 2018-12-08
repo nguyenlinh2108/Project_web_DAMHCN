@@ -7,7 +7,7 @@
 session_start();
 
 if(isset($_SESSION['login']['success']) && $_SESSION['login']['success']){
-    header("location:/admin/index.php");
+    header("location: " . (isset($_GET['continue']) ? $_GET['continue'] : "/admin/index.php"));
     return ;
 }
 
