@@ -36,23 +36,22 @@ $db = db::getInstance();
             if (isset($_GET['p']) && filter_var($_GET['p'], FILTER_VALIDATE_INT, array('min_range' => 1))) {
                 $per_page = $_GET['p'];
             } else {
-                if ($db->select_one("SELECT count(id) FROM bill_detail")) {
-                    $total = $db->getResult()->{'count(id)'};
+                if ($db->select_one("SELECT count(id) as total FROM bill_detail")) {
+                    $total = $db->getResult()->total;
                     $per_page = ceil(intval($total) / $limit);
                 } else {
                     $per_page = 1;
                 }
             }
-            $query = "SELECT id, id_bill, id_product, quanity, price
-                        FROM bill_detail ORDER BY id ASC LIMIT {$start},{$limit}";
-            if ($db->select($query)) {
+            if ($db->select("SELECT id, id_bill, id_product, quantity, price
+                        FROM bill_detail ORDER BY id ASC LIMIT {$start},{$limit}")) {
                 foreach ($db->getResult() as $obj) {
                     ?>
                     <tr>
                         <td><?php echo $obj->id; ?></td>
                         <td><?php echo $obj->id_bill; ?></td>
                         <td><?php echo $obj->id_product; ?></td>
-                        <td><?php echo $obj->quanity; ?></td>
+                        <td><?php echo $obj->quantity; ?></td>
                         <td><?php echo $obj->price; ?></td>
                         <td><a href="edit_bill_detail.php?id=<?php echo $obj->id ?>"><img width="16px" src="../public/images/icon_edit.png"></a>
                         </td>
