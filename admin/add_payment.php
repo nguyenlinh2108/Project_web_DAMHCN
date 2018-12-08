@@ -9,53 +9,36 @@ require_once __DIR__ . "/includes/header.php";
 require_once __DIR__ . "/../db/db.php";
 
 $db = db::getInstance();
-?>
-<style type="text/css">
-    .required
-    {
-        color:red;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (empty($_POST['name'])) {
+        $message = "<p class='alert alert-danger'>Bạn hãy nhập đầy đủ thông tin</p>";
+    } else {
+        $name = trim($_POST['name']);
+        if($db->select_one("SELECT * FROM payment WHERE name = '" . db::validSql($name) . "'")){
+            $message = "<p class='alert alert-danger'>Thêm mới không thành công! Tên $name đã tồn tại!</p>";
+        }
+        else if ($db->insert("payment", ['name' => $name])) {
+            $message = "<p class='alert alert-success'>Thêm mới thành công phương thức thanh toán $name</p>";
+        } else {
+            $message = "<p class='alert alert-danger'>Thêm mới thất bại</p>";
+        }
     }
-</style>
+}
+?>
 <div class="row">
     <div class="col-lg-12 col-sm-12 col-xs-12 col-sm-12">
-        <?php
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $errors = array();
-            if (empty($_POST['name'])) {
-                $errors[] = 'name';
-                $message = "<p class='alert alert-danger'>Bạn hãy nhập đầy đủ thông tin</p>";
-            } else {
-                $name = $_POST['name'];
-                if ($db->insert("payment", ['name' => $name])) {
-                    echo "<p class='alert alert-success'>Thêm mới thành công</p>";
-                    $name = '';
-                } else {
-                    echo "<p class='alert alert-danger'>Thêm mới không thành công! Tên này đã tồn tại!</p>";
-                }
-            }
-        }
-        ?>
+        <?php if(isset($message)) echo $message ?>
         <form method="POST" name="frmadd_payment" id="frmadd_payment">
-            <?php
-            if (isset($message)) {
-                echo $message;
-            }
-            ?>
             <h3>Thêm mới phương thức thanh toán</h3>
             <div class="form-group">
                 <label>Tên</label>
-                <input id="name" type="text" name="name" value="<?php if (isset($name)) echo $name; ?>" class="form-control"
-                       placeholder="Tên phương thức thanh toán">
-                <?php
-                if (isset($errors) && in_array('name',$errors)) {
-                    echo "<p class='required'>Bạn chưa nhập tên!</p>";
-                }
-                ?>
+                <input id="name" type="text" name="name" class="form-control" placeholder="Tên phương thức thanh toán">
             </div>
             <input type="submit" name="btnSubmit" class="btn btn-primary" value="Thêm">
         </form>
         <script>
-           $(document).ready(function () {
+            $(document).ready(function () {
                 $("#frmadd_payment input[name='btnSubmit']").click(function (event) {
                     event.preventDefault();
 
