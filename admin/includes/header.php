@@ -41,15 +41,18 @@ function curentUrl()
     <!-- Custom CSS -->
     <link href="./public/css/sb-admin.css" rel="stylesheet">
 
+    <script src="./public/js/jquery.js"></script>
+    <script src="./public/js/bootstrap.min.js"></script>
+
     <!-- Custom Fonts -->
     <link href="./public/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-
-    <script src="./public/js/jquery.js"></script>
-    <script src="./public/js/bootstrap.js"></script>
-
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <!-- bootstrap-select https://developer.snapappointments.com/bootstrap-select/examples/ -->
+    <script src="./public/js/bootstrap-select.js"></script>
+    <link href="./public/css/bootstrap-select.min.css" rel="stylesheet">
 
 </head>
 
