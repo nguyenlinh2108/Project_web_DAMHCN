@@ -28,37 +28,61 @@ $db = db::getInstance();
             header('Location: list_payment.php');
             exit();
         }
-        if ($_SERVER['REQUEST_METHOD']=='POST') {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors = array();
             if (empty($_POST['name'])) {
                 $errors[] = 'name';
                 $message = "<p>Bạn hãy nhập đầy đủ thông tin!</p>";
             } else {
-                $name = $_POST['name'];
-                if ($db->update("payment", ["name" => $name], "id = {$id}")) {
-                    echo "<p>Sửa thành công.</p>";
-
+                if($_POST['name'] === $name){
+                    echo "<p class='alert alert-danger'>Bạn chưa sửa gì.</p>";
+                } else if ($db->update("payment", ["name" => $name], "id = {$id}")) {
+                    echo "<p class='alert alert-success' ;>Sửa thành công.</p>";
                 } else {
-                    echo "<p>Bạn chưa sửa gì.</p>";
+                    echo "<p class='alert alert-danger'>Sửa thất bại.</p>";
                 }
             }
         }
         ?>
-        <form method="POST" name="frmedit_payment">
+        <form method="POST" name="frmedit_payment" id="frmedit_payment">
 
             <h3>Sửa phương thức thanh toán</h3>
             <div class="form-group">
                 <label>Tên</label>
-                <input type="text" name="name" value="<?php if (isset($name)) echo $name; ?>" class="form-control"
-                       placeholder="Tên phương thức thanh toán">
+                <input id="name" type="text" name="name" value="<?php if (isset($name)) echo $name; ?>"
+                       class="form-control" placeholder="Tên phương thức thanh toán">
                 <?php
                 if (isset($errors['name'])) {
-                    echo "<p>Bạn chưa nhập tên!</p>";
+                    echo "<p class='alert alert-danger' >Bạn chưa nhập tên!</p>";
                 }
                 ?>
             </div>
-            <input type="submit" name="submit" class="btn btn-primary" value="Sửa">
+            <input type="submit" name="btnSubmit" class="btn btn-primary" value="Sửa">
+            <a href="list_payment.php" class="btn btn-primary" >Hủy</a>
         </form>
+        <script>
+            $(document).ready(function () {
+                var oldName = $('#name').val();//Giá trị payment trước khi sửa đỗi
+
+                $("#frmedit_payment input[name='btnSubmit']").click(function (event) {
+                    event.preventDefault();
+
+                    var newName = $('#name').val().trim();
+
+                    if (newName === "") {
+                        alert("Không thể để trống");
+                        return;
+                    }
+                    else if (newName === oldName) {
+                        alert("Bạn chưa sửa gì");
+                        return;
+                    }
+
+                    $("#frmedit_payment").submit();
+
+                });
+            });
+        </script>
     </div>
 </div>
 <?php
