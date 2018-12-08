@@ -30,12 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = "<p>Bạn hãy nhập đầy đủ thông tin!</p>";
     } else {
         if ($_POST['name'] === $name) {
-            $message = "<p class='alert alert-danger'>Bạn chưa sửa gì.</p>";
+            $message = "<p class='alert alert-danger message'>Bạn chưa sửa gì.</p>";
         } else if ($db->update("payment", ["name" => $_POST['name']], "id = {$id}")) {
             $name = $_POST['name'];
-            $message = "<p class='alert alert-success' ;>Sửa thành công.</p>";
+            $message = "<p class='alert alert-success message' ;>Sửa thành công.</p>";
         } else {
-            $message = "<p class='alert alert-danger'>Sửa thất bại.</p>";
+            $message = "<p class='alert alert-danger message'>Sửa thất bại.</p>";
         }
     }
 }
@@ -44,13 +44,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <div class="row">
     <div class="col-lg-12 col-sm-12 col-xs-12 col-sm-12">
-        <?php if (isset($message)) echo $message ?>
+        <div id="message">
+            <?php if (isset($message)) echo $message ?>
+        </div>
         <form method="POST" name="frmedit_payment" id="frmedit_payment">
             <h3>Sửa phương thức thanh toán</h3>
             <div class="form-group">
                 <label>Tên</label>
                 <input id="name" type="text" name="name" value="<?php if (isset($name)) echo $name; ?>"
                        class="form-control" placeholder="Tên phương thức thanh toán">
+                <div id="name-message"></div>
             </div>
             <input type="submit" name="btnSubmit" class="btn btn-primary" value="Sửa">
             <a href="list_payment.php" class="btn btn-primary">Hủy</a>
@@ -65,11 +68,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     var newName = $('#name').val().trim();
 
                     if (newName === "") {
-                        alert("Không thể để trống");
+                        $('.message').remove();//Lệnh này dùng để xóa toàn bộ các class message nhá
+                        $('#name-message').append("<p class='alert alert-danger message'>Không thể để trống</p>");
                         return;
                     }
                     else if (newName === oldName) {
-                        alert("Bạn chưa sửa gì");
+                        $('.message').remove();
+                        $('#message').append("<p class='alert alert-danger message'>Bạn chưa sửa gì</p>");
                         return;
                     }
 
