@@ -209,6 +209,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             let label = $(this).find("label").text();//Nhãn (nằm trong thẻ label)
                             let selectpicker = $(this).find(".selectpicker").selectpicker('val');//Lấy giá trị đang được chọn
                             if (selectpicker === "") {
+                                isValidInput = false;
                                 $(this).append("<p class='alert alert-danger message'>Bạn chưa chọn " + label + "</p>");
                             } else {
                                 $(this).find("input").attr("value", selectpicker);//Truyền vào trường input
