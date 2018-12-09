@@ -47,6 +47,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $message .= "<p class='alert alert-danger message'>Upload ảnh sản phẩm bị lỗi</p>";
     } else {
         $file_name = $_FILES['img']['name'];
+
+        // lấy phần mở rộng của file
+        //hàm substr là cắt file
+        //hàm strrpos là tìm vị trí xuất hiện cuối cùng của 1 chuỗi trong 1 chuỗi, trả về một số nguyên
         $file_type = substr($file_name, strrpos($file_name, "."));
         if (!in_array($file_type, [".jpg", ".png", ".jpeg", "jpe", "gif"])) {
             $message .= "<p class='alert alert-danger message'>File bạn upload lên không phải là ảnh</p>";
