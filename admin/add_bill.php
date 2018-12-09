@@ -15,6 +15,8 @@ if ($db->select("SELECT * FROM payment")) {
 if ($db->select("SELECT * FROM customer")) {
     $customers = $db->getResult();
 }
+//Danh sách các trạng thái hợp lệ
+$status_array = ['chưa thanh toán','hủy','đang chờ','đang giao hàng','đã thanh toán'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $message = "";
@@ -34,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     if (!isset($_POST['status'])) {
         $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu trạng thái</p>";
-    } else if (!is_numeric($_POST['status'])) {
-        $message .= "<p class='alert alert-danger message'>Trạng thái phải là số</p>";
+    } else if (!in_array($_POST['status'], $status_array)) {
+        $message .= "<p class='alert alert-danger message'>Trạng thái không hợp lệ</p>";
     }
 
     if ($message === "") {
@@ -74,12 +76,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     ?>
                     <div class="form-group">
                         <label>Mã khách hàng</label>
-                        <input type="text" hidden name="customer" value="">
-                        <select id="select-customer" class="selectpicker show-tick" data-width="auto">
+                        <input type="text" hidden name="customer" value="" >
+                        <select id="select-customer" class="selectpicker show-tick" data-width="auto" title="Chọn một khách hàng">
                             <?php
                             foreach ($customers as $customer) {
                                 ?>
-                                <option value="<?= $customer->id ?>"><?= $customer->name ?></option>
+                                <option value="<?= $customer->id ?>" <?php if(isset($_POST['customer']) && $_POST['customer'] === $customer->id) echo "selected" ?> ><?= $customer->name ?></option>
                                 <?php
                             }
                             ?>
@@ -95,11 +97,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="form-group">
                         <label>Phương thức thanh toán</label>
                         <input type="text" hidden name="payment" value="">
-                        <select id="select-payment" class="selectpicker show-tick" data-width="auto">
+                        <select id="select-payment" class="selectpicker show-tick" data-width="auto" title="Chọn một phương thức thanh toán">
                             <?php
                             foreach ($payments as $payment) {
                                 ?>
-                                <option value="<?= $payment->id ?>"><?= $payment->name ?></option>
+                                <option value="<?= $payment->id ?>" <?php if(isset($_POST['payment']) && $_POST['payment'] === $payment->id) echo "selected" ?> ><?= $payment->name ?></option>
                                 <?php
                             }
                             ?>
@@ -124,12 +126,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="form-group">
                     <label>Trạng thái</label>
                     <input type="text" hidden name="status" value="">
-                    <select id="select-status" class="selectpicker show-tick" data-width="auto">
-                        <option value="0">Chưa thanh toán</option>
-                        <option value="1">Hủy</option>
-                        <option value="2">Đang chờ</option>
-                        <option value="3">Đang giao hàng</option>
-                        <option value="4">Đã thanh toán</option>
+                    <select id="select-status" class="selectpicker show-tick" data-width="auto" title="Chọn trạng thái">
+                        <?php
+                        foreach ($status_array as $status){
+                            ?>
+                            <option value="<?= $status ?>" <?php if(isset($_POST['status']) && $_POST['status'] === $status) echo "selected"; ?>><?= ucfirst($status) ?></option>
+                            <?php
+                        }
+                        ?>
                     </select>
                 </div>
 
@@ -163,8 +167,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         //Duyệt qua các trường select (có thể chọn giá trị option đó)
                        $("#form_bill .form-group:has(.selectpicker)").each(function () {
+                           $(this).find(".message").remove();//Xóa hết tất cả các thông báo trước
+                           let label = $(this).find("label").text();//Nhãn (nằm trong thẻ label)
                             let selectpicker = $(this).find(".selectpicker").selectpicker('val');//Lấy giá trị đang được chọn
-                            $(this).find("input").attr("value", selectpicker);//Truyền vào trường input
+                           if (selectpicker === "") {
+                               isValidInput = false;
+                               $(this).append("<p class='alert alert-danger message'>Bạn chưa chọn " + label + "</p>");
+                           } else {
+                               $(this).find("input").attr("value", selectpicker);//Truyền vào trường input
+                           }
                         });
 
                         //Nếu các trường input hợp lệ thì submit form

@@ -16,13 +16,11 @@ class auth
     public $password;
     public $avatar;
 
-    private $isLoginWithGoogle = false;
-
     private $db;
 
-    public function getMD5Password()
+    public static function getMD5Password($password)
     {
-        return md5($this->password . ADMIN_SALT_PASSWORD);
+        return md5($password . ADMIN_SALT_PASSWORD);
     }
 
     /**
@@ -33,12 +31,7 @@ class auth
     public function __construct($email, $password = null)
     {
         $this->email = $email;
-
-        if ($password === null) {//login with google
-            $this->isLoginWithGoogle = true;
-        } else {
-            $this->password = $password;
-        }
+        $this->password = $password;
         $this->db = db::getInstance();
     }
 
@@ -46,15 +39,9 @@ class auth
     {
         if ($this->email === null || strlen($this->email) < 4) return false;
 
-        if ($this->isLoginWithGoogle) {
-            return $this->db->inodate("user",
-                ["email" => $this->email, "avatar" => $this->avatar],
-                "email = '" . db::validSql($this->email) . "''");
-        }
-
         if ($this->password === null || strlen($this->password) < 4) return false;
         return $this->db->inodate("user",
-            ["email" => $this->email, "password" => $this->getMD5Password(), "avatar" => $this->avatar],
+            ["email" => $this->email, "password" => self::getMD5Password($this->password), "avatar" => $this->avatar],
             "email = '" . db::validSql($this->email) . "''");
     }
 
@@ -65,11 +52,6 @@ class auth
         $sql = "SELECT * FROM user WHERE email like '" . db::validSql($this->email) . "'";
         if (!$this->db->select_one($sql)) return false;
         $result = $this->db->getResult();
-
-        if (!$this->isLoginWithGoogle) {//login with password
-            if ($this->password === null || strlen($this->password) < 4) return false;
-            if (!isset($result->password) || $result->password !== $this->getMD5Password()) return false;
-        }
 
         $this->id = $result->id;
         $this->email = $result->email;
