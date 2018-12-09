@@ -15,31 +15,31 @@ if ($db->select("SELECT * FROM unit")) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $message = "";
     if (empty($_POST['name'])) {
-        $message .= "<p class='alert alert-danger'>Bạn đã nhập thiếu tên sản phẩm</p>";
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu tên sản phẩm</p>";
     }
     if (empty($_POST['type'])) {
-        $message .= "<p class='alert alert-danger'>Bạn đã nhập thiếu loại sản phẩm</p>";
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu loại sản phẩm</p>";
     } else if (!is_numeric($_POST['type'])) {
-        $message .= "<p class='alert alert-danger'>Loại sản phẩm phải là số</p>";
+        $message .= "<p class='alert alert-danger message'>Loại sản phẩm phải là số</p>";
     }
     if (empty($_POST['description'])) {
-        $message .= "<p class='alert alert-danger'>Bạn đã nhập thiếu mô tả sản phẩm</p>";
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu mô tả sản phẩm</p>";
     }
     if (empty($_POST['unit_price'])) {
-        $message .= "<p class='alert alert-danger'>Bạn đã nhập thiếu giá sản phẩm</p>";
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu giá sản phẩm</p>";
     }
     else if (!is_numeric($_POST['unit_price'])) {
-        $message .= "<p class='alert alert-danger'>Giá sản phẩm phải là số</p>";
+        $message .= "<p class='alert alert-danger message'>Giá sản phẩm phải là số</p>";
     }
     if (empty($_POST['unit_id'])) {
-        $message .= "<p class='alert alert-danger'>Bạn đã nhập thiếu unit id sản phẩm</p>";
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu unit id sản phẩm</p>";
     } else if (!is_numeric($_POST['unit_id'])) {
-        $message .= "<p class='alert alert-danger'>unit id phải là số</p>";
+        $message .= "<p class='alert alert-danger message'>unit id phải là số</p>";
     }
     if (empty($_POST['promotion_price'])) {
-        $message .= "<p class='alert alert-danger'>Bạn đã nhập thiếu giá khuyến mãi của sản phẩm</p>";
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu giá khuyến mãi của sản phẩm</p>";
     } else if (!is_numeric($_POST['promotion_price'])) {
-        $message .= "<p class='alert alert-danger'>Giá khuyễn mãi phải là số</p>";
+        $message .= "<p class='alert alert-danger message'>Giá khuyễn mãi phải là số</p>";
     }
 
     if ($message === "") {
