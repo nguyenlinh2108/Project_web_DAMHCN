@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="form-group">
                         <label>Loại</label>
                         <input type="text" hidden name="type" value="">
-                        <select id="select-type" class="selectpicker show-tick" data-width="auto">
+                        <select id="select-type" class="selectpicker show-tick" data-width="auto" title="Chọn một loại">
                             <?php
                             foreach ($types as $type) {
                                 ?>
@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="form-group">
                         <label>Unit</label>
                         <input type="text" hidden name="unit_id" value="">
-                        <select id="select-unit" class="selectpicker show-tick" data-width="auto">
+                        <select id="select-unit" class="selectpicker show-tick" data-width="auto" title="Chọn một loại">
                             <?php
                             foreach ($units as $unit) {
                                 ?>
@@ -205,8 +205,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         //Duyệt qua các trường select (có thể chọn giá trị option đó)
                         $("#form_product .form-group:has(.selectpicker)").each(function () {
+                            $(this).find(".message").remove();//Xóa hết tất cả các thông báo trước
+                            let label = $(this).find("label").text();//Nhãn (nằm trong thẻ label)
                             let selectpicker = $(this).find(".selectpicker").selectpicker('val');//Lấy giá trị đang được chọn
-                            $(this).find("input").attr("value", selectpicker);//Truyền vào trường input
+                            if (selectpicker === "") {
+                                $(this).append("<p class='alert alert-danger message'>Bạn chưa chọn " + label + "</p>");
+                            } else {
+                                $(this).find("input").attr("value", selectpicker);//Truyền vào trường input
+                            }
                         });
 
                         //Kiểm tra input ảnh
