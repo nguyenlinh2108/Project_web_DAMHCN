@@ -77,8 +77,11 @@ function curentUrl()
 
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Xin
-                    chào:&nbsp;<?= $admin->name ?> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span><img style="border-radius: 50%;overflow: hidden;margin-left: -10px;height: 24px;width: 24px;display: inline;margin: 2px 6px 2px -8px;" src="/public/upload/<?= $admin->avatar ?>"></span>
+                    <span><?= $admin->name ?></span>
+                    <span><b class="caret"></b></span>
+                </a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
