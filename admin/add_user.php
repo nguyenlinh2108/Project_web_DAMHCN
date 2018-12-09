@@ -1,131 +1,98 @@
-<style type="text/css">
-.required
-{
-	color:red;
+<?php
+require_once __DIR__ . "/includes/header.php";
+require_once __DIR__ . "/../db/db.php";
+require_once __DIR__ . "/class/auth.php";
+
+$db = db::getInstance();
+
+$level_array = ['Quản trị viên', 'Biên tập viên'];
+$gender_array = ['Nam', 'Nữ', 'Khác'];
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $message = "";
+    if (!isset($_POST['name'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu tên</p>";
+    }
+    if (!isset($_POST['email'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu email</p>";
+    } else if (!strpos($_POST['email'], "@") || !strpos($_POST['email'], ".")) {//Email phải có ít nhất dấu $ và dấu .
+        $message .= "<p class='alert alert-danger message'>Email không hợp lệ</p>";
+    }
+    if (!isset($_POST['gender'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu giới tính</p>";
+    } else if (!in_array($_POST['gender'], $gender_array)) {
+        $message .= "<p class='alert alert-danger message'>Giới tính không hợp lệ</p>";
+    }
+    if (!isset($_POST['password'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu mật khẩu</p>";
+    } else if (!isset($_POST['repassword'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn đã chưa nhập lại mật khẩu</p>";
+    }  else if (strlen($_POST['repassword']) < 3) {
+        $message .= "<p class='alert alert-danger message'>Mật khẩu quá ngắn, ít nhất 3 ký tự</p>";
+    } else if ($_POST['password'] !== $_POST['repassword']) {
+        $message .= "<p class='alert alert-danger message'>Mật khẩu bạn nhập không khớp</p>";
+    }
+    if (!isset($_POST['phone'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn chưa nhập số điện thoại</p>";
+    } else if (!is_numeric($_POST['phone'])) {
+        $message .= "<p class='alert alert-danger message'>Số điện thoại không hợp lệ</p>";
+    }
+    if (!isset($_POST['address'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn chưa nhập địa chỉ</p>";
+    }
+    if (!isset($_POST['level'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn chưa chọn quyền</p>";
+    } else if (!in_array($_POST['level'], $level_array)) {
+        $message .= "<p class='alert alert-danger message'>Quyền bạn nhập không hợp lệ</p>";
+    }
+
+    if (!isset($_FILES['avatar'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn chưa upload ảnh đại diện</p>";
+    } else if ($_FILES['avatar']['error'] > 0) {
+        $message .= "<p class='alert alert-danger message'>Upload ảnh đại diện bị lỗi</p>";
+    } else {
+        $file_name = $_FILES['avatar']['name'];
+        $file_type = substr($file_name, strrpos($file_name, "."));
+        if (!in_array($file_type, [".jpg", ".png", ".jpeg", "jpe", "gif"])) {
+            $message .= "<p class='alert alert-danger message'>File bạn upload lên không phải là ảnh</p>";
+        } else {
+            $new_file_name = substr($file_name, 0, strrpos($file_name, ".")) . " " . date('d_m_Y H_i_s') . $file_type;
+            $new_file = __DIR__ . '/../public/upload/' . $new_file_name;
+            move_uploaded_file($_FILES['avatar']['tmp_name'], $new_file);
+            if (!file_exists($new_file)) {//Nếu file không tồn tại
+                $message .= "<p class='alert alert-danger message'>Upload ảnh đại diện bị lỗi</p>";
+            }
+        }
+
+    }
+
+    if ($message === "") {
+        if ($db->select_one("SELECT * FROM user WHERE email = '" . db::validSql($_POST['email'])
+            . "'")) {
+            $message .= "<p class='alert alert-danger'>Email đã tồn tại.</p>";
+        }else if ($db->select_one("SELECT * FROM user WHERE phone = '" . db::validSql($_POST['phone'])
+            . "'")) {
+            $message .= "<p class='alert alert-danger'>Số điện thoại đã tồn tại.</p>";
+        } else if ($db->insert("user", [
+            "name" => $_POST['name'],
+            "email" => $_POST['email'],
+            "gender" => $_POST['gender'],
+            "password" => auth::getMD5Password($_POST['password']),
+            "phone" => $_POST['phone'],
+            "address" => $_POST['address'],
+            "level" => $_POST['level'],
+            "avatar" => $new_file_name,
+        ])) {
+            $message .= "<p class='alert alert-success'>Thêm thành công user " . $_POST['name'] . "</p>";
+            unset($_POST);
+        } else $message .= "<p class='alert alert-danger'>Thêm thất bại</p>";
+    }
 }
-</style> 
-<script language="javascript">
-	function checkall(class_name,obj)
-	{
-		var items = document.getElementsByClassName(class_name);
-		if(obj.checked == true)
-		{
-			for(i=0;i<items.length;i++)
-				items[i].checked = true;
-		}
-		else
-		{
-			for(i=0;i<items.length;i++)
-				items[i].checked = false;	
-		}
-	}
-</script>
-<?php include('includes/header.php') ?>
+?>
+
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-		<?php 
-			include('../inc/myconnect.php');
-			include('../inc/function.php');
-			if($_SERVER['REQUEST_METHOD']=='POST')
-			{
-				$errors=array();
-				if(empty($_POST['taikhoan']))
-				{
-					$errors[]='taikhoan';
-				}
-				else
-				{
-					$taikhoan=$_POST['taikhoan'];
-				}
-				if(empty($_POST['matkhau']))
-				{
-					$errors[]='matkhau';
-				}
-				else
-				{
-					$matkhau=md5(trim($_POST['matkhau']));
-				}
-				if(trim($_POST['matkhau'])!=trim($_POST['matkhaure']))
-				{
-					$errors[]='matkhaure';	
-				}
-				if(empty($_POST['hoten']))
-				{
-					$errors[]='hoten';
-				}
-				else
-				{
-					$hoten=$_POST['hoten'];
-				}
-				if(empty($_POST['dienthoai']))
-				{
-					$errors[]='dienthoai';
-				}
-				else
-				{
-					$dienthoai=$_POST['dienthoai'];
-				}
-				if(filter_var(($_POST['email']),FILTER_VALIDATE_EMAIL)==TRUE)
-				{
-					$email=mysqli_real_escape_string($dbc,$_POST['email']);
-				}
-				else
-				{
-					$errors[]='email';
-				}
-				if(empty($_POST['diachi']))
-				{
-					$errors[]='diachi';
-				}
-				else
-				{
-					$diachi=$_POST['diachi'];
-				}
-				$status=$_POST['status'];
-				if(empty($errors))
-				{
-					$query="SELECT taikhoan FROM tbluser WHERE taikhoan='{$taikhoan}'";
-					$results=mysqli_query($dbc,$query);kt_query($results,$query);
-					$query2="SELECT email FROM tbluser WHERE email='{$email}'";
-					$results2=mysqli_query($dbc,$query2);kt_query($results2,$query2);
-					if(mysqli_num_rows($results)==1)
-					{
-						$message="<p class='required'>Tài khoản đã tồn tại, yêu cầu bạn nhập tài khoản khác</p>";
-					}
-					elseif(mysqli_num_rows($results2)==1)
-					{
-						$message="<p class='required'>Email đã tồn tại, yêu cầu bạn nhập email khác</p>";	
-					}
-					else
-					{
-						$chrole=$_POST['chrole'];
-						$countcheckrole=count($chrole);
-						$del_role='';
-						for ($i=0; $i < $countcheckrole; $i++) 
-						{ 
-							$del_role=$del_role.','.$chrole[$i];	
-						}						
-						$query_in="INSERT INTO tbluser(taikhoan,matkhau,hoten,dienthoai,email,diachi,role,status)
-						VALUES('{$taikhoan}','{$matkhau}','{$hoten}','{$dienthoai}','{$email}','{$diachi}','{$del_role}',{$status})";
-						$results_in=mysqli_query($dbc,$query_in);
-						kt_query($results_in,$query_in);
-						if(mysqli_affected_rows($dbc)==1)
-						{
-							echo "<p style='color:green;'>Thêm mới thành công</p>";
-						}
-						else
-						{
-							echo "<p class='required'>Thêm mới không thành công</p>";	
-						}
-					}
-				}
-				else
-				{
-					$message="<p class='required'>Bạn hãy nhập đầy đủ thông tin</p>";
-				}
-			}
-		?>
-		<form name="frmadd_user" method="POST">
+		<form name="frmadd_user" id="frmadd_user" method="POST" enctype="multipart/form-data">
 			<?php 
 				if(isset($message))
 				{
@@ -134,106 +101,166 @@
 			?>
 			<h3>Thêm mới User</h3>
 			<div class="form-group">
-				<label>Tài khoản</label>
-				<input type="text" name="taikhoan" value="<?php if(isset($_POST['taikhoan'])){ echo $_POST['taikhoan'];} ?>" class="form-control" placeholder="Tài khoản">				
-				<?php 
-					if(isset($errors) && in_array('taikhoan',$errors))
-					{
-						echo "<p class='required'>Tài khoản không để trống</p>";
-					}
-				?>
-			</div>	
-			<div class="form-group">
-				<label>Mật khẩu</label>
-				<input type="password" name="matkhau" value="" class="form-control" placeholder="">				
-				<?php 
-					if(isset($errors) && in_array('matkhau',$errors))
-					{
-						echo "<p class='required'>Mật khẩu không để trống</p>";
-					}
-				?>
-			</div>	
-			<div class="form-group">
-				<label>Xác nhận tật khẩu</label>
-				<input type="password" name="matkhaure" value="" class="form-control" placeholder="">				
-				<?php 
-					if(isset($errors) && in_array('matkhaure',$errors))
-					{
-						echo "<p class='required'>Mật khẩu không giống nhau</p>";
-					}
-				?>
-			</div>	
-			<div class="form-group">
-				<label>Họ tên</label>
-				<input type="text" name="hoten" value="<?php if(isset($_POST['hoten'])){ echo $_POST['hoten'];} ?>" class="form-control" placeholder="Họ tên">				
-				<?php 
-					if(isset($errors) && in_array('hoten',$errors))
-					{
-						echo "<p class='required'>Họ tên không để trống</p>";
-					}
-				?>
-			</div>	
-			<div class="form-group">
-				<label>Điện thoại</label>
-				<input type="text" name="dienthoai" value="<?php if(isset($_POST['dienthoai'])){ echo $_POST['dienthoai'];} ?>" class="form-control" placeholder="Điện thoại">				
-				<?php 
-					if(isset($errors) && in_array('dienthoai',$errors))
-					{
-						echo "<p class='required'>Điện thoại không để trống</p>";
-					}
-				?>
-			</div>	
-			<div class="form-group">
-				<label>Email</label>
-				<input type="text" name="email" value="<?php if(isset($_POST['email'])){ echo $_POST['email'];} ?>" class="form-control" placeholder="Email">				
-				<?php 
-					if(isset($errors) && in_array('email',$errors))
-					{
-						echo "<p class='required'>Email không hợp lệ</p>";
-					}
-				?>
-			</div>	
-			<div class="form-group">
-				<label>Địa chỉ</label>
-				<input type="text" name="diachi" value="<?php if(isset($_POST['diachi'])){ echo $_POST['diachi'];} ?>" class="form-control" placeholder="Địa chỉ">				
-				<?php 
-					if(isset($errors) && in_array('diachi',$errors))
-					{
-						echo "<p class='required'>Địa chỉ không để trống</p>";
-					}
-				?>
-			</div>	
-			<div class="form-group">
-				<label>Chọn quyền</label>
-				<div class="row">
-					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-						<input type="checkbox" name="chkfull" onclick="checkall('chrole', this)">
-						<label>Full quyền</label>
-					</div>
-				</div>
-				<div class="row">
-					<?php 
-						foreach ($mang as $mang_add) 
-						{
-						?>
-						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-							<div class="role_item">
-								<input type="checkbox" name="chrole[]" class="chrole" value="<?php echo $mang_add['title'].'-'.$mang_add['link_themmoi'].'-'.$mang_add['link_list'].'-'.$mang_add['link_edit'].'-'.$mang_add['link_delete']; ?>">
-								<label><?php echo $mang_add['title']; ?></label>
-							</div>
-						</div>
-						<?php
-						}
-					?>
-				</div>
-			</div>				
-			<div class="form-group">
-				<label style="display:block;">Trạng thái</label>
-				<label class="radio-inline"><input checked="checked" type="radio" name="status" value="1">Hiện thị</label>
-				<label class="radio-inline"><input type="radio" name="status" value="0">Không hiện thị</label>
+				<label>Tên</label>
+				<input type="text" name="name" value="<?php if(isset($_POST['name'])) echo $_POST['name']; ?>"
+                       class="form-control" placeholder="Tên">
 			</div>
-			<input type="submit" name="submit" class="btn btn-primary" value="Thêm mới">
+            <div class="form-group">
+				<label>Email</label>
+				<input type="text" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>"
+                       class="form-control" placeholder="Email">
+			</div>
+            <div class="form-group">
+                <label>Giới tính</label>
+                <input type="text" hidden name="gender" value="">
+                <select id="select-status" class="selectpicker show-tick" data-width="auto" title="Chọn giới tính">
+                    <?php
+                    foreach ($gender_array as $gender){
+                        ?>
+                        <option value="<?= $gender ?>" <?php if(isset($_POST['gender']) && $_POST['gender'] === $gender) echo "selected"; ?>><?= ucfirst($gender) ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+            </div>
+
+            <div class="form-group">
+				<label>Ảnh đại diện</label>
+                <input type="file" name="avatar" value="">
+			</div>
+            <div class="form-group" id="input-password">
+				<label>Mật khẩu</label>
+				<input type="password" name="password" value="<?php if(isset($_POST['password'])) echo $_POST['password']; ?>"
+                       class="form-control" placeholder="Mật khẩu">
+			</div>
+            <div class="form-group" id="input-repassword">
+				<label>Nhập lại mật khẩu</label>
+				<input type="password" name="repassword" value="<?php if(isset($_POST['repassword'])) echo $_POST['repassword']; ?>"
+                       class="form-control" placeholder="Nhập lại mật khẩu">
+			</div>
+            <div class="form-group">
+				<label>Số điện thoại</label>
+				<input type="text" name="phone" value="<?php if(isset($_POST['phone'])) echo $_POST['phone']; ?>"
+                       class="form-control" placeholder="Số điện thoại">
+			</div>
+            <div class="form-group">
+				<label>Địa chỉ</label>
+				<input type="text" name="address" value="<?php if(isset($_POST['address'])) echo $_POST['address']; ?>"
+                       class="form-control" placeholder="Địa chỉ">
+			</div>
+            <div class="form-group">
+                <label>Quyền</label>
+                <input type="text" hidden name="level" value="">
+                <select id="select-status" class="selectpicker show-tick" data-width="auto" title="Chọn quyền">
+                    <?php
+                    foreach ($level_array as $level){
+                        ?>
+                        <option value="<?= $level ?>" <?php if(isset($_POST['level']) && $_POST['level'] === $level) echo "selected"; ?>><?= ucfirst($level) ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+            </div>
+
+			<input type="submit" name="btnSubmit" class="btn btn-primary" value="Thêm mới">
 		</form>
+        <script>
+            $(document).ready(function () {
+                $("#frmadd_user input[name='btnSubmit']").click(function (event) {//bắt sự kiện click vào nút thêm mới
+                    event.preventDefault();//ngăn tự động submit form
+
+                    $(".message").remove();//Xóa hết tất cả các thông báo trước
+
+                    var isValidInput = true;//biến kiểm tra xem các input có hợp lệ không
+                    //Duyệt qua tất cả các input của form
+                    $("#frmadd_user .form-group:has(input[type='text'])").not( $(".form-group:has(.selectpicker)")).each(function () {
+
+                        let input = $(this).find("input[type='text']");//Giá trị input
+                        let label = $(this).find("label").text();//Nhãn (nằm trong thẻ label)
+
+                        if (typeof input.val() === "string") {//Nếu trường input là string (text)
+
+                            if (input.val() == null || input.val().trim() === "") {//Nếu giá trị input rỗng
+                                isValidInput = false;
+                                $(this).append("<p class='alert alert-danger message'>Không thể để trống trường " + label + "</p>");
+                            } else if (label === "Số điện thoại" && !isUnsignedNumber(input.val())) {
+                                //Kiểm tra xem giá trị input có là số không đối với các nhãn Số điện thoại
+                                isValidInput = false;
+                                $(this).append("<p class='alert alert-danger message'>Bạn phải nhập " + label + " là số</p>");
+                            } else if (label === "Email" && !isValidEmail(input.val())) {
+                                //Kiểm tra xem giá trị input có là email hợp lệ không đối với các nhãn Email
+                                isValidInput = false;
+                                $(this).append("<p class='alert alert-danger message'>Bạn phải nhập " + label + " hợp lệ</p>");
+                            }
+                        }
+
+                    });
+
+                    //Duyệt qua các trường select (có thể chọn giá trị option đó)
+                    $("#frmadd_user .form-group:has(.selectpicker)").each(function () {
+                        let label = $(this).find("label").text();//Nhãn (nằm trong thẻ label)
+                        let selectpicker = $(this).find(".selectpicker").selectpicker('val');//Lấy giá trị đang được chọn
+                        if (selectpicker === "") {
+                            isValidInput = false;
+                            $(this).append("<p class='alert alert-danger message'>Bạn chưa chọn " + label + "</p>");
+                        } else {
+                            $(this).find("input").attr("value", selectpicker);//Truyền vào trường input
+                        }
+                    });
+
+                    //Kiểm tra mật khẩu và nhập lại mật khẩu
+                    let inputPassword = $('#input-password');
+                    let pass =inputPassword.find("input").val();//Giá trị password người dùng nhập vào
+                    let inputRepassword = $('#input-repassword');
+                    let repass =inputRepassword.find("input").val();//Giá trị password nhập lại người dùng nhập vào
+                    if (pass === "") {
+                        isValidInput = false;
+                        inputPassword.append("<p class='alert alert-danger message'>Bạn chưa nhập mật khẩu</p>");
+                    } else if (pass.length < 3) {
+                        isValidInput = false;
+                        inputPassword.append("<p class='alert alert-danger message'>Mật khẩu quá ngắn, ít nhất 3 ký tự</p>");
+                    }
+                    else if (repass === "") {
+                        isValidInput = false;
+                        inputRepassword.append("<p class='alert alert-danger message'>Bạn chưa nhập lại mật khẩu</p>");
+                    } else if (pass !== repass) {
+                        isValidInput = false;
+                        inputRepassword.append("<p class='alert alert-danger message'>Mật khẩu nhập lại không khớp</p>");
+                    }
+
+                    //Kiểm tra input ảnh
+                    let inputFile = $('.form-group:has(input[type="file"])');
+                    let image = inputFile.find("input[type='file']").val();//Đường dẫn tới ảnh trên máy người dùng
+                    if (image === "") {
+                        isValidInput = false;
+                        inputFile.append("<p class='alert alert-danger message'>Bạn chưa chọn ảnh</p>");
+                    } else {
+                        let file_type = image.substr(image.lastIndexOf("."));//Phần mở rộng của file
+                        if (![".jpg", ".png", ".jpeg", "jpe", "gif"].includes(file_type)) {//Nếu không thuộc 1 trong số này thì không phải là ảnh
+                            isValidInput = false;
+                            inputFile.append("<p class='alert alert-danger message'>File bạn chọn không phải là ảnh</p>");
+                        }
+                    }
+
+                    //Nếu các trường input hợp lệ thì submit form
+                    if (isValidInput) {
+                        $('#frmadd_user').submit();
+                    }
+                });
+            });
+
+
+            //Hàm kiểm tra xem 1 chuỗi có phải là 1 số không âm không
+            function isUnsignedNumber(str) {
+                return /^\d+$/.test(str);
+            }
+
+            //Kiểm tra xem 1 chuỗi có phải là 1 địa chỉ email hợp lệ không
+            function isValidEmail(email) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(email).toLowerCase());
+            }
+        </script>
 	</div>
 </div>
-<?php include('includes/footer.php') ?>
+<?php require_once __DIR__. "/includes/footer.php" ?>
