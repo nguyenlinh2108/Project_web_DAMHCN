@@ -74,8 +74,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     ?>
                     <div class="form-group">
                         <label>Mã khách hàng</label>
-                        <input type="text" hidden name="customer" value="">
-                        <select id="select-customer" class="selectpicker show-tick" data-width="auto">
+                        <input type="text" hidden name="customer" value="" >
+                        <select id="select-customer" class="selectpicker show-tick" data-width="auto" title="Chọn một khách hàng">
                             <?php
                             foreach ($customers as $customer) {
                                 ?>
@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="form-group">
                         <label>Phương thức thanh toán</label>
                         <input type="text" hidden name="payment" value="">
-                        <select id="select-payment" class="selectpicker show-tick" data-width="auto">
+                        <select id="select-payment" class="selectpicker show-tick" data-width="auto" title="Chọn một phương thức thanh toán">
                             <?php
                             foreach ($payments as $payment) {
                                 ?>
@@ -124,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="form-group">
                     <label>Trạng thái</label>
                     <input type="text" hidden name="status" value="">
-                    <select id="select-status" class="selectpicker show-tick" data-width="auto">
+                    <select id="select-status" class="selectpicker show-tick" data-width="auto" title="Chọn trạng thái">
                         <option value="0">Chưa thanh toán</option>
                         <option value="1">Hủy</option>
                         <option value="2">Đang chờ</option>
@@ -163,8 +163,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         //Duyệt qua các trường select (có thể chọn giá trị option đó)
                        $("#form_bill .form-group:has(.selectpicker)").each(function () {
+                           $(this).find(".message").remove();//Xóa hết tất cả các thông báo trước
+                           let label = $(this).find("label").text();//Nhãn (nằm trong thẻ label)
                             let selectpicker = $(this).find(".selectpicker").selectpicker('val');//Lấy giá trị đang được chọn
-                            $(this).find("input").attr("value", selectpicker);//Truyền vào trường input
+                           if (selectpicker === "") {
+                               $(this).append("<p class='alert alert-danger message'>Bạn chưa chọn " + label + "</p>");
+                           } else {
+                               $(this).find("input").attr("value", selectpicker);//Truyền vào trường input
+                           }
                         });
 
                         //Nếu các trường input hợp lệ thì submit form
