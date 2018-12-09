@@ -27,8 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     if (!isset($_POST['unit_price'])) {
         $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu giá sản phẩm</p>";
-    }
-    else if (!is_numeric($_POST['unit_price'])) {
+    } else if (!is_numeric($_POST['unit_price'])) {
         $message .= "<p class='alert alert-danger message'>Giá sản phẩm phải là số</p>";
     }
     if (!isset($_POST['unit_id'])) {
@@ -40,6 +39,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu giá khuyến mãi của sản phẩm</p>";
     } else if (!is_numeric($_POST['promotion_price'])) {
         $message .= "<p class='alert alert-danger message'>Giá khuyễn mãi phải là số</p>";
+    }
+
+    if (!isset($_FILES['img'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn chưa upload ảnh sản phẩm</p>";
+    } else if ($_FILES['img']['error'] > 0) {
+        $message .= "<p class='alert alert-danger message'>Upload ảnh sản phẩm bị lỗi</p>";
+    } else {
+        $file_name = $_FILES['img']['name'];
+        $file_type = substr($file_name, strrpos($file_name, "."));
+        if (!in_array($file_type, [".jpg", ".png", ".jpeg", "jpe", "gif"])) {
+            $message .= "<p class='alert alert-danger message'>File bạn upload lên không phải là ảnh</p>";
+        } else {
+            $new_file_name = substr($file_name, 0, strrpos($file_name, ".")) . " " . date('d_m_Y H_i_s') . $file_type;
+            $new_file = __DIR__ . '/../public/upload/' . $new_file_name;
+            move_uploaded_file($_FILES['img']['tmp_name'], $new_file);
+            if (!file_exists($new_file)) {//Nếu file không tồn tại
+                $message .= "<p class='alert alert-danger message'>Upload ảnh sản phẩm bị lỗi</p>";
+            }
+        }
+
     }
 
     if ($message === "") {
@@ -55,8 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             "unit_id" => $_POST['unit_id'],
             "soluong" => $_POST['soluong'],
             "promotion_price" => $_POST['promotion_price'],
+            "image" => $new_file_name,
         ])) {
-            $message .= "<p class='alert alert-success'>Thêm thành công</p>";
+            $message .= "<p class='alert alert-success'>Thêm thành công sản phẩm " . $_POST['name'] . "</p>";
             unset($_POST);
         } else $message .= "<p class='alert alert-danger'>Thêm thất bại</p>";
     }
@@ -164,22 +184,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         var isValidInput = true;//biến kiểm tra xem các input có hợp lệ không
                         //Duyệt qua tất cả các input của form
-                        $("#form_product .form-group:has(input[type='text'])").not( $(".form-group:has(.selectpicker)")).each(function () {
+                        $("#form_product .form-group:has(input[type='text'])").not($(".form-group:has(.selectpicker)")).each(function () {
 
-                                let input = $(this).find("input[type='text']");//Giá trị input
-                                let label = $(this).find("label").text();//Nhãn (nằm trong thẻ label)
+                            let input = $(this).find("input[type='text']");//Giá trị input
+                            let label = $(this).find("label").text();//Nhãn (nằm trong thẻ label)
 
-                                if (typeof input.val() === "string") {//Nếu trường input là string (text)
-                                    $(this).find(".message").remove();//Xóa hết tất cả các thông báo trước
-                                    if (input.val() == null || input.val().trim() === "") {//Nếu giá trị input rỗng
-                                        isValidInput = false;
-                                        $(this).append("<p class='alert alert-danger message'>Không thể để trống trường " + label + "</p>");
-                                    } else if ((label === "Giá" || label === "Số lượng" || label === "Giá khuyến mãi") && !isUnsignedNumber(input.val())) {
-                                        //Kiểm tra xem giá trị input có là số không đối với các nhãn Giá, Số lượng và Giá khuyến mãi
-                                        isValidInput = false;
-                                        $(this).append("<p class='alert alert-danger message'>Bạn phải nhập " + label + " là số</p>");
-                                    }
+                            if (typeof input.val() === "string") {//Nếu trường input là string (text)
+                                $(this).find(".message").remove();//Xóa hết tất cả các thông báo trước
+                                if (input.val() == null || input.val().trim() === "") {//Nếu giá trị input rỗng
+                                    isValidInput = false;
+                                    $(this).append("<p class='alert alert-danger message'>Không thể để trống trường " + label + "</p>");
+                                } else if ((label === "Giá" || label === "Số lượng" || label === "Giá khuyến mãi") && !isUnsignedNumber(input.val())) {
+                                    //Kiểm tra xem giá trị input có là số không đối với các nhãn Giá, Số lượng và Giá khuyến mãi
+                                    isValidInput = false;
+                                    $(this).append("<p class='alert alert-danger message'>Bạn phải nhập " + label + " là số</p>");
                                 }
+                            }
 
                         });
 
@@ -189,11 +209,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             $(this).find("input").attr("value", selectpicker);//Truyền vào trường input
                         });
 
+                        //Kiểm tra input ảnh
+                        let inputFile = $('.form-group:has(input[type="file"])');
+                        inputFile.find(".message").remove();//Xóa hết tất cả các thông báo trước
+                        let image = inputFile.find("input[type='file']").val();//Đường dẫn tới ảnh trên máy người dùng
+                        if (image === "") {
+                            isValidInput = false;
+                            inputFile.append("<p class='alert alert-danger message'>Bạn chưa chọn ảnh</p>");
+                        } else {
+                            let file_type = image.substr(image.lastIndexOf("."));//Phần mở rộng của file
+                            if (![".jpg", ".png", ".jpeg", "jpe", "gif"].includes(file_type)) {//Nếu không thuộc 1 trong số này thì không phải là ảnh
+                                isValidInput = false;
+                                inputFile.append("<p class='alert alert-danger message'>File bạn chọn không phải là ảnh</p>");
+                            }
+                        }
+
                         //Nếu các trường input hợp lệ thì submit form
                         if (isValidInput) $('#form_product').submit();
                     });
                 });
-
 
                 //Hàm kiểm tra xem 1 chuỗi có phải là 1 số không âm không
                 function isUnsignedNumber(str) {
