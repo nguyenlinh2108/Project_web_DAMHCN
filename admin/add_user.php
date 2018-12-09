@@ -169,85 +169,94 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $("#frmadd_user input[name='btnSubmit']").click(function (event) {//bắt sự kiện click vào nút thêm mới
                     event.preventDefault();//ngăn tự động submit form
 
-                    $(".message").remove();//Xóa hết tất cả các thông báo trước
-
-                    var isValidInput = true;//biến kiểm tra xem các input có hợp lệ không
-                    //Duyệt qua tất cả các input của form
-                    $("#frmadd_user .form-group:has(input[type='text'])").not( $(".form-group:has(.selectpicker)")).each(function () {
-
-                        let input = $(this).find("input[type='text']");//Giá trị input
-                        let label = $(this).find("label").text();//Nhãn (nằm trong thẻ label)
-
-                        if (typeof input.val() === "string") {//Nếu trường input là string (text)
-
-                            if (input.val() == null || input.val().trim() === "") {//Nếu giá trị input rỗng
-                                isValidInput = false;
-                                $(this).append("<p class='alert alert-danger message'>Không thể để trống trường " + label + "</p>");
-                            } else if (label === "Số điện thoại" && !isUnsignedNumber(input.val())) {
-                                //Kiểm tra xem giá trị input có là số không đối với các nhãn Số điện thoại
-                                isValidInput = false;
-                                $(this).append("<p class='alert alert-danger message'>Bạn phải nhập " + label + " là số</p>");
-                            } else if (label === "Email" && !isValidEmail(input.val())) {
-                                //Kiểm tra xem giá trị input có là email hợp lệ không đối với các nhãn Email
-                                isValidInput = false;
-                                $(this).append("<p class='alert alert-danger message'>Bạn phải nhập " + label + " hợp lệ</p>");
-                            }
-                        }
-
-                    });
-
-                    //Duyệt qua các trường select (có thể chọn giá trị option đó)
-                    $("#frmadd_user .form-group:has(.selectpicker)").each(function () {
-                        let label = $(this).find("label").text();//Nhãn (nằm trong thẻ label)
-                        let selectpicker = $(this).find(".selectpicker").selectpicker('val');//Lấy giá trị đang được chọn
-                        if (selectpicker === "") {
-                            isValidInput = false;
-                            $(this).append("<p class='alert alert-danger message'>Bạn chưa chọn " + label + "</p>");
-                        } else {
-                            $(this).find("input").attr("value", selectpicker);//Truyền vào trường input
-                        }
-                    });
-
-                    //Kiểm tra mật khẩu và nhập lại mật khẩu
-                    let inputPassword = $('#input-password');
-                    let pass =inputPassword.find("input").val();//Giá trị password người dùng nhập vào
-                    let inputRepassword = $('#input-repassword');
-                    let repass =inputRepassword.find("input").val();//Giá trị password nhập lại người dùng nhập vào
-                    if (pass === "") {
-                        isValidInput = false;
-                        inputPassword.append("<p class='alert alert-danger message'>Bạn chưa nhập mật khẩu</p>");
-                    } else if (pass.length < 3) {
-                        isValidInput = false;
-                        inputPassword.append("<p class='alert alert-danger message'>Mật khẩu quá ngắn, ít nhất 3 ký tự</p>");
-                    }
-                    else if (repass === "") {
-                        isValidInput = false;
-                        inputRepassword.append("<p class='alert alert-danger message'>Bạn chưa nhập lại mật khẩu</p>");
-                    } else if (pass !== repass) {
-                        isValidInput = false;
-                        inputRepassword.append("<p class='alert alert-danger message'>Mật khẩu nhập lại không khớp</p>");
-                    }
-
-                    //Kiểm tra input ảnh
-                    let inputFile = $('.form-group:has(input[type="file"])');
-                    let image = inputFile.find("input[type='file']").val();//Đường dẫn tới ảnh trên máy người dùng
-                    if (image === "") {
-                        isValidInput = false;
-                        inputFile.append("<p class='alert alert-danger message'>Bạn chưa chọn ảnh</p>");
-                    } else {
-                        let file_type = image.substr(image.lastIndexOf("."));//Phần mở rộng của file
-                        if (![".jpg", ".png", ".jpeg", "jpe", "gif"].includes(file_type)) {//Nếu không thuộc 1 trong số này thì không phải là ảnh
-                            isValidInput = false;
-                            inputFile.append("<p class='alert alert-danger message'>File bạn chọn không phải là ảnh</p>");
-                        }
-                    }
-
                     //Nếu các trường input hợp lệ thì submit form
-                    if (isValidInput) {
+                    if (checkInput()) {
                         $('#frmadd_user').submit();
                     }
                 });
+
+                //giờ thêm cái bắt sự kiện khi gõ nhá
+                $("input").keyup(function(){
+                    checkInput();
+                });
             });
+
+            function checkInput() {
+                $(".message").remove();//Xóa hết tất cả các thông báo trước
+
+                var isValidInput = true;//biến kiểm tra xem các input có hợp lệ không
+
+                //Duyệt qua tất cả các input của form
+                $("#frmadd_user .form-group:has(input[type='text'])").not( $(".form-group:has(.selectpicker)")).each(function () {
+
+                    let input = $(this).find("input[type='text']");//Giá trị input
+                    let label = $(this).find("label").text();//Nhãn (nằm trong thẻ label)
+
+                    if (typeof input.val() === "string") {//Nếu trường input là string (text)
+
+                        if (input.val() == null || input.val().trim() === "") {//Nếu giá trị input rỗng
+                            isValidInput = false;
+                            $(this).append("<p class='alert alert-danger message'>Không thể để trống trường " + label + "</p>");
+                        } else if (label === "Số điện thoại" && !isUnsignedNumber(input.val())) {
+                            //Kiểm tra xem giá trị input có là số không đối với các nhãn Số điện thoại
+                            isValidInput = false;
+                            $(this).append("<p class='alert alert-danger message'>Bạn phải nhập " + label + " là số</p>");
+                        } else if (label === "Email" && !isValidEmail(input.val())) {
+                            //Kiểm tra xem giá trị input có là email hợp lệ không đối với các nhãn Email
+                            isValidInput = false;
+                            $(this).append("<p class='alert alert-danger message'>Bạn phải nhập " + label + " hợp lệ</p>");
+                        }
+                    }
+
+                });
+
+                //Duyệt qua các trường select (có thể chọn giá trị option đó)
+                $("#frmadd_user .form-group:has(.selectpicker)").each(function () {
+                    let label = $(this).find("label").text();//Nhãn (nằm trong thẻ label)
+                    let selectpicker = $(this).find(".selectpicker").selectpicker('val');//Lấy giá trị đang được chọn
+                    if (selectpicker === "") {
+                        isValidInput = false;
+                        $(this).append("<p class='alert alert-danger message'>Bạn chưa chọn " + label + "</p>");
+                    } else {
+                        $(this).find("input").attr("value", selectpicker);//Truyền vào trường input
+                    }
+                });
+
+                //Kiểm tra mật khẩu và nhập lại mật khẩu
+                let inputPassword = $('#input-password');
+                let pass =inputPassword.find("input").val();//Giá trị password người dùng nhập vào
+                let inputRepassword = $('#input-repassword');
+                let repass =inputRepassword.find("input").val();//Giá trị password nhập lại người dùng nhập vào
+                if (pass === "") {
+                    isValidInput = false;
+                    inputPassword.append("<p class='alert alert-danger message'>Bạn chưa nhập mật khẩu</p>");
+                } else if (pass.length < 3) {
+                    isValidInput = false;
+                    inputPassword.append("<p class='alert alert-danger message'>Mật khẩu quá ngắn, ít nhất 3 ký tự</p>");
+                }
+                else if (repass === "") {
+                    isValidInput = false;
+                    inputRepassword.append("<p class='alert alert-danger message'>Bạn chưa nhập lại mật khẩu</p>");
+                } else if (pass !== repass) {
+                    isValidInput = false;
+                    inputRepassword.append("<p class='alert alert-danger message'>Mật khẩu nhập lại không khớp</p>");
+                }
+
+                //Kiểm tra input ảnh
+                let inputFile = $('.form-group:has(input[type="file"])');
+                let image = inputFile.find("input[type='file']").val();//Đường dẫn tới ảnh trên máy người dùng
+                if (image === "") {
+                    isValidInput = false;
+                    inputFile.append("<p class='alert alert-danger message'>Bạn chưa chọn ảnh</p>");
+                } else {
+                    let file_type = image.substr(image.lastIndexOf("."));//Phần mở rộng của file
+                    if (![".jpg", ".png", ".jpeg", "jpe", "gif"].includes(file_type)) {//Nếu không thuộc 1 trong số này thì không phải là ảnh
+                        isValidInput = false;
+                        inputFile.append("<p class='alert alert-danger message'>File bạn chọn không phải là ảnh</p>");
+                    }
+                }
+                return isValidInput;
+            }
 
 
             //Hàm kiểm tra xem 1 chuỗi có phải là 1 số không âm không
