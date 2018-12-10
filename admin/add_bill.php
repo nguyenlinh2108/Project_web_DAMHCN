@@ -138,6 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
 
                 <input type="submit" name="btnSubmit" class="btn btn-primary" value="Thêm mới">
+                <a href="index.php" class="btn btn-primary">Hủy</a>
             </form>
             <script>
                 $(document).ready(function () {
