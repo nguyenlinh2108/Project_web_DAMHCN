@@ -15,6 +15,7 @@ require_once  __DIR__ . "/../db/db.php";
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <h3>Danh sách Payment</h3>
+        <a href="add_payment.php" class="btn btn-primary" style="float: right">Thêm mới</a>
         <table class="table table-hover">
             <thead>
             <tr>
