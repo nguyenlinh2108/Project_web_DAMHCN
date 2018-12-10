@@ -14,6 +14,7 @@ include "includes/header.php"
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <h3>Danh sách đơn vị sản phẩm</h3>
+        <a href="add_unit.php" class="btn btn-primary" style="float: right">Thêm mới</a>
         <table class="table table-hover">
             <thead>
             <tr>
