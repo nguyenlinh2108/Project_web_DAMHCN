@@ -70,8 +70,9 @@ unset($_POST);
                        name="sdt" value="<?php if(isset($_POST['sdt'])) echo $_POST['sdt']; ?>"
                        placeholder="Số điện thoại">
             </div>
-            <div class="form-group">
+            <div class="form-group" id="noidung">
                 <label>Nội dung phản hồi</label>
+                <input type="text" hidden name="noidung" value="">
                 <textarea value="<?php if(isset($_POST['noidung'])) echo $_POST['noidung']; ?>"
                           name="noidung" placeholder="Nội dung phản hồi"
                           class="form-control"
@@ -98,14 +99,20 @@ unset($_POST);
                 $("input").keyup(function () {
                     checkInput();
                 });
+
+                //Bắt sự kiện khi gõ vào trường nội dung
+                $("#noidung").keyup(function () {
+                    checkInput();
+                });
             });
 
             //Hàm kiểm tra các giá trị đầu vào và hiển thị thông báo lỗi nếu có
             function checkInput() {
                 $(".message").remove(); //Xóa hết tất cả các thông báo trước uk, nhưng  class message không có trong thông báo
                 var isValidInput = true;//biến kiểm tra xem các input có hợp lệ không
+
                 //Duyệt qua tất cả các input của form
-                $("#frm_add .form-group:has(input[type='text'])").each(function () {
+                $("#frm_add .form-group:has(input[type='text'])").not("#noidung").each(function () {
                     let input = $(this).find("input[type='text']");//giá trị input
                     let label = $(this).find("label").text();//nhãn nằm trong thẻ label
                     if (typeof input.val() === "string") {//Nếu trường input là string (text)
@@ -124,7 +131,18 @@ unset($_POST);
                     }
 
                 });
-                return isValidInput; //đây hả uk chạy đi
+
+                //Check trường textarea
+                let noidungInput = $("#noidung").find("textarea").val().trim();
+                let noidungLabel = $("#noidung").find("label").text();
+                if ((noidungInput === "")) {
+                    isValidInput = false;
+                    $("#noidung").append("<p class='alert alert-danger message'>Bạn phải nhập " + noidungLabel + " hợp lệ</p>");
+                } else {
+                    $("#noidung").find("input").val(noidungInput)//Gán nội dung từ textarea vào input
+                }
+
+                return isValidInput;
             }
             //Hàm kiểm tra xem 1 chuỗi có phải là 1 số không âm không
             function isUnsignedNumber(str) {
