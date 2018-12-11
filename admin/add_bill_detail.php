@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             "price" => $_POST['gia'],
         ])) {
             $message .= "<p class='alert alert-success'>Thêm thành công</p>";
+            unset($_POST);
         } else $message .= "<p class='alert alert-danger'>Thêm thất bại</p>";
     }
 }
@@ -116,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     checkInput();
                 });
 
-                //Bắt sự kiện khi lựa chọn 1 option trong các trường select
+                //Bắt sự kiện khi lựa chọn 1 option trong các trường select là khi mình chọn 1 option nó đã check rồi check tất cả luôn á ukok
                 $(".selectpicker").change(function () {
                     checkInput();
                 });
@@ -124,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             //Hàm kiểm tra các giá trị đầu vào và hiển thị thông báo lỗi nếu có
             function checkInput() {
-                $(".message").remove(); //Xóa hết tất cả các thông báo trước
+                $(".message").remove(); //Xóa hết tất cả các thông báo trước uk, nhưng  class message không có trong thông báo
                 var isValidInput = true;//biến kiểm tra xem các input có hợp lệ không
                 //Duyệt qua tất cả các input của form
                 $("#frm_add .form-group:has(input[type='text'])").not($(".form-group:has(.selectpicker)")).each(function () {
@@ -133,17 +134,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     if (typeof input.val() === "string") {//Nếu trường input là string (text)
                         if (input.val() == null || input.val().trim() === "") {//Nếu giá trị input rỗng
                             isValidInput = false;
-                            $(this).append("<p class='alert alert-danger'>Không thể để trống trường " + label + "</p>");
+                            $(this).append("<p class='alert alert-danger message'>Không thể để trống trường " + label + "</p>");
                         } else if (label === "Số lượng" && !isUnsignedNumber(input.val())) {
                             //Kiểm tra xem giá trị input có là số không
                             isValidInput = false;
-                            $(this).append("<p class='alert alert-danger'>Bạn phải nhập " + label + " là số.</p>");
+                            $(this).append("<p class='alert alert-danger message'>Bạn phải nhập " + label + " là số.</p>");
                         } else if (label === "Giá" && !isUnsignedNumber(input.val())) {
                             //Kiểm tra xem giá trị input có là số không
                             isValidInput = false;
-                            $(this).append("<p class='alert alert-danger'>Bạn phải nhập " + label + " là số.</p>");
+                            $(this).append("<p class='alert alert-danger message'>Bạn phải nhập " + label + " là số.</p>");
                         }
                     }
+
                 });
                 //Duyệt qua các trường select (có thể chọn giá trị option đó)
                 $("#frm_add .form-group:has(.selectpicker)").each(function () {
@@ -151,11 +153,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     let selectpicker = $(this).find(".selectpicker").selectpicker('val');//Lấy giá trị đang được chọn
                     if (selectpicker === "") {
                         isValidInput = false;
-                        $(this).append("<p class='alert alert-danger'>Bạn chưa chọn " + label + "</p>");
+                        $(this).append("<p class='alert alert-danger message'>Bạn chưa chọn " + label + "</p>");
                     } else {
                         $(this).find("input").attr("value", selectpicker);//Truyền vào trường input
                     }
                 });
+                return isValidInput; //đây hả uk chạy đi
+            }
+            //Hàm kiểm tra xem 1 chuỗi có phải là 1 số không âm không
+            function isUnsignedNumber(str) {
+                return /^\d+$/.test(str);
             }
         </script>
     </div>
