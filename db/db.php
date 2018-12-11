@@ -331,12 +331,7 @@ class db
         if ($value == null) {
             return null;
         }
-        //Các câu lệnh sau phải đúng thứ tự
-        $value = str_replace("\\", "\\\\", $value);
-        $value = str_replace("\"", "\\\"", $value);
-        $value = str_replace("\'", "\\\'", $value);
-        $value = str_replace("'", "\'", $value);
-        return $value;
+        return addslashes($value);
     }
 
 
