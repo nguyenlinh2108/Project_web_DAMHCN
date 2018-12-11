@@ -54,6 +54,10 @@ function curentUrl()
     <script src="./public/js/bootstrap-select.js"></script>
     <link href="./public/css/bootstrap-select.min.css" rel="stylesheet">
 
+<!--    datepicker-->
+    <script src="./public/js/bootstrap-datepicker.js"></script>
+    <link href="./public/css/datepicker.css" rel="stylesheet">
+
 </head>
 
 <body>
