@@ -20,7 +20,13 @@ if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min
         $id_product_sql = $db->getResult() ->id_product;
         $quantity_sql = $db->getResult() ->quantity;
         $price_sql = $db->getResult() ->price;
+    }else{
+        header('Location: list_bill_detail.php');
+        exit();
     }
+}else{
+    header('Location: list_bill_detail.php');
+    exit();
 }
 
 if ($db->select("SELECT * FROM bill  ")) {
