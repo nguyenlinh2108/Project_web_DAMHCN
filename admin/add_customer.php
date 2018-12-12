@@ -18,25 +18,62 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!isset($_POST['name'])) {
         $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu tên</p>";
     }
+    if (!isset($_POST['gender'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu giới tính</p>";
+    } else if (!in_array($_POST['gender'], $gender_array)) {
+        $message .= "<p class='alert alert-danger message'>Giới tính không hợp lệ</p>";
+    }
     if (!isset($_POST['email'])) {
         $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu email</p>";
     } else if (!strpos($_POST['email'], "@") || !strpos($_POST['email'], ".")) {//Email phải có ít nhất dấu @ và dấu .
         $message .= "<p class='alert alert-danger message'>Email không hợp lệ</p>";
     }
+    if (!isset($_POST['password'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu mật khẩu</p>";
+    } else if (!isset($_POST['repassword'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn đã chưa nhập lại mật khẩu</p>";
+    }  else if (strlen($_POST['repassword']) < 3) {
+        $message .= "<p class='alert alert-danger message'>Mật khẩu quá ngắn, ít nhất 3 ký tự</p>";
+    } else if ($_POST['password'] !== $_POST['repassword']) {
+        $message .= "<p class='alert alert-danger message'>Mật khẩu bạn nhập không khớp</p>";
+    }
+    if (!isset($_POST['diachi'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu địa chỉ</p>";
+    }
+
     if (!isset($_POST['sdt'])) {
         $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu số điện thoại</p>";
     } elseif (!is_numeric($_POST['sdt'])) {
         $message .= "<p class='alert alert-danger message'>Số điện thoại không hợp lệ</p>";
     }
-    if (!isset($_POST['noidung'])) {
-        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu nội dung phản hồi</p>";
+    if (!isset($_POST['date'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu ngày sinh</p>";
     }
+    if (!isset($_POST['note'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu ghi chú</p>";
+    }
+    if (!isset($_POST['point'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu điểm tích lũy</p>";
+    }elseif (!is_numeric($_POST['point'])) {
+        $message .= "<p class='alert alert-danger message'>Điểm tích lũy không hợp lệ</p>";
+    }
+    if (!isset($_POST['block'])) {
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu thời gian block</p>";
+    }
+
+
     if ($message === "") {
-        if ($db->insert("contact", [
+        if ($db->insert("customer", [
             "name" => $_POST['name'],
+            "gender" => $_POST['gender'],
             "email" => $_POST['email'],
+            "password" => auth::getMD5Password($_POST['password']),
+            "address" => $_POST['diachi'],
             "phone" => $_POST['sdt'],
-            "message" => $_POST['noidung'],
+            "birth" => $_POST['date'],
+            "note" => $_POST['note'],
+            "point" => $_POST['point'],
+            "time_block" => $_POST['block'],
         ])) {
             $message .= "<p class='alert alert-success'>Thêm thành công</p>";
             unset($_POST);
@@ -104,14 +141,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div class="form-group">
                     <label>Ngày sinh</label>
-                    <input type="text" class="form-control"
-                           name="sdt" value="<?php if (isset($_POST['sdt'])) echo $_POST['sdt']; ?>"
-                           placeholder="Số điện thoại">
-                </div>
-                <div id="datepicker" class="input-group date" data-provide="datepicker" data-date-format="dd-mm-yyyy">
-                    <input type="text" class="form-control" data-provide="datepicker">
-                    <div class="input-group-addon">
-                        <span class="glyphicon glyphicon-th"></span>
+                    <div id="datepicker" class="input-group date" data-provide="datepicker" data-date-format="dd-mm-yyyy">
+                        <input type="text" class="form-control" name="date" data-provide="datepicker"
+                               value="<?php if (isset($_POST['date'])) echo $_POST['date']; ?>"
+                               placeholder="Ngày sinh">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -124,8 +160,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label>Điểm tích lũy</label>
                     <input type="text" class="form-control"
                            name="point" value="<?php if (isset($_POST['point'])) echo $_POST['point']; ?>"
-                           placeholder="Điêmt tích lũy">
+                           placeholder="Điểm tích lũy">
                 </div>
+                <div class="form-group">
+                    <label>Thời gian block</label>
+                    <input type="text" class="form-control"
+                           name="block" value="<?php if (isset($_POST['block'])) echo $_POST['block']; ?>"
+                           placeholder="Thời gian block">
+                </div>
+
                 <input type="submit" name="btnSubmit" class="btn btn-primary" value="Thêm">
                 <a href="index.php" class="btn btn-primary">Hủy</a>
             </form>
@@ -164,7 +207,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 //Kiểm tra xem giá trị input có là số không
                                 isValidInput = false;
                                 $(this).append("<p class='alert alert-danger message'>Bạn phải nhập " + label + " là số.</p>");
-                            } else if (label === "Email" && !isValidEmail(input.val())) {
+                            } else if (label === "Điểm tích lũy" && !isUnsignedNumber(input.val())) {
+                                //Kiểm tra xem giá trị input có là số không
+                                isValidInput = false;
+                                $(this).append("<p class='alert alert-danger message'>Bạn phải nhập " + label + " là số.</p>");
+                            }else if (label === "Email" && !isValidEmail(input.val())) {
                                 //Kiểm tra xem giá trị input có là email hợp lệ không đối với các nhãn Email
                                 isValidInput = false;
                                 $(this).append("<p class='alert alert-danger message'>Bạn phải nhập " + label + " hợp lệ</p>");
@@ -177,13 +224,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     let input = $("#datepicker").datepicker('getDate');
                     let label = $("#datepicker").find("label");.text();
                     if($("#datepicker").datepicker('getDate') === null){
-                        //Kiểm tra xem giá trị input có là email hợp lệ không đối với các nhãn Email
+                        //Kiểm tra xem giá trị input
                         isValidInput = false;
                         $("#datepicker").append("<p class='alert alert-danger message'>Bạn phải nhập " + label + " hợp lệ</p>");
                     }
 
 
-                    return isValidInput; //đây hả uk chạy đi
+                    return isValidInput;
                 }
 
                 //Hàm kiểm tra xem 1 chuỗi có phải là 1 số không âm không
