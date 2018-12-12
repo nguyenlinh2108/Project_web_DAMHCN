@@ -73,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+
     <div class="row">
         <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
             <h3>Thêm mới Khách hàng</h3>
@@ -240,7 +241,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     let label = $("#ngaysinh").find("label").text();
                     $("#ngaysinh input[name='birthday']").val();
                     if (input === "") {
-                        //Kiểm tra xem giá trị input có là email hợp lệ không đối với các nhãn Email
+                        //
                         isValidInput = false;
                         $("#ngaysinh").append("<p class='alert alert-danger message'>Không thể để trống trường " + label + "</p>");
                     }
