@@ -71,7 +71,7 @@ $db = db::getInstance();
                 <td><?php echo $obj->note; ?></td>
                 <td><?php echo $obj->status; ?></td>
                 <td><a href="edit_bill.php?id=<?php echo $obj->id ?>"><img width="16px" src="../public/images/icon_edit.png"></a></td>
-                <td><a href="delete_bill.php?id=<?php echo $obj->id ?>"><img width="16px" src="../public/images/icon_delete.png"></a></td>
+                <td><a href="delete_bill.php?id=<?php echo $obj->id ?>" onclick="return confirm('Bạn có thực sự muốn xóa không?');"><img width="16px" src="../public/images/icon_delete.png"></a></td>
             </tr>
             <?php
                 }
