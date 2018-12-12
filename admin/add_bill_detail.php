@@ -88,13 +88,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="form-group">
                 <label>Số lượng</label>
                 <input type="text" class="form-control"
-                       name="soluong" value=""
+                       name="soluong" value="<?php if (isset($_POST['soluong'])) echo $_POST['soluong']; ?>"
                        placeholder="Số lượng">
             </div>
             <div class="form-group">
                 <label>Giá</label>
                 <input type="text" class="form-control"
-                       name="gia" value=""
+                       name="gia" value="<?php if (isset($_POST['gia'])) echo $_POST['gia']; ?>"
                        placeholder="Giá">
             </div>
             <input type="submit" name="btnSubmit" class="btn btn-primary" value="Thêm">
