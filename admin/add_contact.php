@@ -5,9 +5,6 @@
  * Date: 12/11/2018
  * Time: 8:50 PM
  */
-require_once  __DIR__ . "/includes/header.php";
-require_once  __DIR__ . "/../db/db.php";
-$db = db::getInstance();
 
 require_once __DIR__ . "/includes/header.php";
 require_once __DIR__ . "/../db/db.php";
