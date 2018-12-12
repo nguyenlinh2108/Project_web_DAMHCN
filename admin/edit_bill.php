@@ -60,20 +60,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if ($message === "") {
-        if ($db->select_one("SELECT * FROM bill WHERE customer_id = '" . db::validSql($_POST['customer'])
-            . "' AND payment = '" . db::validSql($_POST['payment']) . "' AND total = '"
-            . db::validSql($_POST['tongtien']) . "' AND status = '" . db::validSql($_POST['status']) . "'")) {
-            $message .= "<p class='alert alert-danger'>Hóa đơn đã tồn tại.</p>";
-        } else if ($db->insert("bill", [
-            "customer_id" => $_POST['customer'],
-            "payment" => $_POST['payment'],
-            "total" => $_POST['tongtien'],
-            "note" => $_POST['note'],
-            "status" => $_POST['status'],
-        ])) {
-            $message .= "<p class='alert alert-success'>Thêm thành công</p>";
-            unset($_POST);
-        } else $message .= "<p class='alert alert-danger'>Thêm thất bại</p>";
+        if($_POST['customer'] === $customer_id_sql
+            && $_POST['payment'] === $payment_sql
+            && $_POST['tongtien'] === $total_sql
+            && $_POST['note'] === $note_sql
+            && $_POST['status'] === $status_sql
+        )
+        {
+            $message = "<p class='alert alert-danger message'>Bạn chưa sửa gì.</p>";
+        }else if ($db->update("bill",
+            [
+                "customer_id" => $_POST['customer'],
+                "payment" => $_POST['payment'],
+                "total" => $_POST['tongtien'],
+                "note" => $_POST['note'],
+                "status" => $_POST['status'],
+            ],
+            "id = {$id}"))
+        {
+            $customer_id_sql = $_POST['customer'];
+            $payment_sql = $_POST['payment'];
+            $total_sql = $_POST['tongtien'];
+            $note_sql = $_POST['note'];
+            $status_sql = $_POST['status'];
+            $message = "<p class='alert alert-success message' ;>Sửa thành công.</p>";
+        } else {
+            $message = "<p class='alert alert-danger message'>Sửa thất bại.</p>";
+        }
     }
 }
 ?>
