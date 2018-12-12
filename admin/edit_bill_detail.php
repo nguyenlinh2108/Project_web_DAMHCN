@@ -2,12 +2,33 @@
 /**
  * Created by PhpStorm.
  * User: linh nguyễn
- * Date: 12/11/2018
- * Time: 4:49 PM
+ * Date: 12/12/2018
+ * Time: 8:27 PM
  */
+
+ob_start();
 require_once __DIR__ . "/includes/header.php";
-require_once __DIR__ . "/../db/db.php";
+require_once  __DIR__ . "/../db/db.php";
 $db = db::getInstance();
+
+if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min_range'=>1)))
+{
+    $id = $_GET['id'];
+    if($db->select_one("SELECT * FROM bill_detail WHERE id={$id}"))
+    {
+        $id_bill_sql = $db->getResult() ->id_bill;
+        $id_product_sql = $db->getResult() ->id_product;
+        $quantity_sql = $db->getResult() ->quantity;
+        $price_sql = $db->getResult() ->price;
+    }else{
+        header('Location: list_bill_detail.php');
+        exit();
+    }
+}else{
+    header('Location: list_bill_detail.php');
+    exit();
+}
+
 if ($db->select("SELECT * FROM bill  ")) {
     $hoadons = $db->getResult();
 }
@@ -33,15 +54,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $message .= "<p class='alert alert-danger message'>Giá không hợp lệ</p>";
     }
     if ($message === "") {
-        if ($db->insert("bill_detail", [
-            "id_bill" => $_POST['mahd'],
-            "id_product" => $_POST['masp'],
-            "quantity" => $_POST['soluong'],
-            "price" => $_POST['gia'],
-        ])) {
-            $message .= "<p class='alert alert-success'>Thêm thành công</p>";
-            unset($_POST);
-        } else $message .= "<p class='alert alert-danger'>Thêm thất bại</p>";
+        if(
+            $_POST['mahd'] === $id_bill_sql &&
+            $_POST['masp'] === $id_product_sql &&
+            $_POST['soluong'] === $quantity_sql &&
+            $_POST['gia'] === $price_sql
+        )
+        {
+            $message = "<p class='alert alert-danger message'>Bạn chưa thay đổi gì</p>";
+        }else if($db->update("bill_detail",
+            [
+                "id_bill"=>$_POST['mahd'],
+                "id_product"=>$_POST['masp'],
+                "quantity"=>$_POST['soluong'],
+                "price"=>$_POST['gia'],
+            ], "id={$id}"
+            )){
+            $id_bill_sql = $_POST['mahd'];
+            $id_product_sql = $_POST['masp'];
+            $quantity_sql = $_POST['soluong'];
+            $price_sql = $_POST['gia'];
+            $message = "<p class='alert alert-success message'>Sửa thành công</p>";
+        }else{
+            $message = "<p class='alert alert-danger message'>Sửa không thành công</p>";
+        }
     }
 }
 ?>
@@ -62,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     if (isset($hoadons) && is_array($hoadons)) {
                         foreach ($hoadons as $hoadon) {
                             ?>
-                            <option value="<?php echo $hoadon->id; ?>" <?php if (isset($_POST['mahd']) && $_POST['mahd'] === $hoadon->id) echo "selected"; ?> > <?php echo $hoadon->customer_id; ?> </option>
+                            <option value="<?php echo $hoadon->id; ?>" <?php if (isset($id_bill_sql) && $id_bill_sql === $hoadon->id) echo "selected"; ?> > <?php echo $hoadon->customer_id; ?> </option>
                             <?php
 
                         }
@@ -78,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     if (isset($sanphams) && is_array($sanphams)) {
                         foreach ($sanphams as $sanpham) {
                             ?>
-                            <option value="<?php echo $sanpham->id; ?>" <?php if (isset($_POST['masp']) && $_POST['masp'] === $sanpham->id) echo "selected"; ?>><?php echo $sanpham->name; ?></option>
+                            <option value="<?php echo $sanpham->id; ?>" <?php if (isset($id_product_sql) && $id_product_sql === $sanpham->id) echo "selected"; ?>><?php echo $sanpham->name; ?></option>
                             <?php
                         }
                     }
@@ -88,16 +124,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="form-group">
                 <label>Số lượng</label>
                 <input type="text" class="form-control"
-                       name="soluong" value="<?php if (isset($_POST['soluong'])) echo $_POST['soluong']; ?>"
+                       name="soluong" value="<?php if (isset($quantity_sql)) echo $quantity_sql; ?>"
                        placeholder="Số lượng">
             </div>
             <div class="form-group">
                 <label>Giá</label>
                 <input type="text" class="form-control"
-                       name="gia" value="<?php if (isset($_POST['gia'])) echo $_POST['gia']; ?>"
+                       name="gia" value="<?php if (isset($price_sql)) echo $price_sql; ?>"
                        placeholder="Giá">
             </div>
-            <input type="submit" name="btnSubmit" class="btn btn-primary" value="Thêm">
+            <input type="submit" name="btnSubmit" class="btn btn-primary" value="Sửa">
             <a href="index.php" class="btn btn-primary">Hủy</a>
         </form>
         <script>
@@ -167,4 +203,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </script>
     </div>
 </div>
-<?php require_once __DIR__ . "/includes/footer.php"; ?>
+<?php
+    require_once __DIR__ . "/includes/footer.php";
+    ob_flush();
+?>
