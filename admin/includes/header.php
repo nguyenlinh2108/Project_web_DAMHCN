@@ -58,6 +58,10 @@ function curentUrl()
     <script src="./public/js/bootstrap-datepicker.js"></script>
     <link href="./public/css/datepicker.css" rel="stylesheet">
 
+    <!-- time ago https://github.com/hustcc/timeago.js -->
+    <script src="./public/js/timeago/timeago.min.js"></script>
+    <script src="./public/js/timeago/timeago.locales.min.js"></script>
+
 </head>
 
 <body>
