@@ -12,9 +12,9 @@ include "includes/header.php";
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div id="order_by_group" style="margin-bottom: 20px">
                 <div style="padding: 6px 12px;"><label>Tìm kiếm với:</label></div>
-                <div class="form-group" style="float: left">
-                    <input style="width: auto" type="text" class="form-control" id="search_content"
-                           placeholder="Nhập nội dung">
+                <div class="form-group" style="float: left" id="div_search">
+                    <input style="width: auto" type="text" class="form-control" id="search_content" placeholder="Nhập nội dung">
+                    <div id="div_gender"></div>
                 </div>
                 <div style="float: left; padding: 6px 12px;"><label>Tìm kiếm theo:</label></div>
                 <div style="float: left">
@@ -78,28 +78,39 @@ include "includes/header.php";
         getInputData();
         var ajax_url;
 
-        //Thu thập các input đầu vào
+        //Thu thập các input đầu vào truyền vào các biến search_content và search_field
         function getInputData() {
             search_content = $("#search_content").val();
             if (search_content != null) search_content = search_content.trim();
             if (search_content === "") search_content = null;
             search_field = $('#search_field').selectpicker('val');
+            if(search_field === "gender"){
+                search_content = $('#gender_search_field').selectpicker('val');
+            }
         }
 
 
         $( document ).ready(function() {
-            doAjax(0);
+            doAjax(0);//Tìm kiếm lần đầu khi vừa load trang xong
 
-            //Bắt sự kiện khi gõ vào trường input search
+            //Bắt sự kiện khi gõ vào trường input search thì kiểm tra giá trị đầu vào luôn
             $("#search_content").keyup(function(){
                 checkInput();
             });
 
-            //Bắt sự kiện khi lựa chọn 1 option trong các trường select
-            $( ".selectpicker" ).change(function() {
+            //Bắt sự kiện khi lựa chọn 1 option trong trường lựa chọn tìm kiếm theo
+            $( "#search_field" ).change(function() {
+                search_field = $('#search_field').selectpicker('val');
+                if(search_field === "gender"){//Nếu là tìm kiếm theo giới tính thì chuyển input sang select gender option
+                    tranform_search_field_to_selectpicker();
+                } else {//Còn không thì chuyển lại sang text input
+                    revert_tranform_search_field_from_selectpicker();
+                }
+
                 checkInput();
             });
 
+            //Bắt sự kiện khi enter ở trường input thì tìm kiếm luôn
             $('#search_content').keypress(function (e) {
                 if (e.which == 13) {
                     $('#filter_button').click();
@@ -108,7 +119,31 @@ include "includes/header.php";
             });
         });
 
+        //Chuyển trường input từ text field to select option field khi chọn tìm kiếm theo giới tính
+        function tranform_search_field_to_selectpicker() {
+            var gender_selectpicker =
+                "<div style=\"float: left\">" +
+                "<select id=\"gender_search_field\" class=\"selectpicker show-tick\" data-width=\"auto\">\n" +
+                "<option value=\"Nam\">Nam</option>\n" +
+                "<option value=\"Nữ\">Nữ</option>\n" +
+                "<option value=\"Khác\">Khác</option>\n" +
+                "</select>" +
+                "</div>";
+            $("#div_gender").append(gender_selectpicker);
+            $("#search_content").attr("type","hidden");//Ẩn trường input text đi
 
+            $(".selectpicker").selectpicker();//Phải chạy lệnh này để kích hoạt selectpicker, vì mình vừa thêm mới
+        }
+
+        //Chuyển ngược lại hàm tranform_search_field_to_selectpicker
+        //Tức là chuyển input search sang text
+        function revert_tranform_search_field_from_selectpicker() {
+            $("#div_gender").html("");
+            $("#search_content").attr("type","text");
+        }
+
+
+        //Kiểm tra giá trị đầu vào
         function checkInput() {
             getInputData();
             $('.alert-danger').remove();
@@ -131,17 +166,12 @@ include "includes/header.php";
             return isValidInput;
         }
 
-        //Kiểm tra xem 1 chuỗi có phải là 1 địa chỉ email hợp lệ không
-        function isValidEmail(email) {
-            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(String(email).toLowerCase());
-        }
-
         //Hàm kiểm tra xem 1 chuỗi có phải là 1 số không âm không
         function isUnsignedNumber(str) {
             return /^\d+$/.test(str);
         }
 
+        //Tìm kiếm
         function doAjax(startInput = 0) {
             if (pending) return;
             if (type == null) return;
@@ -155,6 +185,7 @@ include "includes/header.php";
             if (search_content != null) new_ajax_url += "&" + search_field + "=" + encodeURI(search_content);
             new_ajax_url += "&start=" + startInput + "&limit=" + limit;
 
+            //Nếu url cũ giống url mới thì không tìm kiếm
             if (ajax_url === new_ajax_url) {
                 console.log("Chưa có thay đỗi gì");
                 return;
@@ -194,6 +225,7 @@ include "includes/header.php";
             });
         }
 
+        //Xóa 1 bản ghi
         function remove(id) {
             if (confirm('Are you sure?')) {
                 $.ajax({
@@ -223,6 +255,7 @@ include "includes/header.php";
             }
         }
 
+        //Build phân trang
         function buildPanitation(total) {
             $('#total_record').text("Tổng cộng có " + total + " kết quả");
             $('#pagination li').remove();//Xóa pagination cũ đi
@@ -251,6 +284,7 @@ include "includes/header.php";
             $('#pagination').append(pagination);
         }
 
+        //Build dữ liệu
         function buildResult(response) {
             if ((typeof response).toLowerCase() !== "object" || response == null || !response.hasOwnProperty("data") || response.data.length === 0) return;
             var total = response.total;
