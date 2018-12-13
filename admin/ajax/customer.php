@@ -22,45 +22,55 @@ switch ($_GET['type']) {
         {
             $gender_array = ['Nam', 'Nữ', 'Khác'];
 
+            $sqlTotal = "SELECT count(*) as total FROM customer WHERE ";
             $sql = "SELECT id, name, gender, email, address, phone, birthday, note, point, time_block 
-                                  FROM customer WHERE 1";
+                                  FROM customer WHERE ";
+            $condition = "1";
             if ((isset($_GET['name']) && strlen($_GET['name']) > 0)) {
-                $sql .= " AND name like '%" . db::validSql($_GET['name']) . "%'";
+                $condition .= " AND name like '%" . db::validSql($_GET['name']) . "%'";
             }
             if ((isset($_GET['gender']) && in_array(ucfirst($_GET['gender']), $gender_array))) {
-                $sql .= " AND gender = '" . db::validSql(ucfirst($_GET['gender'])) . "'";
+                $condition .= " AND gender = '" . db::validSql(ucfirst($_GET['gender'])) . "'";
             }
-            if ((isset($_GET['email']) && filter_var($_GET['email'], FILTER_VALIDATE_EMAIL))) {
-                $sql .= " AND email like '%" . db::validSql($_GET['email']) . "%'";
+            if (isset($_GET['email']) && $_GET['email'] !== "") {
+                $condition .= " AND email like '%" . db::validSql($_GET['email']) . "%'";
             }
             if ((isset($_GET['address']) && strlen($_GET['address']) > 0)) {
-                $sql .= " AND address like '%" . db::validSql($_GET['address']) . "%'";
+                $condition .= " AND address like '%" . db::validSql($_GET['address']) . "%'";
             }
-            if ((isset($_GET['phone']) && is_numeric($_GET['phone']) && strlen($_GET['name']) > 3)) {
-                $sql .= " AND phone like '%" . db::validSql($_GET['phone']) . "%'";
+            if (isset($_GET['phone']) && $_GET['phone'] != "") {
+                $condition .= " AND phone like '%" . db::validSql($_GET['phone']) . "%'";
             }
 
-            $sql .= " ORDER BY id ASC LIMIT {$start},{$limit}";
+            $sql .= $condition . " ORDER BY id ASC LIMIT {$start},{$limit}";
+            $sqlTotal .= $condition;
 
             if ($db->select($sql)) {
-                echo json_encode($db->getResult());
+                $response['data'] = $db->getResult();
+                if ($db->select_one($sqlTotal)) {
+                    $total = $db->getResult()->total;
+                    if (is_numeric($total)) $response['total'] = intval($total);
+                }
+                echo json_encode($response);
+                return;
             }
+            echo "null";
             return;
         }
 
     case "remove":
         {
-            if($id == null) {
+            if ($id == null) {
                 echo "false";
-                return ;
+                return;
             }
 
             if ($db->execute("DELETE FROM customer WHERE id = {$id}")) {
                 echo "true";
-                return ;
+                return;
             }
 
             echo "false";
-            return ;
+            return;
         }
 }
