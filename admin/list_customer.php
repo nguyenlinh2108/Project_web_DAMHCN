@@ -201,9 +201,13 @@ include "includes/header.php";
                     dataType: 'json',
                     complete: function (response) {
                         if (response.status === 200) {
-                            $('#' + id).remove();
-                            console.log(response.responseJSON.message);
-                            alert("Xóa thành công");
+                            if(response.responseText === "true"){
+                                $('#' + id).remove();
+                                alert("Xóa thành công");
+                            } else {
+                                alert("Xóa thất bại");
+                            }
+
                         } else {
                             if (response.status === 0) {
                                 alert("Không thể kết nối tới server");
