@@ -104,12 +104,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="form-group" id="noidung">
                     <label>Nội dung phản hồi</label>
                     <input type="text" hidden name="noidung" value="<?php if(isset($message_db)) echo $message_db; ?>">
-                    <textarea value="<?php if(isset($message_db)) echo $message_db; ?>"
-                              name="noidung" placeholder="Nội dung phản hồi"
-                              class="form-control"
-                              id="noidung"
-                    >
-                </textarea>
+                    <textarea name="noidung" placeholder="Nội dung phản hồi" class="form-control" id="noidung"
+                    ><?php if(isset($message_db)) echo trim($message_db) ?></textarea>
                 </div>
                 <input type="submit" name="btnSubmit" class="btn btn-primary" value="Sửa">
                 <a href="index.php" class="btn btn-primary">Hủy</a>
