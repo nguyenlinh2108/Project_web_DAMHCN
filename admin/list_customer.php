@@ -7,7 +7,6 @@
  */
 include "includes/header.php";
 ?>
-<?php require_once __DIR__ . "/../db/db.php"; ?>
     <h3>Danh sách khách hàng</h3>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -59,50 +58,6 @@ include "includes/header.php";
                 </tr>
                 </thead>
                 <tbody>
-                <?php
-                $db = db::getInstance();
-                //đặt số bản ghi cần thiết:
-                $limit = 10;
-                //xác định vị trí bắt đầu:
-                if (isset($_GET['s']) && filter_var($_GET['s'], FILTER_VALIDATE_INT, array('min_range' => 1))) {
-                    $start = $_GET['s'];
-                } else {
-                    $start = 0;
-                }
-                if (isset($_GET['p']) && filter_var($_GET['p'], FILTER_VALIDATE_INT, array('min_range' => 1))) {
-                    $per_page = $_GET['p'];
-                } else {
-                    if ($db->select_one("SELECT count(id) FROM customer")) {
-                        $total = $db->getResult()->{'count(id)'};
-                        $per_page = ceil(intval($total) / $limit);
-                    } else {
-                        $per_page = 1;
-                    }
-                }
-                $query = "SELECT id, name, gender, email, password, address, phone, birthday, note, point, time_block 
-                        FROM customer ORDER BY id ASC LIMIT {$start},{$limit}"; //n,m: n: số bản ghi đc lấy ra, m:tổng số bản ghi được lấy ra
-                if ($db->select($query)) {
-                    foreach ($db->getResult() as $obj) {
-                        ?>
-                        <tr id="<?= $obj->id ?>">
-                            <td><?= $obj->id ?></td>
-                            <td><?= $obj->name ?></td>
-                            <td><?= $obj->gender ?></td>
-                            <td><?= $obj->email ?></td>
-                            <td><?= $obj->address ?></td>
-                            <td><?= $obj->phone ?></td>
-                            <td><?= $obj->birthday ?></td>
-                            <td><?= $obj->note ?></td>
-                            <td><?= $obj->point ?></td>
-                            <td><?= $obj->time_block; ?></td>
-                            <td><a href="edit_customer.php?id=<?= $obj->id; ?>"><i class="fa fa-edit"></a></td>
-                            <td><a href="delete_customer.php?id=<?= $obj->id; ?>"><i class="fa fa-remove"></a></td>
-                            <td><a href="block_customer.php?id=<?= $obj->id; ?>"><i class="fa fa-ban"></a></td>
-                        </tr>
-                        <?php
-                    }
-                }
-                ?>
                 </tbody>
             </table>
             <ul id="pagination" class="pagination"></ul>
@@ -133,6 +88,8 @@ include "includes/header.php";
 
 
         $( document ).ready(function() {
+            doAjax(0);
+
             //Bắt sự kiện khi gõ vào trường input search
             $("#search_content").keyup(function(){
                 checkInput();
