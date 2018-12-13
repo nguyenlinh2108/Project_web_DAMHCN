@@ -9,7 +9,7 @@ require_once __DIR__ . "/includes/header.php";
 require_once  __DIR__ . "/../db/db.php";
 $db = db::getInstance();
 //đặt số bản ghi cần thiết:
-$limit = 10;
+$limit = 100;
 //xác định vị trí bắt đầu:
 if(isset($_GET['s']) && filter_var($_GET['s'], FILTER_VALIDATE_INT, array('min_range'=>1)))
 {
@@ -74,7 +74,7 @@ else
                 <td><?php echo $obj->unit_id; ?></td>
                 <td><?php echo $obj->soluong; ?></td>
                 <td><?php echo $obj->promotion_price; ?></td>
-                <td><?php echo $obj->image; ?></td>
+                <td><img src="../public/upload/<?php echo $obj->image; ?>" width="50px"></td>
                 <td><a href="edit_product.php?id=<?php echo $obj->id; ?>"><img width="16px" src="../public/images/icon_edit.png"></a></td>
                 <td><a href="delete_product.php?id=<?php echo $obj->id; ?>" onclick="return confirm('Bạn có thực sự muốn xóa không?')"><img width="16px" src="../public/images/icon_delete.png"></a></td>
             </tr>
