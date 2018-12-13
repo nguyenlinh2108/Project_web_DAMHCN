@@ -39,12 +39,7 @@ switch ($_GET['type']) {
                 $condition .= " AND address like '%" . db::validSql($_GET['address']) . "%'";
             }
             if (isset($_GET['phone']) && $_GET['phone'] != "") {
-                if ((is_numeric($_GET['phone']) && strlen($_GET['phone']) > 3)) {
-                    $condition .= " AND phone like '%" . db::validSql($_GET['phone']) . "%'";
-                } else {
-                    echo "null";
-                    return;
-                }
+                $condition .= " AND phone like '%" . db::validSql($_GET['phone']) . "%'";
             }
 
             $sql .= $condition . " ORDER BY id ASC LIMIT {$start},{$limit}";
