@@ -38,6 +38,7 @@ include "includes/header.php";
     <div class="row" id="search-result">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
+            <label id="total_record">Tổng cộng có: </label>
             <a href="add_customer.php" class="btn btn-primary" style="float: right">Thêm mới</a>
             <table class="table table-hover">
                 <thead>
@@ -104,29 +105,7 @@ include "includes/header.php";
                 ?>
                 </tbody>
             </table>
-            <?php
-            echo "<ul class='pagination'>";
-            if ($per_page > 1) {
-                $current_page = ($start / $limit) + 1;
-                //nếu không phải trang đầu tiên thì hiển thị trang trước
-                if ($current_page != 1) {
-                    echo "<li><a href='list_customer.php?s=" . ($start - $limit) . "&p={$per_page}'>Back</a></li>";
-                }
-                //hiển thị những phần còn lại của trang
-                for ($i = 1; $i <= $per_page; $i++) {
-                    if ($i != $current_page) {
-                        echo "<li><a href='list_customer.php?s=" . ($limit * ($i - 1)) . "&p={$per_page}'>{$i}</a></li>";
-                    } else {
-                        echo "<li class='active'><a>{$i}</a></li>";
-                    }
-                }
-                //nếu không phải trang cuối cùng thì hiển thị mút next
-                if ($current_page != $per_page) {
-                    echo "<li><a href='list_customer.php?s=" . ($start + $limit) . "&p={$per_page}'>Next</a></li>";
-                }
-            }
-            echo "</ul>";
-            ?>
+            <ul id="pagination" class="pagination"></ul>
         </div>
     </div>
     <script>
@@ -152,12 +131,66 @@ include "includes/header.php";
             search_field = $('#search_field').selectpicker('val');
         }
 
+
+        $( document ).ready(function() {
+            //Bắt sự kiện khi gõ vào trường input search
+            $("#search_content").keyup(function(){
+                checkInput();
+            });
+
+            //Bắt sự kiện khi lựa chọn 1 option trong các trường select
+            $( ".selectpicker" ).change(function() {
+                checkInput();
+            });
+
+            $('#search_content').keypress(function (e) {
+                if (e.which == 13) {
+                    $('#filter_button').click();
+                    return false;    //<---- Add this line
+                }
+            });
+        });
+
+
+        function checkInput() {
+            getInputData();
+            $('.alert-danger').remove();
+
+            var isValidInput = true;
+            switch (search_field) {
+                case "gender":
+                    if (search_content == null || !["nam", "nữ", "khác"].includes(search_content.toLowerCase())) {
+                        isValidInput = false;
+                        $('#order_by_group').append("<p class='alert alert-danger'>Giới tính không hợp lệ<br>Các giá trị cho phép: Nam, Nữ, Khác</p>");
+                    }
+                    break;
+                case "phone":
+                    if (search_content == null || !isUnsignedNumber(search_content)) {
+                        isValidInput = false;
+                        $('#order_by_group').append("<p class='alert alert-danger'>Số điện thoại không hợp lệ</p>");
+                    }
+                    break;
+            }
+            return isValidInput;
+        }
+
+        //Kiểm tra xem 1 chuỗi có phải là 1 địa chỉ email hợp lệ không
+        function isValidEmail(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        //Hàm kiểm tra xem 1 chuỗi có phải là 1 số không âm không
+        function isUnsignedNumber(str) {
+            return /^\d+$/.test(str);
+        }
+
         function doAjax(startInput = 0) {
             if (pending) return;
             if (type == null) return;
             start = startInput;
             if (startInput === 0) {
-                getInputData();
+                if (!checkInput()) return;
             }
 
 
@@ -181,7 +214,8 @@ include "includes/header.php";
                             moreResult = false;
                             if (startInput === 0) {
                                 $('#search-result tr[id]').remove();
-                                alert("Không có dữ liệu");
+                                $('#total_record').html("<p style='color:red'>Không có kết quả</p>");
+                                $('#pagination li').remove();//Xóa pagination cũ đi
                             }
                         }
                         else {
@@ -228,13 +262,45 @@ include "includes/header.php";
             }
         }
 
-        function buildResult(data) {
-            if ((typeof data).toLowerCase() !== "object" || data == null || data.length === 0) return;
+        function buildPanitation(total) {
+            $('#total_record').text("Tổng cộng có " + total + " kết quả");
+            $('#pagination li').remove();//Xóa pagination cũ đi
+
+            var pagination = "";
+            var per_page = Math.ceil(total / limit);
+            if (total > 1) {
+                var current_page = (start / limit) + 1;
+                //nếu không phải trang đầu tiên thì hiển thị trang trước
+                if (current_page !== 1) {
+                    pagination += "<li><a href='javascript: doAjax(0)'>Back</a></li>";
+                }
+                //hiển thị những phần còn lại của trang
+                for (let i = 1; i <= per_page; i++) {
+                    if (i !== current_page) {
+                        pagination += "<li><a href='javascript: doAjax(" + (limit * (i - 1)) + ")'>" + i + "</a></li>";
+                    } else {
+                        pagination += "<li class='active'><a>" + i + "</a></li>";
+                    }
+                }
+                //nếu không phải trang cuối cùng thì hiển thị mút next
+                if (current_page !== per_page) {
+                    pagination += "<li><a href='javascript: doAjax(" + (limit * (per_page - 1)) + ")'>Next</a></li>";
+                }
+            }
+            $('#pagination').append(pagination);
+        }
+
+        function buildResult(response) {
+            if ((typeof response).toLowerCase() !== "object" || response == null || !response.hasOwnProperty("data") || response.data.length === 0) return;
+            var total = response.total;
+            buildPanitation(total);
+
+            var data = response.data;
             if (data.length < limit) moreResult = false;
 
-            if (start === 0) {
-                $('#search-result tr[id]').remove();
-            }
+            // if (start === 0) {//Dùng khi load thêm dữ liệu mà không làm mất dữ liệu cũ, còn dùng pagination thì phải xóa dữ liệu cũ đi
+            $('#search-result tr[id]').remove();
+            // }
 
             $('#search-result').show();
             for (var i = 0; i < data.length; i++) {
