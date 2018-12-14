@@ -100,10 +100,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
                 ?>
             </div>
-            <a href="list_product.php" class="btn btn-primary">Về trang danh sách hóa đơn</a>
+            <a href="list_bill.php" class="btn btn-primary">Về trang danh sách hóa đơn</a>
             <a href="index.php" class="btn btn-primary" style="float: right">Về trang chủ</a>
             <h3>Chỉnh sửa hóa đơn</h3>
-
+            <div class="form-group">
+                <label>Mã</label>
+                <input type="text" name="name" value="<?php if (isset($id)) echo $id; ?>"
+                       class="form-control" placeholder="Tên" disabled>
+            </div>
             <?php
             if (isset($customers) && is_array($customers)) {
                 ?>
