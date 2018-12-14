@@ -16,8 +16,8 @@ if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('mi
     $id = $_GET['id'];
     if($db->select_one("SELECT * FROM product WHERE id={$id}"))
     {
-        $image = $db->getResult()->image;
-        $name = $db->getResult()->name;
+        $image_db = $db->getResult()->image;
+        $name_db = $db->getResult()->name;
     }else{
         header('Location: list_product.php');
         exit();
@@ -29,9 +29,9 @@ if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('mi
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $message = "";
     if (!isset($_FILES['img'])) {
-        $message .= "<p class='alert alert-danger message'>Bạn chưa upload ảnh sản phẩm</p>";
+        $message .= "<p class='alert alert-danger message' style='margin-top: 15px;'>Bạn chưa upload ảnh sản phẩm</p>";
     } else if ($_FILES['img']['error'] > 0) {
-        $message .= "<p class='alert alert-danger message'>Upload ảnh sản phẩm bị lỗi</p>";
+        $message .= "<p class='alert alert-danger message' style='margin-top: 15px;'>Upload ảnh sản phẩm bị lỗi</p>";
     } else {
         $file_name = $_FILES['img']['name'];
 
@@ -39,14 +39,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //hàm substr là cắt file
         //hàm strrpos là tìm vị trí xuất hiện cuối cùng của 1 chuỗi trong 1 chuỗi, trả về một số nguyên
         $file_type = substr($file_name, strrpos($file_name, "."));
-        if (!in_array($file_type, [".jpg", ".png", ".jpeg", "jpe", "gif"])) {
-            $message .= "<p class='alert alert-danger message'>File bạn upload lên không phải là ảnh</p>";
+        if (!in_array($file_type, [".jpg", ".png", ".jpeg", "jpe", "gif", ".JPG", ".PNG", ".JPEG",".JPE", ".GIF"])) {
+            $message .= "<p class='alert alert-danger message' style='margin-top: 15px;'>File bạn upload lên không phải là ảnh</p>";
         } else {
             $new_file_name = substr($file_name, 0, strrpos($file_name, ".")) . " " . date('d_m_Y H_i_s') . $file_type;
             $new_file = __DIR__ . '/../public/upload/' . $new_file_name;
             move_uploaded_file($_FILES['img']['tmp_name'], $new_file);
             if (!file_exists($new_file)) {//Nếu file không tồn tại
-                $message .= "<p class='alert alert-danger message'>Upload ảnh sản phẩm bị lỗi</p>";
+                $message .= "<p class='alert alert-danger message' style='margin-top: 15px;'>Upload ảnh sản phẩm bị lỗi</p>";
             }
         }
 
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($message === "") {
         if(
-            $new_file_name === $name
+            $new_file_name === $image_db
         ){
             $message = "<p class='alert alert-danger message'>Bạn chưa thay đổi gì</p>";
         }else if($db->update("product",
@@ -64,15 +64,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ],
             "id={$id}"))
         {
-            if(!unlink('../public/upload/'.$image))
+            if(!unlink('../public/upload/'.$image_db))
             {
-                $message= "<p class='alert alert-danger message' style='margin-top: 15px;'>Ảnh ".$image." không tồn tại trong thư mục /public/upload/ </p>
+                $message= "<p class='alert alert-danger message' style='margin-top: 15px;'>Ảnh ".$image_db." không tồn tại trong thư mục /public/upload/ </p>
                             <p class='alert alert-success message'>Ảnh mới đã được thêm vào.</p>
                             ";
                 $image = $new_file_name;
             }
         }else{
-            $message = "<p class='alert alert-danger message'>Sửa không thành công</p>";
+            $message = "<p class='alert alert-danger message' style='margin-top: 15px;'>Sửa không thành công</p>";
         }
     }
 }
@@ -87,19 +87,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo $message;
             }
             ?>
-            <h3>Chỉnh sửa ảnh của sản phẩm: <?php if(isset($name)) echo $name; ?> </h3>
+            <h3>Chỉnh sửa ảnh của sản phẩm: <?php if(isset($name_db)) echo $name_db; ?> </h3>
             <div class="form-group">
                 <p>Mã sản phẩm</p>
                 <input type="text" value="<?php if(isset($id)) echo $id; ?>" disabled class="form-control">
             </div>
             <div class="form-group">
                 <p>Ảnh cũ</p>
-                <img src="../public/upload/<?php if(isset($image)) echo $image; ?>" style="width: 25%;">
+                <img src="../public/upload/<?php if(isset($image_db)) echo $image_db; ?>" style="width: 25%;">
             </div>
             <div class="form-group">
                 <p>Ảnh mới</p>
                 <img src="../public/upload/<?php if(isset($new_file_name)) echo $new_file_name; ?>" style="width: 25%;">
                 <input type="file" name="img" value="">
+                <?php if(isset($new_file_name)) echo $new_file_name; ?>
             </div>
             <input type="submit" name="btnSubmit" class="btn btn-primary" value="Sửa">
         </form>
