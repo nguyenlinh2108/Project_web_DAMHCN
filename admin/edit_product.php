@@ -70,29 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $message .= "<p class='alert alert-danger message'>Giá khuyễn mãi phải là số</p>";
     }
 
-    if (!isset($_FILES['img'])) {
-        $message .= "<p class='alert alert-danger message'>Bạn chưa upload ảnh sản phẩm</p>";
-    } else if ($_FILES['img']['error'] > 0) {
-        $message .= "<p class='alert alert-danger message'>Upload ảnh sản phẩm bị lỗi</p>";
-    } else {
-        $file_name = $_FILES['img']['name'];
-
-        // lấy phần mở rộng của file
-        //hàm substr là cắt file
-        //hàm strrpos là tìm vị trí xuất hiện cuối cùng của 1 chuỗi trong 1 chuỗi, trả về một số nguyên
-        $file_type = substr($file_name, strrpos($file_name, "."));
-        if (!in_array($file_type, [".jpg", ".png", ".jpeg", "jpe", "gif"])) {
-            $message .= "<p class='alert alert-danger message'>File bạn upload lên không phải là ảnh</p>";
-        } else {
-            $new_file_name = substr($file_name, 0, strrpos($file_name, ".")) . " " . date('d_m_Y H_i_s') . $file_type;
-            $new_file = __DIR__ . '/../public/upload/' . $new_file_name;
-            move_uploaded_file($_FILES['img']['tmp_name'], $new_file);
-            if (!file_exists($new_file)) {//Nếu file không tồn tại
-                $message .= "<p class='alert alert-danger message'>Upload ảnh sản phẩm bị lỗi</p>";
-            }
-        }
-
-    }
 
     if ($message === "") {
         if(
@@ -102,8 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST['unit_price'] === $unit_price_db &&
             $_POST['unit_id'] === $unit_id_db &&
             $_POST['soluong'] === $soluong_db &&
-            $_POST['promotion_price'] === $promption_price_db &&
-            $_FILES['img']['name'] === $image_db
+            $_POST['promotion_price'] === $promption_price_db
         ){
             $message = "<p class='alert alert-danger message'>Bạn chưa thay đổi gì</p>";
         }else if($db->update("product",
@@ -114,10 +90,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 "unit_price"=>$_POST['unit_price'],
                 "unit_id"=>$_POST['unit_id'],
                 "soluong"=>$_POST['soluong'],
-                "promotion_price"=>$_POST['promotion_price'],
-                "image"=>$new_file_name,
+                "promotion_price"=>$_POST['promotion_price']
             ],
-            "id={$id}")){
+            "id={$id}"))
+        {
             $name_db = $_POST['name'];
             $type_db = $_POST['type'];
             $description_db = $_POST['description'];
@@ -125,7 +101,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $unit_id_db = $_POST['unit_id'];
             $soluong_db = $_POST['soluong'];
             $promption_price_db = $_POST['promotion_price'];
-            $image_db = $_FILES['img']['name'];
             $message = "<p class='alert alert-success message'>Sửa thành công</p>";
         }else{
             $message = "<p class='alert alert-danger message'>Sửa không thành công</p>";
@@ -135,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 ?>
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top: 15px;">
             <form name="form_product" id="form_product" method="POST" enctype="multipart/form-data">
                 <div id="message">
                     <?php
@@ -144,8 +119,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     }
                     ?>
                 </div>
-                <h3>Thêm mới sản phẩm</h3>
-
+                <a href="list_product.php" class="btn btn-primary" >Về trang danh sách sản phẩm</a>
+                <a href="index.php" class="btn btn-primary" style="float: right">Về trang chủ</a>
+                <h3>Chỉnh sửa sản phẩm: <?php if (isset($name_db)) echo $name_db; ?> </h3>
+                <div class="form-group">
+                    <label>Mã</label>
+                    <input type="text" name="name" value="<?php if (isset($id)) echo $id; ?>"
+                           class="form-control" placeholder="Tên" disabled>
+                </div>
                 <div class="form-group">
                     <label>Tên</label>
                     <input type="text" name="name" value="<?php if (isset($name_db)) echo $name_db; ?>"
@@ -220,12 +201,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
 
                 <div class="form-group">
-                    <label>Ảnh</label>
-                    <input type="file" name="img" value=""><?php if (isset($image_db)) echo $image_db; ?>
+                    <p>Ảnh</p>
+                    <img src="../public/upload/<?php if(isset($image_db)) echo $image_db; ?>" style="width: 25%;">
                 </div>
 
                 <input type="submit" name="btnSubmit" class="btn btn-primary" value="Sửa">
-                <a href="index.php" class="btn btn-primary">Hủy</a>
             </form>
 
             <script>
@@ -267,21 +247,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 $(this).find("input").attr("value", selectpicker);//Truyền vào trường input
                             }
                         });
-
-                        //Kiểm tra input ảnh
-                        let inputFile = $('.form-group:has(input[type="file"])');
-                        inputFile.find(".message").remove();//Xóa hết tất cả các thông báo trước
-                        let image = inputFile.find("input[type='file']").val();//Đường dẫn tới ảnh trên máy người dùng
-                        if (image === "") {
-                            isValidInput = false;
-                            inputFile.append("<p class='alert alert-danger message'>Bạn chưa chọn ảnh</p>");
-                        } else {
-                            let file_type = image.substr(image.lastIndexOf("."));//Phần mở rộng của file
-                            if (![".jpg", ".png", ".jpeg", "jpe", "gif"].includes(file_type)) {//Nếu không thuộc 1 trong số này thì không phải là ảnh
-                                isValidInput = false;
-                                inputFile.append("<p class='alert alert-danger message'>File bạn chọn không phải là ảnh</p>");
-                            }
-                        }
 
                         //Nếu các trường input hợp lệ thì submit form
                         if (isValidInput) $('#form_product').submit();
