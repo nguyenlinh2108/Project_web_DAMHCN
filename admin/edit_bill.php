@@ -100,6 +100,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
                 ?>
             </div>
+            <a href="list_product.php" class="btn btn-primary">Về trang danh sách hóa đơn</a>
+            <a href="index.php" class="btn btn-primary" style="float: right">Về trang chủ</a>
             <h3>Chỉnh sửa hóa đơn</h3>
 
             <?php
@@ -167,9 +169,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     ?>
                 </select>
             </div>
-
             <input type="submit" name="btnSubmit" class="btn btn-primary" value="Sửa">
-            <a href="index.php" class="btn btn-primary">Hủy</a>
         </form>
         <script>
             $(document).ready(function () {
