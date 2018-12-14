@@ -4,7 +4,7 @@
 <?php require_once  __DIR__ . "/../db/db.php"; ?>
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h3>Danh sách khách hàng</h3>
+        <h3>Danh sách quản trị viên</h3>
         <a href="add_user.php" class="btn btn-primary" style="float: right">Thêm mới</a>
         <table class="table table-hover">
             <thead>
@@ -68,6 +68,7 @@
                         <td><?php echo $obj->password; ?></td>
                         <td><?php echo $obj->phone; ?></td>
                         <td><?php echo $obj->address; ?></td>
+                        <td><?php echo $obj->level; ?></td>
                         <td><a href="edit_user.php?id=<?php echo $obj->id; ?>"><img width="16px" src="../public/images/icon_edit.png"></a></td>
                         <td><a href="delete_user.php?id=<?php echo $obj->id; ?>" onclick="return confirm('Bạn có thực sự muốn xóa không?')"><img width="16px" src="../public/images/icon_delete.png"></a></td>
                     </tr>
