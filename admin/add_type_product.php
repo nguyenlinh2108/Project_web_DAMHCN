@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             "description" => $_POST['description'],
             "image" => $new_file_name,
         ])) {
-            $message .= "<p class='alert alert-success'>Thêm thành công sản phẩm " . $_POST['name'] . "</p>";
+            $message .= "<p class='alert alert-success'>Thêm thành công loại sản phẩm " . $_POST['name'] . "</p>";
             unset($_POST);
         } else $message .= "<p class='alert alert-danger'>Thêm thất bại</p>";
     }
