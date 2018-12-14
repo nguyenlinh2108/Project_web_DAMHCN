@@ -11,7 +11,7 @@ $db = db::getInstance();
 if(isset($_GET['id']) && filter_var($_GET['id'],FILTER_VALIDATE_INT, array('min_range'=>1)))
 {
     $id = $_GET['id'];
-    $query = "DELETE FROM product WHERE id={$id}";
+    $query = "DELETE FROM type_product WHERE id={$id}";
     $db->execute($query);
     header('Location: list_type_product.php');
 }
