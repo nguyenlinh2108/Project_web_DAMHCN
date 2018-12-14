@@ -14,16 +14,16 @@ $db = db::getInstance();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $message = "";
     if (!isset($_POST['name'])) {
-        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu tên sản phẩm</p>";
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu tên loại sản phẩm</p>";
     }
     if (!isset($_POST['description'])) {
-        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu mô tả sản phẩm</p>";
+        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu mô tả loại sản phẩm</p>";
     }
 
     if (!isset($_FILES['img'])) {
-        $message .= "<p class='alert alert-danger message'>Bạn chưa upload ảnh sản phẩm</p>";
+        $message .= "<p class='alert alert-danger message'>Bạn chưa upload ảnh loại sản phẩm</p>";
     } else if ($_FILES['img']['error'] > 0) {
-        $message .= "<p class='alert alert-danger message'>Upload ảnh sản phẩm bị lỗi</p>";
+        $message .= "<p class='alert alert-danger message'>Upload ảnh loại sản phẩm bị lỗi</p>";
     } else {
         $file_name = $_FILES['img']['name'];
 
@@ -112,28 +112,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 if (input.val() == null || input.val().trim() === "") {//Nếu giá trị input rỗng
                                     isValidInput = false;
                                     $(this).append("<p class='alert alert-danger message'>Không thể để trống trường " + label + "</p>");
-                                } else if ((label === "Giá" || label === "Số lượng" || label === "Giá khuyến mãi") && !isUnsignedNumber(input.val())) {
-                                    //Kiểm tra xem giá trị input có là số không đối với các nhãn Giá, Số lượng và Giá khuyến mãi
-                                    isValidInput = false;
-                                    $(this).append("<p class='alert alert-danger message'>Bạn phải nhập " + label + " là số</p>");
                                 }
                             }
 
                         });
-
-                        //Duyệt qua các trường select (có thể chọn giá trị option đó)
-                        $("#form_product .form-group:has(.selectpicker)").each(function () {
-                            $(this).find(".message").remove();//Xóa hết tất cả các thông báo trước
-                            let label = $(this).find("label").text();//Nhãn (nằm trong thẻ label)
-                            let selectpicker = $(this).find(".selectpicker").selectpicker('val');//Lấy giá trị đang được chọn
-                            if (selectpicker === "") {
-                                isValidInput = false;
-                                $(this).append("<p class='alert alert-danger message'>Bạn chưa chọn " + label + "</p>");
-                            } else {
-                                $(this).find("input").attr("value", selectpicker);//Truyền vào trường input
-                            }
-                        });
-
                         //Kiểm tra input ảnh
                         let inputFile = $('.form-group:has(input[type="file"])');
                         inputFile.find(".message").remove();//Xóa hết tất cả các thông báo trước
