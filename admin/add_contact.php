@@ -32,7 +32,7 @@ if ($db->insert("contact", [
 "name" => $_POST['name'],
 "email" => $_POST['email'],
 "phone" => $_POST['sdt'],
-"message" => $_POST['noidung'],
+"message" => trim($_POST['noidung']),
 ])) {
 $message .= "<p class='alert alert-success'>Thêm thành công</p>";
 unset($_POST);
