@@ -47,7 +47,7 @@
 		'link_themmoi'	=>	'add_type_product.php',
 		'link_list'	=>	'list_type_product.php',
 		'link_edit'	=>	'edit_type_product.php',
-		'link_delete'	=>	'delete_tyoe_product.php'
+		'link_delete'	=>	'delete_type_product.php'
 		),
 		'Slide'	=> array(
 		'title'	=>	'Quản lý Slider',
