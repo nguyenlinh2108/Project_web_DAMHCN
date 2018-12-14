@@ -54,17 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     if ($message === "") {
-        if(
-            $new_file_name === $image_db
-        ){
-            $message = "<p class='alert alert-danger message'>Bạn chưa thay đổi gì</p>";
-        }else if($db->update("product",
+        if($db->update("product",
             [
                 "image"=>$new_file_name,
             ],
             "id={$id}"))
         {
-            if(!unlink('../public/upload/'.$image_db))
+            if(!unlink(__DIR__ . '/../public/upload/'.$image_db))
             {
                 $message= "<p class='alert alert-danger message' style='margin-top: 15px;'>Ảnh ".$image_db." không tồn tại trong thư mục /public/upload/ </p>
                             <p class='alert alert-success message'>Ảnh mới đã được thêm vào.</p>
@@ -92,12 +88,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <p>Mã sản phẩm</p>
                 <input type="text" value="<?php if(isset($id)) echo $id; ?>" disabled class="form-control">
             </div>
-            <div class="form-group">
+            <!--<div class="form-group">
                 <p>Ảnh cũ</p>
-                <img src="../public/upload/<?php if(isset($image_db)) echo $image_db; ?>" style="width: 25%;">
-            </div>
+                <img src="../public/upload/<?php /*if(isset($image_db)) echo $image_db; */?>" style="width: 25%;">
+            </div>-->
             <div class="form-group">
-                <p>Ảnh mới</p>
+                <p>Ảnh</p>
                 <img src="../public/upload/<?php if(isset($new_file_name)) echo $new_file_name; ?>" style="width: 25%;">
                 <input type="file" name="img" value="">
                 <?php if(isset($new_file_name)) echo $new_file_name; ?>
