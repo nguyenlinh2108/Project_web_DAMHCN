@@ -53,15 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else if (!strpos($_POST['email'], "@") || !strpos($_POST['email'], ".")) {//Email phải có ít nhất dấu @ và dấu .
         $message .= "<p class='alert alert-danger message'>Email không hợp lệ</p>";
     }
-    if (!isset($_POST['password'])) {
-        $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu mật khẩu</p>";
-    } else if (!isset($_POST['repassword'])) {
-        $message .= "<p class='alert alert-danger message'>Bạn đã chưa nhập lại mật khẩu</p>";
-    } else if (strlen($_POST['repassword']) < 3) {
-        $message .= "<p class='alert alert-danger message'>Mật khẩu quá ngắn, ít nhất 3 ký tự</p>";
-    } else if ($_POST['password'] !== $_POST['repassword']) {
-        $message .= "<p class='alert alert-danger message'>Mật khẩu bạn nhập không khớp</p>";
-    }
+
     if (!isset($_POST['address'])) {
         $message .= "<p class='alert alert-danger message'>Bạn chưa nhập địa chỉ</p>";
     }
@@ -122,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div class="row">
         <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
-            <h3>Thêm mới Khách hàng</h3>
+            <h3>Sửa khách hàng</h3>
             <form id="frm_add" method="POST" name="frm_add">
                 <?php
                 if (isset($message)) {
@@ -171,7 +163,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div id="datepicker" class="input-group date" data-provide="datepicker"
                          data-date-format="dd-mm-yyyy">
                         <input type="text" class="form-control" name="birthday"
-                               value="<?php if (isset($birthday_db)) echo $birthday_db; ?>">
+                               value="<?php
+                               if (isset($birthday_db)) {
+                                   //Convert ngày sinh dạng Năm-Tháng-Ngày trong database sang dạng Ngày-Tháng-Năm
+                                   $birthday = DateTime::createFromFormat('Y-m-d', $birthday_db);
+                                   //Còn đây là hiển thị theo định dạng Ngày-Tháng-Năm từ biến POST mà người dùng gửi lên
+                                   if($birthday == null) $birthday = DateTime::createFromFormat('d-m-Y', $birthday_db);
+                                   if($birthday != null)
+                                   {
+                                       echo $birthday->format("d-m-Y");
+                                   }
+                               }
+                               ?>">
                         <div class="input-group-addon">
                             <span class="glyphicon glyphicon-th"></span>
                         </div>
@@ -251,25 +254,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             $(this).find("input").attr("value", selectpicker);//Truyền vào trường input
                         }
                     });
-                    //Kiểm tra mật khẩu và nhập lại mật khẩu
-                    let inputPassword = $('#input-password');
-                    let pass = inputPassword.find("input").val();//Giá trị password người dùng nhập vào
-                    let inputRepassword = $('#input-repassword');
-                    let repass = inputRepassword.find("input").val();//Giá trị password nhập lại người dùng nhập vào
-                    if (pass === "") {
-                        isValidInput = false;
-                        inputPassword.append("<p class='alert alert-danger message'>Bạn chưa nhập mật khẩu</p>");
-                    } else if (pass.length < 3) {
-                        isValidInput = false;
-                        inputPassword.append("<p class='alert alert-danger message'>Mật khẩu quá ngắn, ít nhất 3 ký tự</p>");
-                    }
-                    else if (repass === "") {
-                        isValidInput = false;
-                        inputRepassword.append("<p class='alert alert-danger message'>Bạn chưa nhập lại mật khẩu</p>");
-                    } else if (pass !== repass) {
-                        isValidInput = false;
-                        inputRepassword.append("<p class='alert alert-danger message'>Mật khẩu nhập lại không khớp</p>");
-                    }
+
                     //Duyệt trường datepicker
                     let input = $("#datepicker").datepicker('getFormattedDate');
                     let label = $("#ngaysinh").find("label").text();
