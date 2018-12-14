@@ -18,7 +18,7 @@ include "includes/header.php";
                 </div>
                 <div style="float: left; padding: 6px 12px;"><label>Tìm kiếm theo:</label></div>
                 <div style="float: left">
-                    <select id="search_field" class="selectpicker show-tick" data-width="auto">
+                    <select id="search_field" class="selectpicker show-tick" data-width="auto" title="Danh mục tìm kiếm">
                         <option value="name">Tên</option>
                         <option value="gender">Giới tính</option>
                         <option value="email">Email</option>
