@@ -15,7 +15,7 @@ if(isset($_GET['id']) && filter_var($_GET['id'],FILTER_VALIDATE_INT, array('min_
     $query_a = "SELECT * FROM product WHERE id={$id}";
     if($db->select_one($query_a)){
         $anhInfo = $db->getResult()->image;
-        unlink('/../public/upload/'.$anhInfo);
+        unlink('../public/upload/'.$anhInfo);
     }
     $query = "DELETE FROM product WHERE id={$id}";
     $db->execute($query);
