@@ -17,6 +17,10 @@ body {
     }
 }
 
+#my_pad_top{
+    padding-top: 15px !important;
+}
+
 #wrapper {
     padding-left: 0;
 }
