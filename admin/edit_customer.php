@@ -167,8 +167,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                if (isset($birthday_db)) {
                                    //Convert ngày sinh dạng Năm-Tháng-Ngày trong database sang dạng Ngày-Tháng-Năm
                                    $birthday = DateTime::createFromFormat('Y-m-d', $birthday_db);
+                                   //Còn đây là hiển thị theo định dạng Ngày-Tháng-Năm từ biến POST mà người dùng gửi lên
+                                   if($birthday == null) $birthday = DateTime::createFromFormat('d-m-Y', $birthday_db);
                                    if($birthday != null)
-                                   echo $birthday->format("d-m-Y");
+                                   {
+                                       echo $birthday->format("d-m-Y");
+                                   }
                                }
                                ?>">
                         <div class="input-group-addon">
