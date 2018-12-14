@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 ?>
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top: 15px;">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="my_pad_top">
             <form name="form_product" id="form_product" method="POST" enctype="multipart/form-data">
                 <div id="message">
                     <?php
