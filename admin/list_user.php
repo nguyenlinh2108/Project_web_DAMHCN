@@ -66,7 +66,7 @@
                         <td><?php echo $obj->gender; ?></td>
                         <td>
                             <a href="edit_image_user.php>id=<?php echo $obj->id; ?>">
-                                <img src="../public/upload/<?php echo $obj->avatar; ?>">
+                                <img src="../public/upload/<?php echo $obj->avatar; ?>" width="100px">
                                 Edit image
                             </a>
                         </td>
