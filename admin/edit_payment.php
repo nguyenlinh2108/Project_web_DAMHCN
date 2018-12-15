@@ -43,7 +43,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 <div class="row">
-    <div class="col-lg-12 col-sm-12 col-xs-12 col-sm-12">
+    <div class="col-lg-12 col-sm-12 col-xs-12 col-sm-12" id="my_pad_top">
+        <a href="list_payment.php" class="btn btn-primary">Về trang danh sách phương thức thanh toán</a>
+        <a href="index.php" class="btn btn-primary" style="float: right">Về trang chủ</a>
         <div id="message">
             <?php if (isset($message)) echo $message ?>
         </div>
