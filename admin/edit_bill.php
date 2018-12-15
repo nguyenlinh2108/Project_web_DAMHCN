@@ -91,8 +91,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="my_pad_top">
         <form name="form_bill" id="form_bill" method="POST" enctype="multipart/form-data">
+            <a href="list_bill.php" class="btn btn-primary">Về trang danh sách hóa đơn</a>
+            <a href="index.php" class="btn btn-primary" style="float: right">Về trang chủ</a>
             <div id="message">
                 <?php
                 if (isset($message)) {
@@ -100,8 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
                 ?>
             </div>
-            <a href="list_bill.php" class="btn btn-primary">Về trang danh sách hóa đơn</a>
-            <a href="index.php" class="btn btn-primary" style="float: right">Về trang chủ</a>
             <h3>Chỉnh sửa hóa đơn</h3>
             <div class="form-group">
                 <label>Mã</label>
