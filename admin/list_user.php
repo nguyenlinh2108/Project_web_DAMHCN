@@ -26,7 +26,7 @@
             <?php
             $db = db::getInstance();
             //đặt số bản ghi cần thiết:
-            $limit = 2;
+            $limit = 20;
             //xác định vị trí bắt đầu:
             if(isset($_GET['s']) && filter_var($_GET['s'], FILTER_VALIDATE_INT, array('min_range'=>1)))
             {
@@ -65,8 +65,8 @@
                         <td><?php echo $obj->email; ?></td>
                         <td><?php echo $obj->gender; ?></td>
                         <td>
-                            <a href="edit_image_user.php>id=<?php echo $obj->id; ?>">
-                                <img src="../public/upload/<?php echo $obj->avatar; ?>" width="100px">
+                            <a href="edit_image_user.php?id=<?php echo $obj->id; ?>">
+                                <img src="../public/upload/users/<?php echo $obj->avatar; ?>" width="100px">
                                 Edit image
                             </a>
                         </td>
