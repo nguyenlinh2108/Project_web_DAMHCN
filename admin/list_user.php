@@ -64,7 +64,12 @@
                         <td><?php echo $obj->name; ?></td>
                         <td><?php echo $obj->email; ?></td>
                         <td><?php echo $obj->gender; ?></td>
-                        <td><?php echo $obj->avatar; ?></td>
+                        <td>
+                            <a href="edit_image_user.php>id=<?php echo $obj->id; ?>">
+                                <img src="../public/upload/<?php echo $obj->avatar; ?>">
+                                Edit image
+                            </a>
+                        </td>
                         <td><?php echo $obj->password; ?></td>
                         <td><?php echo $obj->phone; ?></td>
                         <td><?php echo $obj->address; ?></td>
