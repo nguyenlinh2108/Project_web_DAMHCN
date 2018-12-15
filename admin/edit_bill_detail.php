@@ -82,9 +82,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 <div class="row">
-    <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
+    <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12" id="my_pad_top">
         <a href="list_bill_detail.php" class="btn btn-primary">Về trang danh sách hóa đơn chi tiết</a>
         <a href="index.php" class="btn btn-primary" style="float: right">Về trang chủ</a>
+        <?php
+        if (isset($message)) {
+            echo $message;
+        }
+        ?>
         <form id="frm_add" method="POST" name="frm_add" enctype="multipart/form-data">
             <h3>Chỉnh sửa hóa đơn chi tiết</h3>
             <div class="form-group">
@@ -92,11 +97,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="text" name="name" value="<?php if (isset($id)) echo $id; ?>"
                        class="form-control" placeholder="Tên" disabled>
             </div>
-            <?php
-            if (isset($message)) {
-                echo $message;
-            }
-            ?>
             <div class="form-group">
                 <label>Mã hóa đơn</label>
                 <input type="text" hidden name="mahd" value="">
