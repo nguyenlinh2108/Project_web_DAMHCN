@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $message .= "<p class='alert alert-danger message'>File bạn upload lên không phải là ảnh</p>";
         } else {
             $new_file_name = substr($file_name, 0, strrpos($file_name, ".")) . " " . date('d_m_Y H_i_s') . $file_type;
-            $new_file = __DIR__ . '/../public/upload/' . $new_file_name;
+            $new_file = __DIR__ . '/../public/upload/type_product/' . $new_file_name;
             move_uploaded_file($_FILES['img']['tmp_name'], $new_file);
             if (!file_exists($new_file)) {//Nếu file không tồn tại
                 $message .= "<p class='alert alert-danger message'>Upload ảnh sản phẩm bị lỗi</p>";
