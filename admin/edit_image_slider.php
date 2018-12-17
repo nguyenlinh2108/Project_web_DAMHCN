@@ -16,6 +16,9 @@ if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min
     if($db->select_one("SELECT * FROM  slide WHERE id={$id}"))
     {
         $image_db = $db->getResult()->image;
+    }else{
+        header('Location: list_slider.php');
+        exit();
     }
 }else{
     header('Location: list_slider.php');
