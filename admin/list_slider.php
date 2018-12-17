@@ -64,7 +64,7 @@
                                 <td>
                                     <a href="edit_image_slider.php?id=<?php echo $obj->id;?>" style="font-size: 10px">
                                         <img width="100px" src="/public/upload/slider/<?php echo $obj->image; ?>"/>
-                                        Edit image
+                                        <p>Edit image</p>
                                     </a>
                                 </td>
                                 <td><a href="edit_slider.php?id=<?php echo $obj->id; ?>"><img width="16" src="/public/images/icon_edit.png"></a></td>
