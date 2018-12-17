@@ -41,7 +41,9 @@ unset($_POST);
 }
 ?>
 <div class="row">
-    <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
+    <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12" id="my_pad_top">
+        <a href="list_contact.php" class="btn btn-primary" >Về trang danh sách liên hệ</a>
+        <a href="index.php" class="btn btn-primary" style="float: right">Về trang chủ</a>
         <h3>Thêm mới phản hồi</h3>
         <form id="frm_add" method="POST" name="frm_add" enctype="multipart/form-data">
             <?php
@@ -78,7 +80,6 @@ unset($_POST);
                 </textarea>
             </div>
             <input type="submit" name="btnSubmit" class="btn btn-primary" value="Thêm">
-            <a href="index.php" class="btn btn-primary">Hủy</a>
         </form>
         <script>
             $(document).ready(function () {
