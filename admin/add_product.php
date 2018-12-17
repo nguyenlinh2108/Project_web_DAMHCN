@@ -52,11 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //hàm substr là cắt file
         //hàm strrpos là tìm vị trí xuất hiện cuối cùng của 1 chuỗi trong 1 chuỗi, trả về một số nguyên
         $file_type = substr($file_name, strrpos($file_name, "."));
-        if (!in_array($file_type, [".jpg", ".png", ".jpeg", "jpe", "gif"])) {
+        if (!in_array($file_type, [".jpg", ".png", ".jpeg", "jpe", "gif", ".JPG", ".PNG", ".JPEG",".JPE", ".GIF"])) {
             $message .= "<p class='alert alert-danger message'>File bạn upload lên không phải là ảnh</p>";
         } else {
             $new_file_name = substr($file_name, 0, strrpos($file_name, ".")) . " " . date('d_m_Y H_i_s') . $file_type;
-            $new_file = __DIR__ . '/../public/upload/' . $new_file_name;
+            $new_file = __DIR__ . '/../public/upload/product/' . $new_file_name;
             move_uploaded_file($_FILES['img']['tmp_name'], $new_file);
             if (!file_exists($new_file)) {//Nếu file không tồn tại
                 $message .= "<p class='alert alert-danger message'>Upload ảnh sản phẩm bị lỗi</p>";
@@ -229,7 +229,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             inputFile.append("<p class='alert alert-danger message'>Bạn chưa chọn ảnh</p>");
                         } else {
                             let file_type = image.substr(image.lastIndexOf("."));//Phần mở rộng của file
-                            if (![".jpg", ".png", ".jpeg", "jpe", "gif"].includes(file_type)) {//Nếu không thuộc 1 trong số này thì không phải là ảnh
+                            if (![".jpg", ".png", ".jpeg", "jpe", "gif", ".JPG", ".PNG", ".JPEG",".JPE", ".GIF"].includes(file_type)) {//Nếu không thuộc 1 trong số này thì không phải là ảnh
                                 isValidInput = false;
                                 inputFile.append("<p class='alert alert-danger message'>File bạn chọn không phải là ảnh</p>");
                             }
