@@ -45,11 +45,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <div class="row">
     <div class="col-lg-12 col-sm-12 col-xs-12 col-sm-12" id="my_pad_top">
+        <a href="list_unit.php" class="btn btn-primary" >Về trang danh sách đơn vị sản phẩm</a>
+        <a href="index.php" class="btn btn-primary" style="float: right">Về trang chủ</a>
         <div id="message">
             <?php if (isset($message)) echo $message ?>
         </div>
-        <a href="list_unit.php" class="btn btn-primary" >Về trang danh sách đơn vị sản phẩm</a>
-        <a href="index.php" class="btn btn-primary" style="float: right">Về trang chủ</a>
         <form method="POST" name="frmedit_payment" id="frmedit_payment">
             <h3>Sửa đơn vị sản phẩm</h3>
             <div class="form-group">
