@@ -124,6 +124,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <h3>Sửa khách hàng</h3>
             <form id="frm_add" method="POST" name="frm_add">
                 <div class="form-group">
+                    <label>Mã</label>
+                    <input type="text" class="form-control"
+                           name="ma" value="<?php if ($id) echo $id; ?>"
+                           disabled>
+                </div>
+                <div class="form-group">
                     <label>Tên</label>
                     <input type="text" class="form-control"
                            name="name" value="<?php if ($name_db) echo $name_db; ?>"
