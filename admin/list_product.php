@@ -77,8 +77,8 @@ else
                 <td>
 
                     <a href="edit_image_product.php?id=<?php echo $obj->id; ?>" style="font-size: 10px">
-                        <img src="../public/upload/<?php echo $obj->image; ?>" width="50px">
-                        Edit image
+                        <img src="../public/upload/product/<?php echo $obj->image; ?>" width="50px">
+                        <p>Edit image</p>
                     </a>
                 </td>
                 <td><a href="edit_product.php?id=<?php echo $obj->id; ?>"><img width="16px" src="../public/images/icon_edit.png"></a></td>
