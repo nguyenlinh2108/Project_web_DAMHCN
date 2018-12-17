@@ -46,7 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 <div class="row">
-    <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
+    <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12" id="my_pad_top">
+        <a href="list_bill_detail.php" class="btn btn-primary" >Về trang danh sách hóa đơn chi tiết</a>
+        <a href="index.php" class="btn btn-primary" style="float: right">Về trang chủ</a>
         <h3>Thêm mới hóa đơn chi tiết</h3>
         <form id="frm_add" method="POST" name="frm_add" enctype="multipart/form-data">
             <?php
@@ -98,7 +100,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                        placeholder="Giá">
             </div>
             <input type="submit" name="btnSubmit" class="btn btn-primary" value="Thêm">
-            <a href="index.php" class="btn btn-primary">Hủy</a>
         </form>
         <script>
             $(document).ready(function () {
