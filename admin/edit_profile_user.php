@@ -54,11 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!isset($_POST['address'])) {
         $message .= "<p class='alert alert-danger message'>Bạn chưa nhập địa chỉ</p>";
     }
-    if (!isset($_POST['level'])) {
-        $message .= "<p class='alert alert-danger message'>Bạn chưa chọn quyền</p>";
-    } else if (!in_array($_POST['level'], $level_array)) {
-        $message .= "<p class='alert alert-danger message'>Quyền bạn nhập không hợp lệ</p>";
-    }
 
     if ($message === "") {
         if(
