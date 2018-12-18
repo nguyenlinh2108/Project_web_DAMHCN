@@ -86,20 +86,20 @@ function curentUrl()
 
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <span><img style="border-radius: 50%;overflow: hidden;margin-left: -10px;height: 24px;width: 24px;display: inline;margin: 2px 6px 2px -8px;" src="/public/upload/<?= $admin->avatar ?>"></span>
+                    <span><img style="border-radius: 50%;overflow: hidden;margin-left: -10px;height: 24px;width: 24px;display: inline;margin: 2px 6px 2px -8px;" src="/public/upload/users/<?= $admin->avatar ?>"></span>
                     <span><?= $admin->name ?></span>
                     <span><b class="caret"></b></span>
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        <a href="profile_user.php?id=<?= $admin->id ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-gear"></i>Đổi mật khẩu</a>
+                        <a href="change_pass_user.php"><i class="fa fa-fw fa-gear"></i>Đổi mật khẩu</a>
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        <a href="log_out_user.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                     </li>
                 </ul>
             </li>
