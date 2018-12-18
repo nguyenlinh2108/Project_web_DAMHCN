@@ -38,6 +38,9 @@ function curentUrl()
     <!-- Bootstrap Core CSS -->
     <link href="./public/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- My custom css-->
+    <link href="./public/css/main.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="./public/css/sb-admin.css" rel="stylesheet">
 
@@ -61,6 +64,9 @@ function curentUrl()
     <!-- time ago https://github.com/hustcc/timeago.js -->
     <script src="./public/js/timeago/timeago.min.js"></script>
     <script src="./public/js/timeago/timeago.locales.min.js"></script>
+
+    <!-- jQuery ScrollTo -->
+    <script src="./public/js/jquery.scrollTo.min.js"></script>
 
 </head>
 
@@ -99,7 +105,7 @@ function curentUrl()
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="log_out_user.php?id=<?= $admin->id ?>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        <a href="log_out_user.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                     </li>
                 </ul>
             </li>
