@@ -7,6 +7,7 @@
  */
 require_once __DIR__ . "/../../db/db.php";
 require_once __DIR__ . "/../../config.php";
+require_once __DIR__ . "/../../utils/mystring.php";
 
 class admin
 {
@@ -35,12 +36,26 @@ class admin
                 $this->name = $result->name;
                 $this->email = $result->email;
                 $this->gender = $result->gender;
-                $this->avatar = $result->avatar;
+                $this->setAvatar($result->avatar, $result->gender);
                 $this->phone = $result->phone;
                 $this->address = $result->address;
                 $this->level = $result->level;
             }
         }
+    }
+
+    /**
+     * @param mixed $avatar
+     */
+    public function setAvatar($avatar, $gender)
+    {
+        if (strlen($avatar) > 3) {
+            if (!startsWith($avatar, "http")) $avatar = "/public/image/" . $avatar;
+        } else {
+            $avatar = "/public/upload/users/" . (($gender === "Nữ") ? "avatar_female.jpg" : "avatar_male.jpg");
+        }
+
+        $this->avatar = $avatar;
     }
 
 
