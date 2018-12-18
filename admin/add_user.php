@@ -17,6 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu email</p>";
     } else if (!strpos($_POST['email'], "@") || !strpos($_POST['email'], ".")) {//Email phải có ít nhất dấu $ và dấu .
         $message .= "<p class='alert alert-danger message'>Email không hợp lệ</p>";
+    } else if ($db->select_one("SELECT * FROM user WHERE email = '" . db::validSql($_POST['email'])
+        . "'")) {
+        $message .= "<p class='alert alert-danger'>Email đã tồn tại.</p>";
     }
     if (!isset($_POST['gender'])) {
         $message .= "<p class='alert alert-danger message'>Bạn đã nhập thiếu giới tính</p>";
@@ -36,7 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $message .= "<p class='alert alert-danger message'>Bạn chưa nhập số điện thoại</p>";
     } else if (!is_numeric($_POST['phone'])) {
         $message .= "<p class='alert alert-danger message'>Số điện thoại không hợp lệ</p>";
+    } else if ($db->select_one("SELECT * FROM user WHERE phone = '" . db::validSql($_POST['phone'])
+        . "'")) {
+        $message .= "<p class='alert alert-danger message'>Số điện thoại đã tồn tại.</p>";
     }
+
     if (!isset($_POST['address'])) {
         $message .= "<p class='alert alert-danger message'>Bạn chưa nhập địa chỉ</p>";
     }
@@ -57,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $message .= "<p class='alert alert-danger message'>File bạn upload lên không phải là ảnh</p>";
         } else {
             $new_file_name = substr($file_name, 0, strrpos($file_name, ".")) . " " . date('d_m_Y H_i_s') . $file_type;
-            $new_file = __DIR__ . '/../public/upload/' . $new_file_name;
+            $new_file = __DIR__ . '/../public/upload/users/' . $new_file_name;
             move_uploaded_file($_FILES['avatar']['tmp_name'], $new_file);
             if (!file_exists($new_file)) {//Nếu file không tồn tại
                 $message .= "<p class='alert alert-danger message'>Upload ảnh đại diện bị lỗi</p>";
@@ -66,14 +73,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     }
 
+//    if ($db->select_one("SELECT * FROM user WHERE email = '" . db::validSql($_POST['email'])
+//        . "'")) {
+//        $message .= "<p class='alert alert-danger'>Email đã tồn tại.</p>";
+//    }else if ($db->select_one("SELECT * FROM user WHERE phone = '" . db::validSql($_POST['phone'])
+//        . "'")) {
+//        $message .= "<p class='alert alert-danger message'>Số điện thoại đã tồn tại.</p>";
+//    }
+
     if ($message === "") {
-        if ($db->select_one("SELECT * FROM user WHERE email = '" . db::validSql($_POST['email'])
-            . "'")) {
-            $message .= "<p class='alert alert-danger'>Email đã tồn tại.</p>";
-        }else if ($db->select_one("SELECT * FROM user WHERE phone = '" . db::validSql($_POST['phone'])
-            . "'")) {
-            $message .= "<p class='alert alert-danger'>Số điện thoại đã tồn tại.</p>";
-        } else if ($db->insert("user", [
+         if ($db->insert("user", [
             "name" => $_POST['name'],
             "email" => $_POST['email'],
             "gender" => $_POST['gender'],
@@ -83,15 +92,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             "level" => $_POST['level'],
             "avatar" => $new_file_name,
         ])) {
-            $message .= "<p class='alert alert-success'>Thêm thành công user " . $_POST['name'] . "</p>";
+            $message .= "<p class='alert alert-success message'>Thêm thành công user " . $_POST['name'] . "</p>";
             unset($_POST);
-        } else $message .= "<p class='alert alert-danger'>Thêm thất bại</p>";
+        } else $message .= "<p class='alert alert-danger message'>Thêm thất bại</p>";
     }
 }
 ?>
 
 <div class="row">
-	<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+	<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12" id="my_pad_top">
+        <a href="list_user.php" class="btn btn-primary" >Về trang danh sách quản trị viên</a>
+        <a href="index.php" class="btn btn-primary" style="float: right">Về trang chủ</a>
 		<form name="frmadd_user" id="frmadd_user" method="POST" enctype="multipart/form-data">
 			<?php 
 				if(isset($message))
