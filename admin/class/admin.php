@@ -25,8 +25,9 @@ class admin
     /**
      * admin constructor.
      */
-    public function __construct($id)
+    public function __construct($id = null)
     {
+        if($id == null) return ;
         $this->id = $id;
         $this->db = db::getInstance();
         if(is_numeric($this->id)){
@@ -44,10 +45,23 @@ class admin
         }
     }
 
+    public static function getAdmin($obj){
+        $admin = new admin();
+        if(isset($obj->id)) $admin->id = $obj->id;
+        if(isset($obj->name)) $admin->name = $obj->name;
+        if(isset($obj->email)) $admin->email = $obj->email;
+        if(isset($obj->gender)) $admin->gender = $obj->gender;
+        if(isset($obj->avatar)) $admin->setAvatar($obj->avatar, $obj->gender);
+        if(isset($obj->phone)) $admin->phone = $obj->phone;
+        if(isset($obj->address)) $admin->address = $obj->address;
+        if(isset($obj->level)) $admin->level = $obj->level;
+        return $admin;
+    }
+
     /**
      * @param mixed $avatar
      */
-    public function setAvatar($avatar, $gender)
+    public function setAvatar($avatar, $gender = null)
     {
         if (strlen($avatar) > 3) {
             if (!startsWith($avatar, "http")) $avatar = "/public/upload/users/" . $avatar;
