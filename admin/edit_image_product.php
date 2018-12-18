@@ -51,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     }
 
-
     if ($message === "") {
         if($db->update("product",
             [
@@ -78,16 +77,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <a href="list_product.php" class="btn btn-primary" >Về trang danh sách sản phẩm</a>
         <a href="index.php" class="btn btn-primary" style="float: right">Về trang chủ</a>
         <form name="form_edit" id="form_edit" method="POST" enctype="multipart/form-data">
-            <?php
-            if (isset($message)) {
-                echo $message;
-            }
-            ?>
+            <div id="message">
+                <?php
+                if (isset($message)) {
+                    echo $message;
+                }
+                ?>
+            </div>
             <h3>Chỉnh sửa ảnh của sản phẩm </h3>
             <div class="form-group">
                 <p>Mã sản phẩm</p>
                 <input type="text" value="<?php if(isset($id)) echo $id; ?>" disabled class="form-control">
             </div>
+            <?php if(isset($new_file_name)) echo "<img style='max-width:500px; max-height:500px'  src='/public/upload/product/$new_file_name' >" ?>
             <div class="form-group">
                 <p>Ảnh</p>
                 <input type="file" name="img_product" value="">
