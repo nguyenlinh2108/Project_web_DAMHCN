@@ -118,11 +118,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a href="index.php" class="btn btn-primary" style="float: right">Về trang chủ</a>
 
             <h3>Sửa khách hàng</h3>
-            <?php
-            if (isset($message)) {
-                echo $message;
-            }
-            ?>
+            <div id="message">
+                <?php
+                if (isset($message)) {
+                    echo $message;
+                }
+                ?>
+            </div>
             <form id="frm_add" method="POST" name="frm_add">
                 <div class="form-group">
                     <label>Mã</label>
@@ -137,18 +139,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                            placeholder="Tên">
                 </div>
                 <div class="form-group">
-                    <label>Giới tính</label>
-                    <input type="text" hidden name="gender" value="">
-                    <select id="select-status" class="selectpicker show-tick" data-width="auto" title="Chọn giới tính">
-                        <?php
-                        foreach ($gender_array as $gender) {
-                            ?>
-                            <option value="<?= $gender ?>" <?php if (isset($gender_db) && $gender_db === $gender) echo "selected"; ?>><?= ucfirst($gender) ?></option>
+                    <label >Giới tính</label>
+                    <input hidden name="gender" value="">
+                        <select  id="select-status" class="selectpicker show-tick" data-width="auto" title="Chọn giới tính">
                             <?php
-                        }
-                        ?>
-                    </select>
+                            foreach ($gender_array as $gender) {
+                                ?>
+                                <option value="<?= $gender ?>" <?php if (isset($gender_db) && $gender_db === $gender) echo "selected"; ?>><?= ucfirst($gender) ?></option>
+                                <?php
+                            }
+                            ?>
+                        </select>
                 </div>
+
                 <div class="form-group">
                     <label>Email</label>
                     <input type="text" class="form-control"
@@ -225,10 +228,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $("#datepicker").change(function () {
                         checkInput();
                     });
+
+                    //Lưu lại giá trị ban đầu của input
+                    $("input").each(function () {
+                        let old_value = $(this).val()
+                        $(this).attr("old_value", old_value);
+                    });
+
                 });
+
+                //Kiểm tra xem giá trị input cũ với mới có giống nhau không
+                //Nghĩa là kiểm tra xem họ đã sửa chưa
+                function checkInputIsEdited() {
+                    $("#message .alert-danger").remove();
+                    var isDiff = false;
+                    $("input").each(function () {
+                        let new_value = $(this).val();
+                        let old_value = $(this).attr("old_value");
+                        if(new_value !== old_value) {
+                            isDiff = true;
+                        }
+                    });
+
+                    if(!isDiff){
+                        $("#message").append("<p class='alert alert-danger message'>Bạn chưa sửa gì</p>");
+                        $.scrollTo( $('#my_pad_top'), 500);
+                    }
+                    return isDiff;
+                }
+
                 //Hàm kiểm tra các giá trị đầu vào và hiển thị thông báo lỗi nếu có
                 function checkInput() {
-                    $(".message").remove(); //Xóa hết tất cả các thông báo trước uk, nhưng  class message không có trong thông báo
+                    return (checkInputIsEdited() && checkInputValid());
+                }
+
+
+                //Hàm kiểm tra các giá trị đầu vào có hợp lệ không
+                function checkInputValid() {
+                    $("form .alert-danger").remove(); //Xóa hết tất cả các thông báo trước uk, nhưng  class message không có trong thông báo
                     var isValidInput = true;//biến kiểm tra xem các input có hợp lệ không
                     //Duyệt qua tất cả các input của form
                     $(".form-group:has(input[type='text'])").each(function () {
