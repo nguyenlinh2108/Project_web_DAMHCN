@@ -116,12 +116,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12" id="my_pad_top">
             <a href="list_customer.php" class="btn btn-primary">Về trang danh sách khách hàng</a>
             <a href="index.php" class="btn btn-primary" style="float: right">Về trang chủ</a>
+
+            <h3>Sửa khách hàng</h3>
             <?php
             if (isset($message)) {
                 echo $message;
             }
             ?>
-            <h3>Sửa khách hàng</h3>
             <form id="frm_add" method="POST" name="frm_add">
                 <div class="form-group">
                     <label>Mã</label>
@@ -201,7 +202,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                            placeholder="Điểm tích lũy">
                 </div>
                 <input type="submit" name="btnSubmit" class="btn btn-primary" value="Sửa">
-                <a href="index.php" class="btn btn-primary">Hủy</a>
             </form>
             <script>
                 $(document).ready(function () {
