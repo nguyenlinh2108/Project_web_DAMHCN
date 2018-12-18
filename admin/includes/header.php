@@ -95,11 +95,11 @@ function curentUrl()
                         <a href="profile_user.php?id=<?= $admin->id ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
                     </li>
                     <li>
-                        <a href="change_pass_user.php"><i class="fa fa-fw fa-gear"></i>Đổi mật khẩu</a>
+                        <a href="change_pass_user.php?id=<?= $admin->id ?>"><i class="fa fa-fw fa-gear"></i>Đổi mật khẩu</a>
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="log_out_user.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        <a href="log_out_user.php?id=<?= $admin->id ?>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                     </li>
                 </ul>
             </li>
