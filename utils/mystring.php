@@ -6,7 +6,9 @@
  * Time: 9:34 AM
  */
 
-
+/**
+ * Remove special characters from file name (keep file extention)
+ */
 function clean_filename($filename){
     if(!is_string($filename)) return $filename;
     if(strrpos($filename, ".") !== false){
