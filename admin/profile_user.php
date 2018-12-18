@@ -5,7 +5,7 @@
  * Date: 12/18/2018
  * Time: 9:53 AM
  */
-
+ob_start();
 require_once  __DIR__ . "/includes/header.php";
 require_once  __DIR__ . "/../db/db.php";
 require_once  __DIR__ . "/class/admin.php";
@@ -63,4 +63,5 @@ if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min
 </div>
 <?php
 require_once __DIR__ . "/includes/footer.php";
+ob_flush();
 ?>
