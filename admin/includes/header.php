@@ -92,7 +92,7 @@ function curentUrl()
 
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <span><img style="border-radius: 50%;overflow: hidden;margin-left: -10px;height: 24px;width: 24px;display: inline;margin: 2px 6px 2px -8px;" src="/public/upload/users/<?= $admin->avatar ?>"></span>
+                    <span><img style="border-radius: 50%;overflow: hidden;margin-left: -10px;height: 24px;width: 24px;display: inline;margin: 2px 6px 2px -8px;" src="<?= $admin->avatar ?>"></span>
                     <span><?= $admin->name ?></span>
                     <span><b class="caret"></b></span>
                 </a>
