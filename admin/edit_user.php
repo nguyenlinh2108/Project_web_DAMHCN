@@ -142,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <div class="form-group">
                     <p>Ảnh đại diện</p>
-                    <img src="../public/upload/<?php if(isset($avatar_db)) echo $avatar_db; ?>">
+                    <img src="../public/upload/users/<?php if(isset($avatar_db)) echo $avatar_db; ?>" width="150px">
                 </div>
                <div class="form-group">
                     <label>Số điện thoại</label>
