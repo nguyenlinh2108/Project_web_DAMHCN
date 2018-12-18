@@ -11,9 +11,13 @@ require_once __DIR__ . "/../../config.php";
 class admin
 {
     public $id;
-    public $email;
     public $name;
+    public $email;
+    public $gender;
     public $avatar;
+    public $phone;
+    public $address;
+    public $level;
 
     private $db;
 
@@ -25,11 +29,16 @@ class admin
         $this->id = $id;
         $this->db = db::getInstance();
         if(is_numeric($this->id)){
-            if($this->db->select_one("SELECT id,avatar, name, email, created_at FROM user WHERE id = $this->id")){
+            if($this->db->select_one("SELECT id, name, email, gender, avatar, phone, address, level, created_at 
+                                      FROM user WHERE id = $this->id")){
                 $result = $this->db->getResult();
-                $this->email = $result->email;
                 $this->name = $result->name;
+                $this->email = $result->email;
+                $this->gender = $result->gender;
                 $this->avatar = $result->avatar;
+                $this->phone = $result->phone;
+                $this->address = $result->address;
+                $this->level = $result->level;
             }
         }
     }
