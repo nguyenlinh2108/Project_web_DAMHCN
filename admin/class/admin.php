@@ -50,9 +50,9 @@ class admin
     public function setAvatar($avatar, $gender)
     {
         if (strlen($avatar) > 3) {
-            if (!startsWith($avatar, "http")) $avatar = "/public/image/" . $avatar;
+            if (!startsWith($avatar, "http")) $avatar = "/public/upload/users/" . $avatar;
         } else {
-            $avatar = "/public/upload/users/" . (($gender === "Nữ") ? "avatar_female.jpg" : "avatar_male.jpg");
+            $avatar = "/public/upload/users/default/" . (($gender === "Nữ") ? "avatar_female.jpg" : "avatar_male.jpg");
         }
 
         $this->avatar = $avatar;
