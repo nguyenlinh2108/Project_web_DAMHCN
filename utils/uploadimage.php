@@ -5,6 +5,7 @@
  * Time: 9:00 PM
  */
 
+require_once __DIR__ . "/mystring.php";
 
 /**
  * Hàm này nhận lưu ảnh được truyền lên vào thư mục $dir
@@ -27,6 +28,7 @@ function saveImage($name, $dir)
             return ['success' => false, 'message' => "Chỉ được upload file ảnh ($file_type)"];
         } else {
             $new_file_name = substr($file_name, 0, strrpos($file_name, ".")) . " " . date('d_m_Y H_i_s') . $file_type;
+            $new_file_name = clean_filename($new_file_name);//clean_filename: Loại bỏ các ký tự đặt biệt khỏi tên file
             $new_file = $dir . $new_file_name;
 
             if (move_uploaded_file($_FILES[$name]['tmp_name'], $new_file)) {
