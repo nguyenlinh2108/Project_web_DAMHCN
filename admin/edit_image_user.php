@@ -16,6 +16,7 @@ if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min
     if($db->select_one("SELECT * FROM  user WHERE id={$id}"))
     {
         $image_db = $db->getResult()->avatar;
+        $name_db = $db->getResult()->name;
     }else{
         header('Location: list_user.php');
         exit();
