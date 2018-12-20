@@ -1,4 +1,17 @@
-<?php include('includes/header.php'); ?>
+
+<?php
+require_once __DIR__ . "/includes/header.php";
+require_once  __DIR__ . "/db/db.php";
+$db = db::getInstance();
+if ($db->select("SELECT * FROM type_product")) {
+    $types = $db->getResult();//Danh sách các loại sản phẩm
+}
+
+if ($db->select("SELECT * FROM product")) {
+    $product = $db->getResult();//Danh sách sản phẩm
+}
+
+?>
 	
 	<div class="container-fluid" style="margin-top: 40px">
 		<div class="container">
@@ -19,608 +32,59 @@
 						<div class="shop-menu button-group filters-button-group">
 							<h2 class="hidden-xs-down">Shop</h2>
 							<ul>
-								<li><button class="button is-checked" data-filter="*"><span class="circle"></span>Show all</button></li>
-								<li><button class="button" data-filter=".button1"><span class="circle"></span>Chocolate</button></li>
-								<li><button class="button" data-filter=".button2"><span class="circle"></span>Handmade Bar</button></li>
-								<li><button class="button" data-filter=".button3"><span class="circle"></span>Baking and cooking chocolate</button></li>
-								<li><button class="button" data-filter=".button4"><span class="circle"></span>Season speciallties</button></li>
-								<li><button class="button" data-filter=".button5"><span class="circle"></span>Gift sets</button></li>
+                                <li><button class="button is-checked" data-filter="*"><span class="circle"></span>Show all</button></li>
+                                <?php
+                                if(isset($types) && is_array($types))
+                                {
+                                    $i = 0;
+                                    foreach ($types as $type)
+                                    {
+                                        $i++;
+                                ?>
+                                        <li><button class="button" data-filter=".button<?= $i ?>"><span class="circle"></span><?php echo $type->name; ?></button></li>
+                                <?php
+                                    }
+                                }
+                                ?>
 							</ul>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-9 col-sm-9">
 					<div class="grid row show-products">
-						<div class="element-item button1 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-1.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Artisan chocolate box</p><span class="price-product">Contact for price & order</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button2 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-6.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chewy salted caramel box</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button3 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-12.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Coffee & caramel bar</p><span class="price-product">$7.50</span></figcaption>
-							</figure>
-						</div>                        
-						<div class="element-item button4 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-5.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chocolate powder</p><span class="price-product">$20.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button5 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-2.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chocolate truffle box</p><span class="price-product">from $30.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button1 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-2.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chocolate truffle box</p><span class="price-product">from $30.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button2 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-7.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Signature Collection</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button3 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-1.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Artisan chocolate box</p><span class="price-product">Contact for price & order</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button4 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-2.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chocolate truffle box</p><span class="price-product">from $30.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button5 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-6.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chewy salted caramel box</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button1 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-3.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chocolate bar</p><span class="price-product">$7.50</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button2 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-8.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Summer assortment</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button3 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-3.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chocolate bar</p><span class="price-product">$7.50</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button4 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-3.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chocolate bar</p><span class="price-product">$7.50</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button5 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-1.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Artisan chocolate box</p><span class="price-product">Contact for price & order</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button1 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-6.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chewy salted caramel box</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button2 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-11.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Pin tree & gifts chocolate</p><span class="price-product">$20.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button3 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-4.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Baking chocolate 4 packs</p><span class="price-product">$33.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button4 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-1.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Artisan chocolate box</p><span class="price-product">Contact for price & order</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button5 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-3.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chocolate bar</p><span class="price-product">$7.50</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button1 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-7.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Signature Collection</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button2 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-2.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chocolate truffle box</p><span class="price-product">from $30.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button3 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-2.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chocolate truffle box</p><span class="price-product">from $30.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button4 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-4.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Baking chocolate 4 packs</p><span class="price-product">$33.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button5 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-4.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Baking chocolate 4 packs</p><span class="price-product">$33.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button1 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-4.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Baking chocolate 4 packs</p><span class="price-product">$33.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button2 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-3.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chocolate bar</p><span class="price-product">$7.50</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button3 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-5.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chocolate powder</p><span class="price-product">$20.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button4 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-6.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chewy salted caramel box</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button5 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-5.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chocolate powder</p><span class="price-product">$20.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button1 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-12.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Coffee & caramel bar</p><span class="price-product">$7.50</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button2 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-4.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Baking chocolate 4 packs</p><span class="price-product">$33.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button3 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-6.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chewy salted caramel box</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button4 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-7.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Signature Collection</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button5 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-7.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Signature Collection</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button1 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-5.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chocolate powder</p><span class="price-product">$20.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button2 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-1.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Artisan chocolate box</p><span class="price-product">Contact for price & order</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button3 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-7.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Signature Collection</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button4 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-12.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Coffee & caramel bar</p><span class="price-product">$7.50</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button5 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-8.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Summer assortment</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button1 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-8.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Summer assortment</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button2 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-5.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chocolate powder</p><span class="price-product">$20.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button3 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-8.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Summer assortment</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button4 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-8.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Summer assortment</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button5 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-11.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Pin tree & gifts chocolate</p><span class="price-product">$20.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button1 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-9.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chef collection</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button2 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-12.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Coffee & caramel bar</p><span class="price-product">$7.50</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button3 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-9.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chef collection</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button4 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-9.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chef collection</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button5 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-9.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chef collection</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button1 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-10.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Caremel collection</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button2 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-9.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Chef collection</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button3 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-10.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Caremel collection</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button4 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-10.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Caremel collection</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button1 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-11.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Pin tree & gifts chocolate</p><span class="price-product">$20.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button2 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-10.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Caremel collection</p><span class="price-product">from $9.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button3 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-11.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Pin tree & gifts chocolate</p><span class="price-product">$20.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button4 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-11.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Pin tree & gifts chocolate</p><span class="price-product">$20.00</span></figcaption>
-							</figure>
-						</div>
-						<div class="element-item button5 col-md-4 col-sm-6 col-xs-6">
-							<figure class="product-box text-xs-center">
-								<div class="quick-view">
-									<img class="img-fluid" src="public/images/product-12.png" alt="">
-									<div class="bg-gray"></div>
-									<a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
-								</div>
-								<figcaption><p>Coffee & caramel bar</p><span class="price-product">$7.50</span></figcaption>
-							</figure>
-						</div>
+                        <?php
+                        if(isset($type) && is_array($types))
+                        {
+                            $i = 0;
+                            foreach ($types as $type)
+
+                            {
+                                $i++;
+                                $id_type = $type->id;
+                                if ($db->select("SELECT * FROM product WHERE  type={$id_type}")) {
+                                    $type_product_selects = $db->getResult();//Danh sách sản phẩm
+                                }
+                                if(isset($type_product_selects) && is_array($type_product_selects))
+                                {
+                                    foreach ($type_product_selects as $type_product_select)
+                                    {
+                                        ?>
+                                        <div class="element-item button<?= $i ?> col-md-4 col-sm-6 col-xs-6">
+                                            <figure class="product-box text-xs-center">
+                                                <div class="quick-view">
+                                                    <img class="img-fluid" src="public/upload/product/<?php echo $type_product_select->image; ?>" alt="">
+                                                    <div class="bg-gray"></div>
+                                                    <a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
+                                                </div>
+                                                <figcaption><p><?php echo $type_product_select->name; ?></p><span class="price-product"><?php echo $type_product_select->unit_price; ?></span></figcaption>
+                                            </figure>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                            }
+                        }
+                        ?>
 					</div>
 				</div>
 			</div><!-- end row -->
@@ -685,12 +149,12 @@
 					<li><a href="">FAQ</a></li>
 				</ul>
 			</div>
-			<div class="col-md-3 col-sm-3 col-xs-6 up-one">
-				<p class="title-footer">SUBSCRIBE OUR NEWSLETTER!</p>
-				<p class="details-footer">Let us update to you our news & promotion. <br> 25% discount code for any new subscription.</p>
-				<input type="email" placeholder="Enter your e-mail here" class="d-block mb-2">
-				<a href="" type="submit" class="btn btn-chocolate ">SUBSCRIBE <span class="fa fa-chevron-circle-right"></span></a>
-			</div>
+<!--			<div class="col-md-3 col-sm-3 col-xs-6 up-one">-->
+<!--				<p class="title-footer">SUBSCRIBE OUR NEWSLETTER!</p>-->
+<!--				<p class="details-footer">Let us update to you our news & promotion. <br> 25% discount code for any new subscription.</p>-->
+<!--				<input type="email" placeholder="Enter your e-mail here" class="d-block mb-2">-->
+<!--				<a href="" type="submit" class="btn btn-chocolate ">SUBSCRIBE <span class="fa fa-chevron-circle-right"></span></a>-->
+<!--			</div>-->
 		</div><!-- end row -->
 	</div><!-- end ... -->
 
@@ -706,12 +170,12 @@
 		</div>
 	</footer><!-- end ... -->
 
-	<div class="connect">
-		<a href="#"><span class="fa fa-facebook"></span></a>
-		<a href="#"><span class="fa fa-twitter"></span></a>
-		<a href="#"><span class="fa fa-google-plus"></span></a>
-		<a href="#"><span class="fa fa-instagram"></span></a>
-	</div>
+<!--	<div class="connect">-->
+<!--		<a href="#"><span class="fa fa-facebook"></span></a>-->
+<!--		<a href="#"><span class="fa fa-twitter"></span></a>-->
+<!--		<a href="#"><span class="fa fa-google-plus"></span></a>-->
+<!--		<a href="#"><span class="fa fa-instagram"></span></a>-->
+<!--	</div>-->
 
 	<div id="toTop">
 		<span class="fa fa-chevron-up"></span>
