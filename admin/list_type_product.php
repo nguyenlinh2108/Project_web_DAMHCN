@@ -54,7 +54,7 @@ $db = db::getInstance();
                 <td><?php echo $obj->name; ?></td>
                 <td><?php echo $obj->description; ?></td>
                 <td>
-                    <a href="edit_image_product.php?id=<?php echo $obj->id; ?>" style="font-size: 10px">
+                    <a href="edit_image_type_product.php?id=<?php echo $obj->id; ?>" style="font-size: 10px">
                         <img src="../public/upload/type_product/<?php echo $obj->image; ?>" width="100px">
                         Edit image
                     </a>
