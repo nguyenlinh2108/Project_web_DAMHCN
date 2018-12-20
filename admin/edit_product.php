@@ -202,7 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <div class="form-group">
                     <p>Ảnh</p>
-                    <img src="../public/upload/<?php if(isset($image_db)) echo $image_db; ?>" style="width: 25%;">
+                    <img src="../public/upload/product/<?php if(isset($image_db)) echo $image_db; ?>" style="width: 25%;">
                 </div>
 
                 <input type="submit" name="btnSubmit" class="btn btn-primary" value="Sửa">
