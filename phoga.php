@@ -59,18 +59,6 @@ if ($db->select("SELECT * FROM type_product")) {
 
 <?php require_once __DIR__ . "/includes/link-menu.php"; ?>
 
-	<footer>
-		<div class="container-fluid">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 down text-xs-center">
-						<p>&copy; THE PODS</p>
-					</div>
-				</div><!-- end row -->
-			</div>
-		</div>
-	</footer><!-- end ... -->
-
 <!--	<div class="connect">-->
 <!--		<a href="#"><span class="fa fa-facebook"></span></a>-->
 <!--		<a href="#"><span class="fa fa-twitter"></span></a>-->
