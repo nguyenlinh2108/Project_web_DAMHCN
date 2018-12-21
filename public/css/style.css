@@ -861,6 +861,8 @@ input.promo {
 }
 .titles ul li {
 	float: left;
+	display: block;
+	min-width: 120px;
 	margin-bottom: 15px;
 }
 .titles ul li a {
