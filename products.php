@@ -68,18 +68,22 @@ if ($db->select("SELECT * FROM product")) {
                                 {
                                     foreach ($type_product_selects as $type_product_select)
                                     {
+                                        if($type_product_select->soluong > 0)
+                                        {
+
                                         ?>
                                         <div class="element-item button<?= $i ?> col-md-4 col-sm-6 col-xs-6">
                                             <figure class="product-box text-xs-center">
                                                 <div class="quick-view">
                                                     <img class="img-fluid" src="public/upload/product/<?php echo $type_product_select->image; ?>" alt="">
                                                     <div class="bg-gray"></div>
-                                                    <a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
+                                                    <a href="add-to-cart.php?id=<?php echo $type_product_select->id; ?>" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
                                                 </div>
-                                                <figcaption><p><?php echo $type_product_select->name; ?></p><span class="price-product"><?php echo $type_product_select->unit_price; ?></span></figcaption>
+                                                <figcaption><p><?php echo $type_product_select->name; ?></p><span class="price-product"><?php echo $type_product_select->unit_price; ?>đ</span></figcaption>
                                             </figure>
                                         </div>
                                         <?php
+                                        }
                                     }
                                 }
                             }
