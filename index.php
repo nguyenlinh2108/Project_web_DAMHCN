@@ -1,10 +1,15 @@
 	<?php
-		include(__DIR__ . "/includes/header.php");
-		include(__DIR__ . "/includes/slide.php");
-		include(__DIR__ . "/includes/products.php");
-		include(__DIR__ . "/includes/best-seller.php");
-		include(__DIR__ . "/includes/event.php");
-		include(__DIR__ . "/includes/news.php");
+    require_once(__DIR__ . "/includes/header.php");
+    require_once(__DIR__ . "/includes/slide.php");
+    require_once(__DIR__ . "/includes/products.php");
+    require_once(__DIR__ . "/includes/best-seller.php");
+    require_once(__DIR__ . "/includes/event.php");
+    //require_once(__DIR__ . "/includes/news.php");
+    require_once __DIR__ . "/db/db.php";
+		$db = db::getInstance();
+    if ($db->select("SELECT * FROM type_product ORDER BY RAND() LIMIT 5")) {
+        $types = $db->getResult();//Danh sách các loại sản phẩm
+    }
 	?>
 
 	<div class="pho-gal">
@@ -15,10 +20,18 @@
 						<div class="titles text-xs-center">
 							<h2><span class="cho-left"></span>  Photo Gallery  <span class="cho-right"></span></h2>
 							<ul>
-								<li><a href="">Chocolate</a></li>
-								<li><a href="">Store</a></li>
-								<li><a href="">Classes</a></li>
-								<li><a href="">The making</a></li>
+                                <?php
+                                if(isset($types) && is_array($types))
+                                {
+                                $i = 0;
+                                foreach ($types as $type)
+                                {
+                                ?>
+								<li><a href=""><?php echo $type->name; ?></a></li>
+                                <?php
+                                    }
+                                }
+                                ?>
 							</ul>
 						</div>
 					</div>
@@ -28,51 +41,22 @@
 		<div class="container-fluid bg-photo">
 			<div class="container">
 				<div class="photos">
+                    <?php
+                    if(isset($types) && is_array($types))
+                    {
+                    $i = 0;
+                    foreach ($types as $type)
+                    {
+                    ?>
 					<div class="photo">
 						<figure>
-							<img src="public/images/photo-1.png" alt="" class="">
+							<img src="public/upload/type_product/<?php echo $type->image; ?>" alt="" class="">
 						</figure>
 					</div>
-					<div class="photo photo-w2">
-						<figure>
-							<img src="public/images/photo-2.png" alt="" class="">
-						</figure>
-					</div>
-					<div class="photo">
-						<figure>
-							<img src="public/images/photo-3.png" alt="" class="">
-						</figure>
-					</div>
-					<div class="photo photo-w3">
-						<figure>
-							<img src="public/images/photo-4.png" alt="" class="">
-						</figure>
-					</div>
-					<div class="photo photo-w3">
-						<figure>
-							<img src="public/images/photo-5.png" alt="" class="">
-						</figure>
-					</div>
-					<div class="photo photo-w3">
-						<figure>
-							<img src="public/images/photo-6.png" alt="" class="">
-						</figure>
-					</div>
-					<div class="photo photo-w3">
-						<figure>
-							<img src="public/images/product-2.png" alt="" class="">
-						</figure>
-					</div>
-					<div class="photo photo-w3">
-						<figure>
-							<img src="public/images/product-3.png" alt="" class="">
-						</figure>
-					</div>
-					<div class="photo photo-w3">
-						<figure>
-							<img src="public/images/product-4.png" alt="" class="">
-						</figure>
-					</div>
+                    <?php
+                    }
+                    }
+                    ?>
 				</div>
 				<div class="row">
 					<div class="col-md-4 push-md-4 text-xs-center see-all-photo">
@@ -84,10 +68,10 @@
 	</div><!-- end pho-gal -->
 
 	<?php
-		include('includes/location.php');
-		include('includes/subcribe.php');
+		//include('includes/location.php');
+		//include('includes/subcribe.php');
 		include('includes/footer.php');
-		include('includes/connect.php');
+		//include('includes/connect.php');
 	?>
 
 	<div id="toTop">
