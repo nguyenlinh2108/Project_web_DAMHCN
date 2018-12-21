@@ -1032,6 +1032,7 @@ iframe {
 }
 .products-shop {
 	margin-top: 40px;
+	min-height: 1500px;
 }
 .button-show-menu {
 	margin-bottom: 30px;
