@@ -32,35 +32,40 @@
 					<li class="nav-item active">
 						<a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
 					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.php">Products</a>
+                    </li>
+
+                    <li class="nav-item search">
+                        <a class="nav-link" href="javascript:void(0)"><span class="fa fa-search"></span> Search</a>
+                        <form class="search-form">
+                            <input type="search" placeholder="Search here..." class="none-outline form-control">
+                            <button type="submit" class="btn btn-search"><span class="fa fa-search"></span></button>
+                        </form>
+                    </li>
+
 					<li class="nav-item">
 						<a class="nav-link" href="our_story.php">Our Story</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="products.php">Products</a>
-					</li>
+
 					<!-- <li class="nav-item">
 						<a class="nav-link" href="press.php">Press</a>
 					</li> -->
-					<li class="nav-item">
-						<a class="nav-link" href="recipes.php">Recipes</a>
-					</li>
+<!--					<li class="nav-item">-->
+<!--						<a class="nav-link" href="recipes.php">Recipes</a>-->
+<!--					</li>-->
 					<li class="nav-item hidden-sm-down">
 						<a class="navbar-brand text-sm-center" href="index.php">
 							<img class="img-size" src="public/images/logo.png" alt="">
 							<p class="text-sm-center">World's best<br>handcrafed chocolate</p>
 						</a>
-						
 					</li>
+
+
 					<li class="nav-item">
 						<a class="nav-link" href="contact.php">Contact</a>
 					</li>
-					<li class="nav-item search">
-						<a class="nav-link" href="javascript:void(0)"><span class="fa fa-search"></span> Search</a>
-						<form class="search-form">
-							<input type="search" placeholder="Search here..." class="none-outline form-control">
-							<button type="submit" class="btn btn-search"><span class="fa fa-search"></span></button>
-						</form>
-					</li>
+
 					<li class="nav-item">
 						<a class="nav-link" href="cart.php"><span class="fa fa-shopping-cart"></span> Cart</a>
 					</li>
@@ -87,28 +92,32 @@
 					<li class="nav-item active">
 						<a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
 					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.php">Products</a>
+                    </li>
+
+                    <li class="nav-item search">
+                        <a class="nav-link" href="javascript:void(0)"><span class="fa fa-search"></span> Search</a>
+                        <form class="search-form">
+                            <input type="search" placeholder="Search here..." class="none-outline form-control">
+                            <button type="submit" class="btn btn-search"><span class="fa fa-search"></span></button>
+                        </form>
+                    </li>
+
 					<li class="nav-item">
 						<a class="nav-link" href="our_story.php">Our Story</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="products.php">Products</a>
-					</li>
+
 					<!-- <li class="nav-item">
 						<a class="nav-link" href="press.php">Press</a>
 					</li> -->
-					<li class="nav-item">
-						<a class="nav-link" href="recipes.php">Recipes</a>
-					</li>
+<!--					<li class="nav-item">-->
+<!--						<a class="nav-link" href="recipes.php">Recipes</a>-->
+<!--					</li>-->
 					<li class="nav-item">
 						<a class="nav-link" href="contact.php">Contact</a>
 					</li>
-					<li class="nav-item search">
-						<a class="nav-link" href="javascript:void(0)"><span class="fa fa-search"></span> Search</a>
-						<form class="search-form">
-							<input type="search" placeholder="Search here..." class="none-outline form-control">
-							<button type="submit" class="btn btn-search"><span class="fa fa-search"></span></button>
-						</form>
-					</li>
+
 					<li class="nav-item">
 						<a class="nav-link" href="cart.php"><span class="fa fa-shopping-cart"></span> Cart</a>
 					</li>
