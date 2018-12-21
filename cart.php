@@ -45,32 +45,11 @@
 								<div class="col-sm-12 col-md-4 push-md-1">
 									<img src="public/images/product-2.png" alt="" class="img-fluid">
 								</div>
-								<div class="col-sm-12 col-md-6 push-md-1">
+								<div class="product-info col-sm-12 col-md-6 push-md-1">
 									<p class="name-product">Chocolate truffle box</p>
-									<span class="price-product">30.00</span>
-									<span class="price-qty-total" style="opacity: 0">60.00</span>
+									<span class="price-product">30</span>
+									<span class="price-qty-total" style="opacity: 100">60</span>
 									<div class="handle-counter" id="handleCounter">
-										<button type="button" class="counter-minus btn btn-chocolate"><span class="fa fa-minus"></span></button>
-										<input class="quarity" type="text" value="2" min="1">
-										<button type="button" class="counter-plus btn btn-chocolate"><span class="fa fa-plus"></span></button>
-									</div>
-									<button class="remove-product btn btn-chocolate">Remove</button>
-									<a href="#" class="cuztomize">Cuztomize</a>
-								</div>
-							</div><!-- end row -->
-						</div>
-					</div><!-- end content -->
-					<div class="content">
-						<div class="container">
-							<div class="row product-cart">
-								<div class="col-sm-12 col-md-4 push-md-1">
-									<img src="public/images/product-11.png" alt="" class="img-fluid">
-								</div>
-								<div class="col-sm-12 col-md-6 push-md-1">
-									<p class="name-product">Pin tree & gifts chocolate</p>
-									<span class="price-product">20.00</span>
-									<span class="price-qty-total" style="opacity: 0">40.00</span>
-									<div class="handle-counter" id="handleCounter2">
 										<button type="button" class="counter-minus btn btn-chocolate"><span class="fa fa-minus"></span></button>
 										<input class="quarity" type="text" value="2" min="1">
 										<button type="button" class="counter-plus btn btn-chocolate"><span class="fa fa-plus"></span></button>
@@ -259,6 +238,32 @@
 	</div>
 	
 	<script>
+        $(document).ready(function () {
+            $('.product-cart .product-info').each(function () {
+
+                var priceProduct = parseInt($(this).find(".price-product").text());//Giá sản phẩm
+                var quarityInput = $(this).find(".quarity");//Input Số sản phẩm đang trong giỏ
+                var quarity = parseInt(quarityInput.val());//Số sản phẩm đang trong giỏ
+                var minusButton = $(this).find("button.counter-minus");//Nút giảm số lượng sản phẩm
+                var plusButton = $(this).find("button.counter-plus");//Nút thêm sản phẩm vào giỏ
+                var priceProductTotal = $(this).find(".price-qty-total");//Tổng số tiền phải trả
+
+                //Thêm 1 sản phẩm
+                plusButton.click(function (event) {
+                    quarityInput.val(quarity++);
+                    priceProductTotal.text(priceProduct * quarity);
+                });
+                //Bỏ bớt 1 sản phẩm
+                minusButton.click(function (event) {
+                    if(quarity > 1){
+                        quarityInput.val(quarity--);
+                        priceProductTotal.text(priceProduct * quarity);
+                    }
+                });
+            });
+        });
+
+
 		$(function ($) {
 			var options = {
 				minimum: 1,
