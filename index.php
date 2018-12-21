@@ -82,13 +82,13 @@
 	</div>
 	
 
-	<script type="text/javascript">
-		$('.photos').isotope({
-		  // options
-		  itemSelector: '.photo',
-		  layoutMode: 'masonry'
-		});
-	</script>
+<!--	<script type="text/javascript">-->
+<!--		$('.photos').isotope({-->
+<!--		  // options-->
+<!--		  itemSelector: '.photo',-->
+<!--		  layoutMode: 'masonry'-->
+<!--		});-->
+<!--	</script>-->
 
 </body>
 </html>
