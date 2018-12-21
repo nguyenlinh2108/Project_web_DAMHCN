@@ -1,4 +1,20 @@
-<?php include('includes/header.php'); ?>
+<?php
+require_once __DIR__ . "/includes/header.php";
+require_once  __DIR__ . "/db/db.php";
+$db = db::getInstance();
+
+if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min_range'=>1)))
+{
+    $id = $_GET['id'];
+    if($db->select_one("SELECT * FROM product WHERE id={$id}"))
+    {
+        $name = $db->getResult()->name;
+        $image = $db->getResult()->image;
+        $price = $db->getResult()->unit_price;
+        $description = $db->getResult()->description;
+    }
+}
+?>
 	
 	<div class="container-fluid">
 		<div class="container title-order">
@@ -14,46 +30,42 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 detail-product-img">
-					<div class="sp-loading"><img src="public/images/sp-loading.gif" alt=""><br>LOADING IMAGES</div>
+					<div class="sp-loading"><img src="public/upload/product/<?php echo $image; ?>" alt=""></div>
 					<div class="sp-wrap">
-						<a href="images/product-7.png"><img src="public/images/product-7.png" alt=""></a>
-						<a href="images/product-8.png"><img src="public/images/product-8.png" alt=""></a>
-						<a href="images/product-13.png"><img src="public/images/product-13.png" alt=""></a>
-						<a href="images/product-14.png"><img src="public/images/product-14.png" alt=""></a>
-						<a href="images/product-15.png"><img src="public/images/product-15.png" alt=""></a>
-						<a href="images/product-16.png"><img src="public/images/product-16.png" alt=""></a>
+						<a href="public/upload/product/<?php echo $image; ?>"><img src="public/upload/product/<?php echo $image; ?>" alt=""></a>
+
 					</div>
 				</div>
 				<div class="col-md-5 push-md-1">
 					<form class="choise-size" method="post" action="cart.php">
-						<h3 style="font-family: 'BradleyHandITCTTBold'">SIGNATURE COLLECTION</h3>
+						<h3 style="font-family: 'BradleyHandITCTTBold'"><?php echo $name; ?></h3>
 						<div class="form-group row">
 							<div class="col-xs-12">
-								<span class="price-product">9.00</span>
+								<span class="price-product"><?php echo $price; ?></span>
 								<span class="price-qty-total">18.00</span>
-								<br>
-								<p>SIZE</p>
-								<label class="custom-control custom-radio">
-									<input id="radio1" name="radio" type="radio" class="custom-control-input">
-									<span class="custom-control-indicator" id="pieces-1">4 PIECES</span>
-								</label>
-								<label class="custom-control custom-radio">
-									<input id="radio2" name="radio" type="radio" class="custom-control-input">
-									<span class="custom-control-indicator" id="pieces-2">9 PIECES</span>
-								</label>
-								<label class="custom-control custom-radio">
-									<input id="radio3" name="radio" type="radio" class="custom-control-input">
-									<span class="custom-control-indicator" id="pieces-3">16 PIECES</span>
-								</label>
-								<br>
-								<label class="custom-control custom-radio">
-									<input id="radio4" name="radio" type="radio" class="custom-control-input">
-									<span class="custom-control-indicator" id="pieces-4">24 PIECES</span>
-								</label>
-								<label class="custom-control custom-radio">
-									<input id="radio4" name="radio" type="radio" class="custom-control-input">
-									<span class="custom-control-indicator" id="pieces-5">32 PIECES</span>
-								</label>
+<!--								<br>-->
+<!--								<p>SIZE</p>-->
+<!--								<label class="custom-control custom-radio">-->
+<!--									<input id="radio1" name="radio" type="radio" class="custom-control-input">-->
+<!--									<span class="custom-control-indicator" id="pieces-1">4 PIECES</span>-->
+<!--								</label>-->
+<!--								<label class="custom-control custom-radio">-->
+<!--									<input id="radio2" name="radio" type="radio" class="custom-control-input">-->
+<!--									<span class="custom-control-indicator" id="pieces-2">9 PIECES</span>-->
+<!--								</label>-->
+<!--								<label class="custom-control custom-radio">-->
+<!--									<input id="radio3" name="radio" type="radio" class="custom-control-input">-->
+<!--									<span class="custom-control-indicator" id="pieces-3">16 PIECES</span>-->
+<!--								</label>-->
+<!--								<br>-->
+<!--								<label class="custom-control custom-radio">-->
+<!--									<input id="radio4" name="radio" type="radio" class="custom-control-input">-->
+<!--									<span class="custom-control-indicator" id="pieces-4">24 PIECES</span>-->
+<!--								</label>-->
+<!--								<label class="custom-control custom-radio">-->
+<!--									<input id="radio4" name="radio" type="radio" class="custom-control-input">-->
+<!--									<span class="custom-control-indicator" id="pieces-5">32 PIECES</span>-->
+<!--								</label>-->
 								<p>QUANTITY</p>
 								<div class="handle-counter" id="handleCounter">
 									<button type="button" class="counter-minus btn btn-chocolate"><span class="fa fa-minus"></span></button>
@@ -64,7 +76,7 @@
 							</div>
 						</div>
 					</form>
-					<p>The sun-kissed flavors of the Mediterranean are vividly displayed in Zoe's Signature Collection.  Be transported to blue water, gentle winds and sunny skies, with fresh picked lemon, wild mint, Greek Isle spices, and fragrant flowers with flavors like Persephone's Pomegranate, Baklava, Sesame Tahini, and Black Raspberry.</p>
+					<p><?php echo $description; ?></p>
 				</div>
 			</div><!-- end row -->
 		</div>
@@ -139,12 +151,14 @@
 	</div>
 	<script src="public/js/smoothproducts.js" type="text/javascript" charset="utf-8" async defer></script>
 	<script type="text/javascript">
+        //u might also like
 		$(".regular").slick({
 	        dots: true,
 	        infinite: true,
 	        slidesToShow: 4,
 	        slidesToScroll: 1
 	    });
+		//click vào sẽ hiển thị ảnh sản phẩm lên
 		$(window).load(function() {
 			$('.sp-wrap').smoothproducts();
 		});
