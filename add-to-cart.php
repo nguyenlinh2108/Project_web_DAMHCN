@@ -50,7 +50,7 @@ if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min
 									<input style="width: 60px;" class="quarity" type="number" value="2" min="1">
 									<button type="button" class="counter-plus btn btn-chocolate"><span class="fa fa-plus"></span></button>
 								</div>
-								<button type="submit" class="btn btn-chocolate add-button">ADD TO CART</button>
+								<button id="button_add_to_cart" type="submit" class="btn btn-chocolate add-button">ADD TO CART</button>
 							</div>
 						</div>
 					</form>
@@ -106,248 +106,267 @@ if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min
 		</div><!-- end container -->
 	</div><!-- end ... -->
 
-	<?php
-		include('includes/link-menu.php');
-		include('includes/connect.php'); 
-	?>
+<?php
+include('includes/link-menu.php');
+include('includes/connect.php');
+?>
 
-	<div id="toTop">
-		<span class="fa fa-chevron-up"></span>
-	</div>
-	<div id="toDown">
-		<span class="fa fa-chevron-down"></span>
-	</div>
-	<script src="public/js/smoothproducts.js" type="text/javascript" charset="utf-8" async defer></script>
-	<script type="text/javascript">
-        //u might also like
-		$(".regular").slick({
-	        dots: true,
-	        infinite: true,
-	        slidesToShow: 4,
-	        slidesToScroll: 1
-	    });
-		//click vào sẽ hiển thị ảnh sản phẩm lên
-		$(window).load(function() {
-			$('.sp-wrap').smoothproducts();
-		});
-		
-	</script>
-	
-	<script>
-		$(function ($) {
-			var options = {
-				minimum: 1,
-                // maximize: 100,
-                onChange: valChanged,
-                onMinimum: function(e) {
-                	console.log('reached minimum: '+e)
+<div id="toTop">
+    <span class="fa fa-chevron-up"></span>
+</div>
+<div id="toDown">
+    <span class="fa fa-chevron-down"></span>
+</div>
+<script src="public/js/smoothproducts.js" type="text/javascript" charset="utf-8" async defer></script>
+<script type="text/javascript">
+    <?php
+    if (isset($_SESSION['customer_login']['success']) && $_SESSION['customer_login']['success']) {
+        echo "var isLogin = true;";
+    } else {
+        echo "var isLogin = false;";
+    }
+    ?>
+
+    $('#button_add_to_cart').click(function (event) {
+        event.preventDefault();
+        if (isLogin == false) {
+            alert("Bạn chưa đăng nhập");
+        } else {
+            $('form.choise-size').submit();
+        }
+    });
+
+
+    //u might also like
+    $(".regular").slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1
+    });
+    //click vào sẽ hiển thị ảnh sản phẩm lên
+    $(window).load(function () {
+        $('.sp-wrap').smoothproducts();
+    });
+
+</script>
+
+<script>
+    $(function ($) {
+        var options = {
+            minimum: 1,
+            // maximize: 100,
+            onChange: valChanged,
+            onMinimum: function (e) {
+                console.log('reached minimum: ' + e)
+            },
+            onMaximize: function (e) {
+                console.log('reached maximize' + e)
+            }
+        }
+        $('#handleCounter').handleCounter(options)
+        $('#handleCounter2').handleCounter(options)
+    })
+
+    function valChanged(d) {
+        //            console.log(d)
+    }
+</script>
+<script type="text/javascript">
+    (function () {
+        'use strict';
+        $.fn.handleCounter = function (options) {
+            var $input,
+                $btnMinus,
+                $btnPlugs,
+                minimum,
+                maximize,
+                writable,
+                onChange,
+                onMinimum,
+                onMaximize;
+            var $handleCounter = this
+            $btnMinus = $handleCounter.find('.counter-minus')
+            $input = $handleCounter.find('input.quarity')
+            $btnPlugs = $handleCounter.find('.counter-plus')
+            var defaultOpts = {
+                writable: true,
+                minimum: 1,
+                maximize: null,
+                onChange: function () {
                 },
-                onMaximize: function(e) {
-                	console.log('reached maximize'+e)
+                onMinimum: function () {
+                },
+                onMaximize: function () {
                 }
             }
-            $('#handleCounter').handleCounter(options)
-            $('#handleCounter2').handleCounter(options)
-        })
-		function valChanged(d) {
-		//            console.log(d)
-		}
-	</script>
-	<script type="text/javascript">
-		(function () {
-			'use strict';
-			$.fn.handleCounter = function (options) {
-				var $input,
-				$btnMinus,
-				$btnPlugs,
-				minimum,
-				maximize,
-				writable,
-				onChange,
-				onMinimum,
-				onMaximize;
-				var $handleCounter = this
-				$btnMinus = $handleCounter.find('.counter-minus')
-				$input = $handleCounter.find('input.quarity')
-				$btnPlugs = $handleCounter.find('.counter-plus')
-				var defaultOpts = {
-					writable: true,
-					minimum: 1,
-					maximize: null,
-					onChange: function(){},
-					onMinimum: function(){},
-					onMaximize: function(){}
-				}
-				var settings = $.extend({}, defaultOpts, options)
-				minimum = settings.minimum
-				maximize = settings.maximize
-				writable = settings.writable
-				onChange = settings.onChange
-				onMinimum = settings.onMinimum
-				onMaximize = settings.onMaximize
-				if (!$.isNumeric(minimum)) {
-					minimum = defaultOpts.minimum
-				}
-				if (!$.isNumeric(maximize)) {
-					maximize = defaultOpts.maximize
-				}
-				var inputVal = $input.val()
-				if (isNaN(parseInt(inputVal))) {
-					inputVal = $input.val(0).val()
-				}
-				if (!writable) {
-					$input.prop('disabled', true)
-				}
+            var settings = $.extend({}, defaultOpts, options)
+            minimum = settings.minimum
+            maximize = settings.maximize
+            writable = settings.writable
+            onChange = settings.onChange
+            onMinimum = settings.onMinimum
+            onMaximize = settings.onMaximize
+            if (!$.isNumeric(minimum)) {
+                minimum = defaultOpts.minimum
+            }
+            if (!$.isNumeric(maximize)) {
+                maximize = defaultOpts.maximize
+            }
+            var inputVal = $input.val()
+            if (isNaN(parseInt(inputVal))) {
+                inputVal = $input.val(0).val()
+            }
+            if (!writable) {
+                $input.prop('disabled', true)
+            }
 
-				changeVal(inputVal)
-				$input.val(inputVal)
-				$btnMinus.click(function () {
-					var num = parseInt($input.val())
-					if (num > minimum) {
-						$input.val(num - 1)
-						changeVal(num - 1)
-					}
-				})
-				$btnPlugs.click(function () {
-					var num = parseInt($input.val())
-					if (maximize==null||num < maximize) {
-						$input.val(num + 1)
-						changeVal(num + 1)
-					}
-				})
-				var keyUpTime
-				$input.keyup(function () {
-					clearTimeout(keyUpTime)
-					keyUpTime = setTimeout(function() {
-						var num = $input.val()
-						if (num == ''){
-							num = minimum
-							$input.val(minimum)
-						}
-						var reg = new RegExp("^[\\d]*$")
-						if (isNaN(parseInt(num)) || !reg.test(num)) {
-							$input.val($input.data('num'))
-							changeVal($input.data('num'))
-						} else if (num < minimum) {
-							$input.val(minimum)
-							changeVal(minimum)
-						}else if (maximize!=null&&num > maximize) {
-							$input.val(maximize)
-							changeVal(maximize)
-						} else {
-							changeVal(num)
-						}
-					},300)
-				})
-				$input.focus(function () {
-					var num = $input.val()
-					if (num == 0) $input.select()
-				})
+            changeVal(inputVal)
+            $input.val(inputVal)
+            $btnMinus.click(function () {
+                var num = parseInt($input.val())
+                if (num > minimum) {
+                    $input.val(num - 1)
+                    changeVal(num - 1)
+                }
+            })
+            $btnPlugs.click(function () {
+                var num = parseInt($input.val())
+                if (maximize == null || num < maximize) {
+                    $input.val(num + 1)
+                    changeVal(num + 1)
+                }
+            })
+            var keyUpTime
+            $input.keyup(function () {
+                clearTimeout(keyUpTime)
+                keyUpTime = setTimeout(function () {
+                    var num = $input.val()
+                    if (num == '') {
+                        num = minimum
+                        $input.val(minimum)
+                    }
+                    var reg = new RegExp("^[\\d]*$")
+                    if (isNaN(parseInt(num)) || !reg.test(num)) {
+                        $input.val($input.data('num'))
+                        changeVal($input.data('num'))
+                    } else if (num < minimum) {
+                        $input.val(minimum)
+                        changeVal(minimum)
+                    } else if (maximize != null && num > maximize) {
+                        $input.val(maximize)
+                        changeVal(maximize)
+                    } else {
+                        changeVal(num)
+                    }
+                }, 300)
+            })
+            $input.focus(function () {
+                var num = $input.val()
+                if (num == 0) $input.select()
+            })
 
-				function changeVal(num) {
-					$input.data('num', num)
-					$btnMinus.prop('disabled', false)
-					$btnPlugs.prop('disabled', false)
-					if (num <= minimum) {
-						$btnMinus.prop('disabled', true)
-						onMinimum.call(this, num)
-					} else if (maximize!=null&&num >= maximize) {
-						$btnPlugs.prop('disabled', true)
-						onMaximize.call(this, num)
-					}
-					onChange.call(this, num)
-				}
-				return $handleCounter
-			};
-		})(jQuery)
+            function changeVal(num) {
+                $input.data('num', num)
+                $btnMinus.prop('disabled', false)
+                $btnPlugs.prop('disabled', false)
+                if (num <= minimum) {
+                    $btnMinus.prop('disabled', true)
+                    onMinimum.call(this, num)
+                } else if (maximize != null && num >= maximize) {
+                    $btnPlugs.prop('disabled', true)
+                    onMaximize.call(this, num)
+                }
+                onChange.call(this, num)
+            }
+
+            return $handleCounter
+        };
+    })(jQuery)
 
 
-
-		$(document).ready(function() {
+    $(document).ready(function () {
 
 
 
 
-			/* Set rates + misc */
-			var shippingRate = 2.00; 
-			var fadeTime = 300;
-			var taxRate = 0.02;
+        /* Set rates + misc */
+        var shippingRate = 2.00;
+        var fadeTime = 300;
+        var taxRate = 0.02;
 
 
-			/* Assign actions */
-			$('input.quarity').change( function() {
-				updateQuantity(this);
-			});
+        /* Assign actions */
+        $('input.quarity').change(function () {
+            updateQuantity(this);
+        });
 
-			$('button.remove-product').click( function() {
-				removeItem(this);
-			});
-
-
-			/* Recalculate cart */
-			function recalculateCart()
-			{
-				var subtotal = 0;
-
-				/* Sum up row totals */
-				$('.product').each(function () {
-					subtotal += parseFloat($(this).children('span.price-qty-total').text());
-				});
-				$('span.price-qty-total').each(function(){
-		    			subtotal += parseFloat($(this).text());  // Or this.innerHTML, this.innerText
-		    		});
-				/* Calculate totals */
-				var shipping = (subtotal > 0 ? shippingRate : 0);
-				var tax = taxRate * subtotal;
-				var total = subtotal + shipping + tax;
-
-				/* Update totals display */
-				$('span.totals-value').fadeOut(fadeTime, function() {
-					$('span#cart-subtotal').html(subtotal.toFixed(2));
-					$('span#cart-tax').html(tax.toFixed(2));
-					$('span#cart-total').html(total.toFixed(2));
-					$('span.totals-value').fadeIn(fadeTime);
-				});
-			}
-
-			/* Update quantity */
-			function updateQuantity(quantityInput)
-			{
-				/* Calculate line price */
-				var productRow = $(quantityInput).parent().parent();
-				var price = parseFloat(productRow.children('span.price-product').text());
-				var quantity = $(quantityInput).val();
-				var linePrice = price * quantity;
-
-				/* Update line price display and recalc cart totals */
-				productRow.children('span.price-qty-total').each(function () {
-					$(this).fadeOut(fadeTime, function() {
-						$(this).text(linePrice.toFixed(2));
-						recalculateCart();
-						$(this).fadeIn(fadeTime);
-					});
-				});  
-			}
+        $('button.remove-product').click(function () {
+            removeItem(this);
+        });
 
 
-			/* Remove item from cart */
-			function removeItem(removeButton)
-			{
-				/* Remove row from DOM and recalc cart total */
-				var productRow = $(removeButton).parent().parent();
-				productRow.slideUp(fadeTime, function() {
-					productRow.remove();
-					recalculateCart();
-				});
-			}
+        /* Recalculate cart */
+        function recalculateCart() {
+            var subtotal = 0;
 
-		});
-		$(".regular").slick({
-			dots: true,
-			infinite: true,
-			slidesToShow: 4,
-			slidesToScroll: 1
-		});
-	</script>   
+            /* Sum up row totals */
+            $('.product').each(function () {
+                subtotal += parseFloat($(this).children('span.price-qty-total').text());
+            });
+            $('span.price-qty-total').each(function () {
+                subtotal += parseFloat($(this).text());  // Or this.innerHTML, this.innerText
+            });
+            /* Calculate totals */
+            var shipping = (subtotal > 0 ? shippingRate : 0);
+            var tax = taxRate * subtotal;
+            var total = subtotal + shipping + tax;
+
+            /* Update totals display */
+            $('span.totals-value').fadeOut(fadeTime, function () {
+                $('span#cart-subtotal').html(subtotal.toFixed(2));
+                $('span#cart-tax').html(tax.toFixed(2));
+                $('span#cart-total').html(total.toFixed(2));
+                $('span.totals-value').fadeIn(fadeTime);
+            });
+        }
+
+        /* Update quantity */
+        function updateQuantity(quantityInput) {
+            /* Calculate line price */
+            var productRow = $(quantityInput).parent().parent();
+            var price = parseFloat(productRow.children('span.price-product').text());
+            var quantity = $(quantityInput).val();
+            var linePrice = price * quantity;
+
+            /* Update line price display and recalc cart totals */
+            productRow.children('span.price-qty-total').each(function () {
+                $(this).fadeOut(fadeTime, function () {
+                    $(this).text(linePrice.toFixed(2));
+                    recalculateCart();
+                    $(this).fadeIn(fadeTime);
+                });
+            });
+        }
+
+
+        /* Remove item from cart */
+        function removeItem(removeButton) {
+            /* Remove row from DOM and recalc cart total */
+            var productRow = $(removeButton).parent().parent();
+            productRow.slideUp(fadeTime, function () {
+                productRow.remove();
+                recalculateCart();
+            });
+        }
+
+    });
+    $(".regular").slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1
+    });
+</script>
 </body>
 </html>
