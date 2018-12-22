@@ -58,7 +58,7 @@ if ($db->select("SELECT * FROM type_product")) {
                                 $type_product_selects = $db->getResult();//Danh sách sản phẩm
 
                                 foreach ($type_product_selects as $type_product_select) {
-                                    if ($type_product_select->soluong > 0) {
+                                    if ($type_product_select->soluong >= 0) {
                                         ?>
                                         <div class="element-item button<?= $i ?> col-md-4 col-sm-6 col-xs-6">
                                             <figure class="product-box text-xs-center">
@@ -177,15 +177,37 @@ if ($db->select("SELECT * FROM type_product")) {
             event.target.classList.add('is-checked');
         });
     }
+    //
+    // $(window).scroll(function () {
+    //     if ($(window).scrollTop() > 250) {
+    //         $('.button-show-menu').addClass('button-show-menu-fixed');
+    //     }
+    //     else {
+    //         $('.button-show-menu').removeClass('button-show-menu-fixed');
+    //     }
+    // });
 
-    $(window).scroll(function () {
-        if ($(window).scrollTop() > 250) {
-            $('.button-show-menu').addClass('button-show-menu-fixed');
-        }
-        else {
-            $('.button-show-menu').removeClass('button-show-menu-fixed');
-        }
-    });
+    function menu_button() {
+        var buttonMenu = document.querySelector('.button-show-menu');
+        var rec = document.querySelector('.products-shop');
+        var h_buttonMenu = buttonMenu.offsetHeight;
+        var vt_buttonMenu = rec.offsetTop;
+        console.log(vt_buttonMenu);
+        var tt_buttonMenu = "duoi";
+        var kc = rec.offsetHeight;
+        console.log(kc);
+        var chancuoi = vt_buttonMenu + kc - 300;
+
+
+        $(window).scroll(function() {
+            if (($(window).scrollTop() > vt_buttonMenu) && ($(window).scrollTop() < chancuoi)) {
+                $('.button-show-menu').addClass('button-show-menu-fixed');
+            }
+            else {
+                $('.button-show-menu').removeClass('button-show-menu-fixed');
+            }
+        });
+    }
 </script>
 
 

@@ -69,17 +69,17 @@
 									<h2>SUMMARY</h2>
 									<hr>
 								</div>
-								<div class="col-sm-12">
-									<a class="promocode" href="javascript:void(0)">Do you have a promo code? <span class="fa fa-chevron-down"></span></a>
-									<input class="promo form-control" type="text" placeholder="Promo code here...">
-									<script type="text/javascript">
-										$('a.promocode').click(function() {
-											$('input.promo').slideDown();
-											$('a.promocode').slideUp();
-										})
-									</script>
-									<hr>
-								</div>
+<!--								<div class="col-sm-12">-->
+<!--									<a class="promocode" href="javascript:void(0)">Do you have a promo code? <span class="fa fa-chevron-down"></span></a>-->
+<!--									<input class="promo form-control" type="text" placeholder="Promo code here...">-->
+<!--									<script type="text/javascript">-->
+<!--										$('a.promocode').click(function() {-->
+<!--											$('input.promo').slideDown();-->
+<!--											$('a.promocode').slideUp();-->
+<!--										})-->
+<!--									</script>-->
+<!--									<hr>-->
+<!--								</div>-->
 								<div class="col-sm-12">
 									<div class="row">
 										<div class="col-xs-6 col-sm-6">

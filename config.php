@@ -12,7 +12,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 $CONFIG_DATABASE['HOST'] = 'localhost';
 $CONFIG_DATABASE['SCHEMA'] = 'ban_hang';
 $CONFIG_DATABASE['USERNAME'] = 'root';
-$CONFIG_DATABASE['PASSWORD'] = "mysql";
+$CONFIG_DATABASE['PASSWORD'] = "";
 
 define("ADMIN_SALT_PASSWORD", "XinchaoVietNam2018");
 

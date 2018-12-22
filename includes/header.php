@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +23,12 @@
 	<script type="text/javascript" src="../public/js/isotope.pkgd.min.js"></script>
 	<script src="../public/slick/slick.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="../public/js/js.js"></script>
+
+<!--    <script type="text/javascript" src="../public/js/velocity.min.js"></script>-->
+<!--    <script type="text/javascript" src="../public/js/modernizr.js"></script>-->
+<!---->
+<!--    <script type="text/javascript" src="../public/css/vendor/bootstrap.js"></script>-->
+
 </head>
 <body>
 <header class="navbar-top">
@@ -28,12 +37,12 @@
 			</button>
 			<div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar1">
 				<a class="navbar-brand hidden-md-up text-xs-center" href="#"><img src="../public/images/logo.png" alt=""></a>
-				<ul class="nav navbar-nav text-xs-center">
+				<ul class="nav navbar-nav text-xs-center navbar-pages">
 					<li class="nav-item active">
 						<a class="nav-link" href="../index.php">Home<span class="sr-only">(current)</span></a>
 					</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="products.php">Products</a>
+                        <a class="nav-link" href="../products.php">Products</a>
                     </li>
 
                     <li class="nav-item search">
@@ -54,12 +63,12 @@
 <!--					<li class="nav-item">-->
 <!--						<a class="nav-link" href="recipes.php">Recipes</a>-->
 <!--					</li>-->
-					<li class="nav-item hidden-sm-down">
-						<a class="navbar-brand text-sm-center" href="../index.php">
-							<img class="img-size" src="../public/images/logo.png" alt="">
-							<p class="text-sm-center">World's best<br>handcrafed chocolate</p>
-						</a>
-					</li>
+<!--					<li class="nav-item hidden-sm-down">-->
+<!--						<a class="navbar-brand text-sm-center" href="../index.php">-->
+<!--							<img class="img-size" src="../public/images/logo.png" alt="">-->
+<!--							<p class="text-sm-center">World's best<br>handcrafed chocolate</p>-->
+<!--						</a>-->
+<!--					</li>-->
 
 
 					<li class="nav-item">
@@ -69,6 +78,7 @@
 					<li class="nav-item">
 						<a class="nav-link" href="../cart.php"><span class="fa fa-shopping-cart"></span> Cart</a>
 					</li>
+
 					<li class="nav-item">
 						<a class="nav-link" href="../login.php"><span class="fa fa-chevron-circle-right"></span> Login/Sign up</a>
 					</li>

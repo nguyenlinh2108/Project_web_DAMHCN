@@ -70,3 +70,4 @@ if ($db->select("SELECT * FROM type_product")) {
 			</div>
 		</div>
 	</footer><!-- end ... -->
+
