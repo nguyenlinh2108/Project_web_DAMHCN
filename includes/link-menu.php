@@ -8,20 +8,20 @@ if ($db->select("SELECT * FROM type_product")) {
 <div class="container-fluid link-menu">
 		<div class="row">
 			<div class="col-md-3 col-sm-12 col-xs-12 up-one text-xs-center">
-				<a class="the-pods-footer" href="index.php">
-					<img src="public/images/three-pods-logo.png" alt="">
+				<a class="the-pods-footer" href="../index.php">
+					<img src="../public/images/three-pods-logo.png" alt="">
 					<p>THE PODS</p>
 				</a>
 			</div>
 			<div class="col-md-2 col-sm-3 col-xs-6 up-one">
 				<p class="title-footer">ABOUT US</p>
 				<ul>
-					<li><a href="index.php">Home</a></li>
-					<li><a href="ours_tory.php">Our story</a></li>
+					<li><a href="../index.php">Home</a></li>
+					<li><a href="../ours_tory.php">Our story</a></li>
 					<li><a href="products.php">Products</a></li>
 <!--					<li><a href="press.html">Press</a></li>-->
 <!--					<li><a href="recipes.html">Recipes</a></li>-->
-					<li><a href="phoga.php">Gallery</a></li>
+					<li><a href="../phoga.php">Gallery</a></li>
 				</ul>
 			</div>
 			<div class="col-md-2 col-sm-3 col-xs-6 up-one">
@@ -43,7 +43,7 @@ if ($db->select("SELECT * FROM type_product")) {
 			<div class="col-md-2 col-sm-3 col-xs-6 up-one">
 				<p class="title-footer">SUPPORT</p>
 				<ul>
-					<li><a href="contact.php">Contact</a></li>
+					<li><a href="../contact.php">Contact</a></li>
 <!--					<li><a href="latest-news.html">Latest News</a></li>-->
 <!--					<li><a href="">Privacy policy</a></li>-->
 <!--					<li><a href="">Gift cards</a></li>-->
@@ -70,3 +70,4 @@ if ($db->select("SELECT * FROM type_product")) {
 			</div>
 		</div>
 	</footer><!-- end ... -->
+

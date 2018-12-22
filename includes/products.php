@@ -29,7 +29,7 @@ if ($db->select("SELECT * FROM product")) {
                                     <img src="../public/upload/product/<?php echo $product->image; ?>" height="303px">
                                     <p><?php echo $product->name; ?></p>
                                     <span class="price-product"><?php echo $product->unit_price; ?></span>
-                                    <a href="add-to-cart.php?id=<?php echo $product->id; ?>"
+                                    <a href="../add-to-cart.php?id=<?php echo $product->id; ?>"
                                        class="btn btn-chocolate no-bg">see product <span
                                                 class="fa fa-chevron-circle-right"></span></a>
                                 </div>
@@ -54,7 +54,7 @@ if ($db->select("SELECT * FROM product")) {
                                     <img src="../public/upload/product/<?php echo $product->image; ?>" height="303px">
                                     <p><?php echo $product->name; ?></p>
                                     <span class="price-product"><?php echo $product->unit_price; ?></span>
-                                    <a href="add-to-cart.php?id=<?php echo $product->id; ?>"
+                                    <a href="../add-to-cart.php?id=<?php echo $product->id; ?>"
                                        class="btn btn-chocolate no-bg">see product <span
                                                 class="fa fa-chevron-circle-right"></span></a>
                                 </div>

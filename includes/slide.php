@@ -21,7 +21,7 @@
 			<div class="layer">
 				<h2>welcome to the pods</h2>
 				<p>We're passionate chocolate. And making the world a better place.</p>
-				<a href="our_story.html" class="btn btn-chocolate">our story <span class="fa fa-chevron-circle-right"></span></a>
+				<a href="our_story.php" class="btn btn-chocolate">our story <span class="fa fa-chevron-circle-right"></span></a>
 			</div>
 		</div>
 	</div>

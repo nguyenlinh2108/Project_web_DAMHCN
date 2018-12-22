@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="acdd3a3e-dee5-4fd9-b482-0901df592c3f" name="Default Changelist" comment="">
+    <list default="true" id="acdd3a3e-dee5-4fd9-b482-0901df592c3f" name="Default Changelist" comment="update file anh cua san pham">
+      <change afterPath="$PROJECT_DIR$/public/css/vendor/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/vendor/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/vendor/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/vendor/tether.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/font/fontawesome/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/slider/Chocolate_Banner 21_12_2018 21_20_41.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/slider/big-banner 21_12_2018 21_18_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/slider/cat-banner 21_12_2018 21_23_18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/slider/cat-care 21_12_2018 21_20_55.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/slider/cat-care 21_12_2018 21_23_06.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/upload/type_product/recipe-cover-r24787 21_12_2018 17_15_51.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/edit_payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/edit_payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/add-to-cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/add-to-cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/link-menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/link-menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inf-acc.php" beforeDir="false" afterPath="$PROJECT_DIR$/inf-acc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/animate.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/animate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/slider/23(2) 17_12_2018 18_33_50.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/slider/IMG_20181214_103122 17_12_2018 20_11_00.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/upload/slider/oe cai... 17_12_2018 20_52_41.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,52 +37,58 @@
     <session id="-331982564">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.17" value="2" />
+          <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.19" value="1" />
-          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.21" value="2" />
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.33" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="15" />
+          <entry key="css" value="42" />
           <entry key="gitignore" value="2" />
-          <entry key="js" value="7" />
+          <entry key="html" value="18" />
+          <entry key="js" value="8" />
           <entry key="md" value="2" />
-          <entry key="php" value="72" />
+          <entry key="php" value="192" />
           <entry key="sql" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="15" />
-          <entry key="JavaScript" value="7" />
-          <entry key="PHP" value="72" />
+          <entry key="CSS" value="42" />
+          <entry key="HTML" value="18" />
+          <entry key="JavaScript" value="8" />
+          <entry key="PHP" value="192" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="28" />
+          <entry key="css" value="230" />
           <entry key="gitignore" value="36" />
+          <entry key="html" value="201" />
           <entry key="md" value="510" />
-          <entry key="php" value="4116" />
-          <entry key="txt" value="603" />
+          <entry key="php" value="7317" />
+          <entry key="txt" value="1442" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="28" />
-          <entry key="PHP" value="4116" />
-          <entry key="PLAIN_TEXT" value="1149" />
+          <entry key="CSS" value="230" />
+          <entry key="HTML" value="201" />
+          <entry key="PHP" value="7317" />
+          <entry key="PLAIN_TEXT" value="1988" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -75,20 +100,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/edit_payment.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="71" column="51" lean-forward="true" selection-start-line="71" selection-start-column="51" selection-end-line="71" selection-end-column="51" />
+            <state relative-caret-position="255">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/includes/header.php">
+        <entry file="file://$PROJECT_DIR$/cart.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="35" column="33" lean-forward="true" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+            <state relative-caret-position="428">
+              <caret line="272" column="54" lean-forward="true" selection-start-line="272" selection-start-column="54" selection-end-line="272" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-6">
+              <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/add-to-cart.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-762">
+              <caret line="42" column="52" lean-forward="true" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#figure#0;n#section#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="65" lean-forward="true" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/inf-acc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="61" lean-forward="true" selection-start-line="6" selection-start-column="61" selection-end-line="6" selection-end-column="61" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="1152" column="22" selection-start-line="1152" selection-end-line="1152" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -105,36 +186,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>product-1.png</find>
-      <find>best-seller.png</find>
-      <find>cooking-class.png</find>
-      <find>latest-news.png</find>
-      <find>photo-1.png</find>
-      <find>three-pods-logo.png</find>
-      <find>right-pods.png</find>
-      <find>logo.png</find>
-      <find>NeutraText-Book.otf</find>
-      <find>three-pods-shortcut-logo.png</find>
-      <find>fonts/fontawesome-webfont.woff</find>
-      <find>triangle.png</find>
-      <find>../public/images</find>
-      <find>fontawesome-webfont.woff?v=4.2.0</find>
-      <find>BradleyHandITCTTBold.otf</find>
-      <find>fonts</find>
-      <find>fontawesome-webfont.woff2</find>
-      <find>../fonts</find>
-      <find>jquery</find>
-      <find>our-story.png</find>
-      <find>product-2.png</find>
-      <find>src=&quot;images</find>
-      <find>src=&quot;images/</find>
-      <find>smoothproducts.js</find>
-      <find>bootstrap.min.css</find>
-      <find>select_sql</find>
-      <find>slick</find>
-      <find>slick/</find>
-      <find>index.html</find>
-      <find>$message</find>
+      <find>body</find>
+      <find>side</find>
+      <find>container-fluid</find>
+      <find>sp-lo</find>
+      <find>detail-</find>
+      <find>detail-product-img</find>
+      <find>price-qty-total</find>
+      <find>sp-</find>
+      <find>quantityInput</find>
+      <find>price-product</find>
+      <find>quarity</find>
+      <find>regular</find>
+      <find>sp-wrap</find>
+      <find>html</find>
+      <find>image</find>
+      <find>button-show-menu</find>
+      <find>vt_buttonMenu</find>
+      <find>products-shop</find>
+      <find>menu_button</find>
+      <find>duoi</find>
+      <find>is-checked</find>
+      <find>is-c</find>
+      <find>button</find>
+      <find>buttonGroup</find>
+      <find>photo</find>
+      <find>options</find>
+      <find>input</find>
+      <find>.show-products figure:</find>
+      <find>$</find>
+      <find>submit</find>
     </findStrings>
     <replaceStrings>
       <replace>../public/images</replace>
@@ -154,47 +235,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin/public/js/login.js" />
-        <option value="$PROJECT_DIR$/admin/public/css/login.css" />
-        <option value="$PROJECT_DIR$/admin/glogin.php" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/includes/slide.php" />
-        <option value="$PROJECT_DIR$/includes/products.php" />
-        <option value="$PROJECT_DIR$/includes/best-seller.php" />
-        <option value="$PROJECT_DIR$/includes/event.php" />
-        <option value="$PROJECT_DIR$/includes/news.php" />
-        <option value="$PROJECT_DIR$/phoga.php" />
-        <option value="$PROJECT_DIR$/includes/footer.php" />
-        <option value="$PROJECT_DIR$/includes/link-menu.php" />
-        <option value="$PROJECT_DIR$/recipes.php" />
-        <option value="$PROJECT_DIR$/recipes-detail.php" />
-        <option value="$PROJECT_DIR$/products.php" />
         <option value="$PROJECT_DIR$/press.php" />
-        <option value="$PROJECT_DIR$/our_story.php" />
         <option value="$PROJECT_DIR$/order-success.php" />
-        <option value="$PROJECT_DIR$/login.php" />
-        <option value="$PROJECT_DIR$/inf-acc.php" />
-        <option value="$PROJECT_DIR$/contact.php" />
         <option value="$PROJECT_DIR$/public/font/styles.css" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/public/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/public/css/font-awesome.min.css" />
         <option value="$PROJECT_DIR$/public/js/bootstrap.min.js" />
-        <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/checkout.php" />
-        <option value="$PROJECT_DIR$/cart.php" />
-        <option value="$PROJECT_DIR$/add-to-cart.php" />
         <option value="$PROJECT_DIR$/admin/login.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/admin/class/admin.php" />
-        <option value="$PROJECT_DIR$/includes/header.php" />
         <option value="$PROJECT_DIR$/admin/class/auth.php" />
-        <option value="$PROJECT_DIR$/admin/includes/slidebar.php" />
         <option value="$PROJECT_DIR$/db/db.php" />
-        <option value="$PROJECT_DIR$/config.php" />
         <option value="$PROJECT_DIR$/admin/includes/footer.php" />
         <option value="$PROJECT_DIR$/admin/includes/header.php" />
         <option value="$PROJECT_DIR$/admin/edit_payment.php" />
+        <option value="$PROJECT_DIR$/config.php" />
+        <option value="$PROJECT_DIR$/admin/profile_user.php" />
+        <option value="$PROJECT_DIR$/admin/ajax/user_profile.php" />
+        <option value="$PROJECT_DIR$/admin/list_type_product.php" />
+        <option value="$PROJECT_DIR$/admin/edit_image_type_product.php" />
+        <option value="$PROJECT_DIR$/admin/list_product.php" />
+        <option value="$PROJECT_DIR$/admin/edit_product.php" />
+        <option value="$PROJECT_DIR$/admin/includes/slidebar.php" />
+        <option value="$PROJECT_DIR$/admin/public/css/bootstrap.min.css" />
+        <option value="$PROJECT_DIR$/admin/public/css/sb-admin.css" />
+        <option value="$PROJECT_DIR$/phoga.php" />
+        <option value="$PROJECT_DIR$/contact.php" />
+        <option value="$PROJECT_DIR$/our_story.php" />
+        <option value="$PROJECT_DIR$/includes/slide.php" />
+        <option value="E:/LINH/CNTT/NAM 5/DA MON HOC CHUYEN NGANH/Project_web/products.html" />
+        <option value="$PROJECT_DIR$/products.html" />
+        <option value="$PROJECT_DIR$/includes/best-seller.php" />
+        <option value="$PROJECT_DIR$/includes/event.php" />
+        <option value="$PROJECT_DIR$/includes/footer.php" />
+        <option value="$PROJECT_DIR$/includes/news.php" />
+        <option value="$PROJECT_DIR$/includes/products.php" />
+        <option value="$PROJECT_DIR$/public/css/animate.css" />
+        <option value="$PROJECT_DIR$/products1.php" />
+        <option value="$PROJECT_DIR$/products11.php" />
+        <option value="$PROJECT_DIR$/public/css/style.css" />
+        <option value="$PROJECT_DIR$/includes/link-menu.php" />
+        <option value="$PROJECT_DIR$/includes/header-home.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/cart.php" />
+        <option value="$PROJECT_DIR$/add-to-cart.php" />
+        <option value="$PROJECT_DIR$/products.php" />
+        <option value="$PROJECT_DIR$/includes/header.php" />
+        <option value="$PROJECT_DIR$/login.php" />
+        <option value="$PROJECT_DIR$/inf-acc.php" />
+        <option value="$PROJECT_DIR$/admin/add_slider.php" />
+        <option value="$PROJECT_DIR$/admin/edit_slider.php" />
       </list>
     </option>
   </component>
@@ -207,13 +298,14 @@
   <component name="PhpServers">
     <servers>
       <server host="banhang.com" id="214bb680-6f2e-4d0a-b968-8dfced1afc7c" name="banhang.com" />
+      <server host="banhang.com" id="710e6589-1481-4721-8120-8c0fe4334874" name="banhang.com (1)" port="8080" />
     </servers>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="10" />
-    <option name="y" value="20" />
-    <option name="width" value="1346" />
-    <option name="height" value="688" />
+    <option name="x" value="447" />
+    <option name="y" value="73" />
+    <option name="width" value="1009" />
+    <option name="height" value="725" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -223,6 +315,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,22 +323,10 @@
               <item name="Project_web_DAMHCN" type="b2602c69:ProjectViewProjectNode" />
               <item name="Project_web_DAMHCN" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Project_web_DAMHCN" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project_web_DAMHCN" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Project_web_DAMHCN" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project_web_DAMHCN" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="includes" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -254,7 +335,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -298,6 +379,12 @@
       <workItem from="1544104907996" duration="631000" />
       <workItem from="1544203495126" duration="550000" />
       <workItem from="1544245497304" duration="771000" />
+      <workItem from="1545142310213" duration="9077000" />
+      <workItem from="1545208798024" duration="5631000" />
+      <workItem from="1545316843411" duration="9402000" />
+      <workItem from="1545359093586" duration="12468000" />
+      <workItem from="1545385004973" duration="27578000" />
+      <workItem from="1545442959154" duration="13327000" />
     </task>
     <task id="LOCAL-00001" summary="tạo chức năng đăng nhập với google cho admin">
       <created>1543675354026</created>
@@ -397,31 +484,275 @@
       <option name="project" value="LOCAL" />
       <updated>1544204028974</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="them file chinh sua anh loai san pham: edit_image_type_product.php">
+      <created>1545318676371</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1545318676372</updated>
+    </task>
+    <task id="LOCAL-00016" summary="chinh sua link chinh sua anh cua loai san pham">
+      <created>1545318935984</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1545318935984</updated>
+    </task>
+    <task id="LOCAL-00017" summary="chinh sua link anh cua danh sach san pham">
+      <created>1545323162993</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1545323162993</updated>
+    </task>
+    <task id="LOCAL-00018" summary="update: lay dl tu db ra de hien thi san pham">
+      <created>1545327310623</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1545327310623</updated>
+    </task>
+    <task id="LOCAL-00019" summary="update: them lien he vao db khi khach hang gui lien he">
+      <created>1545327380804</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1545327380804</updated>
+    </task>
+    <task id="LOCAL-00020" summary="update color">
+      <created>1545375861702</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1545375861703</updated>
+    </task>
+    <task id="LOCAL-00021" summary="update color">
+      <created>1545375882288</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1545375882288</updated>
+    </task>
+    <task id="LOCAL-00022" summary="update color">
+      <created>1545375897118</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1545375897118</updated>
+    </task>
+    <task id="LOCAL-00023" summary="update color">
+      <created>1545375918310</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1545375918310</updated>
+    </task>
+    <task id="LOCAL-00024" summary="update add to card cho khach hang">
+      <created>1545385484669</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1545385484671</updated>
+    </task>
+    <task id="LOCAL-00025" summary="update">
+      <created>1545385567072</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1545385567072</updated>
+    </task>
+    <task id="LOCAL-00026" summary="update add-to-cart cho khach hang">
+      <created>1545385610939</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1545385610939</updated>
+    </task>
+    <task id="LOCAL-00027" summary="update file anh cua san pham">
+      <created>1545385773228</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1545385773229</updated>
+    </task>
+    <task id="LOCAL-00028" summary="update file anh loai san pham">
+      <created>1545385822960</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1545385822960</updated>
+    </task>
+    <task id="LOCAL-00029" summary="update file anh cua user">
+      <created>1545385869606</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1545385869606</updated>
+    </task>
+    <task id="LOCAL-00030" summary="hien thi anh o photo gallery">
+      <created>1545390856608</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1545390856608</updated>
+    </task>
+    <task id="LOCAL-00031" summary="hien thi anh cua san pham trong trang chu">
+      <created>1545390939742</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1545390939742</updated>
+    </task>
+    <task id="LOCAL-00032" summary="upload file photga.php">
+      <created>1545391724538</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1545391724538</updated>
+    </task>
+    <task id="LOCAL-00033" summary="xoa mot so truong va sap xep lai vi tri trong trang index">
+      <created>1545392691806</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1545392691806</updated>
+    </task>
+    <task id="LOCAL-00034" summary="update link-menu trong file contace">
+      <created>1545393288013</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1545393288013</updated>
+    </task>
+    <task id="LOCAL-00035" summary="update link-menu.php">
+      <created>1545393312761</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1545393312761</updated>
+    </task>
+    <task id="LOCAL-00036" summary="update hien thi link-menu trong phoga.php">
+      <created>1545393348167</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1545393348167</updated>
+    </task>
+    <task id="LOCAL-00037" summary="update">
+      <created>1545393394093</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1545393394093</updated>
+    </task>
+    <task id="LOCAL-00038" summary="update">
+      <created>1545393480497</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1545393480497</updated>
+    </task>
+    <task id="LOCAL-00039" summary="update">
+      <created>1545393546807</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1545393546807</updated>
+    </task>
+    <task id="LOCAL-00040" summary="update">
+      <created>1545393585646</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1545393585646</updated>
+    </task>
+    <task id="LOCAL-00041" summary="update link-menu trong product.php">
+      <created>1545393652584</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1545393652584</updated>
+    </task>
+    <task id="LOCAL-00042" summary="update link-menu cho our_story.php">
+      <created>1545393961779</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1545393961779</updated>
+    </task>
+    <task id="LOCAL-00043" summary="update">
+      <created>1545395036119</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1545395036119</updated>
+    </task>
+    <task id="LOCAL-00044" summary="update link cua cac file trong thu muc">
+      <created>1545406775665</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1545406775665</updated>
+    </task>
+    <task id="LOCAL-00045" summary="update link header-home">
+      <created>1545448733371</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1545448733371</updated>
+    </task>
+    <task id="LOCAL-00046" summary="them file header-home">
+      <created>1545451345362</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1545451345362</updated>
+    </task>
+    <task id="LOCAL-00047" summary="update">
+      <created>1545459876157</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1545459876157</updated>
+    </task>
+    <task id="LOCAL-00048" summary="update">
+      <created>1545460595146</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1545460595146</updated>
+    </task>
+    <task id="LOCAL-00049" summary="update">
+      <created>1545460626765</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1545460626765</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21046000" />
+    <option name="totallyTimeSpent" value="98529000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22995462" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14761905" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39873418" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39846155" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32911393" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49920633" visible="true" weight="0.07692308" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3528481" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50079364" side_tool="true" weight="0.3276923" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -464,190 +795,60 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="tạo chức năng đăng nhập với google cho admin" />
-    <MESSAGE value="upload csdl" />
-    <MESSAGE value="thêm hướng dẫn cài đặt" />
-    <MESSAGE value="thêm gitignore cho phpstorm project" />
-    <MESSAGE value="thêm icon cho web" />
-    <MESSAGE value="update csdl: thêm mật khẩu cho admin." />
-    <MESSAGE value="thêm file config vào gitignore" />
-    <MESSAGE value="thêm hướng dẫn sử dụng và refactor class" />
-    <MESSAGE value="sửa lại tên các hàm gọi từ class db" />
-    <MESSAGE value="sửa lại đường dẫn tới admin index (index.html -&gt; index.php)" />
-    <MESSAGE value="update private function" />
     <MESSAGE value="sửa lại 1 chút cho tối ưu ở chức năng sửa phương thức thanh toán" />
-    <option name="LAST_COMMIT_MESSAGE" value="sửa lại 1 chút cho tối ưu ở chức năng sửa phương thức thanh toán" />
+    <MESSAGE value="them file chinh sua anh loai san pham: edit_image_type_product.php" />
+    <MESSAGE value="chinh sua link chinh sua anh cua loai san pham" />
+    <MESSAGE value="chinh sua link anh cua danh sach san pham" />
+    <MESSAGE value="update: lay dl tu db ra de hien thi san pham" />
+    <MESSAGE value="update: them lien he vao db khi khach hang gui lien he" />
+    <MESSAGE value="update color" />
+    <MESSAGE value="update add to card cho khach hang" />
+    <MESSAGE value="update add-to-cart cho khach hang" />
+    <MESSAGE value="update file anh cua san pham" />
+    <MESSAGE value="update file anh loai san pham" />
+    <MESSAGE value="update file anh cua user" />
+    <MESSAGE value="hien thi anh o photo gallery" />
+    <MESSAGE value="hien thi anh cua san pham trong trang chu" />
+    <MESSAGE value="upload file photga.php" />
+    <MESSAGE value="xoa mot so truong va sap xep lai vi tri trong trang index" />
+    <MESSAGE value="update link-menu trong file contace" />
+    <MESSAGE value="update link-menu.php" />
+    <MESSAGE value="update hien thi link-menu trong phoga.php" />
+    <MESSAGE value="update link-menu trong product.php" />
+    <MESSAGE value="update link-menu cho our_story.php" />
+    <MESSAGE value="update link cua cac file trong thu muc" />
+    <MESSAGE value="update link header-home" />
+    <MESSAGE value="them file header-home" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/public/js/login.js">
+    <entry file="file://$PROJECT_DIR$/admin/list_product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="2346">
+          <caret line="138" column="64" selection-start-line="138" selection-start-column="64" selection-end-line="138" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/public/js/bootstrap.min.js">
+    <entry file="file://$PROJECT_DIR$/admin/edit_product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" selection-start-line="35" selection-end-line="41" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/sb-admin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/sb-admin-rtl.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/public/css/login.css">
+    <entry file="file://E:/LINH/CNTT/NAM 5/DA MON HOC CHUYEN NGANH/Project_web/css/animate.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="416" lean-forward="true" selection-start-line="416" selection-end-line="416" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/google/IO/Curl.php" />
-    <entry file="file://$PROJECT_DIR$/admin/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="27" lean-forward="true" selection-start-column="27" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/config/config.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DumpBanHang20181201.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/myconnect.php" />
-    <entry file="file://$PROJECT_DIR$/inc/function.php" />
-    <entry file="file://$PROJECT_DIR$/public/js/js.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/jquery.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/slide.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="42" lean-forward="true" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/best-seller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="27" lean-forward="true" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/event.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/news.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="14" column="40" lean-forward="true" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phoga.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="103" column="35" lean-forward="true" selection-start-line="103" selection-start-column="35" selection-end-line="103" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/link-menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/recipes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="175" column="48" selection-start-line="175" selection-start-column="48" selection-end-line="175" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/recipes-detail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="111" column="26" lean-forward="true" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/products.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="645" column="14" lean-forward="true" selection-start-line="645" selection-start-column="14" selection-end-line="645" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/press.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="52" column="14" lean-forward="true" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/our_story.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/order-success.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="137" column="4" lean-forward="true" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inf-acc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="115" column="41" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contact.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="93" column="41" selection-start-line="93" selection-start-column="41" selection-end-line="93" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/font/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="12" lean-forward="true" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="41" lean-forward="true" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
+        <state relative-caret-position="204">
+          <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -658,131 +859,299 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/font-awesome.min.css">
+    <entry file="file://$PROJECT_DIR$/db/db.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="568">
+          <caret line="328" column="5" selection-start-line="328" selection-start-column="5" selection-end-line="328" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/bootstrap.min.js">
+    <entry file="file://$PROJECT_DIR$/admin/public/css/sb-admin-rtl.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/includes/slidebar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="72" column="3" selection-start-line="72" selection-start-column="3" selection-end-line="72" selection-end-column="3" />
+        <state relative-caret-position="357">
+          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+    <entry file="file://$PROJECT_DIR$/admin/public/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="1721" column="28" selection-start-line="1721" selection-start-column="28" selection-end-line="1721" selection-end-column="28" />
+        <state relative-caret-position="138">
+          <caret line="4" column="15104" lean-forward="true" selection-start-line="4" selection-start-column="15104" selection-end-line="4" selection-end-column="15104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/public/css/sb-admin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/LINH/CNTT/NAM 5/DA MON HOC CHUYEN NGANH/Project_web/add-to-cart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1955" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phoga.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="63" column="66" lean-forward="true" selection-start-line="63" selection-start-column="66" selection-end-line="63" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/our_story.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/slider/products.html" />
+    <entry file="file://E:/LINH/CNTT/NAM 5/DA MON HOC CHUYEN NGANH/Project_web/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="12" lean-forward="true" selection-end-line="2734" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contact.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="74" selection-start-line="74" selection-end-line="74" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products.html" />
+    <entry file="file://$PROJECT_DIR$/public/css/animate.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products1.php" />
+    <entry file="file://$PROJECT_DIR$/public/css/style1.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/best-seller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/event.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/location.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/news.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11">
+          <caret line="147" column="37" selection-start-line="147" selection-start-column="37" selection-end-line="147" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/subcribe.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/isotope.pkgd.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products11.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="63" column="94" selection-start-line="63" selection-start-column="94" selection-end-line="63" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/LINH/CNTT/NAM 5/DA MON HOC CHUYEN NGANH/Project_web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9591">
+          <caret line="81" column="48" lean-forward="true" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/LINH/CNTT/NAM 5/DA MON HOC CHUYEN NGANH/Project_web/products1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14484">
+          <caret line="882" column="29" selection-start-line="882" selection-start-column="13" selection-end-line="882" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/LINH/CNTT/NAM 5/DA MON HOC CHUYEN NGANH/Project_web/products.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1391">
+          <caret line="117" column="13" lean-forward="true" selection-start-line="117" selection-start-column="13" selection-end-line="117" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/link-menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/products.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="22" column="63" lean-forward="true" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+        <state relative-caret-position="102">
+          <caret line="13" column="60" lean-forward="true" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/checkout.php">
+    <entry file="file://$PROJECT_DIR$/includes/slide.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="307" column="49" lean-forward="true" selection-start-line="307" selection-start-column="49" selection-end-line="307" selection-end-column="49" />
+        <state relative-caret-position="391">
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cart.php">
+    <entry file="file://$PROJECT_DIR$/admin/edit_bill.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="40" column="26" lean-forward="true" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/add-to-cart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="139" column="24" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/glogin.php" />
-    <entry file="file://$PROJECT_DIR$/admin/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/class/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/public/css/style.css" />
-    <entry file="file://$PROJECT_DIR$/admin/includes/slidebar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="42" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/class/auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="328" column="5" lean-forward="true" selection-start-line="328" selection-start-column="5" selection-end-line="328" selection-end-column="5" />
+        <state relative-caret-position="323">
+          <caret line="19" selection-start-line="19" selection-end-line="19" selection-end-column="93" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/includes/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/includes/header.php">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="35" column="33" lean-forward="true" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+          <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/edit_payment.php">
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="71" column="51" lean-forward="true" selection-start-line="71" selection-start-column="51" selection-end-line="71" selection-end-column="51" />
+        <state relative-caret-position="154">
+          <caret line="1152" column="22" selection-start-line="1152" selection-end-line="1152" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="81" column="10" lean-forward="true" selection-start-line="84" selection-end-line="90" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="134" lean-forward="true" selection-start-line="134" selection-end-line="134" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/header-home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="77" column="16" selection-start-line="77" selection-start-column="16" selection-end-line="77" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="272" column="54" lean-forward="true" selection-start-line="272" selection-start-column="54" selection-end-line="272" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/connect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/add_slider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="60" column="40" lean-forward="true" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/edit_slider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="52" column="14" lean-forward="true" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/list_bill_detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-765" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="65" lean-forward="true" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/add-to-cart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-762">
+          <caret line="42" column="52" lean-forward="true" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#figure#0;n#section#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inf-acc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="61" lean-forward="true" selection-start-line="6" selection-start-column="61" selection-end-line="6" selection-end-column="61" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

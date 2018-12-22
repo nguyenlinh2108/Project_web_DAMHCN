@@ -14,7 +14,7 @@
 			<div class="col-md-6 col-xs-12">
 				<div class="highlights">
 					<div class="highlight">
-						<img src="public/images/latest-news.png" alt="" class="img-fluid">
+						<img src="../public/images/latest-news.png" alt="" class="img-fluid">
 						<div class="comments">
 							<span class="fa fa-comments"></span>
 							<i>19</i>
@@ -49,7 +49,7 @@
 			<div class="col-md-6 col-xs-12 list-news">
 				<div class="new">
 					<div class="new-images">
-						<img src="public/images/latest-news-1.png" alt="" class="img-anh">
+						<img src="../public/images/latest-news-1.png" alt="" class="img-anh">
 					</div>
 					<div class="new-title">
 						<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
@@ -73,7 +73,7 @@
 				</div>
 				<div class="new">
 					<div class="new-images">
-						<img src="public/images/latest-news-1.png" alt="" class="img-anh">
+						<img src="../public/images/latest-news-1.png" alt="" class="img-anh">
 					</div>
 					<div class="new-title">
 						<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
@@ -97,7 +97,7 @@
 				</div>
 				<div class="new">
 					<div class="new-images">
-						<img src="public/images/latest-news-2.png" alt="" class="img-anh">
+						<img src="../public/images/latest-news-2.png" alt="" class="img-anh">
 					</div>
 					<div class="new-title">
 						<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
@@ -121,7 +121,7 @@
 				</div>
 				<div class="new">
 					<div class="new-images">
-						<img src="public/images/latest-news-3.png" alt="" class="img-anh">
+						<img src="../public/images/latest-news-3.png" alt="" class="img-anh">
 					</div>
 					<div class="new-title">
 						<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
@@ -145,7 +145,7 @@
 				</div>
 				<div class="new">
 					<div class="new-images">
-						<img src="public/images/latest-news-3.png" alt="" class="img-anh">
+						<img src="../public/images/latest-news-3.png" alt="" class="img-anh">
 					</div>
 					<div class="new-title">
 						<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>

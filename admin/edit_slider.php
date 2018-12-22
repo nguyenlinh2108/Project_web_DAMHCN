@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="form-group">
                 <label>Link</label>
                 <input id="link" type="text" name="link" value="<?php if (isset($link_db)) echo $link_db; ?>"
-                       class="form-control" placeholder="Link slider">
+                       class="form-control" placeholder="Mô tả slider">
                 <div id="name-message"></div>
             </div>
             <div class="form-group">

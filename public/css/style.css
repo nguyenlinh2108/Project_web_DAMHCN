@@ -6,6 +6,7 @@ body, html {
 	font-family: 'NeutraText-Book';
 
 }
+
 h2 {
 	font-family: 'BradleyHandITCTTBold';
 	font-size: 40px;
@@ -861,8 +862,6 @@ input.promo {
 }
 .titles ul li {
 	float: left;
-	display: block;
-	min-width: 120px;
 	margin-bottom: 15px;
 }
 .titles ul li a {
@@ -1838,7 +1837,7 @@ a.link-press p {
 }
 .sp-zoom img {
 	transform: scale(3);
-	
+
 }*/
 /* Lightbox */
 

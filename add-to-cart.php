@@ -1,154 +1,110 @@
 <?php
-session_start();
-
 require_once __DIR__ . "/includes/header.php";
-require_once __DIR__ . "/db/db.php";
+require_once  __DIR__ . "/db/db.php";
 $db = db::getInstance();
 
-if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min_range' => 1))) {
+if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min_range'=>1)))
+{
     $id = $_GET['id'];
-    if ($db->select_one("SELECT * FROM product WHERE id={$id}")) {
+    if($db->select_one("SELECT * FROM product WHERE id={$id}"))
+    {
         $name = $db->getResult()->name;
         $image = $db->getResult()->image;
         $price = $db->getResult()->unit_price;
         $description = $db->getResult()->description;
+        $id_type = $db->getResult()->type;
     }
 }
 ?>
+	
+	<div class="container-fluid">
+		<div class="container title-order">
+			<div class="row">
+				<div class="col-md-8 col-sm-6">
+		        	<a class="prev-page" href="products.php"><span class="fa fa-chevron-left"></span> continue shopping</a>
+		        </div>
+		    </div>
+		</div>
+	</div>
 
-<div class="container-fluid">
-    <div class="container title-order">
-        <div class="row">
-            <div class="col-md-8 col-sm-6">
-                <a class="prev-page" href="products.php"><span class="fa fa-chevron-left"></span> continue shopping</a>
-            </div>
-        </div>
-    </div>
-</div>
+	<div class="container-fluid add-to-cart">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 detail-product-img">
+					<div class="sp-loading"><img src="public/upload/product/<?php echo $image; ?>" alt=""></div>
+					<div class="sp-wrap">
+						<a href="public/upload/product/<?php echo $image; ?>"><img src="public/upload/product/<?php echo $image; ?>" alt=""></a>
 
-<div class="container-fluid add-to-cart">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 detail-product-img">
-                <div class="sp-loading"><img src="public/upload/product/<?php echo $image; ?>" alt=""></div>
-                <div class="sp-wrap">
-                    <a href="public/upload/product/<?php echo $image; ?>"><img
-                                src="public/upload/product/<?php echo $image; ?>" alt=""></a>
+					</div>
+				</div>
+				<div class="col-md-5 push-md-1">
+					<form class="choise-size" method="post" action="cart.php">
+						<h3 style="font-family: 'BradleyHandITCTTBold'"><?php echo $name; ?></h3>
+						<div class="form-group row">
+							<div class="col-xs-12">
+								<span class="price-product"><?php echo $price; ?></span>
+								<span class="price-qty-total">18.00</span>
+								<p>QUANTITY</p>
+								<div class="handle-counter" id="handleCounter">
+									<button type="button" class="counter-minus btn btn-chocolate"><span class="fa fa-minus"></span></button>
+									<input style="width: 60px;" class="quarity" type="number" value="2" min="1">
+									<button type="button" class="counter-plus btn btn-chocolate"><span class="fa fa-plus"></span></button>
+								</div>
+								<button type="submit" class="btn btn-chocolate add-button">ADD TO CART</button>
+							</div>
+						</div>
+					</form>
+					<p><?php echo $description; ?></p>
+				</div>
+			</div><!-- end row -->
+		</div>
+	</div><!-- end ... -->
 
+
+	<div class="container-fluid see-other-products">
+		<div class="container">
+            <?php
+            if(isset($id_type) && filter_var($id_type, FILTER_VALIDATE_INT,array('min_range'>=1)))
+            {
+            if($db->select("SELECT * FROM product WHERE type={$id_type} and soluong > 0 and id <> {$id}"))
+            {
+                $product_sames = $db->getResult();
+            }
+            if(isset($product_sames) && is_array($product_sames))
+            {
+            ?>
+            <div class="row">
+                <div class="col-xs-12">
+                    <hr>
+                    <p>You might also like</p>
                 </div>
             </div>
-            <div class="col-md-5 push-md-1">
-                <form class="choise-size" method="post" action="cart.php">
-                    <h3 style="font-family: 'BradleyHandITCTTBold'"><?php echo $name; ?></h3>
-                    <div class="form-group row">
-                        <div class="col-xs-12">
-                            <span class="price-product"><?php echo $price; ?></span>
-                            <span class="price-qty-total">18.00</span>
-                            <!--								<br>-->
-                            <!--								<p>SIZE</p>-->
-                            <!--								<label class="custom-control custom-radio">-->
-                            <!--									<input id="radio1" name="radio" type="radio" class="custom-control-input">-->
-                            <!--									<span class="custom-control-indicator" id="pieces-1">4 PIECES</span>-->
-                            <!--								</label>-->
-                            <!--								<label class="custom-control custom-radio">-->
-                            <!--									<input id="radio2" name="radio" type="radio" class="custom-control-input">-->
-                            <!--									<span class="custom-control-indicator" id="pieces-2">9 PIECES</span>-->
-                            <!--								</label>-->
-                            <!--								<label class="custom-control custom-radio">-->
-                            <!--									<input id="radio3" name="radio" type="radio" class="custom-control-input">-->
-                            <!--									<span class="custom-control-indicator" id="pieces-3">16 PIECES</span>-->
-                            <!--								</label>-->
-                            <!--								<br>-->
-                            <!--								<label class="custom-control custom-radio">-->
-                            <!--									<input id="radio4" name="radio" type="radio" class="custom-control-input">-->
-                            <!--									<span class="custom-control-indicator" id="pieces-4">24 PIECES</span>-->
-                            <!--								</label>-->
-                            <!--								<label class="custom-control custom-radio">-->
-                            <!--									<input id="radio4" name="radio" type="radio" class="custom-control-input">-->
-                            <!--									<span class="custom-control-indicator" id="pieces-5">32 PIECES</span>-->
-                            <!--								</label>-->
-                            <p>QUANTITY</p>
-                            <div class="handle-counter" id="handleCounter">
-                                <button type="button" class="counter-minus btn btn-chocolate"><span
-                                            class="fa fa-minus"></span></button>
-                                <input style="width: 60px;" class="quarity" type="number" value="2" min="1">
-                                <button type="button" class="counter-plus btn btn-chocolate"><span
-                                            class="fa fa-plus"></span></button>
-                            </div>
-                            <button id="button_add_to_cart" type="submit" class="btn btn-chocolate add-button">ADD TO
-                                CART
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                <p><?php echo $description; ?></p>
-            </div>
-        </div><!-- end row -->
-    </div>
-</div><!-- end ... -->
-
-
-<div class="container-fluid see-other-products">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <hr>
-                <p>You might also like</p>
-            </div>
-        </div>
-        <div class="row">
-            <section class="regular slider">
-                <figure class="product-box text-xs-center">
-                    <div class="quick-view">
-                        <img class="img-fluid" src="public/images/product-1.png" alt="">
-                        <div class="bg-gray"></div>
-                        <a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span
-                                    class="fa fa-chevron-circle-right"></span></a>
-                    </div>
-                    <figcaption><p>Artisan chocolate box</p><span class="price-product">Contact for price & order</span>
-                    </figcaption>
-                </figure>
-                <figure class="product-box text-xs-center">
-                    <div class="quick-view">
-                        <img class="img-fluid" src="public/images/product-6.png" alt="">
-                        <div class="bg-gray"></div>
-                        <a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span
-                                    class="fa fa-chevron-circle-right"></span></a>
-                    </div>
-                    <figcaption><p>Chewy salted caramel box</p><span class="price-product">from $9.00</span>
-                    </figcaption>
-                </figure>
-                <figure class="product-box text-xs-center">
-                    <div class="quick-view">
-                        <img class="img-fluid" src="public/images/product-12.png" alt="">
-                        <div class="bg-gray"></div>
-                        <a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span
-                                    class="fa fa-chevron-circle-right"></span></a>
-                    </div>
-                    <figcaption><p>Coffee & caramel bar</p><span class="price-product">$7.50</span></figcaption>
-                </figure>
-                <figure class="product-box text-xs-center">
-                    <div class="quick-view">
-                        <img class="img-fluid" src="public/images/product-5.png" alt="">
-                        <div class="bg-gray"></div>
-                        <a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span
-                                    class="fa fa-chevron-circle-right"></span></a>
-                    </div>
-                    <figcaption><p>Chocolate powder</p><span class="price-product">$20.00</span></figcaption>
-                </figure>
-                <figure class="product-box text-xs-center">
-                    <div class="quick-view">
-                        <img class="img-fluid" src="public/images/product-2.png" alt="">
-                        <div class="bg-gray"></div>
-                        <a href="add-to-cart.php" class="btn btn-chocolate cd-trigger">quick view <span
-                                    class="fa fa-chevron-circle-right"></span></a>
-                    </div>
-                    <figcaption><p>Chocolate truffle box</p><span class="price-product">from $30.00</span></figcaption>
-                </figure>
-            </section>
-        </div><!-- end row -->
-    </div><!-- end container -->
-</div><!-- end ... -->
+            <div class="row">
+                <section class="regular slider">
+                    <?php
+                    foreach ($product_sames as $product_same)
+                    {
+                        if($product_same->soluong > 0)
+                        {
+                            ?>
+                            <figure class="product-box text-xs-center">
+                                <div class="quick-view">
+                                    <img style="height: 217px;" class="img-fluid" src="public/upload/product/<?php echo $product_same->image; ?>" alt="">
+                                    <div class="bg-gray"></div>
+                                    <a href="add-to-cart.php?id=<?php echo $product_same->id; ?>" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
+                                </div>
+                                <figcaption><p><?php echo $product_same->name; ?></p><span class="price-product"><?php echo $product_same->unit_price; ?></span></figcaption>
+                            </figure>
+                            <?php
+                        }
+                    }
+            }
+            }
+                    ?>
+                </section>
+            </div><!-- end row -->
+		</div><!-- end container -->
+	</div><!-- end ... -->
 
 <?php
 include('includes/link-menu.php');
