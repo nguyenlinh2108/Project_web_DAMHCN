@@ -32,16 +32,21 @@ require_once __DIR__ . "/../utils/mystring.php";
 
 <body>
 <header class="navbar-top">
-    <nav class="navbar navbar-light">
+    <nav class="navbar navbar-light ">
         <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse"
                 data-target="#exCollapsingNavbar1">
         </button>
-        <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar1">
+        <div class="collapse navbar-toggleable-xs navb-item" id="exCollapsingNavbar1">
             <a class="navbar-brand hidden-md-up text-xs-center" href="#"><img src="public/images/logo.png" alt=""></a>
             <ul class="nav navbar-nav text-xs-center">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
+                <li class="nav-item hidden-sm-down">
+                    <a class="navbar-brand navbar-brand-item text-sm-center" href="index.php">
+                        <img class="img-size" src="public/images/logo.png" alt="">
+                    </a>
                 </li>
+<!--                <li class="nav-item active">-->
+<!--                    <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>-->
+<!--                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="products.php">Products</a>
                 </li>
