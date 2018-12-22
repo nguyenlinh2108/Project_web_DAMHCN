@@ -5,8 +5,8 @@ $db = db::getInstance();
 
 if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min_range'=>1)))
 {
-    $id = $_GET['id'];
-    if($db->select_one("SELECT * FROM product WHERE id={$id}"))
+    $product_id = $_GET['id'];
+    if($db->select_one("SELECT * FROM product WHERE id={$product_id}"))
     {
         $name = $db->getResult()->name;
         $image = $db->getResult()->image;
@@ -39,18 +39,19 @@ if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min
 				</div>
 				<div class="col-md-5 push-md-1">
 					<form class="choise-size" method="post" action="cart.php">
+                        <input type="text" hidden name="product" value="<?php if(isset($product_id)) echo $product_id ?>">
 						<h3 style="font-family: 'BradleyHandITCTTBold'"><?php echo $name; ?></h3>
 						<div class="form-group row">
-							<div class="col-xs-12">
-								<span class="price-product"><?php echo $price; ?></span>
-								<span class="price-qty-total">18.00</span>
-								<p>QUANTITY</p>
+							<div class="product-info col-xs-12">
+								<span class="price-product" ><?php echo $price; ?></span>
+								<span class="price-qty-total"><?php echo $price; ?></span>
+								<p>Số lượng</p>
 								<div class="handle-counter" id="handleCounter">
 									<button type="button" class="counter-minus btn btn-chocolate"><span class="fa fa-minus"></span></button>
-									<input style="width: 60px;" class="quarity" type="number" value="2" min="1">
+									<input style="width: 60px;" class="quantity" name="quantity" type="number" value="1" min="1">
 									<button type="button" class="counter-plus btn btn-chocolate"><span class="fa fa-plus"></span></button>
 								</div>
-								<button id="button_add_to_cart" type="submit" class="btn btn-chocolate add-button">ADD TO CART</button>
+								<button id="button_add_to_cart" type="submit" class="btn btn-chocolate add-button">Thêm vào giỏ hàng</button>
 							</div>
 						</div>
 					</form>
@@ -66,7 +67,7 @@ if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min
             <?php
             if(isset($id_type) && filter_var($id_type, FILTER_VALIDATE_INT,array('min_range'>=1)))
             {
-            if($db->select("SELECT * FROM product WHERE type={$id_type} and soluong > 0 and id <> {$id}"))
+            if($db->select("SELECT * FROM product WHERE type={$id_type} and soluong > 0 and id <> {$product_id}"))
             {
                 $product_sames = $db->getResult();
             }
@@ -91,7 +92,7 @@ if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min
                                 <div class="quick-view">
                                     <img style="height: 217px;" class="img-fluid" src="public/upload/product/<?php echo $product_same->image; ?>" alt="">
                                     <div class="bg-gray"></div>
-                                    <a href="add-to-cart.php?id=<?php echo $product_same->id; ?>" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
+                                    <a href="product.php?id=<?php echo $product_same->id; ?>" class="btn btn-chocolate cd-trigger">quick view <span class="fa fa-chevron-circle-right"></span></a>
                                 </div>
                                 <figcaption><p><?php echo $product_same->name; ?></p><span class="price-product"><?php echo $product_same->unit_price; ?></span></figcaption>
                             </figure>
@@ -187,7 +188,7 @@ include('includes/connect.php');
                 onMaximize;
             var $handleCounter = this
             $btnMinus = $handleCounter.find('.counter-minus')
-            $input = $handleCounter.find('input.quarity')
+            $input = $handleCounter.find('input.quantity')
             $btnPlugs = $handleCounter.find('.counter-plus')
             var defaultOpts = {
                 writable: true,
@@ -286,10 +287,6 @@ include('includes/connect.php');
 
 
     $(document).ready(function () {
-
-
-
-
         /* Set rates + misc */
         var shippingRate = 2.00;
         var fadeTime = 300;
@@ -297,7 +294,7 @@ include('includes/connect.php');
 
 
         /* Assign actions */
-        $('input.quarity').change(function () {
+        $('input.quantity').change(function () {
             updateQuantity(this);
         });
 

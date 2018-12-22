@@ -67,8 +67,8 @@ if ($db->select("SELECT * FROM type_product")) {
                                                          src="public/upload/product/<?= $type_product_select->image ?>"
                                                          alt="">
                                                     <div class="bg-gray"></div>
-                                                    <a href="add-to-cart.php?id=<?= $type_product_select->id ?>"
-                                                       class="btn btn-chocolate cd-trigger">quick view <span
+                                                    <a href="product.php?id=<?= $type_product_select->id ?>"
+                                                       class="btn btn-chocolate cd-trigger"> Xem thêm <span
                                                                 class="fa fa-chevron-circle-right"></span></a>
                                                 </div>
                                                 <figcaption><p><?php echo $type_product_select->name ?></p><span
