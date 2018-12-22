@@ -50,7 +50,7 @@ if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min
 									<input style="width: 60px;" class="quarity" type="number" value="2" min="1">
 									<button type="button" class="counter-plus btn btn-chocolate"><span class="fa fa-plus"></span></button>
 								</div>
-								<button type="submit" class="btn btn-chocolate add-button">ADD TO CART</button>
+								<button id="button_add_to_cart" type="submit" class="btn btn-chocolate add-button">ADD TO CART</button>
 							</div>
 						</div>
 					</form>
