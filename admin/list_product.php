@@ -150,6 +150,8 @@ if (isset($_GET['p']) && filter_var($_GET['p'], FILTER_VALIDATE_INT, array('min_
                             }
                         }
                     });
+
+                    $.scrollTo($('#product_' + id).prev());
                 }
             }
 
