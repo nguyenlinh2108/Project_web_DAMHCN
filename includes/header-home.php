@@ -153,13 +153,27 @@ require_once __DIR__ . "/../utils/mystring.php";
                 <li class="nav-item">
                     <a class="nav-link" href="../cart.php"><span class="fa fa-shopping-cart"></span> Cart</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php if(containsString(curentUrl(), "/login.php")){
+                <?php
+                if (isset($_SESSION['customer_login']['success']) && $_SESSION['customer_login']['success']) {
+                    ?>
+                    <li class="nav-item">
+                        <div style="margin-top: 0px">
+                            <span><img style="border-radius: 50%;overflow: hidden;margin-left: -10px; height: 45px;width: 45px;display: inline;margin: 2px 6px 2px -8px;" src="/public/upload/users/default/avatar_male.jpg"></span>
+                            <span style="cursor: pointer"><?= $_SESSION['customer_login']['name'] ?></span>
+                            <span><b class="caret"></b></span>
+                        </div>
+                    </li>
+                    <?php
+                } else {
+                    ?><li class="nav-item">
+                    <a class="nav-link nav-link-home" href="<?php if(containsString(curentUrl(), "/login.php")){
                         echo "javascript: void()";
                     } else {
                         echo "login.php?continue=" . urlencode(curentUrl());
                     }?>"><span class="fa fa-chevron-circle-right"></span> Login/Sign up</a>
-                </li>
+                    </li><?php
+                }
+                ?>
             </ul>
         </div>
     </nav>
