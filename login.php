@@ -27,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($message === "") {
             if ($db->select_one("SELECT * FROM customer WHERE email = '" . db::validSql($_POST['email']) . "' AND password = '" . auth::getMD5Password($_POST['password']) . "'")) {
+                $_SESSION['customer_login'] = (array)$db->getResult();
                 $_SESSION['customer_login']['success'] = true;
-                $_SESSION['customer_login']['id'] = $db->getResult()->id;
                 unset($_POST);
                 header("location: " . (isset($_GET['continue']) ? $_GET['continue'] : "/"));
                 return;
@@ -96,8 +96,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 "birthday" => $birthdaySql,
             ])) {
                 if ($db->select_one("SELECT * FROM customer WHERE email = '" . db::validSql($_POST['email']) . "' AND password = '" . auth::getMD5Password($_POST['password']) . "'")) {
+                    $_SESSION['customer_login'] = (array)$db->getResult();
                     $_SESSION['customer_login']['success'] = true;
-                    $_SESSION['customer_login']['id'] = $db->getResult()->id;
                     unset($_POST);
                     header("location: " . (isset($_GET['continue']) ? $_GET['continue'] : "/"));
                     return;
