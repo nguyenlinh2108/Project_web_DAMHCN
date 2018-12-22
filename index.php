@@ -2,8 +2,8 @@
     require_once(__DIR__ . "/includes/header-home.php");
     require_once(__DIR__ . "/includes/slide.php");
     require_once(__DIR__ . "/includes/products.php");
-    require_once(__DIR__ . "/includes/best-seller.php");
-    require_once(__DIR__ . "/includes/event.php");
+   // require_once(__DIR__ . "/includes/best-seller.php");
+   // require_once(__DIR__ . "/includes/event.php");
     //require_once(__DIR__ . "/includes/news.php");
     require_once __DIR__ . "/db/db.php";
 		$db = db::getInstance();
