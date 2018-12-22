@@ -87,20 +87,30 @@ require_once __DIR__ . "/../utils/mystring.php";
                 if (isset($_SESSION['customer_login']['success']) && $_SESSION['customer_login']['success']) {
                     ?>
                     <li class="nav-item">
-                        <div style="margin-top: 46px">
-                            <span><img style="border-radius: 50%;overflow: hidden;margin-left: -10px;height: 48px;width: 48px;display: inline;margin: 2px 6px 2px -8px;" src="/public/upload/users/default/avatar_male.jpg"></span>
-                            <span style="cursor: pointer"><?= $_SESSION['customer_login']['name'] ?></span>
-                            <span><b class="caret"></b></span>
+                        <div class="dropdown navbar-top-home">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                <img style="border-radius: 50%;overflow: hidden;margin-left: -10px;height: 45px;width: 45px;display: inline;margin: 2px 6px 2px -8px;" src="/public/upload/users/default/avatar_male.jpg">
+                                <span class="caret">
+                                     <?= $_SESSION['customer_login']['name'] ?>
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="../inf-acc.php?id=<?= $_SESSION['customer_login']['id'] ?>">Account management</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="../logout_customer.php?id=<?= $_SESSION['customer_login']['id'] ?>">Logout</a></li>
+                            </ul>
                         </div>
                     </li>
                     <?php
-                } else {
-                    ?><li class="nav-item">
-                    <a class="nav-link nav-link-home" href="<?php if(containsString(curentUrl(), "/login.php")){
+                } else
+                {
+                    ?>
+                    <li class="nav-item">
+                    <a class="nav-link" href="<?php if(containsString(curentUrl(), "/login.php")){
                         echo "javascript: void()";
                     } else {
                         echo "login.php?continue=" . urlencode(curentUrl());
-                    }?>"><span class="fa fa-chevron-circle-right"></span> Login/Sign up</a>
+                    }?>">
+                        <span class="fa fa-chevron-circle-right"></span> Login/Sign up</a>
                     </li><?php
                 }
                 ?>
@@ -125,7 +135,7 @@ require_once __DIR__ . "/../utils/mystring.php";
                     <a class="nav-link" href="../index.php">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="products.php">Products</a>
+                    <a class="nav-link" href="../products.php">Products</a>
                 </li>
 
                 <li class="nav-item search">
@@ -157,20 +167,30 @@ require_once __DIR__ . "/../utils/mystring.php";
                 if (isset($_SESSION['customer_login']['success']) && $_SESSION['customer_login']['success']) {
                     ?>
                     <li class="nav-item">
-                        <div style="margin-top: 0px">
-                            <span><img style="border-radius: 50%;overflow: hidden;margin-left: -10px; height: 45px;width: 45px;display: inline;margin: 2px 6px 2px -8px;" src="/public/upload/users/default/avatar_male.jpg"></span>
-                            <span style="cursor: pointer"><?= $_SESSION['customer_login']['name'] ?></span>
-                            <span><b class="caret"></b></span>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                <img style="border-radius: 50%;overflow: hidden;margin-left: -10px;height: 45px;width: 45px;display: inline;margin: 2px 6px 2px -8px;" src="/public/upload/users/default/avatar_male.jpg">
+                                <span class="caret">
+                                     <?= $_SESSION['customer_login']['name'] ?>
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="../inf-acc.php?id=<?= $_SESSION['customer_login']['id'] ?>">Account management</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="../logout_customer.php?id=<?= $_SESSION['customer_login']['id'] ?>">Logout</a></li>
+                            </ul>
                         </div>
                     </li>
                     <?php
-                } else {
-                    ?><li class="nav-item">
-                    <a class="nav-link nav-link-home" href="<?php if(containsString(curentUrl(), "/login.php")){
+                } else
+                {
+                    ?>
+                    <li class="nav-item">
+                    <a class="nav-link" href="<?php if(containsString(curentUrl(), "/login.php")){
                         echo "javascript: void()";
                     } else {
                         echo "login.php?continue=" . urlencode(curentUrl());
-                    }?>"><span class="fa fa-chevron-circle-right"></span> Login/Sign up</a>
+                    }?>">
+                        <span class="fa fa-chevron-circle-right"></span> Login/Sign up</a>
                     </li><?php
                 }
                 ?>
