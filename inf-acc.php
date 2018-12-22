@@ -1,4 +1,28 @@
-<?php include('includes/header.php'); ?>
+<?php
+include('includes/header.php');
+ob_start();
+require_once  __DIR__ . "/db/db.php";
+$db = db::getInstance();
+
+if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT,array('min_range'=>1)))
+{
+    $id = $_GET['id'];
+    if($db->select_one("SELECT * FROM customer WHERE id={$id}")){
+        {
+            $name = $db->getResult()->name;
+            $gender = $db->getResult()->gender;
+            $email = $db->getResult()->email;
+            $address = $db->getResult()->address;
+            $phone = $db->getResult()->phone;
+            $birthday = $db->getResult()->birthday;
+            $note = $db->getResult()->note;
+            $point = $db->getResult()->point;
+        }
+    }
+}else{
+    header('Location: index.php');
+}
+?>
 
 	<div class="container-fluid" style="margin-top: 40px;">
 		<div class="container">
@@ -8,20 +32,20 @@
 						<form id="acc-infor">
 							<h3 class="card-title text-xs-center">My Account Information</h3>
 							<div class="row text-xs-center text-sm-left">
-								<p class="name col-sm-6">Name: <span>John Smith</span></p>
-								<p class="email col-sm-6">Email: <span>john@gmail.com</span></p>
+								<p class="name col-sm-6">Name: <span><?= $name ?></span></p>
+								<p class="email col-sm-6">Email: <span><?= $email ?></span></p>
 							</div>
 							<div class="row text-xs-center text-sm-left">
-								<p class="phone col-sm-6">Phone Number: <span>+91 1234 5678</span></p>
-								<p class="birthday col-sm-6">Birthdare: <span>26/03/1990</span></p>
+								<p class="phone col-sm-6">Phone Number: <span><?= $phone ?></span></p>
+								<p class="birthday col-sm-6">Birthdare: <span><?= $birthday ?></span></p>
 							</div>
 							<div class="row text-xs-center text-sm-left">
-								<p class="address col-sm-6">Address: <span>125 Fifth Avenue, Manhattan</span></p>
-								<p class="city-country col-sm-6">City, country: <span>New York</span></p>
+								<p class="address col-sm-6">Address: <span><?= $address ?></span></p>
+								<p class="city-country col-sm-6">Sex: <span><?= $name ?></span></p>
 							</div>
 							<div class="row text-xs-center text-sm-left">
-								<p class="stapro col-sm-6">State/Province: <span>123456</span></p>
-								<p class="postal col-sm-6">Postal Code: <span>123456</span></p>
+								<p class="stapro col-sm-6">Note: <span><?= $note ?></span></p>
+								<p class="postal col-sm-6">Point: <span><?= $point ?></span></p>
 							</div>
 							<div class="row text-xs-center">
 								<p class="password col-sm-12 text-xs-center">Password: <span>***********</span></p>
@@ -112,6 +136,7 @@
 <?php
 require_once __DIR__ . "/includes/link-menu.php";
 //require_once __DIR__ . "/includes/connect.php";
+ob_flush();
 ?>
 
 	<div id="toTop">
