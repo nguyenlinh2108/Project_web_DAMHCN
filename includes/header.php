@@ -13,21 +13,21 @@ require_once __DIR__ . "/../utils/mystring.php";
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="./public/images/three-pods-shortcut-logo.png" rel="shortcut icon">
+    <link href="../public/images/three-pods-shortcut-logo.png" rel="shortcut icon">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="./public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./public/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="./public/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="./public/slick/slick-theme.css">
-    <link rel="stylesheet" href="./public/font/styles.css">
-    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="../public/slick/slick-theme.css">
+    <link rel="stylesheet" href="../public/font/styles.css">
+    <link rel="stylesheet" href="../public/css/style.css">
 
 
-    <script type="text/javascript" src="./public/js/jquery.min.js"></script>
-    <script type="text/javascript" src="./public/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./public/js/isotope.pkgd.min.js"></script>
-    <script src="./public/slick/slick.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="./public/js/js.js"></script>
+    <script type="text/javascript" src="../public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../public/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../public/js/isotope.pkgd.min.js"></script>
+    <script src="../public/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="../public/js/js.js"></script>
 </head>
 
 <body>
@@ -37,11 +37,11 @@ require_once __DIR__ . "/../utils/mystring.php";
                 data-target="#exCollapsingNavbar1">
         </button>
         <div class="collapse navbar-toggleable-xs navb-item" id="exCollapsingNavbar1">
-            <a class="navbar-brand hidden-md-up text-xs-center" href="#"><img src="public/images/logo.png" alt=""></a>
+            <a class="navbar-brand hidden-md-up text-xs-center" href="#"><img src="../public/images/logo.png" alt=""></a>
             <ul class="nav navbar-nav text-xs-center">
                 <li class="nav-item hidden-sm-down">
-                    <a class="navbar-brand navbar-brand-item text-sm-center" href="index.php">
-                        <img class="img-size" src="public/images/logo.png" alt="">
+                    <a class="navbar-brand navbar-brand-item text-sm-center" href="../index.php">
+                        <img class="img-size" src="../public/images/logo.png" alt="">
                     </a>
                 </li>
 <!--                <li class="nav-item active">-->
@@ -60,7 +60,7 @@ require_once __DIR__ . "/../utils/mystring.php";
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="our_story.php">Our Story</a>
+                    <a class="nav-link" href="../our_story.php">Our Story</a>
                 </li>
 
                 <!-- <li class="nav-item">
@@ -77,11 +77,11 @@ require_once __DIR__ . "/../utils/mystring.php";
 <!--                </li>-->
 
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.php">Contact</a>
+                    <a class="nav-link" href="../contact.php">Contact</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="cart.php"><span class="fa fa-shopping-cart"></span> Cart</a>
+                    <a class="nav-link" href="../cart.php"><span class="fa fa-shopping-cart"></span> Cart</a>
                 </li>
 
                 <?php
@@ -95,8 +95,10 @@ require_once __DIR__ . "/../utils/mystring.php";
                         </div>
                     </li>
                     <?php
-                } else {
-                    ?><li class="nav-item">
+                } else
+                    {
+                    ?>
+                        <li class="nav-item">
                     <a class="nav-link" href="<?php if(containsString(curentUrl(), "/login.php")){
                         echo "javascript: void()";
                     } else {
@@ -118,15 +120,15 @@ require_once __DIR__ . "/../utils/mystring.php";
                 data-target="#exCollapsingNavbar2">
         </button>
         <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-            <a class="navbar-brand hidden-sm-up text-xs-center" href="#"><img src="public/images/logo.png" alt=""></a>
+            <a class="navbar-brand hidden-sm-up text-xs-center" href="#"><img src="../public/images/logo.png" alt=""></a>
             <ul class="nav navbar-nav text-xs-center">
                 <li class="nav-item hidden-sm-down">
-                    <a class="navbar-brand" href="index.php">
+                    <a class="navbar-brand" href="../index.php">
                         <p class="the-pods">THE PODS</p>
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="../index.php">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="products.php">Products</a>
@@ -141,7 +143,7 @@ require_once __DIR__ . "/../utils/mystring.php";
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="our_story.php">Our Story</a>
+                    <a class="nav-link" href="../our_story.php">Our Story</a>
                 </li>
 
                 <!-- <li class="nav-item">
@@ -151,11 +153,11 @@ require_once __DIR__ . "/../utils/mystring.php";
                 <!--						<a class="nav-link" href="recipes.php">Recipes</a>-->
                 <!--					</li>-->
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.php">Contact</a>
+                    <a class="nav-link" href="../contact.php">Contact</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="cart.php"><span class="fa fa-shopping-cart"></span> Cart</a>
+                    <a class="nav-link" href="../cart.php"><span class="fa fa-shopping-cart"></span> Cart</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php if(containsString(curentUrl(), "/login.php")){
