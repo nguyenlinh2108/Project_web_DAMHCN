@@ -29,6 +29,7 @@ require_once __DIR__ . "/../utils/mystring.php";
     <script src="./public/slick/slick.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="./public/js/js.js"></script>
 </head>
+
 <body>
 <header class="navbar-top">
     <nav class="navbar navbar-light">
@@ -63,13 +64,12 @@ require_once __DIR__ . "/../utils/mystring.php";
                 <!--					<li class="nav-item">-->
                 <!--						<a class="nav-link" href="recipes.php">Recipes</a>-->
                 <!--					</li>-->
-                <li class="nav-item hidden-sm-down">
-                    <a class="navbar-brand text-sm-center" href="index.php">
-                        <img class="img-size" src="public/images/logo.png" alt="">
-                        <p class="text-sm-center">World's best<br>handcrafed chocolate</p>
-                    </a>
-                </li>
-
+<!--                <li class="nav-item hidden-sm-down">-->
+<!--                    <a class="navbar-brand text-sm-center" href="index.php">-->
+<!--                        <img class="img-size" src="public/images/logo.png" alt="">-->
+<!--                        <p class="text-sm-center">World's best<br>handcrafed chocolate</p>-->
+<!--                    </a>-->
+<!--                </li>-->
 
                 <li class="nav-item">
                     <a class="nav-link" href="contact.php">Contact</a>
