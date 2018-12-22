@@ -1,5 +1,5 @@
 	<?php
-    require_once(__DIR__ . "/includes/header.php");
+    require_once(__DIR__ . "/includes/header-home.php");
     require_once(__DIR__ . "/includes/slide.php");
     require_once(__DIR__ . "/includes/products.php");
     require_once(__DIR__ . "/includes/best-seller.php");
