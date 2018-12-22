@@ -91,6 +91,9 @@ a:focus {
 .navbar-nav .nav-item+.nav-item {
 	margin-left: 0;
 }
+.navbar-top .navb-item .nav-item+.nav-item {
+	padding-top: 15px;
+}
 .nav {
 	display: flex;
 	justify-content: space-around;
@@ -108,6 +111,14 @@ a:focus {
 	transition: 0.4s;
 	background-position: top right;
 }
+
+.navbar-top .navbar-light .navbar-nav.navbar-pages .nav-link {
+
+	margin-top: 0;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
 .navbar-brand {
 	margin-right: 0;
 	position: relative;
@@ -115,7 +126,7 @@ a:focus {
 	transform: translateX(-50%);
 	padding: 0;
 }
-.navbar-top .navbar-light .navbar-nav .nav-link {
+.navbar-top .navbar-light .navbar-nav .nav-link.nav-link-home {
 	margin-top: 46px;
 }
 
@@ -146,6 +157,13 @@ a:focus {
 	width: 104px;
 	height: auto;
 	margin-top: 12px;
+}
+.navbar-top .navbar-light .navbar-nav .navbar-brand.navbar-brand-item img.img-size {
+	width: 80px;
+	height: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: -15px;
 }
 .navbar-top .navbar-light .navbar-nav .navbar-brand p {
 	font-size: 11px;
@@ -179,12 +197,7 @@ p.the-pods {
 	color: #e2c092;
 	padding-top: 10px;
 }
-.navbar-top .navbar-light .navbar-nav.navbar-pages .nav-link {
-	margin-top: 0;
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
-}
+
 .navbar-top .navbar-light .navbar-nav.navbar-pages .navbar-brand img.img-size {
 	width: 80px;
 	height: auto;
@@ -1086,6 +1099,17 @@ span.circle {
 	transform: scale(1.2);
 	background-image: url(../images/bg-shop-menu.png);
 }
+
+.shop-menu ul li.button:hover span.circle {
+	background-image: url(../images/bg-shop-menu.png);
+	transform: scale(1.2);
+}
+
+.shop-menu ul li.button.is-checked span.circle {
+	transform: scale(1.2);
+	background-image: url(../images/bg-shop-menu.png);
+}
+
 .shop-menu ul li button.button {
 	background-color: transparent;
 	border: none;
@@ -2035,17 +2059,22 @@ a.link-press p {
 		padding: 10px;
 		transform: none;
 	}
-	.navbar-top .navbar-light .navbar-nav .nav-link {
-		margin-top: 5px;
+	.navbar-top .navbar-light .navbar-nav.navbar-pages .nav-link {
+		margin-top: 0;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
 	}
 	.navbar-scroll .navbar-light .navbar-nav .nav-link {
 		margin-top: 5px;
 	}
-	.navbar-top .navbar-light .navbar-nav.navbar-pages .nav-link {
+	.navbar-top .navbar-light .navbar-nav.navbar-pages .nav-link.nav-link-home {
 		margin-top: 5px;
 		position: static;
 		transform: none;
 	}
+
+
 	li.search:hover .search-form {
 		width: 100%;
 	}

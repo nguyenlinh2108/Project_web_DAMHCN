@@ -44,14 +44,14 @@ require_once __DIR__ . "/../utils/mystring.php";
             <a class="navbar-brand hidden-md-up text-xs-center" href="#"><img src="../public/images/logo.png" alt=""></a>
             <ul class="nav navbar-nav text-xs-center">
                 <li class="nav-item active">
-                    <a class="nav-link" href="../index.php">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link nav-link-home" href="../index.php">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../products.php">Products</a>
+                    <a class="nav-link nav-link-home" href="../products.php">Products</a>
                 </li>
 
                 <li class="nav-item search">
-                    <a class="nav-link" href="javascript:void(0)"><span class="fa fa-search"></span> Search</a>
+                    <a class="nav-link nav-link-home" href="javascript:void(0)"><span class="fa fa-search"></span> Search</a>
                     <form class="search-form">
                         <input type="search" placeholder="Search here..." class="none-outline form-control">
                         <button type="submit" class="btn btn-search"><span class="fa fa-search"></span></button>
@@ -59,14 +59,14 @@ require_once __DIR__ . "/../utils/mystring.php";
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../our_story.php">Our Story</a>
+                    <a class="nav-link nav-link-home" href="../our_story.php">Our Story</a>
                 </li>
 
                 <!-- <li class="nav-item">
-                    <a class="nav-link" href="press.php">Press</a>
+                    <a class="nav-link nav-link-home" href="press.php">Press</a>
                 </li> -->
                 <!--					<li class="nav-item">-->
-                <!--						<a class="nav-link" href="recipes.php">Recipes</a>-->
+                <!--						<a class="nav-link nav-link-home" href="recipes.php">Recipes</a>-->
                 <!--					</li>-->
                 <li class="nav-item hidden-sm-down">
                     <a class="navbar-brand text-sm-center" href="../index.php">
@@ -77,11 +77,11 @@ require_once __DIR__ . "/../utils/mystring.php";
 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../contact.php">Contact</a>
+                    <a class="nav-link nav-link-home" href="../contact.php">Contact</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../cart.php"><span class="fa fa-shopping-cart"></span> Cart</a>
+                    <a class="nav-link nav-link-home" href="../cart.php"><span class="fa fa-shopping-cart"></span> Cart</a>
                 </li>
                 <?php
                 if (isset($_SESSION['customer_login']['success']) && $_SESSION['customer_login']['success']) {
@@ -96,7 +96,7 @@ require_once __DIR__ . "/../utils/mystring.php";
                     <?php
                 } else {
                     ?><li class="nav-item">
-                    <a class="nav-link" href="<?php if(containsString(curentUrl(), "/login.php")){
+                    <a class="nav-link nav-link-home" href="<?php if(containsString(curentUrl(), "/login.php")){
                         echo "javascript: void()";
                     } else {
                         echo "login.php?continue=" . urlencode(curentUrl());
