@@ -88,7 +88,7 @@ require_once __DIR__ . "/../utils/mystring.php";
                 if (isset($_SESSION['customer_login']['success']) && $_SESSION['customer_login']['success']) {
                     ?>
                     <li class="nav-item">
-                        <div style="margin-top: 46px">
+                        <div>
                         <span><img style="border-radius: 50%;overflow: hidden;margin-left: -10px;height: 48px;width: 48px;display: inline;margin: 2px 6px 2px -8px;" src="/public/upload/users/default/avatar_male.jpg"></span>
                         <span style="cursor: pointer"><?= $_SESSION['customer_login']['name'] ?></span>
                         <span><b class="caret"></b></span>
