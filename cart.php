@@ -33,9 +33,9 @@ require_once __DIR__ . "/includes/header.php";
             <div class="col-md-2 col-sm-3 text-xs-right">
                 <a href="" class="number-phone"><span class="fa fa-mobile"></span> 0123456789</a>
             </div>
-            <div class="col-md-2 col-sm-3 text-xs-right">
-                <a href="" class="live-chat"><span class="fa fa-comments-o"></span> Live chat</a>
-            </div>
+<!--            <div class="col-md-2 col-sm-3 text-xs-right">-->
+<!--                <a href="" class="live-chat"><span class="fa fa-comments-o"></span> Live chat</a>-->
+<!--            </div>-->
         </div><!-- end row -->
     </div><!-- end container -->
 </div><!-- end ... -->
@@ -231,7 +231,7 @@ include('includes/connect.php');
             });
             //Bỏ bớt 1 sản phẩm
             minusButton.click(function (event) {
-                if (quantity >= 1) {
+                if (quantity > 1) {
                     quantityInput.val(--quantity);
                     priceProductTotal.text(priceProduct * quantity);
                     updateTotal();
