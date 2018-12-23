@@ -22,14 +22,29 @@ header('Content-Type: application/json');
 
 switch ($_GET['type']) {
 
+    case "delete":
+        {
+            if ($id == null) {
+                echo_error("Mising id");
+            }
+
+            if (!$db->select_one("SELECT * FROM user WHERE id = {$id}")) {
+                echo_error("User không tồn tại");
+            } else {
+                $user_name = $db->getResult()->name;
+                if ($db->execute("DELETE FROM user WHERE id = {$id}")) {
+                    echo_success("Xóa thành công người dùng $user_name");
+                } else echo_error("Không thể xóa người dùng $user_name");
+            }
+        }
     case "edit-image":
         {
             if ($id == null) {
                 echo_error("Mising id");
             }
 
-            $upload_status = saveImage('img',  __DIR__ . '/../../public/upload/users/');
-            if($upload_status['success']){
+            $upload_status = saveImage('img', __DIR__ . '/../../public/upload/users/');
+            if ($upload_status['success']) {
                 if (!$db->select_one("SELECT * FROM user WHERE id = {$id}")) {
                     echo_error("User không tồn tại");
                 } else {
