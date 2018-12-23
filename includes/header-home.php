@@ -169,13 +169,15 @@ $db = db::getInstance();
                 </li>
                 <?php
                 if (isset($_SESSION['customer_login']['success']) && $_SESSION['customer_login']['success']) {
+                    $db->select_one("SELECT * FROM customer WHERE id={$_SESSION['customer_login']['id']}");
+                    $name = $db->getResult()->name;
                     ?>
                     <li class="nav-item">
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
                                 <img style="border-radius: 50%;overflow: hidden;margin-left: -10px;height: 45px;width: 45px;display: inline;margin: 2px 6px 2px -8px;" src="/public/upload/users/default/avatar_male.jpg">
                                 <span class="caret">
-                                     <?= $_SESSION['customer_login']['name'] ?>
+                                     <?= $name ?>
                                 </span>
                             </button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
