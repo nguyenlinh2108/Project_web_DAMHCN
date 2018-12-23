@@ -14,6 +14,7 @@ if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min
         $description = $db->getResult()->description;
         $id_type = $db->getResult()->type;
     }
+
 }
 ?>
 	
@@ -43,12 +44,12 @@ if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min
 						<h3 style="font-family: 'BradleyHandITCTTBold'"><?php echo $name; ?></h3>
 						<div class="form-group row">
 							<div class="product-info col-xs-12">
-								<span class="price-product" ><?php echo $price; ?></span>
-								<span class="price-qty-total"><?php echo $price; ?></span>
+								<span style="display: block!important;" class="price-product" ><?php echo $price; ?></span>
+								<span class="price-qty-total" id="price-qty-total"><?= intval($price) ?></span>
 								<p>Số lượng</p>
 								<div class="handle-counter" id="handleCounter">
 									<button type="button" class="counter-minus btn btn-chocolate"><span class="fa fa-minus"></span></button>
-									<input style="width: 60px;" class="quantity" name="quantity" type="number" value="1" min="1">
+									<input style="width: 60px;" class="quantity" name="quantity" type="number" value="1">
 									<button type="button" class="counter-plus btn btn-chocolate"><span class="fa fa-plus"></span></button>
 								</div>
 								<button id="button_add_to_cart" type="submit" class="btn btn-chocolate add-button">Thêm vào giỏ hàng</button>
@@ -60,8 +61,6 @@ if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min
 			</div><!-- end row -->
 		</div>
 	</div><!-- end ... -->
-
-
 	<div class="container-fluid see-other-products">
 		<div class="container">
             <?php
@@ -109,7 +108,7 @@ if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min
 
 <?php
 include('includes/link-menu.php');
-include('includes/connect.php');
+//include('includes/connect.php');
 ?>
 
 <div id="toTop">
@@ -150,140 +149,36 @@ include('includes/connect.php');
         $('.sp-wrap').smoothproducts();
     });
 
+    $(document).ready(function () {
+        $('.form-group .product-info').each(function () {
+            var priceProdut = parseInt($(this).find(".price-product").text());
+            var quantityInput = $(this).find(".quantity");
+            var quantity = parseInt(quantityInput.val());
+            var minusButton = $(this).find("button.counter-minus");
+            var plusButton = $(this).find("button.counter-plus");
+            var priceProductTotal = $(this).find(".price-qty-total");
+
+            plusButton.click(function (event) {
+                quantityInput.val(++quantity);
+                priceProductTotal.text(priceProdut * quantity);
+                updateTotal();
+            });
+
+            minusButton.click(function (event) {
+                if(quantity >=1) {
+                    quantityInput.valueOf(--quantity);
+                    priceProductTotal.text(priceProdut * quantity);
+                    updateTotal();
+                }
+            });
+        });
+    });
+
+
 </script>
 
-<script>
-    $(function ($) {
-        var options = {
-            minimum: 1,
-            // maximize: 100,
-            onChange: valChanged,
-            onMinimum: function (e) {
-                console.log('reached minimum: ' + e)
-            },
-            onMaximize: function (e) {
-                console.log('reached maximize' + e)
-            }
-        }
-        $('#handleCounter').handleCounter(options)
-        $('#handleCounter2').handleCounter(options)
-    })
-
-    function valChanged(d) {
-        //            console.log(d)
-    }
-</script>
 <script type="text/javascript">
-    (function () {
-        'use strict';
-        $.fn.handleCounter = function (options) {
-            var $input,
-                $btnMinus,
-                $btnPlugs,
-                minimum,
-                maximize,
-                writable,
-                onChange,
-                onMinimum,
-                onMaximize;
-            var $handleCounter = this
-            $btnMinus = $handleCounter.find('.counter-minus')
-            $input = $handleCounter.find('input.quantity')
-            $btnPlugs = $handleCounter.find('.counter-plus')
-            var defaultOpts = {
-                writable: true,
-                minimum: 1,
-                maximize: null,
-                onChange: function () {
-                },
-                onMinimum: function () {
-                },
-                onMaximize: function () {
-                }
-            }
-            var settings = $.extend({}, defaultOpts, options)
-            minimum = settings.minimum
-            maximize = settings.maximize
-            writable = settings.writable
-            onChange = settings.onChange
-            onMinimum = settings.onMinimum
-            onMaximize = settings.onMaximize
-            if (!$.isNumeric(minimum)) {
-                minimum = defaultOpts.minimum
-            }
-            if (!$.isNumeric(maximize)) {
-                maximize = defaultOpts.maximize
-            }
-            var inputVal = $input.val()
-            if (isNaN(parseInt(inputVal))) {
-                inputVal = $input.val(0).val()
-            }
-            if (!writable) {
-                $input.prop('disabled', true)
-            }
 
-            changeVal(inputVal)
-            $input.val(inputVal)
-            $btnMinus.click(function () {
-                var num = parseInt($input.val())
-                if (num > minimum) {
-                    $input.val(num - 1)
-                    changeVal(num - 1)
-                }
-            })
-            $btnPlugs.click(function () {
-                var num = parseInt($input.val())
-                if (maximize == null || num < maximize) {
-                    $input.val(num + 1)
-                    changeVal(num + 1)
-                }
-            })
-            var keyUpTime
-            $input.keyup(function () {
-                clearTimeout(keyUpTime)
-                keyUpTime = setTimeout(function () {
-                    var num = $input.val()
-                    if (num == '') {
-                        num = minimum
-                        $input.val(minimum)
-                    }
-                    var reg = new RegExp("^[\\d]*$")
-                    if (isNaN(parseInt(num)) || !reg.test(num)) {
-                        $input.val($input.data('num'))
-                        changeVal($input.data('num'))
-                    } else if (num < minimum) {
-                        $input.val(minimum)
-                        changeVal(minimum)
-                    } else if (maximize != null && num > maximize) {
-                        $input.val(maximize)
-                        changeVal(maximize)
-                    } else {
-                        changeVal(num)
-                    }
-                }, 300)
-            })
-            $input.focus(function () {
-                var num = $input.val()
-                if (num == 0) $input.select()
-            })
-
-            function changeVal(num) {
-                $input.data('num', num)
-                $btnMinus.prop('disabled', false)
-                $btnPlugs.prop('disabled', false)
-                if (num <= minimum) {
-                    $btnMinus.prop('disabled', true)
-                    onMinimum.call(this, num)
-                } else if (maximize != null && num >= maximize) {
-                    $btnPlugs.prop('disabled', true)
-                    onMaximize.call(this, num)
-                }
-                onChange.call(this, num)
-            }
-
-            return $handleCounter
-        };
-    })(jQuery)
 
 
     $(document).ready(function () {

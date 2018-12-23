@@ -7,6 +7,54 @@ body, html {
 
 }
 
+.navbar-scroll .nav-item .dropdown,
+.navbar-scroll .nav-item .dropdown .btn.dropdown-toggle,
+.navbar-top .nav-item .dropdown,
+.navbar-top .nav-item .dropdown .btn.dropdown-toggle{
+	height: 50px;
+	background-color: #F8EFE7;
+}
+.navbar-top .nav-item .dropdown.navbar-top-home{
+	margin-top: 25px;
+}
+.navbar-top .nav-item .dropdown .dropdown-menu{
+	background-color: #F8EFE7;
+	min-width: 200px;
+	text-align: center;
+	margin-top: 15px;
+	padding: 0px;
+	padding-top: 5px;
+}
+.navbar-top .nav-item .dropdown.navbar-top-home .dropdown-menu{
+	background-color: #F8EFE7;
+	border: none;
+	min-width: 200px;
+	text-align: center;
+	margin-top: 20px;
+	padding: 0px;
+	padding-top: 5px;
+}
+.navbar-top .nav-item .dropdown.navbar-top-home .dropdown-menu .btn:active:focus, .btn:focus,
+.navbar-scroll .nav-item .dropdown .btn:active:focus, .btn:focus{
+	outline: none!important;
+}
+.navbar-scroll .nav-item .dropdown .btn.dropdown-toggle img{
+	margin-top: -7px!important;
+}
+.navbar-scroll .nav-item .dropdown .dropdown-menu{
+	background-color: #F8EFE7;
+	min-width: 200px;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	padding-top: 5px;
+}
+.navbar-top .nav-item .dropdown .dropdown-menu a,
+.navbar-top .nav-item .dropdown.navbar-top-home .dropdown-menu a,
+.navbar-scroll .nav-item .dropdown .dropdown-menu a{
+	font-size: 13px;
+	padding-bottom: 5px;
+}
 h2 {
 	font-family: 'BradleyHandITCTTBold';
 	font-size: 40px;
@@ -153,6 +201,7 @@ a:focus {
 	color: white;
 	transition: 0.4s;
 }
+
 .navbar-top .navbar-light .navbar-nav .navbar-brand img.img-size {
 	width: 104px;
 	height: auto;
