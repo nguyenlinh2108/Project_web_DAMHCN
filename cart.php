@@ -221,6 +221,7 @@ include('includes/link-menu.php');
             var productId = parseInt($(this).attr("id"));//Id sản phẩm
             var priceProduct = parseInt($(this).find(".price-product").text());//Giá sản phẩm
             var quantityInput = $(this).find(".quantity");//Input Số sản phẩm đang trong giỏ
+            quantityInput.attr("old_value", quantityInput.val());
             var quantity = parseInt(quantityInput.val());//Số sản phẩm đang trong giỏ
             var minusButton = $(this).find("button.counter-minus");//Nút giảm số lượng sản phẩm
             var plusButton = $(this).find("button.counter-plus");//Nút thêm sản phẩm vào giỏ
@@ -229,6 +230,7 @@ include('includes/link-menu.php');
             //Thêm 1 sản phẩm
             plusButton.click(function (event) {
                 quantityInput.val(++quantity);
+                quantityInput.attr("old_value", quantityInput.val());
                 priceProductTotal.text(priceProduct * quantity);
                 updateTotal();
                 productCarts.set(new ProductCart(productId, quantity));
@@ -237,11 +239,30 @@ include('includes/link-menu.php');
             minusButton.click(function (event) {
                 if (quantity > 1) {
                     quantityInput.val(--quantity);
+                    quantityInput.attr("old_value", quantityInput.val());
                     priceProductTotal.text(priceProduct * quantity);
                     updateTotal();
                     productCarts.set(new ProductCart(productId, quantity));
                 }
             });
+
+            quantityInput.change(function () {
+                quantity = parseInt(quantityInput.val());
+                let old_value = 1;
+                try {
+                    old_value = parseInt(quantityInput.attr("old_value"));
+                } catch (e) {
+                }
+                if(quantity < 1) {
+                    quantityInput.val(old_value);
+                } else {
+                    priceProductTotal.text(priceProduct * quantity);
+                    updateTotal();
+                    productCarts.set(new ProductCart(productId, quantity));
+                }
+
+                quantityInput.attr("old_value", quantityInput.val());
+            })
         });
     });
 

@@ -161,6 +161,7 @@ include('includes/link-menu.php');
         $('.product-info').each(function () {
             var priceProdut = parseInt($(this).find(".price-product").text());
             var quantityInput = $(this).find(".quantity");
+            quantityInput.attr("old_value", quantityInput.val());
             var quantity = parseInt(quantityInput.val());
             var minusButton = $(this).find("button.counter-minus");
             var plusButton = $(this).find("button.counter-plus");
@@ -168,20 +169,27 @@ include('includes/link-menu.php');
 
             plusButton.click(function (event) {
                 quantityInput.val(++quantity);
+                quantityInput.attr("old_value", quantityInput.val());
                 priceProductTotal.text(priceProdut * quantity);
             });
 
             minusButton.click(function (event) {
                 if(quantity >=1) {
                     quantityInput.val(--quantity);
+                    quantityInput.attr("old_value", quantityInput.val());
                     priceProductTotal.text(priceProdut * quantity);
                 }
             });
 
             quantityInput.change(function () {
                 quantity = parseInt(quantityInput.val());
+                let old_value = 1;
+                try {
+                    old_value = parseInt(quantityInput.attr("old_value"));
+                } catch (e) {
+                }
                 if(quantity < 1) {
-                    quantityInput.val(1);
+                    quantityInput.val(old_value);
                 }
             })
         });
