@@ -33,9 +33,9 @@ require_once __DIR__ . "/includes/header.php";
             <div class="col-md-2 col-sm-3 text-xs-right">
                 <a href="" class="number-phone"><span class="fa fa-mobile"></span> 0123456789</a>
             </div>
-<!--            <div class="col-md-2 col-sm-3 text-xs-right">-->
-<!--                <a href="" class="live-chat"><span class="fa fa-comments-o"></span> Live chat</a>-->
-<!--            </div>-->
+            <!--            <div class="col-md-2 col-sm-3 text-xs-right">-->
+            <!--                <a href="" class="live-chat"><span class="fa fa-comments-o"></span> Live chat</a>-->
+            <!--            </div>-->
         </div><!-- end row -->
     </div><!-- end container -->
 </div><!-- end ... -->
@@ -56,33 +56,38 @@ require_once __DIR__ . "/includes/header.php";
                 <div class="content">
                     <div class="container">
                         <?php
-                        if(isset($_SESSION['cart'])) foreach ($_SESSION['cart'] as $product_id => $quantity) {
-                            if ($db->select_one("SELECT * FROM product where id = {$product_id}")) {
-                                ?>
-                                <div id="<?= $product_id ?>" class="row product-cart">
-                                    <div class="col-sm-12 col-md-4 push-md-1">
-                                        <img src="public/upload/product/<?= $db->getResult()->image ?>" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="product-info col-sm-12 col-md-6 push-md-1">
-                                        <p class="name-product"><?= $db->getResult()->name ?></p>
-                                        <span class="price-product"><?= $db->getResult()->unit_price ?></span>
-                                        <span class="price-qty-total" style="opacity: 100"><?= intval($db->getResult()->unit_price) * intval($quantity)?></span>
-                                        <div class="handle-counter">
-                                            <button type="button" class="counter-minus btn btn-chocolate"><span
-                                                        class="fa fa-minus"></span></button>
-                                            <input class="quantity" type="text" value="<?= $quantity ?>">
-                                            <button type="button" class="counter-plus btn btn-chocolate"><span
-                                                        class="fa fa-plus"></span></button>
+
+                        if(isset($_SESSION['cart']))
+                        {
+                            $string_id_product_cart = "";
+                            foreach ($_SESSION['cart'] as $product_id => $quantity) {
+                                $string_id_product_cart .= $product_id.",";
+                                if ($db->select_one("SELECT * FROM product where id = {$product_id}")) {
+                                    ?>
+                                    <div id="<?= $product_id ?>" class="row product-cart">
+                                        <div class="col-sm-12 col-md-4 push-md-1">
+                                            <img src="public/upload/product/<?= $db->getResult()->image ?>" alt="" class="img-fluid">
                                         </div>
-                                        <button class="remove-product btn btn-chocolate" onclick="removeItem(this)">Bỏ khỏi giỏ hàng</button>
+                                        <div class="product-info col-sm-12 col-md-6 push-md-1">
+                                            <p class="name-product"><?= $db->getResult()->name ?></p>
+                                            <span class="price-product"><?= $db->getResult()->unit_price ?></span>
+                                            <span class="price-qty-total" style="opacity: 100"><?= intval($db->getResult()->unit_price) * intval($quantity)?></span>
+                                            <div class="handle-counter">
+                                                <button type="button" class="counter-minus btn btn-chocolate"><span
+                                                            class="fa fa-minus"></span></button>
+                                                <input class="quantity" type="text" value="<?= $quantity ?>">
+                                                <button type="button" class="counter-plus btn btn-chocolate"><span
+                                                            class="fa fa-plus"></span></button>
+                                            </div>
+                                            <button class="remove-product btn btn-chocolate" onclick="removeItem(this)">Bỏ khỏi giỏ hàng</button>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <?php
-                            } else {
-                                continue;
+                                    <?php
+                                } else {
+                                    continue;
+                                }
                             }
-
                         }
                         ?>
 
@@ -147,53 +152,54 @@ require_once __DIR__ . "/includes/header.php";
         </div>
         <div class="row">
             <section class="regular slider">
-                <figure class="product-box text-xs-center">
-                    <div class="quick-view">
-                        <img class="img-fluid" src="public/images/product-1.png" alt="">
-                        <div class="bg-gray"></div>
-                        <a href="product.php" class="btn btn-chocolate cd-trigger">quick view <span
-                                    class="fa fa-chevron-circle-right"></span></a>
-                    </div>
-                    <figcaption><p>Artisan chocolate box</p><span class="price-product">Contact for price & order</span>
-                    </figcaption>
-                </figure>
-                <figure class="product-box text-xs-center">
-                    <div class="quick-view">
-                        <img class="img-fluid" src="public/images/product-6.png" alt="">
-                        <div class="bg-gray"></div>
-                        <a href="product.php" class="btn btn-chocolate cd-trigger">quick view <span
-                                    class="fa fa-chevron-circle-right"></span></a>
-                    </div>
-                    <figcaption><p>Chewy salted caramel box</p><span class="price-product">from $9.00</span>
-                    </figcaption>
-                </figure>
-                <figure class="product-box text-xs-center">
-                    <div class="quick-view">
-                        <img class="img-fluid" src="public/images/product-12.png" alt="">
-                        <div class="bg-gray"></div>
-                        <a href="product.php" class="btn btn-chocolate cd-trigger">quick view <span
-                                    class="fa fa-chevron-circle-right"></span></a>
-                    </div>
-                    <figcaption><p>Coffee & caramel bar</p><span class="price-product">$7.50</span></figcaption>
-                </figure>
-                <figure class="product-box text-xs-center">
-                    <div class="quick-view">
-                        <img class="img-fluid" src="public/images/product-5.png" alt="">
-                        <div class="bg-gray"></div>
-                        <a href="product.php" class="btn btn-chocolate cd-trigger">quick view <span
-                                    class="fa fa-chevron-circle-right"></span></a>
-                    </div>
-                    <figcaption><p>Chocolate powder</p><span class="price-product">$20.00</span></figcaption>
-                </figure>
-                <figure class="product-box text-xs-center">
-                    <div class="quick-view">
-                        <img class="img-fluid" src="public/images/product-2.png" alt="">
-                        <div class="bg-gray"></div>
-                        <a href="product.php" class="btn btn-chocolate cd-trigger">quick view <span
-                                    class="fa fa-chevron-circle-right"></span></a>
-                    </div>
-                    <figcaption><p>Chocolate truffle box</p><span class="price-product">from $30.00</span></figcaption>
-                </figure>
+                <?php
+                //neu co san pham trong cart thi se lay ra toi da 5 san pham co cung loai voi nhung san pham ma khach hang da cho vao trong cart
+                if(isset($string_id_product_cart))
+                {
+                    $id_product_list = substr($string_id_product_cart, 0, -1);
+                    if($db->select("SELECT * FROM product WHERE type IN(SELECT DISTINCT type FROM product WHERE id IN($id_product_list)) AND id NOT IN ($id_product_list) LIMIT 0,5"))
+                    {
+                        $product_s = $db->getResult();
+                        foreach ($product_s as $product_)
+                        {
+                            ?>
+                            <figure class="product-box text-xs-center">
+                                <div class="quick-view">
+                                    <img class="img-fluid" src="public/upload/product/<?= $product_->image ?>" alt="">
+                                    <div class="bg-gray"></div>
+                                    <a href="product.php" class="btn btn-chocolate cd-trigger">quick view <span
+                                                class="fa fa-chevron-circle-right"></span></a>
+                                </div>
+                                <figcaption><p><?= $product_->name ?></p><span class="price-product"><?= $product_->unit_price ?></span>
+                                </figcaption>
+                            </figure>
+                            <?php
+                        }
+                    }
+                }else
+                {
+                    //neu chưa co san pham nao trong cart thi lay ngau nhien toi da 5 san pham ra
+                    if($db->select("SELECT * FROM product ORDER BY RAND() LIMIT 5"))
+                    {
+                        $product_s = $db->getResult();
+                        foreach ($product_s as $product_)
+                        {
+                            ?>
+                            <figure class="product-box text-xs-center">
+                                <div class="quick-view">
+                                    <img class="img-fluid" src="public/upload/product/<?= $product_->image ?>" alt="">
+                                    <div class="bg-gray"></div>
+                                    <a href="product.php" class="btn btn-chocolate cd-trigger">quick view <span
+                                                class="fa fa-chevron-circle-right"></span></a>
+                                </div>
+                                <figcaption><p>Artisan chocolate box</p><span class="price-product">Contact for price & order</span>
+                                </figcaption>
+                            </figure>
+                            <?php
+                        }
+                    }
+                }
+                ?>
             </section>
         </div><!-- end row -->
     </div><!-- end container -->
@@ -201,7 +207,7 @@ require_once __DIR__ . "/includes/header.php";
 
 <?php
 include('includes/link-menu.php');
-include('includes/connect.php');
+//include('includes/connect.php');
 ?>
 
 <div id="toTop">
@@ -239,7 +245,7 @@ include('includes/connect.php');
             });
         });
     });
-    
+
     function updateTotal() {
         $('#cart-total').text(0);
         $('.price-qty-total').each(function () {
@@ -267,8 +273,8 @@ include('includes/connect.php');
         slidesToShow: 4,
         slidesToScroll: 1
     });
-    
-    
+
+
     $('.btn-checkout').click(function (event) {
         event.preventDefault();
 
@@ -276,6 +282,6 @@ include('includes/connect.php');
 
 
     })
-    
+
 </script>
 </body>
