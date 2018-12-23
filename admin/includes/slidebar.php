@@ -5,8 +5,9 @@
                     </li>   
                     <?php 
                     $dem=1;
-                    foreach ($mang as $mang_slider)
+                    foreach ($mang as $key => $mang_slider)
                     {
+                        if(isset($admin) && $admin->level === "Biên tập viên" && $key === "User") continue;
                     
                     ?>
                     <li>

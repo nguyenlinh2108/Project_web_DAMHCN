@@ -101,7 +101,7 @@ if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT, array('mi
             form_data.append('img', file_data);//thêm files vào trong form data
             //sử dụng ajax post
             $.ajax({
-                url: "ajax/user_profile.php?id=<?= $id ?>&type=edit-image", // gửi đến file product.php
+                url: "ajax/user.php?id=<?= $id ?>&type=edit-image", // gửi đến file product.php
                 dataType: 'json',
                 cache: false,
                 contentType: false,
