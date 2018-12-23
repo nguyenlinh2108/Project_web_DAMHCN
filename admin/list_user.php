@@ -5,6 +5,12 @@ require_once __DIR__ . "/includes/header.php";
 ?>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <?php
+            if (isset($admin) && $admin->level === "Biên tập viên") {
+                echo "<h3>Bạn không có quyền xem trang này</h3>";
+                return ;
+            }
+            ?>
             <h3>Danh sách quản trị viên</h3>
             <a href="add_user.php" class="btn btn-primary" style="float: right">Thêm mới</a>
             <table class="table table-hover">

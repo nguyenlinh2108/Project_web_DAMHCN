@@ -103,6 +103,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12" id="my_pad_top">
             <a href="list_user.php" class="btn btn-primary" >Về trang danh sách User</a>
             <a href="index.php" class="btn btn-primary" style="float: right">Về trang chủ</a>
+            <?php
+            if (isset($admin) && $admin->level === "Biên tập viên") {
+                echo "<h3>Bạn không có quyền xem trang này</h3>";
+                return ;
+            }
+            ?>
             <form name="frmadd_user" id="frmadd_user" method="POST" enctype="multipart/form-data">
                 <?php
                 if(isset($message))
