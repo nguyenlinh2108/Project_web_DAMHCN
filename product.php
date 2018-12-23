@@ -121,6 +121,8 @@ include('includes/link-menu.php');
 </div>
 <script src="public/js/smoothproducts.js" type="text/javascript" charset="utf-8" async defer></script>
 <script type="text/javascript">
+    var productCarts = new ProductCarts();
+
     <?php
     if (isset($_SESSION['customer_login']['success']) && $_SESSION['customer_login']['success']) {
         echo "var isLogin = true;";
@@ -129,15 +131,7 @@ include('includes/link-menu.php');
     }
     ?>
 
-    $('#button_add_to_cart').click(function (event) {
-        event.preventDefault();
-        if (isLogin == false) {
-            alert("Bạn chưa đăng nhập");
-        } else {
-            $('form.choise-size').submit();
-        }
-    });
-
+    var productId = <?= $product_id ?>;
 
     //u might also like
     $(".regular").slick({
@@ -152,7 +146,19 @@ include('includes/link-menu.php');
     });
 
     $(document).ready(function () {
-        $('.form-group .product-info').each(function () {
+
+        $('#button_add_to_cart').click(function (event) {
+            event.preventDefault();
+            if (isLogin == false) {
+                alert("Bạn chưa đăng nhập");
+            } else {
+                var quantity = parseInt($(".product-info .quantity").val());
+                productCarts.add(new ProductCart(productId, quantity));
+                window.location.href = "cart.php";
+            }
+        });
+
+        $('.product-info').each(function () {
             var priceProdut = parseInt($(this).find(".price-product").text());
             var quantityInput = $(this).find(".quantity");
             var quantity = parseInt(quantityInput.val());
@@ -163,12 +169,14 @@ include('includes/link-menu.php');
             plusButton.click(function (event) {
                 quantityInput.val(++quantity);
                 priceProductTotal.text(priceProdut * quantity);
+                productCarts.set(new ProductCart(productId, quantity));
             });
 
             minusButton.click(function (event) {
                 if(quantity >=1) {
                     quantityInput.valueOf(--quantity);
                     priceProductTotal.text(priceProdut * quantity);
+                    productCarts.set(new ProductCart(productId, quantity));
                 }
             });
         });

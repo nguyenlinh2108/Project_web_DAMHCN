@@ -9,16 +9,9 @@ require_once __DIR__ . "/db/db.php";
 
 $db = db::getInstance();
 
-if (isset($_POST['product']) && isset($_POST['quantity'])) {
-    $product = intval($_POST['product']);
-    $quantity = intval($_POST['quantity']);
-    if (!isset($_SESSION['cart'])) $_SESSION['cart'] = array();
-
-    //Nếu hàng đã trong giỏ thì công thêm vào
-    if (isset($_SESSION['cart'][$product])) {
-        $quantity = $quantity + $_SESSION['cart'][$product];
-    }
-    $_SESSION['cart'][$product] = $quantity;
+$product_cards = array();
+if (isset($_COOKIE['product_cart'])) {
+    $product_cards = json_decode($_COOKIE['product_cart']);
 }
 
 unset($_POST);
@@ -50,9 +43,7 @@ require_once __DIR__ . "/includes/header.php";
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12">
-                                <h2>Your cart (<span
-                                            class="quantum"><?= isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0 ?></span>)
-                                </h2>
+                                <h2>Your cart (<span class="quantum"><?= isset($product_cards) ? count($product_cards) : 0 ?></span>)</h2>
                             </div>
                         </div>
                     </div>
@@ -60,10 +51,10 @@ require_once __DIR__ . "/includes/header.php";
                 <div class="content">
                     <div class="container">
                         <?php
-
-                        if (isset($_SESSION['cart'])) {
                             $string_id_product_cart = "";
-                            foreach ($_SESSION['cart'] as $product_id => $quantity) {
+                            foreach ($product_cards as $product_card) {
+                                $product_id = $product_card->product_id;
+                                $quantity = isset($product_card->quantity) ? $product_card->quantity : 0;
                                 $string_id_product_cart .= $product_id . ",";
                                 if ($db->select_one("SELECT * FROM product where id = {$product_id}")) {
                                     ?>
@@ -72,7 +63,8 @@ require_once __DIR__ . "/includes/header.php";
                                             <img src="public/upload/product/<?= $db->getResult()->image ?>" alt=""
                                                  class="img-fluid">
                                         </div>
-                                        <div class="product-info col-sm-12 col-md-6 push-md-1">
+                                        <div class="product-info col-sm-12 col-md-6 push-md-1"
+                                             id="<?= $db->getResult()->id ?>">
                                             <p class="name-product"><?= $db->getResult()->name ?></p>
                                             <span class="price-product"><?= $db->getResult()->unit_price ?></span>
                                             <span class="price-qty-total"
@@ -84,7 +76,8 @@ require_once __DIR__ . "/includes/header.php";
                                                 <button type="button" class="counter-plus btn btn-chocolate"><span
                                                             class="fa fa-plus"></span></button>
                                             </div>
-                                            <button class="remove-product btn btn-chocolate" onclick="removeItem(this)">
+                                            <button class="remove-product btn btn-chocolate"
+                                                    onclick="removeItem(this, <?= $db->getResult()->id ?>)">
                                                 Bỏ khỏi giỏ hàng
                                             </button>
                                         </div>
@@ -95,7 +88,6 @@ require_once __DIR__ . "/includes/header.php";
                                     continue;
                                 }
                             }
-                        }
                         ?>
 
                     </div>
@@ -220,10 +212,13 @@ include('includes/link-menu.php');
 </div>
 
 <script>
+    var productCarts = new ProductCarts();
+
     $(document).ready(function () {
         updateTotal();
 
         $('.product-cart .product-info').each(function () {
+            var productId = parseInt($(this).attr("id"));//Id sản phẩm
             var priceProduct = parseInt($(this).find(".price-product").text());//Giá sản phẩm
             var quantityInput = $(this).find(".quantity");//Input Số sản phẩm đang trong giỏ
             var quantity = parseInt(quantityInput.val());//Số sản phẩm đang trong giỏ
@@ -236,6 +231,7 @@ include('includes/link-menu.php');
                 quantityInput.val(++quantity);
                 priceProductTotal.text(priceProduct * quantity);
                 updateTotal();
+                productCarts.set(new ProductCart(productId, quantity));
             });
             //Bỏ bớt 1 sản phẩm
             minusButton.click(function (event) {
@@ -243,6 +239,7 @@ include('includes/link-menu.php');
                     quantityInput.val(--quantity);
                     priceProductTotal.text(priceProduct * quantity);
                     updateTotal();
+                    productCarts.set(new ProductCart(productId, quantity));
                 }
             });
         });
@@ -261,12 +258,14 @@ include('includes/link-menu.php');
     var taxRate = 0.02;
 
     /* Remove item from cart */
-    function removeItem(removeButton) {
+    function removeItem(removeButton, product_id) {
         /* Remove row from DOM and recalc cart total */
         var productRow = $(removeButton).parent().parent();
         productRow.slideUp(fadeTime, function () {
             productRow.remove();
             updateTotal();
+            productCarts.remove(new ProductCart(product_id, 0));
+            $('.quantum').text(parseInt($('.quantum').text()) - 1);
         });
     }
 
