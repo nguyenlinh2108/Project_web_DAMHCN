@@ -55,13 +55,14 @@ require_once __DIR__ . "/includes/header.php";
                     foreach ($db->getResult() as $obj) {
                         $user = admin::getAdmin($obj);
                         ?>
-                        <tr>
+                        <tr id="user_<?= $user->id; ?>">
                             <td><?= $user->id; ?></td>
                             <td><?= $user->name; ?></td>
                             <td><?= $user->email; ?></td>
                             <td><?= $user->gender; ?></td>
                             <td>
-                                <a href="edit_image_user.php?id=<?= $user->id; ?>">
+                                <input class="edit_image_input" type="file" style="display: none;"/>
+                                <a href="#" class="edit_image">
                                     <img src="<?= $user->avatar; ?>" width="100px">
                                     <div>Edit image</div>
                                 </a>
@@ -83,6 +84,76 @@ require_once __DIR__ . "/includes/header.php";
                 ?>
                 </tbody>
             </table>
+            <script>
+                $(document).ready(function () {
+                    $("tr[id^='user_']").each(function () {
+                        let id = $(this).attr("id");
+                        id = id.replace("user_", "");
+                        let edit_image = $(this).find(".edit_image");
+                        let edit_image_input = $(this).find(".edit_image_input");
+
+                        //Bắt sự kiện khi input file thay đỗi
+                        edit_image_input.change(function () {
+                            if (edit_image_input.val() !== "") {
+                                //Send image to server
+                                send_image(id, edit_image_input.prop('files')[0]);
+                            }
+                        });
+
+                        edit_image.click(function () {
+                            //Get image from computer
+                            edit_image_input.trigger('click');
+                        });
+
+                    });
+                });
+
+                function send_image(id, file_data) {
+                    if (file_data == null) return;
+
+                    var type = file_data.type;//lấy ra kiểu file
+
+                    //kiểm tra kiểu file
+                    if (type == null
+                        || !["image/gif", "image/png", "image/jpg", "image/jpeg"].includes(type.toLowerCase())) {
+                        alert("Chỉ được upload file ảnh (" + type + ")");
+                    } else {
+                        let form_data = new FormData();//khởi tạo đối tượng form data
+                        form_data.append('img', file_data);//thêm files vào trong form data
+                        //sử dụng ajax post
+                        $.ajax({
+                            url: 'ajax/user_profile.php?id=' + id + "&type=edit-image", // gửi đến file product.php
+                            dataType: 'json',
+                            cache: false,
+                            contentType: false,
+                            processData: false,
+                            data: form_data,
+                            type: 'post',
+                            complete: function (response) {
+                                if (response.status === 200) {
+                                    if (response.responseJSON.success) {
+                                        if (response.responseJSON.hasOwnProperty("message")) {
+                                            $("#user_" + id + " .edit_image img").attr("src", "../public/upload/users/" + response.responseJSON.message);
+                                        }
+                                        else alert("Sửa hành công");
+                                    } else {
+                                        if (response.responseJSON.hasOwnProperty("message")) alert(response.responseJSON.message);
+                                        else alert("Sửa thất bại");
+                                    }
+                                } else {
+                                    if (response.status === 0) {
+                                        alert("Không thể kết nối tới server");
+                                    } else {
+                                        alert("Đã có lỗi xảy ra");
+                                    }
+                                }
+                            }
+                        });
+
+                        $.scrollTo($('#user_' + id).prev());
+                    }
+                }
+            </script>
             <?php
             echo "<ul class='pagination'>";
             if ($per_page > 1) {
