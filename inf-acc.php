@@ -1,4 +1,5 @@
 <?php
+session_start();
 ob_start();
 require_once  __DIR__ . "/db/db.php";
 $db = db::getInstance();
@@ -12,9 +13,9 @@ $phone_db = "";
 $birthday_db = "";
 $note_db = "";
 $point_db = "";
-if(isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT,array('min_range'=>1)))
+if(isset($_SESSION['customer_login']))
 {
-    $id = $_GET['id'];
+    $id = $_SESSION['customer_login']['id'];
     if($db->select_one("SELECT * FROM customer WHERE id={$id}")){
         {
             $name_db = $db->getResult()->name;
