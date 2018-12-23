@@ -8,7 +8,7 @@ require_once __DIR__ . "/includes/header.php";
             <?php
             if (isset($admin) && $admin->level === "Biên tập viên") {
                 echo "<h3>Bạn không có quyền xem trang này</h3>";
-                return ;
+                return;
             }
             ?>
             <h3>Danh sách quản trị viên</h3>
@@ -73,9 +73,11 @@ require_once __DIR__ . "/includes/header.php";
                             <td><a href="edit_user.php?id=<?= $user->id; ?>"><img width="16px"
                                                                                   src="../public/images/icon_edit.png"></a>
                             </td>
-                            <td><a href="delete_user.php?id=<?= $user->id; ?>"
-                                   onclick="return confirm('Bạn có thực sự muốn xóa không?')"><img width="16px"
-                                                                                                   src="../public/images/icon_delete.png"></a>
+                            <td>
+                                <a href="javascript: delete_user(<?= $user->id; ?>)"
+                                   onclick="return confirm('Bạn có thực sự muốn xóa không?')">
+                                    <img width="16px" src="../public/images/icon_delete.png">
+                                </a>
                             </td>
                         </tr>
                         <?php
@@ -122,7 +124,7 @@ require_once __DIR__ . "/includes/header.php";
                         form_data.append('img', file_data);//thêm files vào trong form data
                         //sử dụng ajax post
                         $.ajax({
-                            url: 'ajax/user.php?id=' + id + "&type=edit-image", // gửi đến file product.php
+                            url: 'ajax/user.php?id=' + id + "&type=edit-image",
                             dataType: 'json',
                             cache: false,
                             contentType: false,
@@ -152,6 +154,47 @@ require_once __DIR__ . "/includes/header.php";
 
                         $.scrollTo($('#user_' + id).prev());
                     }
+                }
+
+                var currentAdmin = <?= $admin->id ?>;
+
+                function delete_user(id) {
+                    if (id == null || !$.isNumeric(id)) return;
+
+                    if(currentAdmin === id) {
+                        alert("Bạn không thể xóa người dùng này");
+                        return ;
+                    }
+
+                    //sử dụng ajax post
+                    $.ajax({
+                        url: 'ajax/user.php?id=' + id + "&type=delete",
+                        dataType: 'json',
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        type: 'post',
+                        complete: function (response) {
+                            if (response.status === 200) {
+                                if (response.responseJSON.success) {
+                                    if (response.responseJSON.hasOwnProperty("message")) {
+                                        alert(response.responseJSON.message);
+                                    }
+                                    else alert("Sửa hành công");
+                                    $('#user_' + id).remove();
+                                } else {
+                                    if (response.responseJSON.hasOwnProperty("message")) alert(response.responseJSON.message);
+                                    else alert("Sửa thất bại");
+                                }
+                            } else {
+                                if (response.status === 0) {
+                                    alert("Không thể kết nối tới server");
+                                } else {
+                                    alert("Đã có lỗi xảy ra");
+                                }
+                            }
+                        }
+                    });
                 }
             </script>
             <?php
