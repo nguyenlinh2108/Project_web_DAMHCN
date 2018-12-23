@@ -169,14 +169,12 @@ include('includes/link-menu.php');
             plusButton.click(function (event) {
                 quantityInput.val(++quantity);
                 priceProductTotal.text(priceProdut * quantity);
-                productCarts.set(new ProductCart(productId, quantity));
             });
 
             minusButton.click(function (event) {
                 if(quantity >=1) {
                     quantityInput.valueOf(--quantity);
                     priceProductTotal.text(priceProdut * quantity);
-                    productCarts.set(new ProductCart(productId, quantity));
                 }
             });
         });
