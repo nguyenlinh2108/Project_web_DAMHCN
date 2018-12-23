@@ -21,6 +21,18 @@ header('Content-Type: application/json');
 
 switch ($_GET['type']) {
 
+    case "get-product-info":
+        {
+            if ($id == null) {
+                echo_error("Mising id");
+            }
+
+            if (!$db->select_one("SELECT * FROM product WHERE id = {$id}")) {
+                echo_error("Sản phẩm không tồn tại");
+            } else {
+                echo_success(json_encode($db->getResult()));
+            }
+        }
     case "edit-image":
         {
             if ($id == null) {
