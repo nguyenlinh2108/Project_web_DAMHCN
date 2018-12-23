@@ -173,10 +173,17 @@ include('includes/link-menu.php');
 
             minusButton.click(function (event) {
                 if(quantity >=1) {
-                    quantityInput.valueOf(--quantity);
+                    quantityInput.val(--quantity);
                     priceProductTotal.text(priceProdut * quantity);
                 }
             });
+
+            quantityInput.change(function () {
+                quantity = parseInt(quantityInput.val());
+                if(quantity < 1) {
+                    quantityInput.val(1);
+                }
+            })
         });
     });
 
