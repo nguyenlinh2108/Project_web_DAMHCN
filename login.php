@@ -1,4 +1,6 @@
 <?php
+$current_page = basename(__FILE__, '.php');
+
 session_start();
 
 if (isset($_SESSION['customer_login']['success']) && $_SESSION['customer_login']['success']) {

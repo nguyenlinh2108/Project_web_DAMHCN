@@ -44,10 +44,7 @@ require_once __DIR__ . "/../utils/mystring.php";
                         <img class="img-size" src="../public/images/logo.png" alt="">
                     </a>
                 </li>
-<!--                <li class="nav-item active">-->
-<!--                    <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>-->
-<!--                </li>-->
-                <li class="nav-item">
+                <li class="nav-item <?php if(isset($current_page) && $current_page === "products") echo "active" ?>">
                     <a class="nav-link" href="../products.php">Products</a>
                 </li>
 
@@ -63,24 +60,11 @@ require_once __DIR__ . "/../utils/mystring.php";
                     <a class="nav-link" href="../our_story.php">Our Story</a>
                 </li>
 
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="press.php">Press</a>
-                </li> -->
-                <!--					<li class="nav-item">-->
-                <!--						<a class="nav-link" href="recipes.php">Recipes</a>-->
-                <!--					</li>-->
-<!--                <li class="nav-item hidden-sm-down">-->
-<!--                    <a class="navbar-brand text-sm-center" href="index.php">-->
-<!--                        <img class="img-size" src="public/images/logo.png" alt="">-->
-<!--                        <p class="text-sm-center">World's best<br>handcrafed chocolate</p>-->
-<!--                    </a>-->
-<!--                </li>-->
-
-                <li class="nav-item">
+                <li class="nav-item <?php if(isset($current_page) && $current_page === "contact") echo "active" ?>">
                     <a class="nav-link" href="../contact.php">Contact</a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item <?php if(isset($current_page) && $current_page === "cart") echo "active" ?>">
                     <a class="nav-link" href="../cart.php"><span class="fa fa-shopping-cart"></span> Cart</a>
                 </li>
 
@@ -89,7 +73,7 @@ require_once __DIR__ . "/../utils/mystring.php";
                     ?>
                     <li class="nav-item">
                         <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" style="margin-top: -10px;">
                                 <img style="border-radius: 50%;overflow: hidden;margin-left: -10px;height: 45px;width: 45px;display: inline;margin: 2px 6px 2px -8px;" src="/public/upload/users/default/avatar_male.jpg">
                                 <span class="caret">
                                      <?= $_SESSION['customer_login']['name'] ?>

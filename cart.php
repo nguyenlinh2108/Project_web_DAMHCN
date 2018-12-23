@@ -1,4 +1,6 @@
 <?php
+$current_page = basename(__FILE__, '.php');
+
 if (!isset($_SESSION)) {
     session_start();
 }

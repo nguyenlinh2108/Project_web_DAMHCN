@@ -1,4 +1,6 @@
 <?php
+$current_page = basename(__FILE__, '.php');
+
 require_once __DIR__ . "/includes/header.php";
 require_once __DIR__ . "/db/db.php";
 $db = db::getInstance();
