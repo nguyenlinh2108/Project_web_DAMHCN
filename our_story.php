@@ -1,4 +1,8 @@
-<?php include('includes/header.php'); ?>
+<?php
+$current_page = basename(__FILE__, '.php');
+
+include('includes/header.php');
+?>
 
 	<div class="container-fluid banner-recipes our-s">
 		<div class="bg-bannner">

@@ -56,7 +56,7 @@ require_once __DIR__ . "/../utils/mystring.php";
                     </form>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item <?php if(isset($current_page) && $current_page === "our_story") echo "active" ?>">
                     <a class="nav-link" href="../our_story.php">Our Story</a>
                 </li>
 
@@ -117,10 +117,10 @@ require_once __DIR__ . "/../utils/mystring.php";
                         <p class="the-pods">THE PODS</p>
                     </a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="../index.php">Home<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <?php if(isset($current_page) && $current_page === "products") echo "active" ?>">
                     <a class="nav-link" href="../products.php">Products</a>
                 </li>
 
@@ -132,7 +132,7 @@ require_once __DIR__ . "/../utils/mystring.php";
                     </form>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item <?php if(isset($current_page) && $current_page === "our_story") echo "active" ?>">
                     <a class="nav-link" href="../our_story.php">Our Story</a>
                 </li>
 
@@ -142,11 +142,11 @@ require_once __DIR__ . "/../utils/mystring.php";
                 <!--					<li class="nav-item">-->
                 <!--						<a class="nav-link" href="recipes.php">Recipes</a>-->
                 <!--					</li>-->
-                <li class="nav-item">
+                <li class="nav-item <?php if(isset($current_page) && $current_page === "contact") echo "active" ?>">
                     <a class="nav-link" href="../contact.php">Contact</a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item <?php if(isset($current_page) && $current_page === "cart") echo "active" ?>">
                     <a class="nav-link" href="../cart.php"><span class="fa fa-shopping-cart"></span> Cart</a>
                 </li>
                 <?php
