@@ -95,7 +95,7 @@ require_once __DIR__ . "/../utils/mystring.php";
                                 </span>
                             </button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="../inf-acc.php?id=<?= $_SESSION['customer_login']['id'] ?>">Account management</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="../inf-acc.php">Account management</a></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="../logout_customer.php">Logout</a></li>
                             </ul>
                         </div>
@@ -175,7 +175,7 @@ require_once __DIR__ . "/../utils/mystring.php";
                                 </span>
                             </button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="../inf-acc.php?id=<?= $_SESSION['customer_login']['id'] ?>">Account management</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="../inf-acc.php">Account management</a></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="../logout_customer.php">Logout</a></li>
                             </ul>
                         </div>
