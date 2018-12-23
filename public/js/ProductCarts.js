@@ -14,7 +14,7 @@ class ProductCarts {
     add(productCart) {//Thêm productCart vào ProductCarts, nếu ProductCart đã có thì cộng thêm số lượng vào
         let i = this.indexOf(productCart);
         if (i !== -1) {
-            productCart.quannity += this.products[i].quannity;
+            productCart.quantity += this.products[i].quantity;
             this.products[i] = productCart;
         } else {
             this.products.push(productCart);
@@ -68,16 +68,16 @@ class ProductCarts {
     }
 }
 class ProductCart {
-    constructor(product_id, quannity) {
+    constructor(product_id, quantity) {
         if($.isNumeric(product_id)){
             product_id = parseInt(product_id);
-            if($.isNumeric(quannity)){
-                quannity = parseInt(quannity);
+            if($.isNumeric(quantity)){
+                quantity = parseInt(quantity);
             } else {
-                quannity = 0;
+                quantity = 0;
             }
             this.product_id = product_id;
-            this.quannity = quannity;
+            this.quantity = quantity;
         }
     }
 }
