@@ -26,6 +26,7 @@ require_once __DIR__ . "/../utils/mystring.php";
     <script type="text/javascript" src="../public/js/jquery.min.js"></script>
     <script type="text/javascript" src="../public/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../public/js/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="../public/js/js.cookie.min.js"></script>
     <script src="../public/slick/slick.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="../public/js/js.js"></script>
 </head>
