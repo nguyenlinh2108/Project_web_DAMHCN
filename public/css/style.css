@@ -1474,7 +1474,7 @@ span.qty input {
 	content: '$';
 }
 .price-product:before, .price-qty-total:before, .totals-value:before {
-	content: '';
+	content: '$';
 }
 p.name-product {
 	line-height: 20px;
