@@ -163,14 +163,12 @@ include('includes/link-menu.php');
             plusButton.click(function (event) {
                 quantityInput.val(++quantity);
                 priceProductTotal.text(priceProdut * quantity);
-                updateTotal();
             });
 
             minusButton.click(function (event) {
                 if(quantity >=1) {
                     quantityInput.valueOf(--quantity);
                     priceProductTotal.text(priceProdut * quantity);
-                    updateTotal();
                 }
             });
         });
