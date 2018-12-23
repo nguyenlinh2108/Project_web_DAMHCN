@@ -48,7 +48,9 @@ require_once __DIR__ . "/includes/header.php";
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12">
-                                <h2>Your cart (<span class="quantum"><?= isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0 ?></span>)</h2>
+                                <h2>Your cart (<span
+                                            class="quantum"><?= isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0 ?></span>)
+                                </h2>
                             </div>
                         </div>
                     </div>
@@ -57,21 +59,22 @@ require_once __DIR__ . "/includes/header.php";
                     <div class="container">
                         <?php
 
-                        if(isset($_SESSION['cart']))
-                        {
+                        if (isset($_SESSION['cart'])) {
                             $string_id_product_cart = "";
                             foreach ($_SESSION['cart'] as $product_id => $quantity) {
-                                $string_id_product_cart .= $product_id.",";
+                                $string_id_product_cart .= $product_id . ",";
                                 if ($db->select_one("SELECT * FROM product where id = {$product_id}")) {
                                     ?>
                                     <div id="<?= $product_id ?>" class="row product-cart">
                                         <div class="col-sm-12 col-md-4 push-md-1">
-                                            <img src="public/upload/product/<?= $db->getResult()->image ?>" alt="" class="img-fluid">
+                                            <img src="public/upload/product/<?= $db->getResult()->image ?>" alt=""
+                                                 class="img-fluid">
                                         </div>
                                         <div class="product-info col-sm-12 col-md-6 push-md-1">
                                             <p class="name-product"><?= $db->getResult()->name ?></p>
                                             <span class="price-product"><?= $db->getResult()->unit_price ?></span>
-                                            <span class="price-qty-total" style="opacity: 100"><?= intval($db->getResult()->unit_price) * intval($quantity)?></span>
+                                            <span class="price-qty-total"
+                                                  style="opacity: 100"><?= intval($db->getResult()->unit_price) * intval($quantity) ?></span>
                                             <div class="handle-counter">
                                                 <button type="button" class="counter-minus btn btn-chocolate"><span
                                                             class="fa fa-minus"></span></button>
@@ -79,7 +82,9 @@ require_once __DIR__ . "/includes/header.php";
                                                 <button type="button" class="counter-plus btn btn-chocolate"><span
                                                             class="fa fa-plus"></span></button>
                                             </div>
-                                            <button class="remove-product btn btn-chocolate" onclick="removeItem(this)">Bỏ khỏi giỏ hàng</button>
+                                            <button class="remove-product btn btn-chocolate" onclick="removeItem(this)">
+                                                Bỏ khỏi giỏ hàng
+                                            </button>
                                         </div>
                                     </div>
 
@@ -115,7 +120,7 @@ require_once __DIR__ . "/includes/header.php";
                             </div>
 
                             <div class="col-sm-12" style="margin-bottom: 20px;">
-                                <div class="row" >
+                                <div class="row">
                                     <div class="col-sm-12">
                                         <a href="checkout.php" class="btn btn-block btn-chocolate btn-checkout">Check
                                             out</a>
@@ -154,14 +159,11 @@ require_once __DIR__ . "/includes/header.php";
             <section class="regular slider">
                 <?php
                 //neu co san pham trong cart thi se lay ra toi da 5 san pham co cung loai voi nhung san pham ma khach hang da cho vao trong cart
-                if(isset($string_id_product_cart))
-                {
+                if (isset($string_id_product_cart)) {
                     $id_product_list = substr($string_id_product_cart, 0, -1);
-                    if($db->select("SELECT * FROM product WHERE type IN(SELECT DISTINCT type FROM product WHERE id IN($id_product_list)) AND id NOT IN ($id_product_list) LIMIT 0,5"))
-                    {
+                    if ($db->select("SELECT * FROM product WHERE type IN(SELECT DISTINCT type FROM product WHERE id IN($id_product_list)) AND id NOT IN ($id_product_list) LIMIT 0,5")) {
                         $product_s = $db->getResult();
-                        foreach ($product_s as $product_)
-                        {
+                        foreach ($product_s as $product_) {
                             ?>
                             <figure class="product-box text-xs-center">
                                 <div class="quick-view">
@@ -170,20 +172,18 @@ require_once __DIR__ . "/includes/header.php";
                                     <a href="product.php" class="btn btn-chocolate cd-trigger">quick view <span
                                                 class="fa fa-chevron-circle-right"></span></a>
                                 </div>
-                                <figcaption><p><?= $product_->name ?></p><span class="price-product"><?= $product_->unit_price ?></span>
+                                <figcaption><p><?= $product_->name ?></p><span
+                                            class="price-product"><?= $product_->unit_price ?></span>
                                 </figcaption>
                             </figure>
                             <?php
                         }
                     }
-                }else
-                {
+                } else {
                     //neu chưa co san pham nao trong cart thi lay ngau nhien toi da 5 san pham ra
-                    if($db->select("SELECT * FROM product ORDER BY RAND() LIMIT 5"))
-                    {
+                    if ($db->select("SELECT * FROM product ORDER BY RAND() LIMIT 5")) {
                         $product_s = $db->getResult();
-                        foreach ($product_s as $product_)
-                        {
+                        foreach ($product_s as $product_) {
                             ?>
                             <figure class="product-box text-xs-center">
                                 <div class="quick-view">
@@ -267,6 +267,7 @@ include('includes/link-menu.php');
             updateTotal();
         });
     }
+
     $(".regular").slick({
         dots: true,
         infinite: true,
@@ -277,11 +278,55 @@ include('includes/link-menu.php');
 
     $('.btn-checkout').click(function (event) {
         event.preventDefault();
+        var tongSoTien = parseInt($('#cart-total').text());
+        if (tongSoTien <= 0) {
+            alert("Chưa có sản phẩm nào trong giỏ hàng");
+            return;
+        } else {
+            window.location.href = "/checkout.php";
+        }
 
-        alert("Check out");
+    });
 
+    //Kiểm tra xem sản phẩm có tồn tai không
+    function check_product(id) {
+        if (id == null || !$.isNumeric(id)) return;
 
-    })
+        if (currentAdmin === id) {
+            alert("Bạn không thể xóa người dùng này");
+            return;
+        }
+
+        //sử dụng ajax post
+        $.ajax({
+            url: 'ajax/product.php?id=' + id + "&type=get-product-info",
+            dataType: 'json',
+            cache: false,
+            contentType: false,
+            processData: false,
+            type: 'post',
+            complete: function (response) {
+                if (response.status === 200) {
+                    if (response.responseJSON.success) {
+                        if (response.responseJSON.hasOwnProperty("message")) {
+                            alert(response.responseJSON.message);
+                        }
+                        else alert("Sửa hành công");
+                        $('#user_' + id).remove();
+                    } else {
+                        if (response.responseJSON.hasOwnProperty("message")) alert(response.responseJSON.message);
+                        else alert("Sửa thất bại");
+                    }
+                } else {
+                    if (response.status === 0) {
+                        alert("Không thể kết nối tới server");
+                    } else {
+                        alert("Đã có lỗi xảy ra");
+                    }
+                }
+            }
+        });
+    }
 
 </script>
 </body>
