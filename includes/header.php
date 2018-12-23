@@ -30,6 +30,15 @@ require_once __DIR__ . "/../utils/mystring.php";
     <script type="text/javascript" src="../public/js/ProductCarts.js"></script>
     <script src="../public/slick/slick.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="../public/js/js.js"></script>
+
+    <!--    datepicker-->
+    <script src="./admin/public/js/bootstrap-datepicker.js"></script>
+    <link href="./admin/public/css/datepicker.css" rel="stylesheet">
+
+
+    <!-- bootstrap-select https://developer.snapappointments.com/bootstrap-select/examples/ -->
+    <script src="./admin/public/js/bootstrap-select.js"></script>
+    <link href="./admin/public/css/bootstrap-select.min.css" rel="stylesheet">
 </head>
 
 <body>
