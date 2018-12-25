@@ -1,9 +1,11 @@
 <?php
-include('includes/header.php');
-ob_start();
+require_once __DIR__ . "/includes/header.php";
 require_once __DIR__ . "/admin/class/auth.php";
 require_once __DIR__ . "/db/db.php";
+
+ob_start();
 $db = db::getInstance();
+
 if (isset($_SESSION['customer_login'])) {
     $id = $_SESSION['customer_login']['id'];
     if ($db->select_one("SELECT * FROM customer WHERE id={$id}")) {
@@ -24,10 +26,6 @@ if (isset($_SESSION['customer_login'])) {
 } else {
     header('Location: index.php');
     exit();
-}
-$product_cards = array();
-if (isset($_COOKIE['product_cart'])) {
-    $product_cards = json_decode($_COOKIE['product_cart']);
 }
 
 ?>
@@ -72,7 +70,7 @@ if (isset($_COOKIE['product_cart'])) {
                                 <i style="font-size: 15px; color: firebrick;">Đơn hàng sẽ được gửi đến địa chỉ trong thông tin tài khoản của bạn.
                                     Muốn thay đổi địa chỉ gửi hãy vào thay đổi tronng thông tin tài khoản!</i>
                             </fieldset>
-							<form>
+							<form method="POST">
 								<div class="form-group row">
 									<label class="col-xs-3 push-xs-1" for="InputFirstName">*Name</label>
 									<div class="col-xs-7 push-xs-1">
@@ -129,7 +127,7 @@ if (isset($_COOKIE['product_cart'])) {
 							</div>
 						</div>
 						<div class="detail-content payment-2">
-							<form>
+							<form method="POST">
                                 <fieldset class="form-group col-xs-10 push-xs-1">
                                     <input id="radio-payment" name="radio" type="checkbox" class="check-box-payment">
                                     <span class="">Change to ATM</span>
@@ -181,7 +179,7 @@ if (isset($_COOKIE['product_cart'])) {
                                     </div>
                                 </div>
                                 <div class="no-check">
-                                    <h3 class="col-xs-7 push-xs-1">COD</h3>
+                                    <h3 class="col-xs-7 push-xs-1" >COD</h3>
                                     <fieldset class="form-group col-xs-10 push-xs-1">
                                         <i style="font-size: 15px; color: firebrick;">Đơn hàng sẽ được gửi đến địa chỉ trong thông tin tài khoản của bạn.
                                             Muốn thay đổi địa chỉ gửi hãy vào thay đổi tronng thông tin tài khoản!</i>
@@ -203,35 +201,53 @@ if (isset($_COOKIE['product_cart'])) {
 							</div>
 						</div>
 						<div class="detail-content preview-3">
-							<div class="row">
-								<div class="col-xs-10 push-xs-1">
-									<h3>The order will be shipped to:</h3>
-									<p>Name: <span class="fullname"><?php if(isset($name_db)) echo $name_db; ?></span></p>
-									<p>Address: <span class="address"><?php if(isset($address_db)) echo $address_db; ?></span></p>
-									<p>Phone number: <span class="phone-number"><?php if(isset($phone_db)) echo $phone_db; ?></span></p>
-									<button type="button" class="btn btn-chocolate next-checkout border">Modify</button>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-10 push-xs-1">
-									<h3>The order will be pay with:</h3>
+                            <form id="check-out-complete" method="POST">
+                                <div class="row">
+                                    <div class="col-xs-10 push-xs-1">
+                                        <h3>The order will be shipped to:</h3>
+                                        <p>Name: <span class="fullname"><?php if(isset($name_db)) echo $name_db; ?></span></p>
+                                        <p>Address: <span class="address"><?php if(isset($address_db)) echo $address_db; ?></span></p>
+                                        <p>Phone number: <span class="phone-number"><?php if(isset($phone_db)) echo $phone_db; ?></span></p>
+                                        <button type="button" class="btn btn-chocolate next-checkout border">Modify</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-10 push-xs-1">
+                                        <h3>The order will be pay with:</h3>
 
-									<p><span class="Card-name"></span></p>
-									<p>Card number: <span class="card-number"></span></p>
-									<p>Code: <span class="code"></span></p>
+                                        <p><span class="Card-name"></span></p>
+                                        <script>
+                                            $('button').click(function () {
+                                                if($('.check-box-payment').is(':checked')){
+                                                    $('#credit-cart').hide();
+                                                    $('#cod').show();
+                                                } else {
+                                                    $('#credit-cart').show();
+                                                    $('#cod').hide();
+                                                }
+                                            });
+                                        </script>
+                                        <div id="credit-cart">
 
-									<h3>Card holder:</h3>
-									<p>Name: <span class="fullname"></span></p>
-									<p>Address: <span class="address"></span></p>
-									<p>City, Country: <span class="city-country"></span></p>
-									<button type="button" class="btn btn-chocolate next-checkout border">Modify</button>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-11 text-xs-right">
-									<a href="order-success.php" class="btn btn-chocolate next-checkout">complete</a>
-								</div>
-							</div>
+                                            <p>Code: <span class="code"></span></p>
+                                        </div>
+
+                                        <div id="cod" style="display: none">
+                                            <p>Card number: <span class="card-number"></span></p>
+                                            <h3>Card holder:</h3>
+                                            <p>Name: <span class="fullname"></span></p>
+                                            <p>Address: <span class="address"></span></p>
+                                            <p>City, Country: <span class="city-country"></span></p>
+                                            <button type="button" class="btn btn-chocolate next-checkout border">Modify</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-11 text-xs-right">
+                                        <a href="javascript: complete()" class="btn btn-chocolate next-checkout">complete</a>
+                                    </div>
+                                </div>
+                            </form>
 						</div><!-- end detail content -->
 					</div><!-- end-content -->
 				</div><!-- end left -->
@@ -259,7 +275,7 @@ if (isset($_COOKIE['product_cart'])) {
                     <div class="detail-content">
                         <?php
                         $string_id_product_cart = "";
-                        foreach ($product_cards as $product_card) {
+                        if(isset($product_cards) && is_array($product_cards)) foreach ($product_cards as $product_card) {
                             $product_id = $product_card->product_id;
                             $quantity = isset($product_card->quantity) ? $product_card->quantity : 0;
                             $string_id_product_cart .= $product_id . ",";
@@ -304,6 +320,57 @@ if (isset($_COOKIE['product_cart'])) {
 	</div>
 	
 	<script type="text/javascript">
+
+        $(document).ready(function () {
+            var productCarts = new ProductCarts();
+            if(productCarts == null || productCarts.products == null || productCarts.products.length == 0){
+                alert("Bạn chưa có sản phẩm nào trong giỏ hàng");
+                window.location.href = "cart.php";
+            }
+        });
+
+        function complete(){
+            var formData = new FormData();
+
+            let payment = 1;
+            if($('.check-box-payment').is(':checked')) payment = 2;
+
+            formData.append("payment", payment);
+            formData.append("note", "");
+
+            //sử dụng ajax post
+            $.ajax({
+                url: 'ajax/cart.php',
+                dataType: 'json',
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                type: 'post',
+                complete: function (response) {
+                    if (response.status === 200) {
+                        if (response.responseJSON.success) {
+                            if (response.responseJSON.hasOwnProperty("message")) {
+                                let bill_id = response.responseJSON.message;
+                                Cookies.remove('product_cart');
+                                window.location.href = "order-success.php?bill_id=" + bill_id;
+                            }
+                            else alert("Thêm hành công");
+                        } else {
+                            if (response.responseJSON.hasOwnProperty("message")) alert(response.responseJSON.message);
+                            else alert("Thêm thất bại");
+                        }
+                    } else {
+                        if (response.status === 0) {
+                            alert("Không thể kết nối tới server");
+                        } else {
+                            alert("Đã có lỗi xảy ra");
+                        }
+                    }
+                }
+            });
+        }
+
         $(document).ready(function () {
             var priceTotalDiv = $(this).find(".price-total");//Tổng số tiền phải trả
             var priceTotal = 0;
