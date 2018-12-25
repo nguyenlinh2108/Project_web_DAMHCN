@@ -289,7 +289,11 @@ $(document).ready(function(){
     $('.check-button').click(function() {
         $('.no-check-box').slideToggle();
         $('.check-box').slideToggle();
-
+    });
+    $('.payment-2 .check-box-payment').click(function () {
+        $('.payment-2 .no-check-box').slideToggle();
+        $('.payment-2 .check-box').slideToggle();
+        $('.payment-2 .no-check').slideToggle();
     });
     $('.edit-acc').click(function() {
         $('#change-infor').slideDown();
