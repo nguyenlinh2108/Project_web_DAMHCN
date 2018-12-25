@@ -9,10 +9,6 @@ require_once __DIR__ . "/db/db.php";
 
 $db = db::getInstance();
 
-$product_cards = array();
-if (isset($_COOKIE['product_cart'])) {
-    $product_cards = json_decode($_COOKIE['product_cart']);
-}
 
 unset($_POST);
 unset($_REQUEST);
@@ -52,7 +48,7 @@ require_once __DIR__ . "/includes/header.php";
                     <div class="container">
                         <?php
                             $string_id_product_cart = "";
-                            foreach ($product_cards as $product_card) {
+                            if(isset($product_cards)  && is_array($product_cards))foreach ($product_cards as $product_card) {
                                 $product_id = $product_card->product_id;
                                 $quantity = isset($product_card->quantity) ? $product_card->quantity : 0;
                                 $string_id_product_cart .= $product_id . ",";
@@ -155,7 +151,12 @@ require_once __DIR__ . "/includes/header.php";
                 //neu co san pham trong cart thi se lay ra toi da 5 san pham co cung loai voi nhung san pham ma khach hang da cho vao trong cart
                 if (isset($string_id_product_cart)) {
                     $id_product_list = substr($string_id_product_cart, 0, -1);
-                    if ($db->select("SELECT * FROM product WHERE type IN(SELECT DISTINCT type FROM product WHERE id IN($id_product_list)) AND id NOT IN ($id_product_list) LIMIT 0,5")) {
+                    if ($db->select("SELECT * FROM product 
+                                    WHERE type IN(SELECT DISTINCT type FROM product 
+                                                  WHERE id IN($id_product_list)) 
+                                    AND id NOT IN ($id_product_list)
+                                    ORDER BY RAND() LIMIT 0,10")
+                    ) {
                         $product_s = $db->getResult();
                         foreach ($product_s as $product_) {
                             ?>
