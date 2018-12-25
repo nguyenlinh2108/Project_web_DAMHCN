@@ -13,6 +13,19 @@ if (isset($_COOKIE['product_cart'])) {
     $product_cards = json_decode($_COOKIE['product_cart']);
 }
 
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{
+    if(isset($_POST['search-content']) && $_POST['search-content'] !== "")
+    {
+        $searchcontent = $_POST['search-content'];
+        header("Location: search.php?searchcontent=$searchcontent");
+        exit();
+    }else{
+        header("Location: index.php");
+        exit();
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,9 +73,9 @@ if (isset($_COOKIE['product_cart'])) {
 
                 <li class="nav-item search">
                     <a class="nav-link nav-link-home" href="javascript:void(0)"><span class="fa fa-search"></span> Search</a>
-                    <form class="search-form">
-                        <input type="search" placeholder="Search here..." class="none-outline form-control">
-                        <button type="submit" class="btn btn-search"><span class="fa fa-search"></span></button>
+                    <form class="search-form" name="search-form" method="POST">
+                        <input type="search"  name="search-content" placeholder="Search here..." class="none-outline form-control">
+                        <button type="submit" class="btn btn-search" ><span class="fa fa-search"></span></button>
                     </form>
                 </li>
 
@@ -150,8 +163,8 @@ if (isset($_COOKIE['product_cart'])) {
 
                 <li class="nav-item search">
                     <a class="nav-link" href="javascript:void(0)"><span class="fa fa-search"></span> Search</a>
-                    <form class="search-form">
-                        <input type="search" placeholder="Search here..." class="none-outline form-control">
+                    <form class="search-form" name="search-form" method="POST">
+                        <input name="search-content" type="search" placeholder="Search here..." class="none-outline form-control">
                         <button type="submit" class="btn btn-search"><span class="fa fa-search"></span></button>
                     </form>
                 </li>
