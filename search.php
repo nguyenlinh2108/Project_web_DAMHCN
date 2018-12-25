@@ -9,6 +9,9 @@ ob_start();
 require_once __DIR__ . "/includes/header.php";
 require_once __DIR__ . "/db/db.php";
 $db = db::getInstance();
+if ($db->select("SELECT * FROM type_product")) {
+    $types = $db->getResult();//Danh sách các loại sản phẩm
+}
 $mess = "";
 if(isset($_GET['searchcontent']) && $_GET['searchcontent']!==""){
     $description = $_GET['searchcontent'];
@@ -27,16 +30,15 @@ if(isset($_GET['searchcontent']) && $_GET['searchcontent']!==""){
 <div class="container-fluid products-shop">
     <div class="container">
         <div class="row">
-            <div class="col-md-9 col-sm-9">
+            <div class="col-md-3 col-sm-3 mt-3">
+                <?php
+                if($mess !== ""){
+                    echo $mess;
+                }
+                ?>
+            </div>
+            <div class="col-md-9 col-sm-9 mt-3">
                 <div class="grid row show-products">
-                    <div class="col-md-12 col-sm-12 col-xs-12 mb-3">
-                      <?php
-                      if($mess !== ""){
-                          echo $mess;
-                      }
-                      ?>
-                    </div>
-
                     <?php
                     if(isset($productsearchs) && is_array($productsearchs))
                     {
