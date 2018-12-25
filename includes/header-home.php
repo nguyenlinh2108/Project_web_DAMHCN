@@ -7,6 +7,12 @@ require_once __DIR__ . "/../utils/function.php";
 require_once __DIR__ . "/../utils/mystring.php";
 require_once __DIR__ . "/../db/db.php";
 $db = db::getInstance();
+
+
+if (isset($_COOKIE['product_cart'])) {
+    $product_cards = json_decode($_COOKIE['product_cart']);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,7 +89,7 @@ $db = db::getInstance();
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link nav-link-home" href="../cart.php"><span class="fa fa-shopping-cart"></span> Cart</a>
+                    <a class="nav-link nav-link-home" href="../cart.php"><span class="fa fa-shopping-cart"></span> Cart<?php if(isset($product_cards)) echo "(" . count($product_cards) . ")" ?></a>
                 </li>
                 <?php
                 if (isset($_SESSION['customer_login']['success']) && $_SESSION['customer_login']['success']) {
@@ -165,7 +171,7 @@ $db = db::getInstance();
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../cart.php"><span class="fa fa-shopping-cart"></span> Cart</a>
+                    <a class="nav-link" href="../cart.php"><span class="fa fa-shopping-cart"></span> Cart<?php if(isset($product_cards)) echo "(" . count($product_cards) . ")" ?></a>
                 </li>
                 <?php
                 if (isset($_SESSION['customer_login']['success']) && $_SESSION['customer_login']['success']) {
