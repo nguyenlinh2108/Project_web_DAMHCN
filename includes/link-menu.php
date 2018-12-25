@@ -33,7 +33,7 @@ if ($db->select("SELECT * FROM type_product")) {
                         foreach ($types as $type)
                         {
                             ?>
-                            <li><a href=""><?php echo $type->name; ?></a></li>
+                            <li><a href="list-type-product.php?id=<?= $type->id ?>"><?php echo $type->name; ?></a></li>
                             <?php
                         }
                     }
