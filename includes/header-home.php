@@ -20,9 +20,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         $searchcontent = $_POST['search-content'];
         header("Location: search.php?searchcontent=$searchcontent");
         exit();
-    }else{
-        header("Location: index.php");
-        exit();
     }
 }
 
