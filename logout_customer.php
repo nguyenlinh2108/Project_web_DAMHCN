@@ -9,5 +9,6 @@ session_start();
 
 session_destroy();
 session_unset();
+setcookie('product_cart', "", time()-3600);
 header('Location: index.php');
 ?>
