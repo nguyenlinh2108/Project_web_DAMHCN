@@ -27,7 +27,7 @@ if ($db->select("SELECT * FROM type_product ORDER BY RAND() LIMIT 5")) {
                                 $i = 0;
                                 foreach ($types as $type) {
                                     ?>
-                                    <li><a href=""><?php echo $type->name; ?></a></li>
+                                    <li><a href="list-type-product.php?id=<?= $type->id ?>"><?php echo $type->name; ?></a></li>
                                     <?php
                                 }
                             }
