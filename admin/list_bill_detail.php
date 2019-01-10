@@ -20,7 +20,6 @@ $db = db::getInstance();
                 <th>Mã hóa đơn</th>
                 <th>Mã sản phẩm</th>
                 <th>Số lượng</th>
-                <th>Giá</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -44,8 +43,7 @@ $db = db::getInstance();
                     $per_page = 1;
                 }
             }
-            if ($db->select("SELECT id, id_bill, id_product, quantity, price
-                        FROM bill_detail ORDER BY id ASC LIMIT {$start},{$limit}")) {
+            if ($db->select("SELECT * FROM bill_detail ORDER BY id ASC LIMIT {$start},{$limit}")) {
                 foreach ($db->getResult() as $obj) {
                     ?>
                     <tr>
@@ -53,7 +51,6 @@ $db = db::getInstance();
                         <td><?php echo $obj->id_bill; ?></td>
                         <td><?php echo $obj->id_product; ?></td>
                         <td><?php echo $obj->quantity; ?></td>
-                        <td><?php echo $obj->price; ?></td>
                         <td><a href="edit_bill_detail.php?id=<?php echo $obj->id ?>"><img width="16px" src="../public/images/icon_edit.png"></a>
                         </td>
                         <td><a href="delete_bill_detail.php?id=<?php echo $obj->id ?>" onclick="return confirm('Bạn có thực sự muốn xóa không?');"><img width="16px" src="../public/images/icon_delete.png"></a>
@@ -73,14 +70,14 @@ $db = db::getInstance();
             //nếu không phải trang đầu tiên thì hiển thị trang trước
             if($current_page != 1)
             {
-                echo "<li><a href='list_bill.php?s=".($start - $limit)."&p={$per_page}'>Back</a></li>";
+                echo "<li><a href='list_bill_detail.php?s=".($start - $limit)."&p={$per_page}'>Back</a></li>";
             }
             //hiển thị những phần còn lại của trang
             for($i=1; $i <= $per_page; $i++)
             {
                 if($i != $current_page)
                 {
-                    echo "<li><a href='list_bill.php?s=".($limit*($i - 1))."&p={$per_page}'>{$i}</a></li>";
+                    echo "<li><a href='list_bill_detail.php?s=".($limit*($i - 1))."&p={$per_page}'>{$i}</a></li>";
                 }
                 else
                 {
@@ -90,7 +87,7 @@ $db = db::getInstance();
             //nếu không phải trang cuối cùng thì hiển thị mút next
             if($current_page != $per_page)
             {
-                echo "<li><a href='list_bill.php?s=".($start + $limit)."&p={$per_page}'>Next</a></li>";
+                echo "<li><a href='list_bill_detail.php?s=".($start + $limit)."&p={$per_page}'>Next</a></li>";
             }
         }
         echo "</ul>";
